@@ -1,8 +1,11 @@
 #include "game.h"
 #include "surface.h"
+#include "template.h"
 #include <cstdio> //printf
 #include <vector> 
 #include "MapHandler.h"
+#include "Camera2D.h"
+#include <Windows.h>
 
 namespace Tmpl8
 {
@@ -10,19 +13,23 @@ namespace Tmpl8
 
 	//void DrawTile(int tx, int ty, Surface* screen, Surface* map, int x, int y);
 
-	Map mapTdw; //Map top down
+	Map mapTdw; //Map top down	
 	Surface mapTdwTileset("./assets/TopDown/map.png");
+	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------
-
+	vec2 player(ScreenWidth / 2 + 200, ScreenHeight / 2 + 120);
+	int tileSize = 32;
 
 	void Game::Init()
 	{
 		mapTdw = MapHandler::loadMap("mapTopDown.txt");
-
+		
 		this->ROWS = mapTdw.size();         
-		this->COLS= mapTdw[0].size() / 3 - 1;
+		this->COLS= std::floor((mapTdw[0].size() + 1) / 4);
+		MapHandler::setSize(this->ROWS, this->COLS);
+
 		printf("%d\n", COLS);
 		//for (int i = 0; i < ROWS; i++) {
 		//	for (int j = 0; j < COLS; j++) {
@@ -31,22 +38,8 @@ namespace Tmpl8
 		//	printf("\n");
 		//}
 
-		int tileSize = 32;
 
-		screen->Clear(0);
-		for (int i = 0; i < ROWS; i++) {
-			for (int j = 0; j < COLS; j++) {
-				int tx = mapTdw[i][j * 4] - 'a';
-				int ty = mapTdw[i][j * 4 + 1] - 'a';
-				printf("%c e %c\n", tx + 'a', ty + 'a');
-				int x = j * tileSize;
-				int y = i * tileSize;
-				printf("%d e %d\n", x , y );
-
-				MapHandler::drawTile(tx, ty, screen, mapTdwTileset, x, y, 32);
-			}
-
-		}
+		
 		
 	}
 	
@@ -63,8 +56,35 @@ namespace Tmpl8
 	// -----------------------------------------------------------
 	void Game::Tick(float deltaTime)
 	{
-		
+		if (GetAsyncKeyState('A')) {
+			player.x -= 1;
+		}
+		if (GetAsyncKeyState('D')) {
+			player.x += 1;
+		}
+		if (GetAsyncKeyState('W')) {
+			player.y -= 1;
+		}
+		if (GetAsyncKeyState('S')) {
+			player.y += 1;
+		}
 
+		camera.follow(player);
+
+		screen->Clear(0);
+		for (int i = 0; i < ROWS; i++) {
+			for (int j = 0; j < COLS; j++) {
+				int tx = mapTdw[i][j * 4] - 'a';
+				int ty = mapTdw[i][j * 4 + 1] - 'a';
+				//printf("%c e %c\n", tx + 'a', ty + 'a');
+				int x = j * tileSize - camera.getPos().x;
+				int y = i * tileSize - camera.getPos().y;
+				//printf("%d e %d\n", x, y);
+
+				MapHandler::drawTile(tx, ty, screen, &mapTdwTileset, x, y, 32);
+			}
+
+		}
 	}
 
 	//void DrawTile(int tx, int ty, Surface* screen, Surface* map, int x, int y) {

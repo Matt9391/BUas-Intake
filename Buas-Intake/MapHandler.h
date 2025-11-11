@@ -15,13 +15,16 @@ namespace Tmpl8 {
 	public:
 		MapHandler();
 
+		static void setSize(int nRows, int nCols);
+
 		static Map loadMap(std::string fileName);
 
-		static void drawTile(int tx, int ty, Surface* screen, Surface map, int x, int y, int tileSize);
+		static void drawTile(int tx, int ty, Surface* screen, Surface *map, int x, int y, int tileSize);
 
 	private:
 		std::string delimiter;
-
+		static int rows;
+		static int cols;
 	};
 
 }

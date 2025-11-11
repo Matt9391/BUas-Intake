@@ -222,12 +222,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Camera2D.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="MapHandler.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Camera2D.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="MapHandler.h" />
     <ClInclude Include="surface.h" />
