@@ -1,0 +1,6 @@
+﻿  game.cpp
+D:\GitHub\BUas-Intake\Buas-Intake\game.cpp(29,27): warning C4267: '=': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+D:\GitHub\BUas-Intake\Buas-Intake\game.cpp(30,25): warning C4244: '=': conversione da 'double' a 'int'. Possibile perdita di dati.
+D:\GitHub\BUas-Intake\Buas-Intake\game.cpp(80,11): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+D:\GitHub\BUas-Intake\Buas-Intake\game.cpp(81,11): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+  Buas-Intake.vcxproj -> D:\GitHub\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe

@@ -19,7 +19,7 @@ namespace Tmpl8
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------
-	vec2 player(ScreenWidth / 2 + 200, ScreenHeight / 2 + 120);
+	vec2 player(ScreenWidth / 2, ScreenHeight / 2);
 	int tileSize = 32;
 
 	void Game::Init()
