@@ -3,6 +3,7 @@
 #include "template.h"
 #include <cstdio> //printf
 #include <vector> 
+#include <array> 
 #include "MapHandler.h"
 #include "Camera2D.h"
 #include <Windows.h>
@@ -12,9 +13,10 @@ namespace Tmpl8
 	//DATATYPES:
 
 	//void DrawTile(int tx, int ty, Surface* screen, Surface* map, int x, int y);
-
+	std::array<Map, 2> mapsTdw;
 	Map mapTdw; //Map top down	
-	Surface mapTdwTileset("./assets/TopDown/map.png");
+	Map mapTdwLayer2; //Map top down	
+	Surface mapTdwTileset("./assets/TopDown/map3.png");
 	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
 	// -----------------------------------------------------------
 	// Initialize the application
@@ -24,13 +26,13 @@ namespace Tmpl8
 
 	void Game::Init()
 	{
-		mapTdw = MapHandler::loadMap("mapTopDown.txt");
-		
-		this->ROWS = mapTdw.size();         
-		this->COLS= std::floor((mapTdw[0].size() + 1) / 4);
+		mapsTdw[0] = MapHandler::loadMap("mapTopDown.txt");
+		mapsTdw [1] = MapHandler::loadMap("mapTopDownLayer2.txt");
+		this->ROWS = mapsTdw[0].size();
+		this->COLS= std::floor((mapsTdw[0][0].size() + 1) / 4);
 		MapHandler::setSize(this->ROWS, this->COLS);
 
-		printf("%d\n", COLS);
+		printf("%d %d\n",ROWS,COLS);
 		//for (int i = 0; i < ROWS; i++) {
 		//	for (int j = 0; j < COLS; j++) {
 		//		std::cout << mapTdw[i][j];
@@ -71,20 +73,36 @@ namespace Tmpl8
 
 		camera.follow(player);
 
+		printf("%d\n", MapHandler::isSolid(mapsTdw[0], player, 32));
+
 		screen->Clear(0);
+		
 		for (int i = 0; i < ROWS; i++) {
 			for (int j = 0; j < COLS; j++) {
-				int tx = mapTdw[i][j * 4] - 'a';
-				int ty = mapTdw[i][j * 4 + 1] - 'a';
-				//printf("%c e %c\n", tx + 'a', ty + 'a');
-				int x = j * tileSize - camera.getPos().x;
-				int y = i * tileSize - camera.getPos().y;
-				//printf("%d e %d\n", x, y);
+				for (int iMap = 0; iMap < mapsTdw.size(); iMap++) {
+					int tx = mapsTdw[iMap][i][j * 4] - 'a';
+					int ty = mapsTdw[iMap][i][j * 4 + 1] - 'a';
+					//printf("%c e %c\n", tx + 'a', ty + 'a');
+					int x = j * tileSize - camera.getPos().x;
+					int y = i * tileSize - camera.getPos().y;
+					//printf("%d e %d\n", x, y);
 
-				MapHandler::drawTile(tx, ty, screen, &mapTdwTileset, x, y, 32);
+					MapHandler::drawTile(tx, ty, screen, &mapTdwTileset, x, y, 32);
+				}
+
+				//tx = mapTdwLayer2[i][j * 4] - 'a';
+				//ty = mapTdwLayer2[i][j * 4 + 1] - 'a';
+
+				//MapHandler::drawTile(tx, ty, screen, &mapTdwTileset, x, y, 32);
 			}
 
 		}
+
+		screen->Plot(player.x - camera.getPos().x, player.y - camera.getPos().y, 0xFF0000);
+		screen->Plot(player.x - camera.getPos().x -1, player.y - camera.getPos().y, 0xFF0000);
+		screen->Plot(player.x - camera.getPos().x +1, player.y - camera.getPos().y, 0xFF0000);
+		screen->Plot(player.x - camera.getPos().x, player.y - camera.getPos().y - 1, 0xFF0000);
+		screen->Plot(player.x - camera.getPos().x, player.y - camera.getPos().y + 1, 0xFF0000);
 	}
 
 	//void DrawTile(int tx, int ty, Surface* screen, Surface* map, int x, int y) {

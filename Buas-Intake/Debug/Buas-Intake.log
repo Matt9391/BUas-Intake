@@ -1,6 +1,16 @@
 ﻿  game.cpp
-D:\GitHub\BUas-Intake\Buas-Intake\game.cpp(29,27): warning C4267: '=': conversione da 'size_t' a 'int'. Possibile perdita di dati.
-D:\GitHub\BUas-Intake\Buas-Intake\game.cpp(30,25): warning C4244: '=': conversione da 'double' a 'int'. Possibile perdita di dati.
-D:\GitHub\BUas-Intake\Buas-Intake\game.cpp(80,11): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
-D:\GitHub\BUas-Intake\Buas-Intake\game.cpp(81,11): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
-  Buas-Intake.vcxproj -> D:\GitHub\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(31,31): warning C4267: '=': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(32,25): warning C4244: '=': conversione da 'double' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(86,12): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(87,12): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(101,55): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(101,25): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(102,58): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(102,45): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(103,58): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(103,45): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(104,75): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(104,25): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(105,75): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(105,25): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+  Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe
