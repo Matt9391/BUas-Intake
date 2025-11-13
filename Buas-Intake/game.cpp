@@ -73,7 +73,7 @@ namespace Tmpl8
 
 		camera.follow(player);
 
-		printf("%d\n", MapHandler::isSolid(mapsTdw[0], player, 32));
+		printf("%d\n", MapHandler::isSolid(mapsTdw[1], player, 32));
 
 		screen->Clear(0);
 		
