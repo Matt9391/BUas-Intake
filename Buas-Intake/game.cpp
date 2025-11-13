@@ -6,6 +6,7 @@
 #include <array> 
 #include "MapHandler.h"
 #include "Camera2D.h"
+#include "Player.h"
 #include <Windows.h>
 
 namespace Tmpl8
@@ -18,11 +19,14 @@ namespace Tmpl8
 	Map mapTdwLayer2; //Map top down	
 	Surface mapTdwTileset("./assets/TopDown/map3.png");
 	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
+	Sprite humanSprite(new Surface("./assets/TopDown/player.tga"), 40);
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------
-	vec2 player(ScreenWidth / 2, ScreenHeight / 2);
+
+	Player player(humanSprite, &mapsTdw);
 	int tileSize = 32;
+	vec2 player2(ScreenWidth / 2, ScreenHeight / 2);
 
 	void Game::Init()
 	{
@@ -59,21 +63,25 @@ namespace Tmpl8
 	void Game::Tick(float deltaTime)
 	{
 		if (GetAsyncKeyState('A')) {
-			player.x -= 1;
+			player2.x -= 1;
 		}
 		if (GetAsyncKeyState('D')) {
-			player.x += 1;
+			player2.x += 1;
 		}
 		if (GetAsyncKeyState('W')) {
-			player.y -= 1;
+			player2.y -= 1;
 		}
 		if (GetAsyncKeyState('S')) {
-			player.y += 1;
+			player2.y += 1;
 		}
 
-		camera.follow(player);
+		player.update(deltaTime);
 
-		printf("%d\n", MapHandler::isSolid(mapsTdw[1], player, 32));
+		printf("Xplayer: %.2f, Xplayer2: %.2f\n", player.getPos().x, player2.x);
+
+		camera.follow(player.getPos());
+
+		printf("%d\n", MapHandler::isSolid(mapsTdw[1], player.getPos(), 32));
 
 		screen->Clear(0);
 		
@@ -98,11 +106,12 @@ namespace Tmpl8
 
 		}
 
-		screen->Plot(player.x - camera.getPos().x, player.y - camera.getPos().y, 0xFF0000);
-		screen->Plot(player.x - camera.getPos().x -1, player.y - camera.getPos().y, 0xFF0000);
-		screen->Plot(player.x - camera.getPos().x +1, player.y - camera.getPos().y, 0xFF0000);
-		screen->Plot(player.x - camera.getPos().x, player.y - camera.getPos().y - 1, 0xFF0000);
-		screen->Plot(player.x - camera.getPos().x, player.y - camera.getPos().y + 1, 0xFF0000);
+		player.draw(screen, camera.getPos());
+		screen->Plot(player2.x - camera.getPos().x, player2.y - camera.getPos().y, 0xFF0000);
+		screen->Plot(player2.x - camera.getPos().x -1, player2.y - camera.getPos().y, 0xFF0000);
+		screen->Plot(player2.x - camera.getPos().x +1, player2.y - camera.getPos().y, 0xFF0000);
+		screen->Plot(player2.x - camera.getPos().x, player2.y - camera.getPos().y - 1, 0xFF0000);
+		screen->Plot(player2.x - camera.getPos().x, player2.y - camera.getPos().y + 1, 0xFF0000);
 	}
 
 	//void DrawTile(int tx, int ty, Surface* screen, Surface* map, int x, int y) {

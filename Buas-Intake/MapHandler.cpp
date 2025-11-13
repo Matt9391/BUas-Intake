@@ -34,7 +34,7 @@ namespace Tmpl8 {
 		if (ty < 0 || ty >= map.size()) return false;
 		if (tx < 0 || tx >= map[ty].size() / 4) return false;
 
-		//printf("x: %d, y: %d | %c%c%c ", tx,ty,map[ty][tx * 4], map[ty][tx * 4 + 1], map[ty][tx * 4 + 2]);
+		printf("x: %d, y: %d | %c%c%c \n", tx,ty,map[ty][tx * 4], map[ty][tx * 4 + 1], map[ty][tx * 4 + 2]);
 		return map[ty][tx * 4 + 2] == 'X';
 	}
 
