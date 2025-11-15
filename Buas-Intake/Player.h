@@ -23,6 +23,17 @@ namespace Tmpl8 {
 		vec2 getPos();
 
 	private:
+
+		void setAnimRange(int first, int last);
+
+		void playAnimation(float dt);
+
+		int firstFrame;
+		int lastFrame;
+		int currentFrame;	
+		float timeBetweenFrames;
+		float timeElapsedBF;
+
 		vec2 pos;
 		vec2 nextPos;
 		vec2 size;

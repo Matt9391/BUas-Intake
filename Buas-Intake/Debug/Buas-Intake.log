@@ -1,4 +1,4 @@
 ﻿  Player.cpp
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(45,91): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(45,46): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-  Buas-Intake.vcxproj -> F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(85,91): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(85,46): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+  Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe
