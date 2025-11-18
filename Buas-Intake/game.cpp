@@ -7,6 +7,7 @@
 #include "MapHandler.h"
 #include "Camera2D.h"
 #include "Player.h"
+#include "InteractableObject.h"
 #include <Windows.h>
 
 namespace Tmpl8
@@ -20,7 +21,7 @@ namespace Tmpl8
 	Surface mapTdwTileset("./assets/TopDown/map3.png");
 	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
 	Sprite humanSprite(new Surface("./assets/TopDown/player.tga"), 40);
-	
+	InteractableObject obj(vec2(32 * 4, 32 * 4), vec2(32));
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------
@@ -66,9 +67,11 @@ namespace Tmpl8
 	{
 		player.update(deltaTime);
 
+		printf("collide: %d\n", obj.intersectPlayer(player));
+
 		camera.follow(player.getPos());
 
-		printf("%d\n", MapHandler::isSolid(mapsTdw[1], player.getPos(), 32));
+		//printf("%d\n", MapHandler::isSolid(mapsTdw[1], player.getPos(), 32));
 
 		screen->Clear(0);
 		
@@ -88,6 +91,7 @@ namespace Tmpl8
 			}
 
 		}
+		//obj.drawHitBox(screen, camera.getPos());
 
 		player.draw(screen, camera.getPos());
 	}

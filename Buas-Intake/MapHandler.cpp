@@ -26,16 +26,31 @@ namespace Tmpl8 {
 		return newMap;
 	}
 
-	bool MapHandler::isSolid(const Map& map, vec2 pos, int tileSize) {
+	bool MapHandler::isSolid(const Map& map, vec2 pos, vec2 size, int tileSize) {
 
 		int tx = pos.x / tileSize;
 		int ty = pos.y / tileSize;
+		int tx2 = (pos.x + size.x - 1) / tileSize;
+		int ty2 = pos.y / tileSize;
+		int lx = pos.x / tileSize; //it shouldnt be hardcoded, it's the size of the player hitbox
+		int ly = (pos.y + size.y - 1) / tileSize;
+		int lx2 = (pos.x + size.x -1) / tileSize;
+		int ly2 = (pos.y + size.y -1) / tileSize;
 
 		if (ty < 0 || ty >= map.size()) return false;
 		if (tx < 0 || tx >= map[ty].size() / 4) return false;
+		if (ly < 0 || ly >= map.size()) return false;
+		if (lx < 0 || lx >= map[ty].size() / 4) return false;
+		if (ty2 < 0 || ty2 >= map.size()) return false;
+		if (tx2 < 0 || tx2 >= map[ty].size() / 4) return false;
+		if (ly2 < 0 || ly2 >= map.size()) return false;
+		if (lx2 < 0 || lx2 >= map[ty].size() / 4) return false;
 
-		printf("x: %d, y: %d | %c%c%c \n", tx,ty,map[ty][tx * 4], map[ty][tx * 4 + 1], map[ty][tx * 4 + 2]);
-		return map[ty][tx * 4 + 2] == 'X';
+		//printf("x: %d, y: %d | %c%c%c \n", tx,ty,map[ty][tx * 4], map[ty][tx * 4 + 1], map[ty][tx * 4 + 2]);
+		return map[ty][tx * 4 + 2]   == 'X' ||
+			   map[ty2][tx2 * 4 + 2] == 'X' ||
+			   map[ly][lx * 4 + 2]   == 'X' ||
+			   map[ly2][lx2 * 4 + 2] == 'X';
 	}
 
 

@@ -20,7 +20,7 @@ namespace Tmpl8 {
 
 		static Map loadMap(std::string fileName);
 
-		static bool isSolid(const Map &map, vec2 pos, int tileSize);
+		static bool isSolid(const Map &map, vec2 pos, vec2 size, int tileSize);
 
 		static void drawTile(int tx, int ty, Surface* screen, Surface *map, int x, int y, int tileSize);
 

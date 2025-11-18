@@ -34,7 +34,7 @@ namespace Tmpl8 {
 		void setAnimRange(int first, int last);
 
 	private:
-
+		void showHitbox(Surface* screen, vec2 cameraOffset);
 
 		void playAnimation(float dt);
 

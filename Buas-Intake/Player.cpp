@@ -9,7 +9,7 @@ namespace Tmpl8 {
 		humanSprite(humanSprite),
 		currentMap(currentMap),
 		pos({ ScreenWidth / 2, ScreenHeight / 2 }),
-		size({ 32, 32 }),
+		size({ 32, 16 }),
 		speed(0.15),
 		firstFrame(0),
 		lastFrame(1),
@@ -89,16 +89,17 @@ namespace Tmpl8 {
 
 		this->nextPos += velocity;
 
-		if (!MapHandler::isSolid((*this->currentMap)[1], nextPos, 32)) {
+		if (!MapHandler::isSolid((*this->currentMap)[1], nextPos, this->size, 32)) {
 			this->pos = this->nextPos;
 		}
 
 	}
 
 	void Player::draw(Surface* screen, vec2 cameraOffset) {
+		this->showHitbox(screen, cameraOffset);
 		if (this->visual == PlayerVisual::Human) {
-			float yDrawPos = this->pos.y - this->size.y - this->size.y / 2.f - cameraOffset.y;
-			float xDrawPos = this->pos.x - this->size.x / 2.f - cameraOffset.x;
+			float yDrawPos = this->pos.y - this->size.y * 2  - cameraOffset.y;
+			float xDrawPos = this->pos.x + 1 - cameraOffset.x;
 			this->humanSprite.Draw(screen, xDrawPos, yDrawPos);
 		}
 	}
@@ -129,5 +130,28 @@ namespace Tmpl8 {
 		//if (state == 1)
 			//this->state = new HumanState();
 
+	}
+
+	void Player::showHitbox(Surface* screen, vec2 cameraOffset) {
+		vec2 size = this->size;
+		Pixel red = 0xFF0000; // formato: 0xRRGGBB
+
+		Pixel* buffer = screen->GetBuffer();
+		int pitch = screen->GetPitch(); // pixel per riga
+		vec2 pos(this->pos.x - cameraOffset.x, this->pos.y - cameraOffset.y);
+
+		for (int dy = 0; dy < size.y; dy++)
+		{
+			int py = pos.y + dy;
+			if (py < 0 || py >= screen->GetHeight()) continue;
+
+			for (int dx = 0; dx < size.x; dx++)
+			{
+				int px = pos.x + dx;
+				if (px < 0 || px >= screen->GetWidth()) continue;
+
+				buffer[px + py * pitch] = red;
+			}
+		}
 	}
 }

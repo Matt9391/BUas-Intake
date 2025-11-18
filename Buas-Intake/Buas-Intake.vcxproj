@@ -225,6 +225,7 @@
     <ClCompile Include="Camera2D.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="HumanState.cpp" />
+    <ClCompile Include="InteractableObject.cpp" />
     <ClCompile Include="MapHandler.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />
@@ -235,6 +236,7 @@
     <ClInclude Include="Camera2D.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="HumanState.h" />
+    <ClInclude Include="InteractableObject.h" />
     <ClInclude Include="MapHandler.h" />
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
