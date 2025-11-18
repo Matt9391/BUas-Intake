@@ -1,4 +1,16 @@
-﻿  Player.cpp
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(85,91): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(85,46): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+﻿  Camera2D.cpp
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Camera2D.cpp(14,67): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Camera2D.cpp(14,42): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Camera2D.cpp(14,32): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Camera2D.cpp(15,67): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Camera2D.cpp(15,42): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Camera2D.cpp(15,32): warning C4244: '=': conversione da 'int' a 'float'. Possibile perdita di dati.
+  game.cpp
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(36,31): warning C4267: '=': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(37,26): warning C4244: '=': conversione da 'double' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(38,44): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(38,32): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(81,12): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(82,12): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+  Generazione del codice in corso...
   Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe

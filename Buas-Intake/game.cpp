@@ -20,6 +20,7 @@ namespace Tmpl8
 	Surface mapTdwTileset("./assets/TopDown/map3.png");
 	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
 	Sprite humanSprite(new Surface("./assets/TopDown/player.tga"), 40);
+	
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------
@@ -33,7 +34,8 @@ namespace Tmpl8
 		mapsTdw[0] = MapHandler::loadMap("mapTopDown.txt");
 		mapsTdw [1] = MapHandler::loadMap("mapTopDownLayer2.txt");
 		this->ROWS = mapsTdw[0].size();
-		this->COLS= std::floor((mapsTdw[0][0].size() + 1) / 4);
+		this->COLS = std::floor((mapsTdw[0][0].size() + 1) / 4);
+		camera.setWorldSize(vec2(this->COLS, this->ROWS));
 		MapHandler::setSize(this->ROWS, this->COLS);
 
 		printf("%d %d\n",ROWS,COLS);
@@ -62,22 +64,7 @@ namespace Tmpl8
 	// -----------------------------------------------------------
 	void Game::Tick(float deltaTime)
 	{
-		if (GetAsyncKeyState('A')) {
-			player2.x -= 1;
-		}
-		if (GetAsyncKeyState('D')) {
-			player2.x += 1;
-		}
-		if (GetAsyncKeyState('W')) {
-			player2.y -= 1;
-		}
-		if (GetAsyncKeyState('S')) {
-			player2.y += 1;
-		}
-
 		player.update(deltaTime);
-
-		printf("Xplayer: %.2f, Xplayer2: %.2f\n", player.getPos().x, player2.x);
 
 		camera.follow(player.getPos());
 
@@ -98,44 +85,11 @@ namespace Tmpl8
 					MapHandler::drawTile(tx, ty, screen, &mapTdwTileset, x, y, 32);
 				}
 
-				//tx = mapTdwLayer2[i][j * 4] - 'a';
-				//ty = mapTdwLayer2[i][j * 4 + 1] - 'a';
-
-				//MapHandler::drawTile(tx, ty, screen, &mapTdwTileset, x, y, 32);
 			}
 
 		}
 
 		player.draw(screen, camera.getPos());
-		screen->Plot(player2.x - camera.getPos().x, player2.y - camera.getPos().y, 0xFF0000);
-		screen->Plot(player2.x - camera.getPos().x -1, player2.y - camera.getPos().y, 0xFF0000);
-		screen->Plot(player2.x - camera.getPos().x +1, player2.y - camera.getPos().y, 0xFF0000);
-		screen->Plot(player2.x - camera.getPos().x, player2.y - camera.getPos().y - 1, 0xFF0000);
-		screen->Plot(player2.x - camera.getPos().x, player2.y - camera.getPos().y + 1, 0xFF0000);
 	}
 
-	//void DrawTile(int tx, int ty, Surface* screen, Surface* map, int x, int y) {
-	//	
-
-	//	if (x >= screen->GetWidth() || y >= screen->GetHeight() || x + tileSize <= 0 || y + tileSize <= 0)
-	//		return;
-
-	//	int dx = 0, dy = 0;
-	//	int maxX = tileSize, maxY = tileSize;
-
-	//	if (x < 0) dx = -x;
-	//	if (y < 0) dy = -y;
-	//	if (x + tileSize > screen->GetWidth())  maxX = screen->GetWidth() - x;
-	//	if (y + tileSize > screen->GetHeight()) maxY = screen->GetHeight() - y;
-
-	//	Pixel* src = (*map).GetBuffer() + tx * tileSize + (ty * tileSize) * (*map).GetPitch();
-	//	src += dy * (*map).GetPitch();
-	//	Pixel* dst = screen->GetBuffer() + x + (y + dy) * screen->GetPitch();
-
-	//	for (int i = dy; i < maxY; i++, src += (*map).GetPitch(), dst += screen->GetPitch()) {
-	//		for (int j = dx; j < maxX; j++) {
-	//			dst[j] = src[j];
-	//		}
-	//	}
-	//}
 };

@@ -2,6 +2,8 @@
 #include "surface.h"
 #include <array>
 #include "MapHandler.h"
+#include "PlayerState.h"
+#include "PlayerVisual.h"
 #pragma once
 
 namespace Tmpl8 {
@@ -21,10 +23,18 @@ namespace Tmpl8 {
 		void draw(Surface* screen, vec2 cameraOffset);
 
 		vec2 getPos();
+		vec2 getDir();
+		vec2 getSize();
+
+
+		void setPos(const vec2& pos);
+		void setDir(const vec2& dir);
+		void setState(int state);
+
+		void setAnimRange(int first, int last);
 
 	private:
 
-		void setAnimRange(int first, int last);
 
 		void playAnimation(float dt);
 
@@ -37,11 +47,15 @@ namespace Tmpl8 {
 		vec2 pos;
 		vec2 nextPos;
 		vec2 size;
+		vec2 velocity;
 
 		float speed;
 
 		vec2 dir;
 		Sprite &humanSprite;
+
+		PlayerState* state;
+		PlayerVisual visual;
 
 		std::array<Map, 2> *currentMap;
 		//Sprite &fishSprite;

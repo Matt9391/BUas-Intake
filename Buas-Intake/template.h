@@ -92,6 +92,7 @@ public:
 	void operator += ( const vec2& a ) { x += a.x; y += a.y; }
 	void operator *= ( const vec2& a ) { x *= a.x; y *= a.y; }
 	void operator *= ( float a ) { x *= a; y *= a; }
+	bool operator == (const vec2& a) { return (x == a.x && y == a.y); } //Added my self
 	float& operator [] ( const int idx ) { return cell[idx]; }
 	float length() { return sqrtf( x * x + y * y ); }
 	float sqrLentgh() { return x * x + y * y; }

@@ -8,13 +8,17 @@ namespace Tmpl8 {
 		Camera2D(vec2 pos, vec2 size);
 
 		void follow(vec2 target);
-		
+
+		void setWorldSize(vec2 size);
+
 		vec2 getPos();
 
-		void SetPosition(vec2 nextPos);
 	private:
+		int constrain(int value, int min, int max);
+		
 		vec2 pos;
 		vec2 size;
+		vec2 worldSize;
 	};
 }
 
