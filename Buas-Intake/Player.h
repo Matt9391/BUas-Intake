@@ -25,11 +25,15 @@ namespace Tmpl8 {
 		vec2 getPos();
 		vec2 getDir();
 		vec2 getSize();
+		char getInput();
+		bool isInteracting();
 
 
+		void setInteracting(bool state);
 		void setPos(const vec2& pos);
 		void setDir(const vec2& dir);
 		void setState(int state);
+		void setInput(const char& input);
 
 		void setAnimRange(int first, int last);
 
@@ -37,6 +41,10 @@ namespace Tmpl8 {
 		void showHitbox(Surface* screen, vec2 cameraOffset);
 
 		void playAnimation(float dt);
+
+		bool interacting;
+
+		char input;
 
 		int firstFrame;
 		int lastFrame;

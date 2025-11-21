@@ -16,7 +16,8 @@ namespace Tmpl8 {
 		currentFrame(0),
 		timeBetweenFrames(70),
 		timeElapsedBF(0),
-		velocity(0, 0)
+		velocity(0, 0),
+		input(' ')
 	{
 		this->setState(0);
 		humanSprite.SetFrame(38);
@@ -114,12 +115,27 @@ namespace Tmpl8 {
 		return this->size;
 	}
 
+	char Player::getInput() {
+		return this->input;
+	}
+
+	bool Player::isInteracting() {
+		return this->interacting;
+	}
+
+	void Player::setInteracting(bool state) {
+		this->interacting = state;
+	}
+
 	void Player::setPos(const vec2& pos) {
 		this->pos = pos;
 	}
 	
 	void Player::setDir(const vec2& dir) {
 		this->dir = dir;
+	}
+	void Player::setInput(const char& input) {
+		this->input = input;
 	}
 
 	void Player::setState(int state) {
@@ -131,6 +147,8 @@ namespace Tmpl8 {
 			//this->state = new HumanState();
 
 	}
+
+
 
 	void Player::showHitbox(Surface* screen, vec2 cameraOffset) {
 		vec2 size = this->size;

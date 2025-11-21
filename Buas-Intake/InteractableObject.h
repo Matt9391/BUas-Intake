@@ -12,6 +12,8 @@ namespace Tmpl8 {
 
 		bool intersectPlayer(Player& player);
 
+		//virtual void interact(Player& player) = 0;
+
 		void drawHitBox(Surface* screen, vec2 cameraOffset);
 	private:
 		vec2 pos;

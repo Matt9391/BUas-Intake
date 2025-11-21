@@ -1,8 +1,6 @@
-﻿  game.cpp
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(37,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(38,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(39,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(39,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(84,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(85,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+﻿  Text.cpp
+F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Text.cpp(38,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Text.cpp(39,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Text.cpp(40,74): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
+F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Text.cpp(41,75): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
   Buas-Intake.vcxproj -> F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe

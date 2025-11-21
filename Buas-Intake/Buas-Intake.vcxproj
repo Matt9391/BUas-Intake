@@ -231,6 +231,7 @@
     <ClCompile Include="PlayerState.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
+    <ClCompile Include="Text.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera2D.h" />
@@ -243,6 +244,7 @@
     <ClInclude Include="PlayerVisual.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
+    <ClInclude Include="Text.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="_readme.txt" />

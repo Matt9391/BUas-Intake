@@ -7,6 +7,7 @@
 #include "MapHandler.h"
 #include "Camera2D.h"
 #include "Player.h"
+#include "Text.h"
 #include "InteractableObject.h"
 #include <Windows.h>
 
@@ -19,6 +20,7 @@ namespace Tmpl8
 	Map mapTdw; //Map top down	
 	Map mapTdwLayer2; //Map top down	
 	Surface mapTdwTileset("./assets/TopDown/map3.png");
+	Surface fontSource("./assets/fontHorizontal2.png");
 	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
 	Sprite humanSprite(new Surface("./assets/TopDown/player.tga"), 40);
 	InteractableObject obj(vec2(32 * 4, 32 * 4), vec2(32));
@@ -38,6 +40,7 @@ namespace Tmpl8
 		this->COLS = std::floor((mapsTdw[0][0].size() + 1) / 4);
 		camera.setWorldSize(vec2(this->COLS, this->ROWS));
 		MapHandler::setSize(this->ROWS, this->COLS);
+		Text::init(&fontSource);
 
 		printf("%d %d\n",ROWS,COLS);
 		//for (int i = 0; i < ROWS; i++) {
@@ -67,8 +70,10 @@ namespace Tmpl8
 	{
 		player.update(deltaTime);
 
-		printf("collide: %d\n", obj.intersectPlayer(player));
-
+		//printf("collide: %d interacting: %d \n", obj.intersectPlayer(player), player.isInteracting());
+		
+		if (player.isInteracting() && obj.intersectPlayer(player))
+			printf("SKIBIDIIIIIII\n");
 		camera.follow(player.getPos());
 
 		//printf("%d\n", MapHandler::isSolid(mapsTdw[1], player.getPos(), 32));
@@ -91,9 +96,11 @@ namespace Tmpl8
 			}
 
 		}
-		//obj.drawHitBox(screen, camera.getPos());
+		obj.drawHitBox(screen, camera.getPos());
 
 		player.draw(screen, camera.getPos());
+
+		Text::print(screen);
 	}
 
 };
