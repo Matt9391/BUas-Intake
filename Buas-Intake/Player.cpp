@@ -90,7 +90,8 @@ namespace Tmpl8 {
 
 		this->nextPos += velocity;
 
-		if (!MapHandler::isSolid((*this->currentMap)[1], nextPos, this->size, 32)) {
+		if (!MapHandler::isSolid((*this->currentMap)[1], nextPos, this->size, 32)&&
+			!MapHandler::isSolid((*this->currentMap)[0], nextPos, this->size, 32)) {
 			this->pos = this->nextPos;
 		}
 

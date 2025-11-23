@@ -18,7 +18,7 @@ namespace Tmpl8
 	//void DrawTile(int tx, int ty, Surface* screen, Surface* map, int x, int y);
 	std::array<Map, 2> mapsTdw;
 	Map mapTdw; //Map top down	
-	Map mapTdwLayer2; //Map top down	
+	Map mapTdwLayer2; //Map top down
 	Surface mapTdwTileset("./assets/TopDown/map3.png");
 	Surface fontSource("./assets/fontHorizontal2.png");
 	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
@@ -36,6 +36,7 @@ namespace Tmpl8
 	{
 		mapsTdw[0] = MapHandler::loadMap("mapTopDown.txt");
 		mapsTdw [1] = MapHandler::loadMap("mapTopDownLayer2.txt");
+		MapHandler::loadInteractableObject("interactableObjectList.txt", 32);
 		this->ROWS = mapsTdw[0].size();
 		this->COLS = std::floor((mapsTdw[0][0].size() + 1) / 4);
 		camera.setWorldSize(vec2(this->COLS, this->ROWS));
@@ -72,8 +73,7 @@ namespace Tmpl8
 
 		//printf("collide: %d interacting: %d \n", obj.intersectPlayer(player), player.isInteracting());
 		
-		if (player.isInteracting() && obj.intersectPlayer(player))
-			printf("SKIBIDIIIIIII\n");
+		
 		camera.follow(player.getPos());
 
 		//printf("%d\n", MapHandler::isSolid(mapsTdw[1], player.getPos(), 32));
@@ -96,7 +96,15 @@ namespace Tmpl8
 			}
 
 		}
-		obj.drawHitBox(screen, camera.getPos());
+		//obj.drawHitBox(screen, camera.getPos());
+
+		for (auto object : MapHandler::objects) {
+			if (player.isInteracting() && object.intersectPlayer(player))
+				printf("SKIBIDIIIIIII\n");
+
+			object.drawHitBox(screen, camera.getPos());
+			//printf("stamppoo\n");
+		}
 
 		player.draw(screen, camera.getPos());
 

@@ -37,19 +37,18 @@ namespace Tmpl8 {
 	}
 
 	void InteractableObject::drawHitBox(Surface* screen, vec2 cameraOffset) {
-		const int size = this->size.x;
 		Pixel red = 0xFF0000; // formato: 0xRRGGBB
 
 		Pixel* buffer = screen->GetBuffer();
 		int pitch = screen->GetPitch(); // pixel per riga
 		vec2 pos(this->pos.x - cameraOffset.x, this->pos.y - cameraOffset.y);
 
-		for (int dy = 0; dy < size; dy++)
+		for (int dy = 0; dy < size.y; dy++)
 		{
 			int py = pos.y + dy;
 			if (py < 0 || py >= screen->GetHeight()) continue;
 
-			for (int dx = 0; dx < size; dx++)
+			for (int dx = 0; dx < size.x; dx++)
 			{
 				int px = pos.x + dx;
 				if (px < 0 || px >= screen->GetWidth()) continue;

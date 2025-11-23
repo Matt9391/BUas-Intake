@@ -1,4 +1,5 @@
 #include "MapHandler.h"
+#include "InteractableObject.h"
 
 
 namespace Tmpl8 {
@@ -8,9 +9,54 @@ namespace Tmpl8 {
 	int MapHandler::rows = 0;
 	int MapHandler::cols = 0;
 
+	std::vector<InteractableObject> MapHandler::objects;
+
 	void MapHandler::setSize(int nRows, int nCols) {
 		rows = nRows;
 		cols = nCols;
+	}
+	
+	void MapHandler::loadInteractableObject(std::string fileName, int tileSize) {
+		std::ifstream objFile("assets/map/" + fileName);
+		std::string objLine;
+
+		while (std::getline(objFile, objLine)) {
+			std::vector<int> data = parseIntList(objLine);
+			//datas:
+			//type
+			//nCol
+			//nRow
+			//nTileWidth
+			//nTileHeight
+			printf("%d %d %d %d %d\n", data[0], data[1], data[2], data[3], data[4]);
+			vec2 pos(data[1] * tileSize, data[2] * tileSize);
+			vec2 size(data[3] * tileSize, data[4] * tileSize);
+			printf("   %.2f %.2f %.2f %.2f\n", pos.x, pos.y, size.x, size.y);
+			objects.push_back(InteractableObject(pos,size));
+		}
+
+		
+	}
+
+	std::vector<int> MapHandler::parseIntList(const std::string& s)	{
+		std::vector<int> out;
+		std::string str;
+
+		for (char c : s)
+		{
+			if (c == ',')
+			{
+				out.push_back(std::stoi(str));
+				str.clear();
+			}
+			else
+			{
+				str += c;
+			}
+		}
+		out.push_back(std::stoi(str));
+
+		return out;
 	}
 
 	Map MapHandler::loadMap(std::string fileName) {

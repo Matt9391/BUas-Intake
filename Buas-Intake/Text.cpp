@@ -21,11 +21,11 @@ namespace Tmpl8 {
 			return;
 		}
 
-		Text::drawCharacter("balls NIGGA", screen, vec2(100, 100));
+		
 		
 	}
 
-	void Text::drawCharacter(std::string str, Surface* screen, vec2 pos) {
+	void Text::drawString(std::string str, Surface* screen, vec2 pos) {
 
 		//printf("char: %c, c_index: %d, index: %d\n", character, character, index);
 
