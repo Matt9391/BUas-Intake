@@ -223,6 +223,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="Camera2D.cpp" />
+    <ClCompile Include="FishArea.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="HumanState.cpp" />
     <ClCompile Include="InteractableObject.cpp" />
@@ -235,6 +236,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera2D.h" />
+    <ClInclude Include="FishArea.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="HumanState.h" />
     <ClInclude Include="InteractableObject.h" />

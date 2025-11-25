@@ -8,7 +8,7 @@ namespace Tmpl8 {
 	class InteractableObject
 	{
 	public:
-		InteractableObject(vec2 pos, vec2 size);
+		InteractableObject(int type, vec2 pos, vec2 size);
 
 		bool intersectPlayer(Player& player);
 
@@ -16,6 +16,7 @@ namespace Tmpl8 {
 
 		void drawHitBox(Surface* screen, vec2 cameraOffset);
 	private:
+		int type;
 		vec2 pos;
 		vec2 size;
 	};

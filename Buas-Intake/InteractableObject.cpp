@@ -3,7 +3,8 @@
 
 namespace Tmpl8 {
 
-	InteractableObject::InteractableObject(vec2 pos, vec2 size) :
+	InteractableObject::InteractableObject(int type, vec2 pos, vec2 size) :
+		type(type),
 		pos(pos),
 		size(size)
 	{}

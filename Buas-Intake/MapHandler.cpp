@@ -1,5 +1,6 @@
 #include "MapHandler.h"
 #include "InteractableObject.h"
+#include "FishArea.h"
 
 
 namespace Tmpl8 {
@@ -16,7 +17,7 @@ namespace Tmpl8 {
 		cols = nCols;
 	}
 	
-	void MapHandler::loadInteractableObject(std::string fileName, int tileSize) {
+	void MapHandler::loadInteractableObject(std::string fileName, int tileSize, Sprite& barSprite) {
 		std::ifstream objFile("assets/map/" + fileName);
 		std::string objLine;
 
@@ -32,7 +33,15 @@ namespace Tmpl8 {
 			vec2 pos(data[1] * tileSize, data[2] * tileSize);
 			vec2 size(data[3] * tileSize, data[4] * tileSize);
 			printf("   %.2f %.2f %.2f %.2f\n", pos.x, pos.y, size.x, size.y);
-			objects.push_back(InteractableObject(pos,size));
+			
+			switch (data[0])
+			{
+			case 1:
+				objects.push_back(FishArea(data[0], pos, size, barSprite));
+			default:
+				break;
+			}
+			//objects.push_back(InteractableObject(data[0],pos,size));
 		}
 
 		

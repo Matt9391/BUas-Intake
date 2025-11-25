@@ -20,7 +20,7 @@ namespace Tmpl8 {
 
 		static void setSize(int nRows, int nCols);
 
-		static void loadInteractableObject(std::string fileName, int tileSize);
+		static void loadInteractableObject(std::string fileName, int tileSize, Sprite& barSprite);
 
 		static Map loadMap(std::string fileName);
 

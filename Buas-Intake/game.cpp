@@ -23,7 +23,8 @@ namespace Tmpl8
 	Surface fontSource("./assets/fontHorizontal2.png");
 	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
 	Sprite humanSprite(new Surface("./assets/TopDown/player.tga"), 40);
-	InteractableObject obj(vec2(32 * 4, 32 * 4), vec2(32));
+	Sprite barSprite(new Surface("./assets/TopDown/fishingBar.png"), 1);
+	InteractableObject obj(0, vec2(32 * 4, 32 * 4), vec2(32));
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------
@@ -36,7 +37,7 @@ namespace Tmpl8
 	{
 		mapsTdw[0] = MapHandler::loadMap("mapTopDown.txt");
 		mapsTdw [1] = MapHandler::loadMap("mapTopDownLayer2.txt");
-		MapHandler::loadInteractableObject("interactableObjectList.txt", 32);
+		MapHandler::loadInteractableObject("interactableObjectList.txt", 32, barSprite);
 		this->ROWS = mapsTdw[0].size();
 		this->COLS = std::floor((mapsTdw[0][0].size() + 1) / 4);
 		camera.setWorldSize(vec2(this->COLS, this->ROWS));
@@ -96,7 +97,7 @@ namespace Tmpl8
 			}
 
 		}
-		//obj.drawHitBox(screen, camera.getPos());
+		obj.drawHitBox(screen, camera.getPos());
 
 		for (auto object : MapHandler::objects) {
 			if (player.isInteracting() && object.intersectPlayer(player))
