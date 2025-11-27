@@ -24,7 +24,8 @@ namespace Tmpl8
 	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
 	Sprite humanSprite(new Surface("./assets/TopDown/player.tga"), 40);
 	Sprite barSprite(new Surface("./assets/TopDown/fishingBar.png"), 1);
-
+	Sprite indxSprite(new Surface("./assets/TopDown/fishingIndx.png"), 1);
+	std::array<Sprite*, 2> fishingAreaSprites = { &barSprite, &indxSprite };
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------
@@ -34,10 +35,11 @@ namespace Tmpl8
 	vec2 player2(ScreenWidth / 2, ScreenHeight / 2);
 
 	void Game::Init()
-	{
+	{	
+
 		mapsTdw[0] = MapHandler::loadMap("mapTopDown.txt");
 		mapsTdw [1] = MapHandler::loadMap("mapTopDownLayer2.txt");
-		MapHandler::loadInteractableObject("interactableObjectList.txt", 32, barSprite);
+		MapHandler::loadInteractableObject("interactableObjectList.txt", 32, fishingAreaSprites);
 		this->ROWS = mapsTdw[0].size();
 		this->COLS = std::floor((mapsTdw[0][0].size() + 1) / 4);
 		camera.setWorldSize(vec2(this->COLS, this->ROWS));
@@ -99,9 +101,10 @@ namespace Tmpl8
 		}
 
 		for (auto object : MapHandler::objects) {
+			(*object).update(deltaTime);
+
 			if ((*object).intersectPlayer(player)) {
 				(*object).showText(screen, camera.getPos());
-				
 				if (player.isInteracting()) {
 					(*object).interact(player);
 				}

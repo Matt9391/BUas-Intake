@@ -12,6 +12,8 @@ namespace Tmpl8 {
 
 		bool intersectPlayer(Player& player);
 
+		virtual void update(float dt);
+
 		virtual void interact(Player& player);
 
 		virtual void showText(Surface* screen, vec2 cameraOffset);

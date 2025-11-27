@@ -3,6 +3,7 @@
 #include <fstream>
 #include <cstring>
 #include <vector>
+#include <array>
 #include "surface.h"
 #include "template.h"
 
@@ -20,7 +21,7 @@ namespace Tmpl8 {
 
 		static void setSize(int nRows, int nCols);
 
-		static void loadInteractableObject(std::string fileName, int tileSize, Sprite& barSprite);
+		static void loadInteractableObject(std::string fileName, int tileSize, std::array<Sprite*, 2> fishingSprites);
 
 		static Map loadMap(std::string fileName);
 

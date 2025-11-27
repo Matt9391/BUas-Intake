@@ -38,6 +38,10 @@ namespace Tmpl8 {
 	
 	}
 
+	void InteractableObject::update(float dt) {
+
+	}
+
 	void InteractableObject::interact(Player& player) {
 		printf("BOBBI\n");
 	}

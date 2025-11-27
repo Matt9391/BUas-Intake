@@ -17,7 +17,7 @@ namespace Tmpl8 {
 		cols = nCols;
 	}
 	
-	void MapHandler::loadInteractableObject(std::string fileName, int tileSize, Sprite& barSprite) {
+	void MapHandler::loadInteractableObject(std::string fileName, int tileSize, std::array<Sprite*, 2> fishingSprites) {
 		std::ifstream objFile("assets/map/" + fileName);
 		std::string objLine;
 
@@ -37,7 +37,7 @@ namespace Tmpl8 {
 			switch (data[0])
 			{
 			case 1:
-				objects.push_back(new FishArea(data[0], pos, size, barSprite));
+				objects.push_back(new FishArea(data[0], pos, size, fishingSprites));
 				break;
 			default:
 				objects.push_back(new InteractableObject(data[0],pos,size));
