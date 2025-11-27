@@ -20,8 +20,6 @@ namespace Tmpl8 {
 			printf("BRO SONO NULL ANCORA EHEHEH");
 			return;
 		}
-
-		
 		
 	}
 

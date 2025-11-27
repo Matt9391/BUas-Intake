@@ -27,9 +27,11 @@ namespace Tmpl8 {
 		vec2 getSize();
 		char getInput();
 		bool isInteracting();
+		bool isFishing();
 
 
 		void setInteracting(bool state);
+		void setFishing(bool state);
 		void setPos(const vec2& pos);
 		void setDir(const vec2& dir);
 		void setState(int state);
@@ -67,6 +69,8 @@ namespace Tmpl8 {
 
 		std::array<Map, 2> *currentMap;
 		//Sprite &fishSprite;
+
+		bool fishing;
 
 	};
 

@@ -28,7 +28,7 @@ namespace Tmpl8 {
 
 		static void drawTile(int tx, int ty, Surface* screen, Surface *map, int x, int y, int tileSize);
 		
-		static std::vector<InteractableObject> objects;
+		static std::vector<InteractableObject*> objects;
 	private:
 		static std::vector<int> parseIntList(const std::string& s);
 

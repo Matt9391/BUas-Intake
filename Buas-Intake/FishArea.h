@@ -3,12 +3,16 @@
 
 namespace Tmpl8 {
 
-	class FishArea : InteractableObject
+	class FishArea : public InteractableObject
 	{
 	public:
 		FishArea(int type, vec2 pos, vec2 size, Sprite& barSprite);
 		
-		void draw(Surface* screen, vec2 cameraOffset);
+		void interact(Player& player) override;
+
+		void showText(Surface* screen, vec2 cameraOffset) override;
+
+		void draw(Surface* screen, vec2 cameraOffset) override;
 
 	private:
 

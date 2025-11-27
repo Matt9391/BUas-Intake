@@ -10,7 +10,7 @@ namespace Tmpl8 {
 	int MapHandler::rows = 0;
 	int MapHandler::cols = 0;
 
-	std::vector<InteractableObject> MapHandler::objects;
+	std::vector<InteractableObject*> MapHandler::objects;
 
 	void MapHandler::setSize(int nRows, int nCols) {
 		rows = nRows;
@@ -37,11 +37,12 @@ namespace Tmpl8 {
 			switch (data[0])
 			{
 			case 1:
-				objects.push_back(FishArea(data[0], pos, size, barSprite));
+				objects.push_back(new FishArea(data[0], pos, size, barSprite));
+				break;
 			default:
+				objects.push_back(new InteractableObject(data[0],pos,size));
 				break;
 			}
-			//objects.push_back(InteractableObject(data[0],pos,size));
 		}
 
 		

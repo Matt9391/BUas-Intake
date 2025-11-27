@@ -24,7 +24,7 @@ namespace Tmpl8
 	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
 	Sprite humanSprite(new Surface("./assets/TopDown/player.tga"), 40);
 	Sprite barSprite(new Surface("./assets/TopDown/fishingBar.png"), 1);
-	InteractableObject obj(0, vec2(32 * 4, 32 * 4), vec2(32));
+
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------
@@ -97,13 +97,18 @@ namespace Tmpl8
 			}
 
 		}
-		obj.drawHitBox(screen, camera.getPos());
 
 		for (auto object : MapHandler::objects) {
-			if (player.isInteracting() && object.intersectPlayer(player))
-				printf("SKIBIDIIIIIII\n");
+			if ((*object).intersectPlayer(player)) {
+				(*object).showText(screen, camera.getPos());
+				
+				if (player.isInteracting()) {
+					(*object).interact(player);
+				}
 
-			object.drawHitBox(screen, camera.getPos());
+			}
+			
+			(*object).draw(screen, camera.getPos());
 			//printf("stamppoo\n");
 		}
 

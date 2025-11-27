@@ -1,40 +1,28 @@
-﻿  game.cpp
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(41,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(42,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(43,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(43,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(90,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(91,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  HumanState.cpp
+﻿  FishArea.cpp
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(26,90): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(26,52): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
   InteractableObject.cpp
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\InteractableObject.cpp(49,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\InteractableObject.cpp(54,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\InteractableObject.cpp(63,11): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\InteractableObject.cpp(68,12): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
   MapHandler.cpp
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(33,41): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(33,21): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(34,42): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(34,22): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(40,31): error C2243: 'type cast': conversion from 'Tmpl8::FishArea *' to '_Ty &&' exists, but is inaccessible
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(40,31): error C2243:         with
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(40,31): error C2243:         [
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(40,31): error C2243:             _Ty=Tmpl8::InteractableObject
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(40,31): error C2243:         ]
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(86,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(87,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(88,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(89,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(90,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(91,10): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(92,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(93,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Player.cpp
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(105,45): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(105,35): warning C4244: 'argument': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(164,11): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(169,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-  Text.cpp
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Text.cpp(38,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Text.cpp(39,23): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Text.cpp(40,74): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Text.cpp(41,75): warning C4244: '=': conversion from 'float' to 'int', possible loss of data
-  Generating Code...
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(33,41): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(33,21): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(34,42): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(34,22): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(87,10): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(88,10): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(89,11): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(90,11): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(91,10): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(92,10): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(93,11): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\MapHandler.cpp(94,11): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+  game.cpp
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(41,31): warning C4267: '=': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(42,26): warning C4244: '=': conversione da 'double' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(43,44): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(43,32): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(90,12): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(91,12): warning C4244: 'inizializzazione': conversione da 'float' a 'int'. Possibile perdita di dati.
+  Generazione del codice in corso...
+  Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe

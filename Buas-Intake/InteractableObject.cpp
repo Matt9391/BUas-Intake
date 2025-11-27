@@ -1,5 +1,6 @@
 #include "InteractableObject.h"
 #include "Player.h"
+#include "Text.h"
 
 namespace Tmpl8 {
 
@@ -34,10 +35,23 @@ namespace Tmpl8 {
 				playerPos.y + playerSize.y < this->pos.y + this->size.y
 				);
 
-		return false;
+	
+	}
+
+	void InteractableObject::interact(Player& player) {
+		printf("BOBBI\n");
+	}
+
+	void InteractableObject::showText(Surface* screen, vec2 cameraOffset) {
+		Text::drawString("tmpl8", screen, this->pos);
+	}
+
+	void InteractableObject::draw(Surface* screen, vec2 cameraOffset) {
+		this->drawHitBox(screen, cameraOffset);
 	}
 
 	void InteractableObject::drawHitBox(Surface* screen, vec2 cameraOffset) {
+		
 		Pixel red = 0xFF0000; // formato: 0xRRGGBB
 
 		Pixel* buffer = screen->GetBuffer();

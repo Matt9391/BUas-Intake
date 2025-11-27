@@ -17,7 +17,8 @@ namespace Tmpl8 {
 		timeBetweenFrames(70),
 		timeElapsedBF(0),
 		velocity(0, 0),
-		input(' ')
+		input(' '),
+		fishing(false)
 	{
 		this->setState(0);
 		humanSprite.SetFrame(38);
@@ -79,6 +80,9 @@ namespace Tmpl8 {
 	}
 
 	void Player::move(float dt) {
+		if (this->fishing)
+			return;
+
 		this->nextPos = this->pos;
 
 		this->velocity = vec2(this->dir.x, this->dir.y);
@@ -89,6 +93,9 @@ namespace Tmpl8 {
 		this->velocity *= speed * dt;
 
 		this->nextPos += velocity;
+
+		vec2 xNextPos(this->pos.x, this->nextPos.y);
+		vec2 yNextPos(this->nextPos.x, this->pos.y);
 
 		if (!MapHandler::isSolid((*this->currentMap)[1], nextPos, this->size, 32)&&
 			!MapHandler::isSolid((*this->currentMap)[0], nextPos, this->size, 32)) {
@@ -124,8 +131,16 @@ namespace Tmpl8 {
 		return this->interacting;
 	}
 
+	bool Player::isFishing() {
+		return this->fishing;
+	}
+
 	void Player::setInteracting(bool state) {
 		this->interacting = state;
+	}
+
+	void Player::setFishing(bool state) {
+		this->fishing = state;
 	}
 
 	void Player::setPos(const vec2& pos) {

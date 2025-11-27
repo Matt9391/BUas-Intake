@@ -12,10 +12,13 @@ namespace Tmpl8 {
 
 		bool intersectPlayer(Player& player);
 
-		//virtual void interact(Player& player) = 0;
+		virtual void interact(Player& player);
+
+		virtual void showText(Surface* screen, vec2 cameraOffset);
+		virtual void draw(Surface* screen, vec2 cameraOffset);
 
 		void drawHitBox(Surface* screen, vec2 cameraOffset);
-	private:
+	protected:
 		int type;
 		vec2 pos;
 		vec2 size;
