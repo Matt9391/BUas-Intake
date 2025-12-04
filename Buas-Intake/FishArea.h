@@ -15,27 +15,32 @@ namespace Tmpl8 {
 
 		void showText(Surface* screen, vec2 cameraOffset) override;
 
+		void fishCard(float dt);
+
 		void draw(Surface* screen, vec2 cameraOffset) override;
 
 	private:
 		void moveIndx(float dt);
 		bool enable;
+		bool showFishCard;
 
 		vec2 barPosition;
 		vec2 indxPosition;
 		vec2 textPosition;
 		
 		float xIndxPos;
-
-		bool display;
 		
 		float angle;
 		float maxAngle;
 
 		float range;
+		
+		float elapsedTimeFishCard; //time passed of showing fishCard
+		float fishCardMaxTime; //time needed to pass
+		float fishPercentage; 
 
-		char lastInput;
-		char input;
+		float elapsedTimeSpace; //time passed since you last pressed space
+		float rebounceTime; // time needed to pass
 
 		std::array<Sprite*, 2> fishingSprites;
 	};

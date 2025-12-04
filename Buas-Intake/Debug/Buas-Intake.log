@@ -1,6 +1,8 @@
 ﻿  FishArea.cpp
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(70,101): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(70,63): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(71,120): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(71,81): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(67,11): warning C4129: '%': sequenza di caratteri escape sconosciuta
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(67,11): warning C4476: 'printf': il carattere 'P' del campo del tipo nell'identificatore di formato è sconosciuto
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(118,101): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(118,63): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(119,120): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(119,81): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
   Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe
