@@ -12,12 +12,15 @@ namespace Tmpl8 {
 		LEGENDARY
 	};
 
-	FishArea::FishArea(int type, vec2 pos, vec2 size, std::array<Sprite*, 2> fishingSprites) :
+	FishArea::FishArea(int type, vec2 pos, vec2 size, std::array<Sprite*, 3> fishingSprites) :
 		InteractableObject(type, pos, size),
 		fishingSprites(fishingSprites),
 		barPosition(pos + vec2(-16, 64)),
 		indxPosition(pos + vec2(+32, 64)),
 		textPosition(pos + vec2(-46, -32)),
+		cardPosition(pos + vec2(16, 24)),
+		textCardPosition(pos + vec2(-46, 88)),
+		textHover("press 'F' to start fishing"),
 		range(44),
 		angle(0),
 		maxAngle(360),
@@ -35,9 +38,11 @@ namespace Tmpl8 {
 		if (player.isFishing()) {
 			player.setFishing(false);
 			this->enable = false;
+			this->textHover = "press 'F' to start fishing";
 		}else {
 			player.setFishing(true);
 			this->enable = true;
+			this->textHover = "press 'F' to stop fishing";
 		}
 	}
 
@@ -82,14 +87,25 @@ namespace Tmpl8 {
 
 		Rarity rarity = Rarity::COMMON;
 
-		if(this->fishPercentage < 50)
+		if (this->fishPercentage < 50) {
 			rarity = Rarity::COMMON;
-		else if(this->fishPercentage >= 50 && this->fishPercentage < 75)
+			this->cardText = "A common fish! + 10 Coins";
+		}
+		else if (this->fishPercentage >= 50 && this->fishPercentage < 75) {
 			rarity = Rarity::RARE;
-		else if(this->fishPercentage >= 75 && this->fishPercentage < 90)
+			this->cardText = "A rare fish! + 20 Coins";
+		}
+		else if (this->fishPercentage >= 75 && this->fishPercentage < 90) {
 			rarity = Rarity::EPIC;
-		else if(this->fishPercentage >= 90)
+			this->cardText = "A epic fish! + 50 Coins";
+		}
+		else if (this->fishPercentage >= 90) {
 			rarity = Rarity::LEGENDARY;
+			this->cardText = "A legendary fish! + 150 Coins";
+
+		}
+
+		(*this->fishingSprites[2]).SetFrame(rarity);
 
 		printf("%d\n", rarity);
 	}
@@ -106,8 +122,7 @@ namespace Tmpl8 {
 	}
 
 	void FishArea::showText(Surface* screen, vec2 cameraOffset) {
-		Text::drawString("press 'F' to enter start fishing", screen, (this->textPosition - cameraOffset));
-	
+		Text::drawString(this->textHover, screen, (this->textPosition - cameraOffset));
 	}
 
 	void FishArea::draw(Surface* screen, vec2 cameraOffset) {
@@ -117,6 +132,12 @@ namespace Tmpl8 {
 
 		(*this->fishingSprites[0]).Draw(screen, this->barPosition.x - cameraOffset.x, this->barPosition.y - cameraOffset.y);
 		(*this->fishingSprites[1]).Draw(screen, this->indxPosition.x - cameraOffset.x + this->xIndxPos, this->indxPosition.y - cameraOffset.y);
+
+		if (!this->showFishCard)
+			return;
+
+		(*this->fishingSprites[2]).Draw(screen, this->cardPosition.x - cameraOffset.x, this->cardPosition.y - cameraOffset.y);
+		Text::drawString(this->cardText, screen, textCardPosition - cameraOffset);
 	}
 
 	float mapValue(float x, float inMin, float inMax, float outMin, float outMax)

@@ -1,5 +1,6 @@
 #include "InteractableObject.h"
 #include <array>
+#include <string>
 
 #pragma once
 
@@ -8,7 +9,7 @@ namespace Tmpl8 {
 	class FishArea : public InteractableObject
 	{
 	public:
-		FishArea(int type, vec2 pos, vec2 size, std::array<Sprite*, 2> fishingSprites);
+		FishArea(int type, vec2 pos, vec2 size, std::array<Sprite*, 3> fishingSprites);
 		
 		void update(float dt) override;
 		void interact(Player& player) override;
@@ -27,7 +28,12 @@ namespace Tmpl8 {
 		vec2 barPosition;
 		vec2 indxPosition;
 		vec2 textPosition;
+		vec2 cardPosition;
+		vec2 textCardPosition;
 		
+		std::string cardText;
+		std::string textHover;
+
 		float xIndxPos;
 		
 		float angle;
@@ -42,7 +48,7 @@ namespace Tmpl8 {
 		float elapsedTimeSpace; //time passed since you last pressed space
 		float rebounceTime; // time needed to pass
 
-		std::array<Sprite*, 2> fishingSprites;
+		std::array<Sprite*, 3> fishingSprites;
 	};
 
 	float mapValue(float x, float inMin, float inMax, float outMin, float outMax);

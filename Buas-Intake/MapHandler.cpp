@@ -17,9 +17,11 @@ namespace Tmpl8 {
 		cols = nCols;
 	}
 	
-	void MapHandler::loadInteractableObject(std::string fileName, int tileSize, std::array<Sprite*, 2> fishingSprites) {
+	void MapHandler::loadInteractableObject(std::string fileName, int tileSize, std::array<Sprite*, 3> fishingSprites) {
 		std::ifstream objFile("assets/map/" + fileName);
 		std::string objLine;
+
+		std::getline(objFile, objLine);
 
 		while (std::getline(objFile, objLine)) {
 			std::vector<int> data = parseIntList(objLine);

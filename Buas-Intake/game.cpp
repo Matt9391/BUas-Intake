@@ -25,7 +25,8 @@ namespace Tmpl8
 	Sprite humanSprite(new Surface("./assets/TopDown/player.tga"), 40);
 	Sprite barSprite(new Surface("./assets/TopDown/fishingBar.png"), 1);
 	Sprite indxSprite(new Surface("./assets/TopDown/fishingIndx.png"), 1);
-	std::array<Sprite*, 2> fishingAreaSprites = { &barSprite, &indxSprite };
+	Sprite fishesSprite(new Surface("./assets/TopDown/fishes.tga"), 4);
+	std::array<Sprite*, 3> fishingAreaSprites = { &barSprite, &indxSprite, &fishesSprite };
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------

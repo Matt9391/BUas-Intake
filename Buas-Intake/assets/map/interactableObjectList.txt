@@ -1,3 +1,4 @@
+type,nCol,nRow,nTileWidth,nTileHeight
 1,22,10,2,2
 2,10,2,1,3
 2,1,2,1,3

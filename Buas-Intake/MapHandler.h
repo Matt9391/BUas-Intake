@@ -21,7 +21,7 @@ namespace Tmpl8 {
 
 		static void setSize(int nRows, int nCols);
 
-		static void loadInteractableObject(std::string fileName, int tileSize, std::array<Sprite*, 2> fishingSprites);
+		static void loadInteractableObject(std::string fileName, int tileSize, std::array<Sprite*, 3> fishingSprites);
 
 		static Map loadMap(std::string fileName);
 
