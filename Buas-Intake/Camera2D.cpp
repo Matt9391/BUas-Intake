@@ -24,7 +24,7 @@ namespace Tmpl8 {
 		printf("WORLDSIZES: %.2f, %.2f\n", this->worldSize.x, this->worldSize.y);
 	}
 
-	int Camera2D::constrain(int value, int min, int max) {
+	float Camera2D::constrain(float value, float min, float max) {
 		if (value < min)
 			return min;
 		if (value > max)

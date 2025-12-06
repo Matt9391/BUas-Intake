@@ -14,7 +14,7 @@ namespace Tmpl8 {
 		vec2 getPos();
 
 	private:
-		int constrain(int value, int min, int max);
+		float constrain(float value, float min, float max);
 		
 		vec2 pos;
 		vec2 size;

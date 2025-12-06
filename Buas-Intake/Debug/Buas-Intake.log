@@ -1,8 +1,8 @@
-﻿  game.cpp
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(44,31): warning C4267: '=': conversion from 'size_t' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(45,26): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(46,44): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(46,32): warning C4244: 'argument': conversion from 'int' to 'float', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(93,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
-F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(94,12): warning C4244: 'initializing': conversion from 'float' to 'int', possible loss of data
+﻿  FishArea.cpp
+  HumanState.cpp
+  InteractableObject.cpp
+  Player.cpp
+  PlayerState.cpp
+  game.cpp
+  Generating Code...
   Buas-Intake.vcxproj -> F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe

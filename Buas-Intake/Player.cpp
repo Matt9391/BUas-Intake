@@ -109,8 +109,8 @@ namespace Tmpl8 {
 	void Player::draw(Surface* screen, vec2 cameraOffset) {
 		//this->showHitbox(screen, cameraOffset);
 		if (this->visual == PlayerVisual::Human) {
-			float yDrawPos = this->pos.y - this->size.y * 2  - cameraOffset.y;
-			float xDrawPos = this->pos.x + 1 - cameraOffset.x;
+			int yDrawPos = int(this->pos.y - this->size.y * 2  - cameraOffset.y);
+			int xDrawPos = int(this->pos.x + 1 - cameraOffset.x);
 			this->humanSprite.Draw(screen, xDrawPos, yDrawPos);
 		}
 
@@ -190,12 +190,12 @@ namespace Tmpl8 {
 
 		for (int dy = 0; dy < size.y; dy++)
 		{
-			int py = pos.y + dy;
+			int py = int(pos.y) + dy;
 			if (py < 0 || py >= screen->GetHeight()) continue;
 
 			for (int dx = 0; dx < size.x; dx++)
 			{
-				int px = pos.x + dx;
+				int px = int(pos.x) + dx;
 				if (px < 0 || px >= screen->GetWidth()) continue;
 
 				buffer[px + py * pitch] = red;

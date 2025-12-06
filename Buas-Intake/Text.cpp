@@ -33,10 +33,10 @@ namespace Tmpl8 {
 		int dx = 0, dy = 0;
 		int maxX = fontWidth, maxY = fontHeight;
 
-		if (pos.x < 0) dx = -pos.x;
-		if (pos.x < 0) dy = -pos.y;
-		if (pos.x + fontWidth > screen->GetWidth())  maxX = screen->GetWidth() - pos.x;
-		if (pos.y + fontHeight> screen->GetHeight()) maxY = screen->GetHeight() - pos.y;
+		if (pos.x < 0) dx = int(-pos.x);
+		if (pos.x < 0) dy = int(-pos.y);
+		if (pos.x + fontWidth > screen->GetWidth())  maxX = int(screen->GetWidth() - pos.x);
+		if (pos.y + fontHeight> screen->GetHeight()) maxY = int(screen->GetHeight() - pos.y);
 
 		const Pixel black = 0xFF000000; //its black
 		int count = 0;

@@ -68,7 +68,7 @@ namespace Tmpl8 {
 		if(GetAsyncKeyState(' ') & 0x8000) {
 			float fishPercentage = mapValue(std::abs(this->xIndxPos), 0, this->range, 1.0, 0.01) * 100.f;
 			this->showFishCard = true;
-			printf("%.2f\% PRESSEDD\n", fishPercentage);
+			printf("%.2f PRESSEDD\n", fishPercentage);
 			Rarity rarity = Rarity::COMMON;
 
 			if (fishPercentage < 50) {
@@ -129,13 +129,13 @@ namespace Tmpl8 {
 		if (!this->enable)
 			return;
 
-		(*this->fishingSprites[0]).Draw(screen, this->barPosition.x - cameraOffset.x, this->barPosition.y - cameraOffset.y);
-		(*this->fishingSprites[1]).Draw(screen, this->indxPosition.x - cameraOffset.x + this->xIndxPos, this->indxPosition.y - cameraOffset.y);
+		(*this->fishingSprites[0]).Draw(screen, int(this->barPosition.x - cameraOffset.x), int(this->barPosition.y - cameraOffset.y));
+		(*this->fishingSprites[1]).Draw(screen, int(this->indxPosition.x - cameraOffset.x + this->xIndxPos), int(this->indxPosition.y - cameraOffset.y));
 
 		if (!this->showFishCard)
 			return;
 
-		(*this->fishingSprites[2]).Draw(screen, this->cardPosition.x - cameraOffset.x, this->cardPosition.y - cameraOffset.y);
+		(*this->fishingSprites[2]).Draw(screen, int(this->cardPosition.x - cameraOffset.x), int(this->cardPosition.y - cameraOffset.y));
 		Text::drawString(this->cardText, screen, textCardPosition - cameraOffset);
 	}
 

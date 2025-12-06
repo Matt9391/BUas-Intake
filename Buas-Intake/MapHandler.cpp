@@ -32,8 +32,8 @@ namespace Tmpl8 {
 			//nTileWidth
 			//nTileHeight
 			printf("%d %d %d %d %d\n", data[0], data[1], data[2], data[3], data[4]);
-			vec2 pos(data[1] * tileSize, data[2] * tileSize);
-			vec2 size(data[3] * tileSize, data[4] * tileSize);
+			vec2 pos(float(data[1] * tileSize),float(data[2] * tileSize));
+			vec2 size(float(data[3] * tileSize), float(data[4] * tileSize));
 			printf("   %.2f %.2f %.2f %.2f\n", pos.x, pos.y, size.x, size.y);
 			
 			switch (data[0])
@@ -86,14 +86,14 @@ namespace Tmpl8 {
 
 	bool MapHandler::isSolid(const Map& map, vec2 pos, vec2 size, int tileSize) {
 
-		int tx = pos.x / tileSize;
-		int ty = pos.y / tileSize;
-		int tx2 = (pos.x + size.x - 1) / tileSize;
-		int ty2 = pos.y / tileSize;
-		int lx = pos.x / tileSize; //it shouldnt be hardcoded, it's the size of the player hitbox
-		int ly = (pos.y + size.y - 1) / tileSize;
-		int lx2 = (pos.x + size.x -1) / tileSize;
-		int ly2 = (pos.y + size.y -1) / tileSize;
+		int tx  = int(pos.x / tileSize);
+		int ty  = int(pos.y / tileSize);
+		int tx2 = int((pos.x + size.x - 1) / tileSize);
+		int ty2 = int(pos.y / tileSize);
+		int lx  = int(pos.x / tileSize); //it shouldnt be hardcoded, it's the size of the player hitbox
+		int ly  = int((pos.y + size.y - 1) / tileSize);
+		int lx2 = int((pos.x + size.x -1) / tileSize);
+		int ly2 = int((pos.y + size.y - 1) / tileSize);
 
 		if (ty < 0 || ty >= map.size()) return false;
 		if (tx < 0 || tx >= map[ty].size() / 4) return false;

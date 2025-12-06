@@ -39,7 +39,7 @@ namespace Tmpl8 {
 	}
 
 	void InteractableObject::update(float dt, Player& player) {
-
+		
 	}
 
 	void InteractableObject::interact(Player& player) {
@@ -64,12 +64,12 @@ namespace Tmpl8 {
 
 		for (int dy = 0; dy < size.y; dy++)
 		{
-			int py = pos.y + dy;
+			int py = int(pos.y) + dy;
 			if (py < 0 || py >= screen->GetHeight()) continue;
 
 			for (int dx = 0; dx < size.x; dx++)
 			{
-				int px = pos.x + dx;
+				int px = int(pos.x) + dx;
 				if (px < 0 || px >= screen->GetWidth()) continue;
 
 				buffer[px + py * pitch] = red;

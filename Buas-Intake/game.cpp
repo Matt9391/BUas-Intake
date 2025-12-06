@@ -41,9 +41,9 @@ namespace Tmpl8
 		mapsTdw[0] = MapHandler::loadMap("mapTopDown.txt");
 		mapsTdw [1] = MapHandler::loadMap("mapTopDownLayer2.txt");
 		MapHandler::loadInteractableObject("interactableObjectList.txt", 32, fishingAreaSprites);
-		this->ROWS = mapsTdw[0].size();
-		this->COLS = std::floor((mapsTdw[0][0].size() + 1) / 4);
-		camera.setWorldSize(vec2(this->COLS, this->ROWS));
+		this->ROWS = int(mapsTdw[0].size());
+		this->COLS = int(std::floor((mapsTdw[0][0].size() + 1) / 4));
+		camera.setWorldSize(vec2(float(this->COLS), float(this->ROWS)));
 		MapHandler::setSize(this->ROWS, this->COLS);
 		Text::init(&fontSource);
 
@@ -90,8 +90,8 @@ namespace Tmpl8
 					int tx = mapsTdw[iMap][i][j * 4] - 'a';
 					int ty = mapsTdw[iMap][i][j * 4 + 1] - 'a';
 					//printf("%c e %c\n", tx + 'a', ty + 'a');
-					int x = j * tileSize - camera.getPos().x;
-					int y = i * tileSize - camera.getPos().y;
+					int x = j * tileSize - int(camera.getPos().x);
+					int y = i * tileSize - int(camera.getPos().y);
 					//printf("%d e %d\n", x, y);
 
 					MapHandler::drawTile(tx, ty, screen, &mapTdwTileset, x, y, 32);
