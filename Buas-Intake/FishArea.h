@@ -11,17 +11,15 @@ namespace Tmpl8 {
 	public:
 		FishArea(int type, vec2 pos, vec2 size, std::array<Sprite*, 3> fishingSprites);
 		
-		void update(float dt) override;
+		void update(float dt, Player& player) override;
 		void interact(Player& player) override;
 
 		void showText(Surface* screen, vec2 cameraOffset) override;
 
-		void fishCard(float dt);
-
 		void draw(Surface* screen, vec2 cameraOffset) override;
 
 	private:
-		void moveIndx(float dt);
+		void fish(float dt, Player& player);
 		bool enable;
 		bool showFishCard;
 
@@ -43,7 +41,6 @@ namespace Tmpl8 {
 		
 		float elapsedTimeFishCard; //time passed of showing fishCard
 		float fishCardMaxTime; //time needed to pass
-		float fishPercentage; 
 
 		float elapsedTimeSpace; //time passed since you last pressed space
 		float rebounceTime; // time needed to pass

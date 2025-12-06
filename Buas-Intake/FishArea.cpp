@@ -30,8 +30,7 @@ namespace Tmpl8 {
 		rebounceTime(0),
 		showFishCard(false),
 		elapsedTimeFishCard(0),
-		fishCardMaxTime(2000),
-		fishPercentage(0)
+		fishCardMaxTime(2000)
 	{}
 
 	void FishArea::interact(Player& player) {
@@ -46,7 +45,7 @@ namespace Tmpl8 {
 		}
 	}
 
-	void FishArea::moveIndx(float dt) {
+	void FishArea::fish(float dt, Player& player) {
 		if (this->showFishCard)
 			return;
 
@@ -67,57 +66,57 @@ namespace Tmpl8 {
 		this->elapsedTimeSpace = 0;
 
 		if(GetAsyncKeyState(' ') & 0x8000) {
-			this->fishPercentage = mapValue(std::abs(this->xIndxPos), 0, this->range, 1.0, 0.01) * 100.f;
+			float fishPercentage = mapValue(std::abs(this->xIndxPos), 0, this->range, 1.0, 0.01) * 100.f;
 			this->showFishCard = true;
 			printf("%.2f\% PRESSEDD\n", fishPercentage);
+			Rarity rarity = Rarity::COMMON;
+
+			if (fishPercentage < 50) {
+				rarity = Rarity::COMMON;
+				this->cardText = "A common fish! + 10 Coins";
+				player.addCoins(10);
+			}
+			else if (fishPercentage >= 50 && fishPercentage < 75) {
+				rarity = Rarity::RARE;
+				this->cardText = "A rare fish! + 20 Coins";
+				player.addCoins(20);
+			}
+			else if (fishPercentage >= 75 && fishPercentage < 90) {
+				rarity = Rarity::EPIC;
+				this->cardText = "A epic fish! + 50 Coins";
+				player.addCoins(50);
+			}
+			else if (fishPercentage >= 90) {
+				rarity = Rarity::LEGENDARY;
+				this->cardText = "A legendary fish! + 150 Coins";
+				player.addCoins(150);
+
+			}
+
+			(*this->fishingSprites[2]).SetFrame(rarity);
+
+			printf("%d\n", rarity);
 		}
 
 		//printf("%.2f\n", xIndxPos);
 	}
 
-	void FishArea::fishCard(float dt) {
-		this->elapsedTimeFishCard += dt;
 
-		if (this->elapsedTimeFishCard > this->fishCardMaxTime) {
-			this->showFishCard = false;
-			printf("STOPPPP: %.2f\n", this->elapsedTimeFishCard);
-			this->elapsedTimeFishCard = 0;
-			return;
-		}
-
-		Rarity rarity = Rarity::COMMON;
-
-		if (this->fishPercentage < 50) {
-			rarity = Rarity::COMMON;
-			this->cardText = "A common fish! + 10 Coins";
-		}
-		else if (this->fishPercentage >= 50 && this->fishPercentage < 75) {
-			rarity = Rarity::RARE;
-			this->cardText = "A rare fish! + 20 Coins";
-		}
-		else if (this->fishPercentage >= 75 && this->fishPercentage < 90) {
-			rarity = Rarity::EPIC;
-			this->cardText = "A epic fish! + 50 Coins";
-		}
-		else if (this->fishPercentage >= 90) {
-			rarity = Rarity::LEGENDARY;
-			this->cardText = "A legendary fish! + 150 Coins";
-
-		}
-
-		(*this->fishingSprites[2]).SetFrame(rarity);
-
-		printf("%d\n", rarity);
-	}
-
-	void FishArea::update(float dt) {
+	void FishArea::update(float dt, Player& player) {
 		if (!this->enable)
 			return;
 
-		this->moveIndx(dt);
+		this->fish(dt, player);
+
 
 		if (this->showFishCard) {
-			this->fishCard(dt);
+			this->elapsedTimeFishCard += dt;
+
+			if (this->elapsedTimeFishCard > this->fishCardMaxTime) {
+				this->showFishCard = false;
+				printf("STOPPPP: %.2f\n", this->elapsedTimeFishCard);
+				this->elapsedTimeFishCard = 0;
+			}
 		}
 	}
 

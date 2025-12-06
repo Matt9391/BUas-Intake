@@ -28,7 +28,7 @@ namespace Tmpl8 {
 		char getInput();
 		bool isInteracting();
 		bool isFishing();
-
+		long long getCoins();
 
 		void setInteracting(bool state);
 		void setFishing(bool state);
@@ -36,6 +36,8 @@ namespace Tmpl8 {
 		void setDir(const vec2& dir);
 		void setState(int state);
 		void setInput(const char& input);
+		void setCoins(long long coins);
+		void addCoins(int coins); //I belive that a reduce coins is useless
 
 		void setAnimRange(int first, int last);
 
@@ -71,6 +73,8 @@ namespace Tmpl8 {
 		//Sprite &fishSprite;
 
 		bool fishing;
+
+		long long coins;
 
 	};
 

@@ -1,5 +1,6 @@
 #include "Player.h"
 #include "HumanState.h"
+#include "Text.h"
 
 #include <Windows.h>
 
@@ -18,7 +19,8 @@ namespace Tmpl8 {
 		timeElapsedBF(0),
 		velocity(0, 0),
 		input(' '),
-		fishing(false)
+		fishing(false),
+		coins(100)
 	{
 		this->setState(0);
 		humanSprite.SetFrame(38);
@@ -105,12 +107,14 @@ namespace Tmpl8 {
 	}
 
 	void Player::draw(Surface* screen, vec2 cameraOffset) {
-		this->showHitbox(screen, cameraOffset);
+		//this->showHitbox(screen, cameraOffset);
 		if (this->visual == PlayerVisual::Human) {
 			float yDrawPos = this->pos.y - this->size.y * 2  - cameraOffset.y;
 			float xDrawPos = this->pos.x + 1 - cameraOffset.x;
 			this->humanSprite.Draw(screen, xDrawPos, yDrawPos);
 		}
+
+		Text::drawString(std::to_string(this->coins), screen, vec2(64, 64));
 	}
 
 	vec2 Player::getPos() {
@@ -133,6 +137,10 @@ namespace Tmpl8 {
 
 	bool Player::isFishing() {
 		return this->fishing;
+	}
+
+	long long Player::getCoins() {
+		return this->coins;
 	}
 
 	void Player::setInteracting(bool state) {
@@ -164,7 +172,13 @@ namespace Tmpl8 {
 
 	}
 
-
+	void Player::setCoins(long long coins) {
+		this->coins = coins;
+	}
+	
+	void Player::addCoins(int coins) {
+		this->coins += coins;
+	}
 
 	void Player::showHitbox(Surface* screen, vec2 cameraOffset) {
 		vec2 size = this->size;

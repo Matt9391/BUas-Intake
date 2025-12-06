@@ -38,7 +38,7 @@ namespace Tmpl8 {
 	
 	}
 
-	void InteractableObject::update(float dt) {
+	void InteractableObject::update(float dt, Player& player) {
 
 	}
 

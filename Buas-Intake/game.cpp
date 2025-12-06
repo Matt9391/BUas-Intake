@@ -20,12 +20,12 @@ namespace Tmpl8
 	Map mapTdw; //Map top down	
 	Map mapTdwLayer2; //Map top down
 	Surface mapTdwTileset("./assets/TopDown/map3.png");
-	Surface fontSource("./assets/fontHorizontal2.png");
+	Surface fontSource("./assets/Font/fontHorizontal.png");
 	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
 	Sprite humanSprite(new Surface("./assets/TopDown/player.tga"), 40);
 	Sprite barSprite(new Surface("./assets/TopDown/fishingBar.png"), 1);
 	Sprite indxSprite(new Surface("./assets/TopDown/fishingIndx.png"), 1);
-	Sprite fishesSprite(new Surface("./assets/TopDown/fishes.tga"), 4);
+	Sprite fishesSprite(new Surface("./assets/TopDown/fishesv2.tga"), 4);
 	std::array<Sprite*, 3> fishingAreaSprites = { &barSprite, &indxSprite, &fishesSprite };
 	// -----------------------------------------------------------
 	// Initialize the application
@@ -102,7 +102,7 @@ namespace Tmpl8
 		}
 
 		for (auto object : MapHandler::objects) {
-			(*object).update(deltaTime);
+			(*object).update(deltaTime, player);
 
 			if ((*object).intersectPlayer(player)) {
 				(*object).showText(screen, camera.getPos());

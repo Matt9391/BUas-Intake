@@ -12,7 +12,7 @@ namespace Tmpl8 {
 
 		bool intersectPlayer(Player& player);
 
-		virtual void update(float dt);
+		virtual void update(float dt, Player& player);
 
 		virtual void interact(Player& player);
 
