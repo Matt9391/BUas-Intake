@@ -3,6 +3,34 @@
   "WorkspaceRootPath": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\FishArea.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:FishArea.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\HumanState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:HumanState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\InteractableObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:InteractableObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\FishArea.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:FishArea.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\PlayerState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:PlayerState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
@@ -11,28 +39,12 @@
       "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:Camera2D.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\FishArea.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:FishArea.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Text.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:Text.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\InteractableObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:InteractableObject.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Camera2D.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:Camera2D.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\HumanState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:HumanState.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:Player.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\MapHandler.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -41,10 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\MapHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:MapHandler.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\FishArea.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:FishArea.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Text.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
@@ -59,16 +67,8 @@
       "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:HumanState.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:Player.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
       "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:game.h||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
-      "RelativeMoniker": "D:0:0:{D8FE2186-4BF0-4B89-913F-6C26818E5AC5}|Buas-Intake.vcxproj|solutionrelative:game.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
     }
   ],
   "DocumentGroupContainers": [
@@ -78,7 +78,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 14,
+          "SelectedChildIndex": 20,
           "Children": [
             {
               "$type": "Bookmark",
@@ -98,33 +98,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "FishArea.cpp",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\FishArea.cpp",
               "RelativeDocumentMoniker": "FishArea.cpp",
               "ToolTip": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\FishArea.cpp",
               "RelativeToolTip": "FishArea.cpp",
-              "ViewState": "AgIAAHQAAAAAAAAAAAAswIkAAACBAAAAAAAAAA==",
+              "ViewState": "AgIAABcAAAAAAAAAAAAswCYAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-11-25T18:48:58.962Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 2,
               "Title": "FishArea.h",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\FishArea.h",
               "RelativeDocumentMoniker": "FishArea.h",
               "ToolTip": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\FishArea.h",
               "RelativeToolTip": "FishArea.h",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
+              "ViewState": "AgIAABIAAAAAAAAAAAAAAAsAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-11-25T18:44:48.289Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 9,
               "Title": "Text.cpp",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Text.cpp",
               "RelativeDocumentMoniker": "Text.cpp",
@@ -132,12 +132,11 @@
               "RelativeToolTip": "Text.cpp",
               "ViewState": "AgIAABYAAAAAAAAAAAAswCYAAABWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-11-21T19:31:35.326Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-21T19:31:35.326Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 13,
               "Title": "Text.h",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Text.h",
               "RelativeDocumentMoniker": "Text.h",
@@ -145,8 +144,7 @@
               "RelativeToolTip": "Text.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAACAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-21T19:31:31.938Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-21T19:31:31.938Z"
             },
             {
               "$type": "Document",
@@ -156,14 +154,14 @@
               "RelativeDocumentMoniker": "InteractableObject.cpp",
               "ToolTip": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\InteractableObject.cpp",
               "RelativeToolTip": "InteractableObject.cpp",
-              "ViewState": "AgIAADMAAAAAAAAAAAAswEAAAAAlAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACwAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-11-18T18:00:25.247Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 14,
               "Title": "InteractableObject.h",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\InteractableObject.h",
               "RelativeDocumentMoniker": "InteractableObject.h",
@@ -171,12 +169,11 @@
               "RelativeToolTip": "InteractableObject.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-18T17:58:00.462Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T17:58:00.462Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 10,
               "Title": "Camera2D.cpp",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Camera2D.cpp",
               "RelativeDocumentMoniker": "Camera2D.cpp",
@@ -184,12 +181,11 @@
               "RelativeToolTip": "Camera2D.cpp",
               "ViewState": "AgIAAAwAAAAAAAAAAAAWwBkAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-11-18T16:22:00.4Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T16:22:00.4Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "Camera2D.h",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Camera2D.h",
               "RelativeDocumentMoniker": "Camera2D.h",
@@ -197,25 +193,24 @@
               "RelativeToolTip": "Camera2D.h",
               "ViewState": "AgIAAAEAAAAAAAAAAAAswBAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-18T16:21:24.916Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T16:21:24.916Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 3,
               "Title": "HumanState.cpp",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\HumanState.cpp",
               "RelativeDocumentMoniker": "HumanState.cpp",
               "ToolTip": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\HumanState.cpp",
               "RelativeToolTip": "HumanState.cpp",
-              "ViewState": "AgIAAAMAAAAAAAAAAAAAAA8AAAAXAAAAAAAAAA==",
+              "ViewState": "AgIAACEAAAAAAAAAAAAAADMAAAAgAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-11-18T15:21:26.864Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 15,
               "Title": "HumanState.h",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\HumanState.h",
               "RelativeDocumentMoniker": "HumanState.h",
@@ -223,12 +218,11 @@
               "RelativeToolTip": "HumanState.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-16T15:53:48.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-16T15:53:48.603Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 7,
               "Title": "PlayerState.h",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\PlayerState.h",
               "RelativeDocumentMoniker": "PlayerState.h",
@@ -241,33 +235,33 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Player.cpp",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Player.cpp",
               "RelativeDocumentMoniker": "Player.cpp",
               "ToolTip": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Player.cpp",
               "RelativeToolTip": "Player.cpp",
-              "ViewState": "AgIAALYAAAAAAAAAAAAswLgAAAAsAAAAAAAAAA==",
+              "ViewState": "AgIAAKgAAAAAAAAAAAAWwL8AAAAWAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-11-13T19:55:30.999Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 6,
               "Title": "Player.h",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Player.h",
               "RelativeDocumentMoniker": "Player.h",
               "ToolTip": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Player.h",
               "RelativeToolTip": "Player.h",
-              "ViewState": "AgIAABsAAAAAAAAAAAAAACUAAAAjAAAAAAAAAA==",
+              "ViewState": "AgIAACIAAAAAAAAAAAAWwDAAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
               "WhenOpened": "2025-11-13T19:53:29.126Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 12,
               "Title": "MapHandler.cpp",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\MapHandler.cpp",
               "RelativeDocumentMoniker": "MapHandler.cpp",
@@ -275,12 +269,11 @@
               "RelativeToolTip": "MapHandler.cpp",
               "ViewState": "AgIAAEkAAAAAAAAAAAAswFkAAAAiAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-11-11T15:34:38.547Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T15:34:38.547Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 11,
               "Title": "MapHandler.h",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\MapHandler.h",
               "RelativeDocumentMoniker": "MapHandler.h",
@@ -288,12 +281,11 @@
               "RelativeToolTip": "MapHandler.h",
               "ViewState": "AgIAAAkAAAAAAAAAAAAWwBUAAAAsAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-11T15:32:58.005Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T15:32:58.005Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 16,
               "Title": "game.h",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\game.h",
               "RelativeDocumentMoniker": "game.h",
@@ -301,18 +293,17 @@
               "RelativeToolTip": "game.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAMAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-11T15:30:56.672Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-11T15:30:56.672Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 0,
               "Title": "game.cpp",
               "DocumentMoniker": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\game.cpp",
               "RelativeDocumentMoniker": "game.cpp",
               "ToolTip": "F:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\game.cpp",
               "RelativeToolTip": "game.cpp",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAswF4AAAAhAAAAAAAAAA==",
+              "ViewState": "AgIAAGMAAAAAAAAAAAAAAHAAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-11-11T15:10:43.353Z",
               "EditorCaption": ""

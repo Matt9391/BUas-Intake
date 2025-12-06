@@ -101,6 +101,8 @@ namespace Tmpl8
 
 		}
 
+		player.draw(screen, camera.getPos());
+
 		for (auto object : MapHandler::objects) {
 			(*object).update(deltaTime, player);
 
@@ -116,7 +118,6 @@ namespace Tmpl8
 			//printf("stamppoo\n");
 		}
 
-		player.draw(screen, camera.getPos());
 
 		Text::print(screen);
 	}

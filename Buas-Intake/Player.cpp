@@ -33,7 +33,7 @@ namespace Tmpl8 {
 		this->playAnimation(dt);
 	}
 
-	void Player::handleInput() {
+	/*void Player::handleInput() {
 		this->dir = { 0,0 };
 
 		if (GetAsyncKeyState('A')) {
@@ -57,7 +57,7 @@ namespace Tmpl8 {
 
 		if (this->dir == vec2(0, 0))
 			this->setAnimRange(32, 38);
-	}
+	}*/
 
 	void Player::setAnimRange(int first, int last) {
 		if (first != firstFrame) {
@@ -68,6 +68,8 @@ namespace Tmpl8 {
 	}
 
 	void Player::playAnimation(float dt) {
+		if (this->fishing)
+			return;
 		timeElapsedBF += dt;
 		if (timeElapsedBF > timeBetweenFrames) {
 			timeElapsedBF = 0;
@@ -96,13 +98,23 @@ namespace Tmpl8 {
 
 		this->nextPos += velocity;
 
-		vec2 xNextPos(this->pos.x, this->nextPos.y);
-		vec2 yNextPos(this->nextPos.x, this->pos.y);
+		vec2 xNextPos(this->nextPos.x, this->pos.y);
+		vec2 yNextPos(this->pos.x, this->nextPos.y);
 
+		//to check collision on both axis separately
+		if (!MapHandler::isSolid((*this->currentMap)[1], xNextPos, this->size, 32)&&
+			!MapHandler::isSolid((*this->currentMap)[0], xNextPos, this->size, 32)) {
+			this->pos.x = xNextPos.x;
+		}
+		if (!MapHandler::isSolid((*this->currentMap)[1], yNextPos, this->size, 32) &&
+			!MapHandler::isSolid((*this->currentMap)[0], yNextPos, this->size, 32)) {
+			this->pos.y = yNextPos.y;
+		}
+		/*
 		if (!MapHandler::isSolid((*this->currentMap)[1], nextPos, this->size, 32)&&
 			!MapHandler::isSolid((*this->currentMap)[0], nextPos, this->size, 32)) {
 			this->pos = this->nextPos;
-		}
+		}*/
 
 	}
 

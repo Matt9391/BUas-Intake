@@ -15,6 +15,8 @@ namespace Tmpl8 {
 		char lastInput = player.getInput();
 		player.setInput(' ');
 
+		
+
 		if (GetAsyncKeyState('A')) {
 			player.setDir({ -1,player.getDir().y });
 			player.setAnimRange(8, 15);
@@ -46,10 +48,7 @@ namespace Tmpl8 {
 
 		player.setInteracting(false);
 		if (player.getInput() == 'F')
-			if (lastInput == player.getInput()) {
-				player.setInteracting(false);
-			}
-			else
+			if (lastInput != player.getInput()) 
 				player.setInteracting(true);
 		
 	}
