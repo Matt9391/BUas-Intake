@@ -1,5 +1,6 @@
 #include "template.h"
 #include "surface.h"
+#include <string>
 
 #pragma once
 namespace Tmpl8 {
@@ -17,13 +18,20 @@ namespace Tmpl8 {
 		virtual void interact(Player& player);
 
 		virtual void showText(Surface* screen, vec2 cameraOffset);
+
 		virtual void draw(Surface* screen, vec2 cameraOffset);
 
-		void drawHitBox(Surface* screen, vec2 cameraOffset);
+		void drawHitBox(Surface* screen, vec2 cameraOffset, Pixel clr = 0x00000);
 	protected:
+		Pixel clr;
+
 		int type;
 		vec2 pos;
 		vec2 size;
+
+		vec2 textPosition;
+		std::string textHover;
+
 	};
 }
 

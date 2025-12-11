@@ -25,12 +25,10 @@ namespace Tmpl8 {
 
 		vec2 barPosition;
 		vec2 indxPosition;
-		vec2 textPosition;
 		vec2 cardPosition;
 		vec2 textCardPosition;
 		
 		std::string cardText;
-		std::string textHover;
 
 		float xIndxPos;
 		

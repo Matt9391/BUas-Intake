@@ -31,7 +31,7 @@ namespace Tmpl8 {
 		
 		static std::vector<InteractableObject*> objects;
 	private:
-		static std::vector<int> parseIntList(const std::string& s);
+		static std::vector<float> parseFloatList(const std::string& s);
 
 		std::string delimiter;
 		static int rows;

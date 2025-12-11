@@ -101,10 +101,16 @@ namespace Tmpl8
 
 		}
 
+		for (auto object : MapHandler::objects) {
+			(*object).drawHitBox(screen, camera.getPos());
+		}
+
 		player.draw(screen, camera.getPos());
 
 		for (auto object : MapHandler::objects) {
 			(*object).update(deltaTime, player);
+			
+			(*object).draw(screen, camera.getPos());
 
 			if ((*object).intersectPlayer(player)) {
 				(*object).showText(screen, camera.getPos());
@@ -114,10 +120,9 @@ namespace Tmpl8
 
 			}
 			
-			(*object).draw(screen, camera.getPos());
 			//printf("stamppoo\n");
 		}
-
+		
 
 		Text::print(screen);
 	}

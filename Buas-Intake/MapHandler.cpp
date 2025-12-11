@@ -1,5 +1,7 @@
 #include "MapHandler.h"
 #include "InteractableObject.h"
+#include "IncomeMultiplier.h"
+#include "StaminaShop.h"
 #include "FishArea.h"
 
 
@@ -24,22 +26,28 @@ namespace Tmpl8 {
 		std::getline(objFile, objLine);
 
 		while (std::getline(objFile, objLine)) {
-			std::vector<int> data = parseIntList(objLine);
+			std::vector<float> data = parseFloatList(objLine);
 			//datas:
 			//type
 			//nCol
 			//nRow
 			//nTileWidth
 			//nTileHeight
-			printf("%d %d %d %d %d\n", data[0], data[1], data[2], data[3], data[4]);
+			//printf("%d %d %d %d %d\n", data[0], data[1], data[2], data[3], data[4]);
 			vec2 pos(float(data[1] * tileSize),float(data[2] * tileSize));
 			vec2 size(float(data[3] * tileSize), float(data[4] * tileSize));
 			printf("   %.2f %.2f %.2f %.2f\n", pos.x, pos.y, size.x, size.y);
 			
-			switch (data[0])
+			switch (int(data[0]))
 			{
 			case 1:
 				objects.push_back(new FishArea(data[0], pos, size, fishingSprites));
+				break;
+			case 2:
+				objects.push_back(new IncomeMultiplier(data[0], pos, size));
+				break;
+			case 3:
+				objects.push_back(new StaminaShop(data[0], pos, size));
 				break;
 			default:
 				objects.push_back(new InteractableObject(data[0],pos,size));
@@ -50,15 +58,16 @@ namespace Tmpl8 {
 		
 	}
 
-	std::vector<int> MapHandler::parseIntList(const std::string& s)	{
-		std::vector<int> out;
+	std::vector<float> MapHandler::parseFloatList(const std::string& s)
+	{
+		std::vector<float> out;
 		std::string str;
 
 		for (char c : s)
 		{
 			if (c == ',')
 			{
-				out.push_back(std::stoi(str));
+				out.push_back(std::stof(str));
 				str.clear();
 			}
 			else
@@ -66,7 +75,10 @@ namespace Tmpl8 {
 				str += c;
 			}
 		}
-		out.push_back(std::stoi(str));
+
+		// ultimo numero
+		if (!str.empty())
+			out.push_back(std::stof(str));
 
 		return out;
 	}

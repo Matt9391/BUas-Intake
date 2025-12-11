@@ -17,10 +17,8 @@ namespace Tmpl8 {
 		fishingSprites(fishingSprites),
 		barPosition(pos + vec2(-16, 64)),
 		indxPosition(pos + vec2(+32, 64)),
-		textPosition(pos + vec2(-46, -32)),
 		cardPosition(pos + vec2(16, 24)),
 		textCardPosition(pos + vec2(-46, 88)),
-		textHover("press 'F' to start fishing"),
 		range(44),
 		angle(0),
 		maxAngle(360),
@@ -31,7 +29,10 @@ namespace Tmpl8 {
 		showFishCard(false),
 		elapsedTimeFishCard(0),
 		fishCardMaxTime(2000)
-	{}
+	{
+		textPosition = vec2(pos + vec2(-46, -32));
+		textHover = "press 'F' to start fishing";
+	}
 
 	void FishArea::interact(Player& player) {
 		if (player.isFishing()) {
@@ -125,7 +126,7 @@ namespace Tmpl8 {
 	}
 
 	void FishArea::draw(Surface* screen, vec2 cameraOffset) {
-		//this->drawHitBox(screen, cameraOffset);
+		this->drawHitBox(screen, cameraOffset);
 		if (!this->enable)
 			return;
 

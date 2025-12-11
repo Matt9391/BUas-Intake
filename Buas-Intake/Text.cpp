@@ -24,6 +24,10 @@ namespace Tmpl8 {
 	}
 
 	void Text::drawString(std::string str, Surface* screen, vec2 pos) {
+		if (font == nullptr) {
+			printf("BRO SONO NULL ANCORA EHEHEH");
+			return;
+		}
 
 		//printf("char: %c, c_index: %d, index: %d\n", character, character, index);
 
