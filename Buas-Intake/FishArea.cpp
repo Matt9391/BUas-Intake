@@ -2,26 +2,22 @@
 #include "Player.h"
 #include "Text.h"
 #include <Windows.h>
+#include "Fish.h"
 
 namespace Tmpl8 {
 
-	enum Rarity {
-		COMMON,
-		RARE,
-		EPIC,
-		LEGENDARY
-	};
+	
 
 	FishArea::FishArea(int type, vec2 pos, vec2 size, std::array<Sprite*, 3> fishingSprites) :
 		InteractableObject(type, pos, size),
 		fishingSprites(fishingSprites),
 		barPosition(pos + vec2(-16, 64)),
-		indxPosition(pos + vec2(+32, 64)),
+		indxPosition(pos + vec2(+31, 64)),
 		cardPosition(pos + vec2(16, 24)),
 		textCardPosition(pos + vec2(-46, 88)),
-		range(44),
+		range(45),
 		angle(0),
-		maxAngle(360),
+		maxAngle(2.f * 3.14),
 		xIndxPos(0),
 		enable(false),
 		elapsedTimeSpace(500),
@@ -52,7 +48,8 @@ namespace Tmpl8 {
 
 		this->elapsedTimeSpace += dt;
 
-		this->angle += 0.03;
+		this->angle += 0.0035 * dt;
+		//this->angle = 3.14 / -2.f;
 		if (this->angle > maxAngle)
 			this->angle = 0;
 
@@ -61,8 +58,6 @@ namespace Tmpl8 {
 		if (this->elapsedTimeSpace < this->rebounceTime) {
 			return;
 		}
-
-		
 		
 		this->elapsedTimeSpace = 0;
 
@@ -94,9 +89,13 @@ namespace Tmpl8 {
 
 			}
 
+			Fish fish = { rarity, 100.f};
+
 			(*this->fishingSprites[2]).SetFrame(rarity);
 
-			printf("%d\n", rarity);
+			//printf("%d e %d\n", rarity, fish.rarity);
+			player.addFish(fish);
+			this->angle = -3.14 / 2.f;
 		}
 
 		//printf("%.2f\n", xIndxPos);
@@ -126,7 +125,7 @@ namespace Tmpl8 {
 	}
 
 	void FishArea::draw(Surface* screen, vec2 cameraOffset) {
-		this->drawHitBox(screen, cameraOffset);
+		//this->drawHitBox(screen, cameraOffset);
 		if (!this->enable)
 			return;
 

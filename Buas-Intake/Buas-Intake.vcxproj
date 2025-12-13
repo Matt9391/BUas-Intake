@@ -238,6 +238,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Camera2D.h" />
+    <ClInclude Include="Fish.h" />
     <ClInclude Include="FishArea.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="HumanState.h" />

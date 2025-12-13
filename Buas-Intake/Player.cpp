@@ -31,6 +31,12 @@ namespace Tmpl8 {
 		this->state->handleInput(*this);
 		this->move(dt);
 		this->playAnimation(dt);
+
+		printf("FISHESSS\n");
+		for (Fish& fish : this->fishInventory) {
+			printf("%d, %.0f\n", fish.rarity, fish.value);
+		}
+		printf("FINE----------------------\n");
 	}
 
 	/*void Player::handleInput() {
@@ -190,6 +196,10 @@ namespace Tmpl8 {
 	
 	void Player::addCoins(int coins) {
 		this->coins += coins;
+	}
+
+	void Player::addFish(Fish fish) {
+		this->fishInventory.push_back(fish);
 	}
 
 	void Player::showHitbox(Surface* screen, vec2 cameraOffset) {

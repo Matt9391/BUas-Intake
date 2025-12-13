@@ -1,9 +1,11 @@
 #include "template.h"
 #include "surface.h"
 #include <array>
+#include <vector>
 #include "MapHandler.h"
 #include "PlayerState.h"
 #include "PlayerVisual.h"
+#include "Fish.h"
 #pragma once
 
 namespace Tmpl8 {
@@ -38,6 +40,7 @@ namespace Tmpl8 {
 		void setInput(const char& input);
 		void setCoins(long long coins);
 		void addCoins(int coins); //I belive that a reduce coins is useless
+		void addFish(Fish fish);
 
 		void setAnimRange(int first, int last);
 
@@ -75,6 +78,8 @@ namespace Tmpl8 {
 		bool fishing;
 
 		long long coins;
+
+		std::vector<Fish> fishInventory;
 
 	};
 
