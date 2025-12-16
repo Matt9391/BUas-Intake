@@ -101,9 +101,9 @@ namespace Tmpl8
 
 		}
 
-		for (auto object : MapHandler::objects) {
-			(*object).drawHitBox(screen, camera.getPos());
-		}
+		//for (auto object : MapHandler::objects) {
+		//	(*object).drawHitBox(screen, camera.getPos());
+		//}
 
 		player.draw(screen, camera.getPos());
 

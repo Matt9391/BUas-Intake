@@ -42,8 +42,10 @@ namespace Tmpl8 {
 		void setState(int state);
 		void setInput(const char& input);
 		void setCoins(long long coins);
-		void addCoins(int coins); //I belive that a reduce coins is useless
+		void spendCoins(int coins); 
+		void addCoins(int coins);
 		void addFish(Fish fish);
+		void setMultiplier(float multiplier);
 
 		void setAnimRange(int first, int last);
 
@@ -81,8 +83,11 @@ namespace Tmpl8 {
 		bool fishing;
 
 		long long coins;
+		float coinsMultiplier;
 
 		std::vector<Fish> fishInventory;
+
+
 
 	};
 

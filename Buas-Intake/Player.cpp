@@ -20,7 +20,8 @@ namespace Tmpl8 {
 		velocity(0, 0),
 		input(' '),
 		fishing(false),
-		coins(100)
+		coins(100),
+		coinsMultiplier(1)
 	{
 		this->setState(0);
 		humanSprite.SetFrame(38);
@@ -202,12 +203,20 @@ namespace Tmpl8 {
 		this->coins = coins;
 	}
 	
+	void Player::spendCoins(int coins) {
+		this->coins -= coins;
+	}
+
 	void Player::addCoins(int coins) {
-		this->coins += coins;
+		this->coins += (long long) coins * this->coinsMultiplier;
 	}
 
 	void Player::addFish(Fish fish) {
 		this->fishInventory.push_back(fish);
+	}
+
+	void Player::setMultiplier(float multiplier) {
+		this->coinsMultiplier = multiplier;
 	}
 
 	void Player::showHitbox(Surface* screen, vec2 cameraOffset) {

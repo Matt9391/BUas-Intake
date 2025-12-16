@@ -14,15 +14,15 @@ namespace Tmpl8 {
 
 	void Seller::interact(Player& player) {
 		std::vector<Fish> fishes = player.getFishes();
-		float sumValues = 0;
+		float totalValue = 0;
 
 		printf("FISHESS\n");
 		for (Fish& fish : fishes) {
 			printf("%d, %.2f\n", fish.rarity, fish.value);
-			sumValues += fish.value;
+			totalValue += fish.value;
 		}
 
-		player.addCoins(sumValues);
+		player.addCoins(totalValue);
 
 		player.clearFishes();
 	}

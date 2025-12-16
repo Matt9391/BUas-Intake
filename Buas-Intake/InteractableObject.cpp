@@ -61,7 +61,7 @@ namespace Tmpl8 {
 	}
 
 	void InteractableObject::draw(Surface* screen, vec2 cameraOffset) {
-		this->drawHitBox(screen, cameraOffset);
+		//this->drawHitBox(screen, cameraOffset);
 	}
 
 	void InteractableObject::drawHitBox(Surface* screen, vec2 cameraOffset, Pixel clr) {
