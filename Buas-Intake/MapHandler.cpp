@@ -3,6 +3,7 @@
 #include "IncomeMultiplier.h"
 #include "StaminaShop.h"
 #include "FishArea.h"
+#include "Seller.h"
 
 
 namespace Tmpl8 {
@@ -48,6 +49,9 @@ namespace Tmpl8 {
 				break;
 			case 3:
 				objects.push_back(new StaminaShop(data[0], pos, size));
+				break;
+			case 4:
+				objects.push_back(new Seller(data[0], pos, size));
 				break;
 			default:
 				objects.push_back(new InteractableObject(data[0],pos,size));

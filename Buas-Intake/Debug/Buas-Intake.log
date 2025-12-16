@@ -1,2 +1,3 @@
-﻿  Player.cpp
-  Buas-Intake.vcxproj -> F:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe
+﻿  FishArea.cpp
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(52,25): warning C4244: '+=': conversione da 'double' a 'float'. Possibile perdita di dati.
+  Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe

@@ -24,6 +24,8 @@ namespace Tmpl8 {
 
 		void draw(Surface* screen, vec2 cameraOffset);
 
+		void clearFishes();
+
 		vec2 getPos();
 		vec2 getDir();
 		vec2 getSize();
@@ -31,6 +33,7 @@ namespace Tmpl8 {
 		bool isInteracting();
 		bool isFishing();
 		long long getCoins();
+		std::vector<Fish> getFishes();
 
 		void setInteracting(bool state);
 		void setFishing(bool state);

@@ -32,11 +32,11 @@ namespace Tmpl8 {
 		this->move(dt);
 		this->playAnimation(dt);
 
-		printf("FISHESSS\n");
-		for (Fish& fish : this->fishInventory) {
-			printf("%d, %.0f\n", fish.rarity, fish.value);
-		}
-		printf("FINE----------------------\n");
+		//printf("FISHESSS\n");
+		//for (Fish& fish : this->fishInventory) {
+		//	printf("%d, %.0f\n", fish.rarity, fish.value);
+		//}
+		//printf("FINE----------------------\n");
 	}
 
 	/*void Player::handleInput() {
@@ -135,6 +135,10 @@ namespace Tmpl8 {
 		Text::drawString(std::to_string(this->coins), screen, vec2(64, 64));
 	}
 
+	void Player::clearFishes() {
+		this->fishInventory.clear();
+	}
+
 	vec2 Player::getPos() {
 		return this->pos;
 	}
@@ -159,6 +163,10 @@ namespace Tmpl8 {
 
 	long long Player::getCoins() {
 		return this->coins;
+	}
+
+	std::vector<Fish> Player::getFishes() {
+		return this->fishInventory;
 	}
 
 	void Player::setInteracting(bool state) {

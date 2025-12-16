@@ -231,6 +231,7 @@
     <ClCompile Include="MapHandler.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />
+    <ClCompile Include="Seller.cpp" />
     <ClCompile Include="StaminaShop.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
@@ -248,6 +249,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="PlayerVisual.h" />
+    <ClInclude Include="Seller.h" />
     <ClInclude Include="StaminaShop.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />

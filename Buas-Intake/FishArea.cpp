@@ -34,6 +34,7 @@ namespace Tmpl8 {
 		if (player.isFishing()) {
 			player.setFishing(false);
 			this->enable = false;
+			this->showFishCard = false;
 			this->textHover = "press 'F' to start fishing";
 		}else {
 			player.setFishing(true);
@@ -46,7 +47,7 @@ namespace Tmpl8 {
 		if (this->showFishCard)
 			return;
 
-		this->elapsedTimeSpace += dt;
+		this->elapsedTimeSpace += dt; //spacebar pressed
 
 		this->angle += 0.0035 * dt;
 		//this->angle = 3.14 / -2.f;
@@ -66,30 +67,31 @@ namespace Tmpl8 {
 			this->showFishCard = true;
 			printf("%.2f PRESSEDD\n", fishPercentage);
 			Rarity rarity = Rarity::COMMON;
+			float value = 0;
 
 			if (fishPercentage < 50) {
 				rarity = Rarity::COMMON;
-				this->cardText = "A common fish! + 10 Coins";
-				player.addCoins(10);
+				this->cardText = "A common fish!";
+				value = 10;
 			}
 			else if (fishPercentage >= 50 && fishPercentage < 75) {
 				rarity = Rarity::RARE;
-				this->cardText = "A rare fish! + 20 Coins";
-				player.addCoins(20);
+				this->cardText = "A rare fish!";
+				value = 20;
 			}
 			else if (fishPercentage >= 75 && fishPercentage < 90) {
 				rarity = Rarity::EPIC;
-				this->cardText = "A epic fish! + 50 Coins";
-				player.addCoins(50);
+				this->cardText = "A epic fish!";
+				value = 50;
 			}
 			else if (fishPercentage >= 90) {
 				rarity = Rarity::LEGENDARY;
-				this->cardText = "A legendary fish! + 150 Coins";
-				player.addCoins(150);
+				this->cardText = "A legendary fish!";
+				value = 150;
 
 			}
 
-			Fish fish = { rarity, 100.f};
+			Fish fish = { rarity, value};
 
 			(*this->fishingSprites[2]).SetFrame(rarity);
 
