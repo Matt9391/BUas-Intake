@@ -1,4 +1,6 @@
 #include "StaminaShop.h"
+#include "PlayerVisual.h"
+#include "Player.h"
 
 namespace Tmpl8 {
 
@@ -7,6 +9,15 @@ namespace Tmpl8 {
 	{
 		this->textHover = "Stamina shop";
 		this->textPosition = vec2(pos + vec2(10, -48));
+	}
+
+	void StaminaShop::interact(Player& player) {
+		if (player.getPlayerVisual() == PlayerVisual::Human) {
+			player.setState(1);
+		}
+		else {
+			player.setState(0);
+		}
 	}
 
 	void StaminaShop::draw(Surface* screen, vec2 cameraOffset) {

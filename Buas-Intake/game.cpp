@@ -23,6 +23,7 @@ namespace Tmpl8
 	Surface fontSource("./assets/Font/fontHorizontal.png");
 	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
 	Sprite humanSprite(new Surface("./assets/TopDown/player.tga"), 40);
+	Sprite fishSprite(new Surface("./assets/2D/mainFish.tga"), 7);
 	Sprite barSprite(new Surface("./assets/TopDown/fishingBar.png"), 1);
 	Sprite indxSprite(new Surface("./assets/TopDown/fishingIndx.png"), 1);
 	Sprite fishesSprite(new Surface("./assets/TopDown/fishesv2.tga"), 4);
@@ -31,7 +32,7 @@ namespace Tmpl8
 	// Initialize the application
 	// -----------------------------------------------------------
 
-	Player player(humanSprite, &mapsTdw);
+	Player player(humanSprite, fishSprite, &mapsTdw);
 	int tileSize = 32;
 	vec2 player2(ScreenWidth / 2, ScreenHeight / 2);
 

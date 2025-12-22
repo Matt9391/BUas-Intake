@@ -15,7 +15,6 @@ namespace Tmpl8 {
 
 		//void draw(Player& player, Surface* screen, vec2 cameraOffset) override;
 	private:
-		Sprite* humanSprite = nullptr;
 	};
 }
 

@@ -14,7 +14,7 @@ namespace Tmpl8 {
 	{
 	public:
 
-		Player(Sprite& humanSprite, std::array<Map, 2>* currentMap);
+		Player(Sprite& humanSprite, Sprite& fishSprite, std::array<Map, 2>* currentMap);
 
 		void update(float dt);
 		
@@ -30,6 +30,7 @@ namespace Tmpl8 {
 		vec2 getDir();
 		vec2 getSize();
 		char getInput();
+		PlayerVisual getPlayerVisual();
 		bool isInteracting();
 		bool isFishing();
 		long long getCoins();
@@ -73,6 +74,7 @@ namespace Tmpl8 {
 
 		vec2 dir;
 		Sprite &humanSprite;
+		Sprite &fishSprite;
 
 		PlayerState* state;
 		PlayerVisual visual;

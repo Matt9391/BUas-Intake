@@ -1,13 +1,15 @@
 #include "Player.h"
 #include "HumanState.h"
+#include "FishState.h"
 #include "Text.h"
 
 #include <Windows.h>
 
 namespace Tmpl8 {
 
-	Player::Player(Sprite& humanSprite, std::array<Map, 2>* currentMap) :
+	Player::Player(Sprite& humanSprite, Sprite& fishSprite, std::array<Map, 2>* currentMap) :
 		humanSprite(humanSprite),
+		fishSprite(fishSprite),
 		currentMap(currentMap),
 		pos({ ScreenWidth / 2, ScreenHeight / 2 }),
 		size({ 32, 16 }),
@@ -86,7 +88,11 @@ namespace Tmpl8 {
 				currentFrame = firstFrame;
 			}
 
-			this->humanSprite.SetFrame(currentFrame);
+			if (this->visual == PlayerVisual::Human) {
+				this->humanSprite.SetFrame(currentFrame);
+			}else if (this->visual == PlayerVisual::Fish) {
+				this->fishSprite.SetFrame(currentFrame);
+			}
 		}
 	}
 
@@ -132,6 +138,11 @@ namespace Tmpl8 {
 			int xDrawPos = int(this->pos.x + 1 - cameraOffset.x);
 			this->humanSprite.Draw(screen, xDrawPos, yDrawPos);
 		}
+		else if (this->visual == PlayerVisual::Fish) {
+			int yDrawPos = int(this->pos.y - this->size.y * 2  - cameraOffset.y);
+			int xDrawPos = int(this->pos.x + 1 - cameraOffset.x);
+			this->fishSprite.Draw(screen, xDrawPos, yDrawPos);
+		}
 
 		Text::drawString(std::to_string(this->coins), screen, vec2(64, 64));
 	}
@@ -152,6 +163,10 @@ namespace Tmpl8 {
 
 	char Player::getInput() {
 		return this->input;
+	}
+
+	PlayerVisual Player::getPlayerVisual() {
+		return this->visual;
 	}
 
 	bool Player::isInteracting() {
@@ -193,9 +208,13 @@ namespace Tmpl8 {
 		if (state == 0) {
 			this->state = new HumanState();
 			this->visual = PlayerVisual::Human;
+			this->state->enter(*this);
 		}
-		//if (state == 1)
-			//this->state = new HumanState();
+		else if (state == 1) {
+			this->state = new FishState();
+			this->visual = PlayerVisual::Fish;
+			this->state->enter(*this);
+		}
 
 	}
 

@@ -6,7 +6,8 @@
 namespace Tmpl8 {
 
 	void HumanState::enter(Player& player) {
-		player.setState(0);
+		//player.setState(0);
+		printf("Sono umano\n");
 	}
 
 	void HumanState::handleInput(Player& player) {
