@@ -20,7 +20,7 @@ public:
 	int COLS;
 	int ROWS2D;
 	int COLS2D;
-	static bool humanScene;
+	static bool humanSceneBool;
 private:
 
 	Surface* screen;

@@ -19,8 +19,6 @@ namespace Tmpl8 {
 	public:
 		MapHandler();
 
-		static void setSize(int nRows, int nCols);
-
 		static void loadInteractableObject(std::string fileName, int tileSize, std::array<Sprite*, 3> fishingSprites);
 
 		static Map loadMap(std::string fileName);
@@ -31,13 +29,21 @@ namespace Tmpl8 {
 		
 		static std::vector<InteractableObject*> objects;
 		static std::array<Map, 2> mapsTdw;
+		static vec2 tilesTWD;
+
 		static std::array<Map, 2> maps2D;
+		static vec2 tiles2D;
+
+		static const int tileSize;
+
+		
+		static Surface map2DTileset;
+		static Surface mapTdwTileset;
+
 	private:
 		static std::vector<float> parseFloatList(const std::string& s);
 
 		std::string delimiter;
-		static int rows;
-		static int cols;
 	};
 
 }

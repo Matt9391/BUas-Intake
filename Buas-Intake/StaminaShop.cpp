@@ -15,13 +15,13 @@ namespace Tmpl8 {
 
 	void StaminaShop::interact(Player& player) {
 		if (player.getPlayerVisual() == PlayerVisual::Human) {
-			player.setState(1);
-			Game::humanScene = false;
+			player.setState(int(PlayerVisual::Fish));
+			Game::humanSceneBool = false;
 			player.loadMap(&MapHandler::maps2D);
 		}
 		else {
-			player.setState(0); 
-			Game::humanScene = true;
+			player.setState(int(PlayerVisual::Human));
+			Game::humanSceneBool = true;
 			player.loadMap(&MapHandler::mapsTdw	);
 		}
 	}

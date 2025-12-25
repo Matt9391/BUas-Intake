@@ -9,6 +9,7 @@
 #include "Player.h"
 #include "Text.h"
 #include "InteractableObject.h"
+#include "HumanScene.h"
 #include <Windows.h>
 
 namespace Tmpl8
@@ -18,8 +19,7 @@ namespace Tmpl8
 	//void DrawTile(int tx, int ty, Surface* screen, Surface* map, int x, int y);
 	
 
-	Surface map2DTileset("./assets/2D/seaMap.png");
-	Surface mapTdwTileset("./assets/TopDown/map3.png");
+	
 	Surface fontSource("./assets/Font/fontHorizontal.png");
 	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
 	Sprite humanSprite(new Surface("./assets/TopDown/player.tga"), 40);
@@ -36,7 +36,9 @@ namespace Tmpl8
 	int tileSize = 32;
 	vec2 player2(ScreenWidth / 2, ScreenHeight / 2);
 
-	bool Game::humanScene = true;
+	bool Game::humanSceneBool = true;
+
+	HumanScene humanScene;
 
 	void Game::Init()
 	{	
@@ -47,10 +49,12 @@ namespace Tmpl8
 		MapHandler::loadInteractableObject("interactableObjectList.txt", 32, fishingAreaSprites);
 		this->ROWS = int(MapHandler::mapsTdw[0].size());
 		this->COLS = int(std::floor((MapHandler::mapsTdw[0][0].size() + 1) / 4));
+		MapHandler::tilesTWD = vec2(COLS, ROWS);
 		this->ROWS2D = int(MapHandler::maps2D[0].size());
 		this->COLS2D = int(std::floor((MapHandler::maps2D[0][0].size() + 1) / 4)); //div 4 perché ci sono 4 char nel txt
+		MapHandler::tiles2D = vec2(COLS2D, ROWS2D);
 		camera.setWorldSize(vec2(float(this->COLS), float(this->ROWS)));
-		MapHandler::setSize(this->ROWS, this->COLS);
+
 		Text::init(&fontSource);
 
 		printf("%d %d\n",ROWS,COLS);
@@ -81,74 +85,31 @@ namespace Tmpl8
 	// -----------------------------------------------------------
 	void Game::Tick(float deltaTime)
 	{
-		
-		player.update(deltaTime);
-
-		//printf("collide: %d interacting: %d \n", obj.intersectPlayer(player), player.isInteracting());
-		
-		
-		camera.follow(player.getPos());
-
-		//printf("%d\n", MapHandler::isSolid(mapsTdw[1], player.getPos(), 32));
-
-		screen->Clear(0);
-		
-		if (Game::humanScene) {
-
-			for (int i = 0; i < ROWS; i++) {
-				for (int j = 0; j < COLS; j++) {
-					for (int iMap = 0; iMap < MapHandler::mapsTdw.size(); iMap++) {
-						int tx = MapHandler::mapsTdw[iMap][i][j * 4] - 'a';
-						int ty = MapHandler::mapsTdw[iMap][i][j * 4 + 1] - 'a';
-						//printf("%c e %c\n", tx + 'a', ty + 'a');
-						int x = j * tileSize - int(camera.getPos().x);
-						int y = i * tileSize - int(camera.getPos().y);
-						//printf("%d e %d\n", x, y);
-
-						MapHandler::drawTile(tx, ty, screen, &mapTdwTileset, x, y, 32);
-					}
-
-				}
-
-			}
-			//for (auto object : MapHandler::objects) {
-			//	(*object).drawHitBox(screen, camera.getPos());
-			//}
 			
-			for (auto object : MapHandler::objects) {
-				(*object).update(deltaTime, player);
-
-				(*object).draw(screen, camera.getPos());
-
-				if ((*object).intersectPlayer(player)) {
-					(*object).showText(screen, camera.getPos());
-					if (player.isInteracting()) {
-						(*object).interact(player);
-					}
-
-				}
-
-				//printf("stamppoo\n");
-			}
+		if (Game::humanSceneBool) {
+			
+			humanScene.update(deltaTime, camera, player);
+			humanScene.draw(screen, camera, player);
+			
 		}
-		else {
-			for (int i = 0; i < ROWS2D; i++) {
-				for (int j = 0; j < COLS2D; j++) {
-					for (int iMap = 0; iMap < MapHandler::maps2D.size() -1; iMap++) {
-						int tx = MapHandler::maps2D[iMap][i][j * 4] - 'a';
-						int ty = MapHandler::maps2D[iMap][i][j * 4 + 1] - 'a';
-						//printf("%c e %c\n", tx + 'a', ty + 'a');
-						int x = j * tileSize - int(camera.getPos().x);
-						int y = i * tileSize - int(camera.getPos().y);
-						//printf("%d e %d\n", x, y);
+		//else {
+		//	for (int i = 0; i < ROWS2D; i++) {
+		//		for (int j = 0; j < COLS2D; j++) {
+		//			for (int iMap = 0; iMap < MapHandler::maps2D.size() -1; iMap++) {
+		//				int tx = MapHandler::maps2D[iMap][i][j * 4] - 'a';
+		//				int ty = MapHandler::maps2D[iMap][i][j * 4 + 1] - 'a';
+		//				//printf("%c e %c\n", tx + 'a', ty + 'a');
+		//				int x = j * tileSize - int(camera.getPos().x);
+		//				int y = i * tileSize - int(camera.getPos().y);
+		//				//printf("%d e %d\n", x, y);
 
-						MapHandler::drawTile(tx, ty, screen, &map2DTileset, x, y, 32);
-					}
+		//				MapHandler::drawTile(tx, ty, screen, &map2DTileset, x, y, 32);
+		//			}
 
-				}
+		//		}
 
-			}
-		}
+		//	}
+		//}
 
 		
 
