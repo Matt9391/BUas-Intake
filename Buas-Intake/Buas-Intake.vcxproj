@@ -224,6 +224,7 @@
   <ItemGroup>
     <ClCompile Include="Camera2D.cpp" />
     <ClCompile Include="FishArea.cpp" />
+    <ClCompile Include="FishScene.cpp" />
     <ClCompile Include="FishState.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="HumanScene.cpp" />
@@ -244,6 +245,7 @@
     <ClInclude Include="Camera2D.h" />
     <ClInclude Include="Fish.h" />
     <ClInclude Include="FishArea.h" />
+    <ClInclude Include="FishScene.h" />
     <ClInclude Include="FishState.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="HumanScene.h" />

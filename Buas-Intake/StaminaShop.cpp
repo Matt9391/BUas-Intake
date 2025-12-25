@@ -22,7 +22,7 @@ namespace Tmpl8 {
 		else {
 			player.setState(int(PlayerVisual::Human));
 			Game::humanSceneBool = true;
-			player.loadMap(&MapHandler::mapsTdw	);
+			player.loadMap(&MapHandler::mapsTdw);
 		}
 	}
 

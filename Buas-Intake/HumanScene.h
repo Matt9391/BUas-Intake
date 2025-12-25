@@ -1,6 +1,5 @@
 #include "Scene.h"
 #include "MapHandler.h"
-
 #include <array>
 
 #pragma once

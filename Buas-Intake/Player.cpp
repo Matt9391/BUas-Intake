@@ -140,7 +140,7 @@ namespace Tmpl8 {
 	}
 
 	void Player::draw(Surface* screen, vec2 cameraOffset) {
-		this->showHitbox(screen, cameraOffset);
+		//this->showHitbox(screen, cameraOffset);
 		if (this->visual == PlayerVisual::Human) {
 			int yDrawPos = int(this->pos.y - this->size.y * 2  - cameraOffset.y);
 			int xDrawPos = int(this->pos.x + 1 - cameraOffset.x);

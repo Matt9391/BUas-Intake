@@ -29,7 +29,7 @@ namespace Tmpl8 {
 		
 		static std::vector<InteractableObject*> objects;
 		static std::array<Map, 2> mapsTdw;
-		static vec2 tilesTWD;
+		static vec2 tilesTdw;
 
 		static std::array<Map, 2> maps2D;
 		static vec2 tiles2D;

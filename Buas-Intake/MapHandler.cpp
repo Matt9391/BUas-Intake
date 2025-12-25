@@ -10,7 +10,7 @@ namespace Tmpl8 {
 
 	MapHandler::MapHandler(){}
 
-	vec2 MapHandler::tilesTWD = vec2(0, 0);
+	vec2 MapHandler::tilesTdw = vec2(0, 0);
 	vec2 MapHandler::tiles2D = vec2(0, 0);
 	
 	const int MapHandler::tileSize = 32;

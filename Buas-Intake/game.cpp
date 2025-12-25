@@ -10,6 +10,7 @@
 #include "Text.h"
 #include "InteractableObject.h"
 #include "HumanScene.h"
+#include "FishScene.h"
 #include <Windows.h>
 
 namespace Tmpl8
@@ -39,6 +40,7 @@ namespace Tmpl8
 	bool Game::humanSceneBool = true;
 
 	HumanScene humanScene;
+	FishScene fishScene;
 
 	void Game::Init()
 	{	
@@ -49,7 +51,7 @@ namespace Tmpl8
 		MapHandler::loadInteractableObject("interactableObjectList.txt", 32, fishingAreaSprites);
 		this->ROWS = int(MapHandler::mapsTdw[0].size());
 		this->COLS = int(std::floor((MapHandler::mapsTdw[0][0].size() + 1) / 4));
-		MapHandler::tilesTWD = vec2(COLS, ROWS);
+		MapHandler::tilesTdw = vec2(COLS, ROWS);
 		this->ROWS2D = int(MapHandler::maps2D[0].size());
 		this->COLS2D = int(std::floor((MapHandler::maps2D[0][0].size() + 1) / 4)); //div 4 perché ci sono 4 char nel txt
 		MapHandler::tiles2D = vec2(COLS2D, ROWS2D);
@@ -91,6 +93,10 @@ namespace Tmpl8
 			humanScene.update(deltaTime, camera, player);
 			humanScene.draw(screen, camera, player);
 			
+		}
+		else {
+			fishScene.update(deltaTime, camera, player);
+			fishScene.draw(screen, camera, player);
 		}
 		//else {
 		//	for (int i = 0; i < ROWS2D; i++) {

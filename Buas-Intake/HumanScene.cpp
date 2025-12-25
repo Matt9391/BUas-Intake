@@ -32,8 +32,8 @@ namespace Tmpl8 {
 	void HumanScene::draw(Surface* screen, Camera2D& camera, Player& player) {
 		screen->Clear(0);
 
-		for (int i = 0; i < MapHandler::tilesTWD.y; i++) {
-			for (int j = 0; j < MapHandler::tilesTWD.x; j++) {
+		for (int i = 0; i < MapHandler::tilesTdw.y; i++) {
+			for (int j = 0; j < MapHandler::tilesTdw.x; j++) {
 				for (int iMap = 0; iMap < MapHandler::mapsTdw.size(); iMap++) {
 					int tx = MapHandler::mapsTdw[iMap][i][j * 4] - 'a';
 					int ty = MapHandler::mapsTdw[iMap][i][j * 4 + 1] - 'a';
