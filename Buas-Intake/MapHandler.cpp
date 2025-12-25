@@ -15,6 +15,9 @@ namespace Tmpl8 {
 
 	std::vector<InteractableObject*> MapHandler::objects;
 
+	std::array<Map, 2> MapHandler::mapsTdw;
+	std::array<Map, 2> MapHandler::maps2D;
+
 	void MapHandler::setSize(int nRows, int nCols) {
 		rows = nRows;
 		cols = nCols;

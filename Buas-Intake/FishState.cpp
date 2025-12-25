@@ -16,12 +16,12 @@ namespace Tmpl8 {
 		player.setInput(' ');
 
 		if (GetAsyncKeyState('A')) {
-			player.setDir({ -1,player.getDir().y });
-			player.setAnimRange(0, 6);
+			player.setDir({ -1,1 });
+			player.setAnimRange(7, 13);
 			player.setInput('A');
 		}
 		else if (GetAsyncKeyState('D')) {
-			player.setDir({ 1,player.getDir().y });
+			player.setDir({ 1,1 });
 			player.setAnimRange(0, 6);
 			player.setInput('D');
 		}

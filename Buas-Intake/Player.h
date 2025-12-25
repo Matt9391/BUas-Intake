@@ -14,7 +14,7 @@ namespace Tmpl8 {
 	{
 	public:
 
-		Player(Sprite& humanSprite, Sprite& fishSprite, std::array<Map, 2>* currentMap);
+		Player(Sprite& humanSprite, Sprite& fishSprite);
 
 		void update(float dt);
 		
@@ -25,6 +25,8 @@ namespace Tmpl8 {
 		void draw(Surface* screen, vec2 cameraOffset);
 
 		void clearFishes();
+
+		void loadMap(std::array<Map, 2>* currentMap);
 
 		vec2 getPos();
 		vec2 getDir();

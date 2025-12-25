@@ -18,7 +18,11 @@ public:
 
 	int ROWS;
 	int COLS;
+	int ROWS2D;
+	int COLS2D;
+	static bool humanScene;
 private:
+
 	Surface* screen;
 };
 

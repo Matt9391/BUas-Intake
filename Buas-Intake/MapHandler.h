@@ -30,6 +30,8 @@ namespace Tmpl8 {
 		static void drawTile(int tx, int ty, Surface* screen, Surface *map, int x, int y, int tileSize);
 		
 		static std::vector<InteractableObject*> objects;
+		static std::array<Map, 2> mapsTdw;
+		static std::array<Map, 2> maps2D;
 	private:
 		static std::vector<float> parseFloatList(const std::string& s);
 

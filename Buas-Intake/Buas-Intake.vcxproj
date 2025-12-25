@@ -226,12 +226,14 @@
     <ClCompile Include="FishArea.cpp" />
     <ClCompile Include="FishState.cpp" />
     <ClCompile Include="game.cpp" />
+    <ClCompile Include="HumanScene.cpp" />
     <ClCompile Include="HumanState.cpp" />
     <ClCompile Include="IncomeMultiplier.cpp" />
     <ClCompile Include="InteractableObject.cpp" />
     <ClCompile Include="MapHandler.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />
+    <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Seller.cpp" />
     <ClCompile Include="StaminaShop.cpp" />
     <ClCompile Include="surface.cpp" />
@@ -244,6 +246,7 @@
     <ClInclude Include="FishArea.h" />
     <ClInclude Include="FishState.h" />
     <ClInclude Include="game.h" />
+    <ClInclude Include="HumanScene.h" />
     <ClInclude Include="HumanState.h" />
     <ClInclude Include="IncomeMultiplier.h" />
     <ClInclude Include="InteractableObject.h" />
@@ -251,6 +254,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="PlayerVisual.h" />
+    <ClInclude Include="Scene.h" />
     <ClInclude Include="Seller.h" />
     <ClInclude Include="StaminaShop.h" />
     <ClInclude Include="surface.h" />

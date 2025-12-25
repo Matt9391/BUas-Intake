@@ -3,14 +3,15 @@
 #include "FishState.h"
 #include "Text.h"
 
+
 #include <Windows.h>
 
 namespace Tmpl8 {
 
-	Player::Player(Sprite& humanSprite, Sprite& fishSprite, std::array<Map, 2>* currentMap) :
+	Player::Player(Sprite& humanSprite, Sprite& fishSprite) :
 		humanSprite(humanSprite),
 		fishSprite(fishSprite),
-		currentMap(currentMap),
+		currentMap(nullptr),
 		pos({ ScreenWidth / 2, ScreenHeight / 2 }),
 		size({ 32, 16 }),
 		speed(0.15),
@@ -111,6 +112,13 @@ namespace Tmpl8 {
 
 		this->nextPos += velocity;
 
+
+		if (this->currentMap == nullptr)
+		{
+			this->pos = this->nextPos;
+			return;
+		}
+
 		vec2 xNextPos(this->nextPos.x, this->pos.y);
 		vec2 yNextPos(this->pos.x, this->nextPos.y);
 
@@ -132,15 +140,15 @@ namespace Tmpl8 {
 	}
 
 	void Player::draw(Surface* screen, vec2 cameraOffset) {
-		//this->showHitbox(screen, cameraOffset);
+		this->showHitbox(screen, cameraOffset);
 		if (this->visual == PlayerVisual::Human) {
 			int yDrawPos = int(this->pos.y - this->size.y * 2  - cameraOffset.y);
 			int xDrawPos = int(this->pos.x + 1 - cameraOffset.x);
 			this->humanSprite.Draw(screen, xDrawPos, yDrawPos);
 		}
 		else if (this->visual == PlayerVisual::Fish) {
-			int yDrawPos = int(this->pos.y - this->size.y * 2  - cameraOffset.y);
-			int xDrawPos = int(this->pos.x + 1 - cameraOffset.x);
+			int yDrawPos = int(this->pos.y - this->size.y / 2.f  - cameraOffset.y);
+			int xDrawPos = int(this->pos.x - 4.f - cameraOffset.x);
 			this->fishSprite.Draw(screen, xDrawPos, yDrawPos);
 		}
 
@@ -149,6 +157,10 @@ namespace Tmpl8 {
 
 	void Player::clearFishes() {
 		this->fishInventory.clear();
+	}
+
+	void Player::loadMap(std::array<Map, 2>* currentMap) {
+		this->currentMap = currentMap;
 	}
 
 	vec2 Player::getPos() {

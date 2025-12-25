@@ -3,6 +3,7 @@
 #include "Fish.h"
 #include <vector>
 
+
 namespace Tmpl8 {
 
 	Seller::Seller(int type, vec2 pos, vec2 size) :
