@@ -1,5 +1,0 @@
-type,nCol,nRow,nTileWidth,nTileHeight
-1,22,10,2,2
-2,9,4,3,1.5
-3,6,4,3,1.5
-4,3,4,3,1.5

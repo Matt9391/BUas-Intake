@@ -4,6 +4,7 @@
 #include "StaminaShop.h"
 #include "FishArea.h"
 #include "Seller.h"
+#include "Gate.h"
 
 
 namespace Tmpl8 {
@@ -23,7 +24,7 @@ namespace Tmpl8 {
 	Surface MapHandler::map2DTileset("./assets/2D/seaMap.png");
 	Surface MapHandler::mapTdwTileset("./assets/TopDown/map3.png");
 
-	void MapHandler::loadInteractableObject(std::string fileName, int tileSize, std::array<Sprite*, 3> fishingSprites) {
+	void MapHandler::loadInteractableObject(std::string fileName, int tileSize, const std::array<Sprite*, 3>* fishingSprites) {
 		std::ifstream objFile("assets/map/" + fileName);
 		std::string objLine;
 
@@ -45,7 +46,7 @@ namespace Tmpl8 {
 			switch (int(data[0]))
 			{
 			case 1:
-				objects.push_back(new FishArea(data[0], pos, size, fishingSprites));
+				objects.push_back(new FishArea(data[0], pos, size, *fishingSprites));
 				break;
 			case 2:
 				objects.push_back(new IncomeMultiplier(data[0], pos, size));
@@ -55,6 +56,9 @@ namespace Tmpl8 {
 				break;
 			case 4:
 				objects.push_back(new Seller(data[0], pos, size));
+				break;
+			case 5:
+				objects.push_back(new Gate(data[0], pos, size));
 				break;
 			default:
 				objects.push_back(new InteractableObject(data[0],pos,size));

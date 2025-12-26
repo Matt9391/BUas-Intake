@@ -2,14 +2,22 @@
 #include "Camera2D.h"
 #include "Player.h"
 #include "InteractableObject.h"
+#include "resources.h"
 
 namespace Tmpl8 {
 
-	void HumanScene::onEnter() {
+	void HumanScene::onEnter(Player& player, Camera2D& camera) {
+		MapHandler::loadInteractableObject("tdwInteractableObjectList.txt", 32, &fishingAreaSprites);
+		camera.setWorldSize(MapHandler::tilesTdw);
 
+		player.setPos(vec2(MapHandler::tileSize * 2,MapHandler::tileSize * 5));
+		player.setState(int(PlayerVisual::Human));
+		player.loadCollisionMaps(&MapHandler::mapsTdw);
 	}
 
-	void HumanScene::onExit() {}
+	void HumanScene::onExit() {
+		MapHandler::objects.clear();
+	}
 
 	void HumanScene::update(float dt, Camera2D& camera, Player& player) {
 
@@ -49,9 +57,9 @@ namespace Tmpl8 {
 
 		}
 
-		//for (auto object : MapHandler::objects) {
-		//	(*object).drawHitBox(screen, camera.getPos());
-		//}
+		for (auto object : MapHandler::objects) {
+			(*object).drawHitBox(screen, camera.getPos());
+		}
 
 		for (auto object : MapHandler::objects) {
 			(*object).draw(screen, camera.getPos());

@@ -1,3 +1,5 @@
+#include "HumanScene.h"
+#include "FishScene.h"
 #pragma once
 
 namespace Tmpl8 {
@@ -16,12 +18,12 @@ public:
 	void KeyUp( int key ) { /* implement if you want to handle keys */ }
 	void KeyDown( int key ) { /* implement if you want to handle keys */ }
 
-	int ROWS;
-	int COLS;
-	int ROWS2D;
-	int COLS2D;
-	static bool humanSceneBool;
+	static void changeScene(int nScene);
+
 private:
+	static HumanScene humanScene;
+	static FishScene fishScene;
+	static Scene* currentScene;
 
 	Surface* screen;
 };

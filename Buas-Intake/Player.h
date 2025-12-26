@@ -26,7 +26,7 @@ namespace Tmpl8 {
 
 		void clearFishes();
 
-		void loadMap(std::array<Map, 2>* currentMap);
+		void loadCollisionMaps(std::array<Map, 2>* currentMap);
 
 		vec2 getPos();
 		vec2 getDir();

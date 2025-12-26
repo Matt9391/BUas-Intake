@@ -159,7 +159,7 @@ namespace Tmpl8 {
 		this->fishInventory.clear();
 	}
 
-	void Player::loadMap(std::array<Map, 2>* currentMap) {
+	void Player::loadCollisionMaps(std::array<Map, 2>* currentMap) {
 		this->currentMap = currentMap;
 	}
 

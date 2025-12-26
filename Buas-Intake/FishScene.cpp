@@ -5,11 +5,18 @@
 
 namespace Tmpl8 {
 
-	void FishScene::onEnter() {
-
+	void FishScene::onEnter(Player& player, Camera2D& camera) {
+		MapHandler::loadInteractableObject("2DInteractableObjectList.txt", 32);	
+		camera.setWorldSize(MapHandler::tiles2D);
+		
+		player.setState(int(PlayerVisual::Fish));
+		player.loadCollisionMaps(&MapHandler::maps2D);
+		player.setPos({ 32,32 });
 	}
 
-	void FishScene::onExit() {}
+	void FishScene::onExit() {
+		MapHandler::objects.clear();
+	}
 
 	void FishScene::update(float dt, Camera2D& camera, Player& player) {
 
@@ -49,9 +56,9 @@ namespace Tmpl8 {
 
 		}
 
-		//for (auto object : MapHandler::objects) {
-		//	(*object).drawHitBox(screen, camera.getPos());
-		//}
+		for (auto object : MapHandler::objects) {
+			(*object).drawHitBox(screen, camera.getPos());
+		}
 
 		//for (auto object : MapHandler::objects) {
 		//	(*object).draw(screen, camera.getPos());

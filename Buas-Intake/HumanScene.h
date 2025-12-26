@@ -9,7 +9,7 @@ namespace Tmpl8 {
 	class HumanScene : public Scene
 	{
 	public:
-		void onEnter() override;
+		void onEnter(Player& player, Camera2D& camera) override;
 		void onExit() override;
 
 		void update(float dt, Camera2D& camera, Player& player) override;
