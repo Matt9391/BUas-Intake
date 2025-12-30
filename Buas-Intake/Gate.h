@@ -12,7 +12,9 @@ namespace Tmpl8 {
 
 		//void showText(Surface* screen, vec2 cameraOffset) override;
 
-		void draw(Surface* screen, vec2 cameraOffset) override;
+		//void draw(Surface* screen, vec2 cameraOffset) override;
+	private:
+
 	};
 }
 

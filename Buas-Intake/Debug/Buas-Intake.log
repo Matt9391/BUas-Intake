@@ -1,10 +1,6 @@
-﻿  game.cpp
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(47,15): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(46,12): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(52,12): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\game.cpp(51,12): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
-  Gate.cpp
-  HumanState.cpp
-  template.cpp
+﻿  Chest.cpp
+  FishScene.cpp
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishScene.cpp(17,25): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishScene.cpp(16,25): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
   Generazione del codice in corso...
   Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe

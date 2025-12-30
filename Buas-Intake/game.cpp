@@ -41,6 +41,7 @@ namespace Tmpl8
 		MapHandler::mapsTdw[0] = MapHandler::loadMap("mapTopDown.txt");
 		MapHandler::mapsTdw[1] = MapHandler::loadMap("mapTopDownLayer2.txt");
 		MapHandler::maps2D[0] = MapHandler::loadMap("map2D.txt");
+		MapHandler::maps2D[1] = MapHandler::loadMap("map2DLayer2.txt");
 
 		MapHandler::tilesTdw = vec2(
 								int(std::floor((MapHandler::mapsTdw[0][0].size() + 1) / 4)),

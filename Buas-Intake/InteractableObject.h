@@ -22,10 +22,10 @@ namespace Tmpl8 {
 		virtual void draw(Surface* screen, vec2 cameraOffset);
 
 		void drawHitBox(Surface* screen, vec2 cameraOffset, Pixel clr = 0x00000);
+		int type;
 	protected:
 		Pixel clr;
 
-		int type;
 		vec2 pos;
 		vec2 size;
 

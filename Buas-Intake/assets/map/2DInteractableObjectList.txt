@@ -1,2 +1,2 @@
 type,nCol,nRow,nTileWidth,nTileHeight
-5,1,1,2,2
+5,1,1,23,2

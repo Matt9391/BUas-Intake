@@ -20,6 +20,7 @@ namespace Tmpl8 {
 		MapHandler();
 
 		static void loadInteractableObject(std::string fileName, int tileSize, const std::array<Sprite*, 3>* fishingSprites = nullptr);
+		static void createInteractableObject(int type, vec2 pos, vec2 size, const std::array<Sprite*, 3>* fishingSprites = nullptr, Sprite* chestsSprite = nullptr);
 
 		static Map loadMap(std::string fileName);
 

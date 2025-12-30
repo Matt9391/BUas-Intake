@@ -9,8 +9,8 @@ namespace Tmpl8 {
 	Gate::Gate(int type, vec2 pos, vec2 size) :
 		InteractableObject(type, pos, size)
 	{
-		this->textHover = "Gate";
-		this->textPosition = vec2(pos + vec2(10, -48));
+		this->textHover = "Press 'F' to change form";
+		this->textPosition = vec2(pos - vec2(24,0));
 	}
 
 	void Gate::interact(Player& player) {
@@ -22,8 +22,8 @@ namespace Tmpl8 {
 		}
 	}
 
-	void Gate::draw(Surface* screen, vec2 cameraOffset) {
-		//this->drawHitBox(screen, cameraOffset, 0xFF00FF);
-		//this->drawHitBox(screen, cameraOffset);
-	}
+	//void Gate::draw(Surface* screen, vec2 cameraOffset) {
+	//	//this->drawHitBox(screen, cameraOffset, 0xFF00FF);
+	//	//this->drawHitBox(screen, cameraOffset);
+	//}
 }

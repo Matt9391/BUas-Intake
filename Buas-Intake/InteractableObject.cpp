@@ -57,7 +57,7 @@ namespace Tmpl8 {
 	}
 
 	void InteractableObject::showText(Surface* screen, vec2 cameraOffset) {
-		Text::drawString(this->textHover, screen, this->textPosition);
+		Text::drawString(this->textHover, screen, this->textPosition - cameraOffset);
 	}
 
 	void InteractableObject::draw(Surface* screen, vec2 cameraOffset) {

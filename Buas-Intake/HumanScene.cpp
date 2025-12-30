@@ -10,7 +10,7 @@ namespace Tmpl8 {
 		MapHandler::loadInteractableObject("tdwInteractableObjectList.txt", 32, &fishingAreaSprites);
 		camera.setWorldSize(MapHandler::tilesTdw);
 
-		player.setPos(vec2(MapHandler::tileSize * 2,MapHandler::tileSize * 5));
+		player.setPos(vec2(MapHandler::tileSize * 15,MapHandler::tileSize * 5));
 		player.setState(int(PlayerVisual::Human));
 		player.loadCollisionMaps(&MapHandler::mapsTdw);
 	}
@@ -65,6 +65,7 @@ namespace Tmpl8 {
 			(*object).draw(screen, camera.getPos());
 
 			if ((*object).intersectPlayer(player)) {
+				//printf("TIPO: %d\n", (*object).type);
 				(*object).showText(screen, camera.getPos());
 			}
 		}

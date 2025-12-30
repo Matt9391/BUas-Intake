@@ -5,6 +5,7 @@
 #include "FishArea.h"
 #include "Seller.h"
 #include "Gate.h"
+#include "Chest.h"
 
 
 namespace Tmpl8 {
@@ -30,6 +31,8 @@ namespace Tmpl8 {
 
 		std::getline(objFile, objLine);
 
+		MapHandler::objects.clear();
+
 		while (std::getline(objFile, objLine)) {
 			std::vector<float> data = parseFloatList(objLine);
 			//datas:
@@ -42,31 +45,38 @@ namespace Tmpl8 {
 			vec2 pos(float(data[1] * tileSize),float(data[2] * tileSize));
 			vec2 size(float(data[3] * tileSize), float(data[4] * tileSize));
 			printf("   %.2f %.2f %.2f %.2f\n", pos.x, pos.y, size.x, size.y);
-			
-			switch (int(data[0]))
-			{
-			case 1:
-				objects.push_back(new FishArea(data[0], pos, size, *fishingSprites));
-				break;
-			case 2:
-				objects.push_back(new IncomeMultiplier(data[0], pos, size));
-				break;
-			case 3:
-				objects.push_back(new StaminaShop(data[0], pos, size));
-				break;
-			case 4:
-				objects.push_back(new Seller(data[0], pos, size));
-				break;
-			case 5:
-				objects.push_back(new Gate(data[0], pos, size));
-				break;
-			default:
-				objects.push_back(new InteractableObject(data[0],pos,size));
-				break;
-			}
+
+			MapHandler::createInteractableObject(int(data[0]), pos, size, fishingSprites);
 		}
 
 		
+	}
+
+	void MapHandler::createInteractableObject(int type, vec2 pos, vec2 size, const std::array<Sprite*, 3>* fishingSprites, Sprite* chestsSprite) {
+		switch (type)
+		{
+		case 1:
+			objects.push_back(new FishArea(type, pos, size, *fishingSprites));
+			break;
+		case 2:
+			objects.push_back(new IncomeMultiplier(type, pos, size));
+			break;
+		case 3:
+			objects.push_back(new StaminaShop(type, pos, size));
+			break;
+		case 4:
+			objects.push_back(new Seller(type, pos, size));
+			break;
+		case 5:
+			objects.push_back(new Gate(type, pos, size));
+			break;
+		case 6:
+			objects.push_back(new Chest(type, pos, size, chestsSprite));
+			break;
+		default:
+			objects.push_back(new InteractableObject(type, pos, size));
+			break;
+		}
 	}
 
 	std::vector<float> MapHandler::parseFloatList(const std::string& s)
@@ -108,7 +118,6 @@ namespace Tmpl8 {
 	}
 
 	bool MapHandler::isSolid(const Map& map, vec2 pos, vec2 size, int tileSize) {
-
 		int tx  = int(pos.x / tileSize);
 		int ty  = int(pos.y / tileSize);
 		int tx2 = int((pos.x + size.x - 1) / tileSize);
@@ -117,17 +126,19 @@ namespace Tmpl8 {
 		int ly  = int((pos.y + size.y - 1) / tileSize);
 		int lx2 = int((pos.x + size.x -1) / tileSize);
 		int ly2 = int((pos.y + size.y - 1) / tileSize);
+		
 
 		if (ty < 0 || ty >= map.size()) return false;
-		if (tx < 0 || tx >= map[ty].size() / 4) return false;
+		if (tx < 0 || tx > map[ty].size() / 4) return false;
 		if (ly < 0 || ly >= map.size()) return false;
-		if (lx < 0 || lx >= map[ty].size() / 4) return false;
+		if (lx < 0 || lx > map[ty].size() / 4) return false;
 		if (ty2 < 0 || ty2 >= map.size()) return false;
-		if (tx2 < 0 || tx2 >= map[ty].size() / 4) return false;
+		if (tx2 < 0 || tx2 > map[ty].size() / 4) return false;
 		if (ly2 < 0 || ly2 >= map.size()) return false;
-		if (lx2 < 0 || lx2 >= map[ty].size() / 4) return false;
+		if (lx2 < 0 || lx2 > map[ty].size() / 4) return false;
 
 		//printf("x: %d, y: %d | %c%c%c \n", tx,ty,map[ty][tx * 4], map[ty][tx * 4 + 1], map[ty][tx * 4 + 2]);
+
 		return map[ty][tx * 4 + 2]   == 'X' ||
 			   map[ty2][tx2 * 4 + 2] == 'X' ||
 			   map[ly][lx * 4 + 2]   == 'X' ||
