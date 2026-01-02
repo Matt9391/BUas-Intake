@@ -3,6 +3,8 @@
 #include "Player.h"
 #include "InteractableObject.h"
 #include "resources.h"
+#include "Randomize.h"
+
 
 namespace Tmpl8 {
 
@@ -11,10 +13,10 @@ namespace Tmpl8 {
 		
 		int type = 6; //chest type
 
-		for (int i = 0; i < 5; i++) {
+		for (int i = 0; i < 1; i++) {
 			vec2 pos(
-				((rand() % 24) + 1) * MapHandler::tileSize,
-				((rand() % 35) + 1) * MapHandler::tileSize
+				Randomize::randomInt(1 * MapHandler::tileSize, 24 * MapHandler::tileSize),
+				Randomize::randomInt(1 * MapHandler::tileSize, 35 * MapHandler::tileSize)
 				);
 			vec2 size(46);
 

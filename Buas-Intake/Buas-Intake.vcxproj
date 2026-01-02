@@ -236,6 +236,7 @@
     <ClCompile Include="MapHandler.cpp" />
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="PlayerState.cpp" />
+    <ClCompile Include="Randomize.cpp" />
     <ClCompile Include="resources.cpp" />
     <ClCompile Include="Scene.cpp" />
     <ClCompile Include="Seller.cpp" />
@@ -247,6 +248,7 @@
   <ItemGroup>
     <ClInclude Include="Camera2D.h" />
     <ClInclude Include="Chest.h" />
+    <ClInclude Include="FastNoiseLite.h" />
     <ClInclude Include="Fish.h" />
     <ClInclude Include="FishArea.h" />
     <ClInclude Include="FishScene.h" />
@@ -261,6 +263,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="PlayerState.h" />
     <ClInclude Include="PlayerVisual.h" />
+    <ClInclude Include="Randomize.h" />
     <ClInclude Include="resources.h" />
     <ClInclude Include="Scene.h" />
     <ClInclude Include="Seller.h" />

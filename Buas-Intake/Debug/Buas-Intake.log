@@ -1,6 +1,4 @@
 ﻿  Chest.cpp
-  FishScene.cpp
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishScene.cpp(17,25): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishScene.cpp(16,25): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+  MapHandler.cpp
   Generazione del codice in corso...
   Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe

@@ -6,6 +6,7 @@
 #include "Seller.h"
 #include "Gate.h"
 #include "Chest.h"
+#include "Randomize.h"
 
 
 namespace Tmpl8 {
@@ -71,7 +72,7 @@ namespace Tmpl8 {
 			objects.push_back(new Gate(type, pos, size));
 			break;
 		case 6:
-			objects.push_back(new Chest(type, pos, size, chestsSprite));
+			objects.push_back(new Chest(type, pos, size, chestsSprite, Randomize::randomInt(0, 3)));
 			break;
 		default:
 			objects.push_back(new InteractableObject(type, pos, size));
