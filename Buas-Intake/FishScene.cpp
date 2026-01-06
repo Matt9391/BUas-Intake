@@ -13,11 +13,15 @@ namespace Tmpl8 {
 		
 		int type = 6; //chest type
 
-		for (int i = 0; i < 1; i++) {
+		for (int i = 0; i < 10; i++) {
 			vec2 pos(
-				Randomize::randomInt(1 * MapHandler::tileSize, 24 * MapHandler::tileSize),
-				Randomize::randomInt(1 * MapHandler::tileSize, 35 * MapHandler::tileSize)
-				);
+				Randomize::randomInt(3 * MapHandler::tileSize, 22 * MapHandler::tileSize),
+				Randomize::randomInt(5 * MapHandler::tileSize, 33 * MapHandler::tileSize)
+			);
+			//vec2 pos(
+			//	Randomize::randomInt(1 * MapHandler::tileSize, 24 * MapHandler::tileSize),
+			//	Randomize::randomInt(1 * MapHandler::tileSize, 35 * MapHandler::tileSize)
+			//	);
 			vec2 size(46);
 
 			MapHandler::createInteractableObject(type, pos, size, nullptr, &chestsSprite);
@@ -74,9 +78,9 @@ namespace Tmpl8 {
 
 		}
 
-		for (auto object : MapHandler::objects) {
-			//(*object).drawHitBox(screen, camera.getPos());
-		}
+		//for (auto object : MapHandler::objects) {
+		//	(*object).drawHitBox(screen, camera.getPos());
+		//}
 
 		for (auto object : MapHandler::objects) {
 			(*object).draw(screen, camera.getPos());

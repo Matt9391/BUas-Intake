@@ -7,4 +7,9 @@ namespace Tmpl8 {
 		std::uniform_int_distribution<> distrib(min, max);
 		return distrib(gen);
 	}
+
+	float Randomize::randomFloat(float min, float max) {
+		std::uniform_real_distribution<> distrib(min, max);
+		return distrib(gen);
+	}
 }

@@ -17,12 +17,24 @@ namespace Tmpl8 {
 		void draw(Surface* screen, vec2 cameraOffset);
 
 	private:
+		float mapValue(float value, float inMin, float inMax, float outMin, float outMax);
+
 		static FastNoiseLite noise;
 
-		vec2 basePos;
+		bool enabled;
+
+		float timeX;
+		float timeY;
+		
+		float value;
+
+		vec2 maxPos;
+		vec2 minPos;
 
 		int frame;
 		Sprite* chestsSprite;
+
+
 	};
 
 

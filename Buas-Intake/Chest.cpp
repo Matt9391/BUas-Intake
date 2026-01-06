@@ -9,36 +9,61 @@ namespace Tmpl8 {
 	Chest::Chest(int type, vec2 pos, vec2 size, Sprite* chestsSprite, int frame) :
 		InteractableObject(type, pos, size),
 		frame(frame),
-		basePos(pos)
+		timeX(Randomize::randomFloat(0.f, 1000000.f)),
+		timeY(Randomize::randomFloat(0.f, 1000000.f)),
+		maxPos(0),
+		minPos(0),
+		value(0.f),
+		enabled(true)
 	{
 		Chest::noise.SetNoiseType(FastNoiseLite::NoiseType_Perlin);
 		this->chestsSprite = chestsSprite;
+
+		this->maxPos = this->pos + MapHandler::tileSize * 2;
+		this->minPos = this->pos - MapHandler::tileSize * 2;
+
+		this->value = mapValue(frame, 0.f, 3.f, 50.f, 500.f);
+
+		this->textHover = "Treasuer Chest";
 	}
 
 
 	void Chest::update(float dt, Player& player) {
-		static float timeX = 0.f;
-		static float timeY = 0.f;
+		if (!this->enabled) return;
 
-		timeX += dt * 0.5f; // velocità orizzontale
-		timeY += dt * 0.3f; // velocità verticale
+		this->timeX += dt * 0.05; // velocità orizzontale
+		this->timeY += dt * 0.05; // velocità verticale
 
-		float offsetX = noise.GetNoise(timeX, 0.f) * 1.f; // -1 a 1
-		float offsetY = noise.GetNoise(0.f, timeY) * 1.f;
+		float xValue = noise.GetNoise(timeX, 0.f); // -1 a 1
+		float yValue = noise.GetNoise(0.f, timeY); // -1 a 1
+		
+		this->pos.x = mapValue(xValue, -1.f, 1.f, this->minPos.x, this->maxPos.x);
+		this->pos.y = mapValue(yValue, -1.f, 1.f, this->minPos.y, this->maxPos.y);
 
-		pos.x = basePos.x + offsetX;
-		pos.y = basePos.y + offsetY;
+		this->textPosition = pos - vec2(16, 0);
+
+		//printf("N: %.2f\n", offsetX);
 	}
 
 
 	void Chest::interact(Player& player) {
+		if (!this->enabled) return;
+
 		printf("SONO UNA CHESTTT");
-		player.addCoins(100000);
+		player.addCoins(this->value);
+		this->enabled = false;
+		this->textHover = "";
 	}
 
 	void Chest::draw(Surface* screen, vec2 cameraOffset) {
+		if (!this->enabled) return;
+
 		(*this->chestsSprite).SetFrame(frame);
 		(*this->chestsSprite).Draw(screen, int(this->pos.x - cameraOffset.x), int(this->pos.y - cameraOffset.y));
+	}
+
+	float Chest::mapValue(float value, float inMin, float inMax, float outMin, float outMax) {
+		return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
 	}
 
 
