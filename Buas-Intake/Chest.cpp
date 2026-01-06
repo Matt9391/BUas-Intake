@@ -1,6 +1,7 @@
 #include "Chest.h"
 #include "Player.h"
 #include "Randomize.h"
+#include "functions.h"
 
 namespace Tmpl8 {
 		
@@ -62,9 +63,7 @@ namespace Tmpl8 {
 		(*this->chestsSprite).Draw(screen, int(this->pos.x - cameraOffset.x), int(this->pos.y - cameraOffset.y));
 	}
 
-	float Chest::mapValue(float value, float inMin, float inMax, float outMin, float outMax) {
-		return (value - inMin) * (outMax - outMin) / (inMax - inMin) + outMin;
-	}
+	
 
 
 }

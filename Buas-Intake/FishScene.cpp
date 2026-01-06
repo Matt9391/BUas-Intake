@@ -28,18 +28,25 @@ namespace Tmpl8 {
 			MapHandler::createInteractableObject(type, pos, size, nullptr, &chestsSprite);
 
 		}
+
 		for (int i = 0; i < 10; i++) {
 			vec2 pos(
-				Randomize::randomInt(3 * MapHandler::tileSize, 22 * MapHandler::tileSize),
+				-5 * MapHandler::tileSize,
 				Randomize::randomInt(5 * MapHandler::tileSize, 33 * MapHandler::tileSize)
 			);
-			//vec2 pos(
-			//	Randomize::randomInt(1 * MapHandler::tileSize, 24 * MapHandler::tileSize),
-			//	Randomize::randomInt(1 * MapHandler::tileSize, 35 * MapHandler::tileSize)
-			//	);
-			vec2 size(46);
 
-			enemies.push_back(new Enemy(pos, size, enemySprite));
+			vec2 size(128,46);
+			vec2 endPos(
+				26 * MapHandler::tileSize,
+				Randomize::randomInt(pos.y - 5 * MapHandler::tileSize, pos.y + 5 * MapHandler::tileSize)
+			);
+
+			if (endPos.y >= 35 * MapHandler::tileSize) endPos.y = 34 * MapHandler::tileSize;
+			if (endPos.y < 5 * MapHandler::tileSize) endPos.y = 5 * MapHandler::tileSize;
+
+			float startOffset = Randomize::randomFloat(100, 1000);
+
+			enemies.push_back(new Enemy(pos, size, endPos, startOffset, enemySprite));
 
 		}
 
@@ -71,6 +78,10 @@ namespace Tmpl8 {
 
 			}
 		}
+
+		for (auto e : enemies) {
+			(*e).update(dt, player);
+		}
 	}
 
 	void FishScene::draw(Surface* screen, Camera2D& camera, Player& player) {
@@ -95,6 +106,9 @@ namespace Tmpl8 {
 
 		//for (auto object : MapHandler::objects) {
 		//	(*object).drawHitBox(screen, camera.getPos());
+		//}
+		//for (auto e : enemies) {
+		//	(*e).drawHitBox(screen, camera.getPos());
 		//}
 
 		for (auto object : MapHandler::objects) {

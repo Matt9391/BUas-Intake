@@ -17,7 +17,6 @@ namespace Tmpl8 {
 		void draw(Surface* screen, vec2 cameraOffset);
 
 	private:
-		float mapValue(float value, float inMin, float inMax, float outMin, float outMax);
 
 		static FastNoiseLite noise;
 

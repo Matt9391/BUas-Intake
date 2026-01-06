@@ -3,6 +3,7 @@
 #include "Text.h"
 #include <Windows.h>
 #include "Fish.h"
+#include "functions.h"
 
 namespace Tmpl8 {
 
@@ -139,18 +140,5 @@ namespace Tmpl8 {
 
 		(*this->fishingSprites[2]).Draw(screen, int(this->cardPosition.x - cameraOffset.x), int(this->cardPosition.y - cameraOffset.y));
 		Text::drawString(this->cardText, screen, textCardPosition - cameraOffset);
-	}
-
-	float mapValue(float x, float inMin, float inMax, float outMin, float outMax)
-	{
-		return (x - inMin) / (inMax - inMin) * (outMax - outMin) + outMin;
-	}
-
-	float constrain(float value, float min, float max) {
-		if (value < min)
-			return min;
-		if (value > max)
-			return max;
-		return value;
-	}
+	}	
 }

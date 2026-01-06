@@ -229,6 +229,7 @@
     <ClCompile Include="FishArea.cpp" />
     <ClCompile Include="FishScene.cpp" />
     <ClCompile Include="FishState.cpp" />
+    <ClCompile Include="functions.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Gate.cpp" />
     <ClCompile Include="HumanScene.cpp" />
@@ -257,6 +258,7 @@
     <ClInclude Include="FishArea.h" />
     <ClInclude Include="FishScene.h" />
     <ClInclude Include="FishState.h" />
+    <ClInclude Include="functions.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="Gate.h" />
     <ClInclude Include="HumanScene.h" />

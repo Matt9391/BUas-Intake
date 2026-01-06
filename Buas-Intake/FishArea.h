@@ -46,6 +46,4 @@ namespace Tmpl8 {
 		std::array<Sprite*, 3> fishingSprites;
 	};
 
-	float mapValue(float x, float inMin, float inMax, float outMin, float outMax);
-	float constrain(float value, float min, float max);
 }
