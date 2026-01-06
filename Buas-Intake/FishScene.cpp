@@ -4,6 +4,7 @@
 #include "InteractableObject.h"
 #include "resources.h"
 #include "Randomize.h"
+#include "Enemy.h"
 
 
 namespace Tmpl8 {
@@ -25,6 +26,20 @@ namespace Tmpl8 {
 			vec2 size(46);
 
 			MapHandler::createInteractableObject(type, pos, size, nullptr, &chestsSprite);
+
+		}
+		for (int i = 0; i < 10; i++) {
+			vec2 pos(
+				Randomize::randomInt(3 * MapHandler::tileSize, 22 * MapHandler::tileSize),
+				Randomize::randomInt(5 * MapHandler::tileSize, 33 * MapHandler::tileSize)
+			);
+			//vec2 pos(
+			//	Randomize::randomInt(1 * MapHandler::tileSize, 24 * MapHandler::tileSize),
+			//	Randomize::randomInt(1 * MapHandler::tileSize, 35 * MapHandler::tileSize)
+			//	);
+			vec2 size(46);
+
+			enemies.push_back(new Enemy(pos, size, enemySprite));
 
 		}
 
@@ -88,6 +103,10 @@ namespace Tmpl8 {
 			if ((*object).intersectPlayer(player)) {
 				(*object).showText(screen, camera.getPos());
 			}
+		}
+
+		for (auto e : enemies) {
+			(*e).draw(screen, camera.getPos());
 		}
 
 		player.draw(screen, camera.getPos());

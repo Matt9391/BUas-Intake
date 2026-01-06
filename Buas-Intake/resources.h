@@ -11,6 +11,7 @@ namespace Tmpl8 {
 	extern Sprite indxSprite;
 	extern Sprite fishesSprite;
 	extern Sprite chestsSprite;
+	extern Sprite enemySprite;
 	extern std::array<Sprite*, 3> fishingAreaSprites;
 
 }

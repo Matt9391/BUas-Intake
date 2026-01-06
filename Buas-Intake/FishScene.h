@@ -5,6 +5,8 @@
 #pragma once
 
 namespace Tmpl8 {
+	class Enemy;
+
 
 	class FishScene : public Scene
 	{
@@ -17,6 +19,7 @@ namespace Tmpl8 {
 		void draw(Surface* screen, Camera2D& camera, Player& player) override;
 	private:
 		std::array<Map, 2> currentMap;
+		std::vector<Enemy*> enemies;
 	};
 
 }

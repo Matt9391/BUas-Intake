@@ -225,6 +225,7 @@
     <ClCompile Include="Camera2D.cpp" />
     <ClCompile Include="Chest.cpp" />
     <ClCompile Include="Enemy.cpp" />
+    <ClCompile Include="Entity.cpp" />
     <ClCompile Include="FishArea.cpp" />
     <ClCompile Include="FishScene.cpp" />
     <ClCompile Include="FishState.cpp" />
@@ -250,6 +251,7 @@
     <ClInclude Include="Camera2D.h" />
     <ClInclude Include="Chest.h" />
     <ClInclude Include="Enemy.h" />
+    <ClInclude Include="Entity.h" />
     <ClInclude Include="FastNoiseLite.h" />
     <ClInclude Include="Fish.h" />
     <ClInclude Include="FishArea.h" />
