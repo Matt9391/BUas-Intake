@@ -1,16 +1,4 @@
-﻿  Chest.cpp
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Chest.cpp(23,51): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Chest.cpp(24,51): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Chest.cpp(26,26): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Chest.cpp(35,21): warning C4244: '+=': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Chest.cpp(36,21): warning C4244: '+=': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Chest.cpp(54,23): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
-  Enemy.cpp
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Enemy.cpp(77,76): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Enemy.cpp(77,46): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
-  FishArea.cpp
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\FishArea.cpp(53,25): warning C4244: '+=': conversione da 'double' a 'float'. Possibile perdita di dati.
-  MapHandler.cpp
-  functions.cpp
-  Generazione del codice in corso...
+﻿  Player.cpp
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(258,60): warning C4244: '-=': conversione da 'double' a '__int64'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(266,35): warning C4244: '+=': conversione da 'float' a '__int64'. Possibile perdita di dati.
   Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe

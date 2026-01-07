@@ -14,6 +14,8 @@ namespace Tmpl8 {
 		void setAnimRange(int first, int last);
 		void playAnimation(float dt);
 
+		void attack(Player& player);
+
 		void draw(Surface* screen, vec2 cameraOffset);
 
 
@@ -32,6 +34,10 @@ namespace Tmpl8 {
 
 		float timeElapsedBF;
 		float timeBetweenFrames;
+
+		bool canAttack;
+		float attackCooldown;
+		float attackElapsedTime;
 	};
 
 

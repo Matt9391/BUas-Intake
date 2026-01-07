@@ -1,6 +1,7 @@
 #include "Enemy.h"
 #include "Randomize.h"
 #include "functions.h"
+#include "Player.h"
 
 namespace Tmpl8 {
 
@@ -16,7 +17,10 @@ namespace Tmpl8 {
 		lastFrame(0),
 		currentFrame(0),
 		timeElapsedBF(0.f),
-		timeBetweenFrames(mapValue(speed, 0.09, 0.25, 150.f, 50.f))
+		timeBetweenFrames(mapValue(speed, 0.09, 0.25, 150.f, 50.f)),
+		canAttack(false),
+		attackCooldown(100.f),
+		attackElapsedTime(0.f)
 	{
 		this->setAnimRange(0, 9);
 	}
@@ -25,6 +29,12 @@ namespace Tmpl8 {
 		if (this->elapsedTime < this->startOffset) {
 			this->elapsedTime += dt;
 			return;
+		}
+		
+		this->attackElapsedTime += dt;
+
+		if (this->attackElapsedTime > this->attackCooldown) {
+			this->canAttack = true;
 		}
 
 		vec2 dir = this->endPos - this->pos;
@@ -48,6 +58,14 @@ namespace Tmpl8 {
 		this->pos += dir * speed * dt;
 
 		this->playAnimation(dt);
+	}
+
+	void Enemy::attack(Player& player) {
+		if (this->canAttack) {
+			player.stealCoins(50);
+			this->canAttack = false;
+			this->attackElapsedTime = 0;
+		}
 	}
 
 	void Enemy::setAnimRange(int first, int last) {

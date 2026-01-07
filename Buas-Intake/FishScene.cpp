@@ -81,6 +81,10 @@ namespace Tmpl8 {
 
 		for (auto e : enemies) {
 			(*e).update(dt, player);
+
+			if ((*e).intersectPlayer(player)) {
+				(*e).attack(player);
+			}
 		}
 	}
 

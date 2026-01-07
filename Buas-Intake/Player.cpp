@@ -152,11 +152,19 @@ namespace Tmpl8 {
 			this->fishSprite.Draw(screen, xDrawPos, yDrawPos);
 		}
 
-		Text::drawString(std::to_string(this->coins), screen, vec2(64, 64));
+		//Text::drawString(std::to_string(this->coins), screen, vec2(64, 96));
+		Text::drawString("Coins:", screen, vec2(32, 48));
+		Text::printCoins(screen, vec2(32, 64), this->coins);
+		Text::drawString("Fishes: " + std::to_string(this->fishInventory.size()), screen, vec2(96, 48));
+		Text::drawString("Chests: " + std::to_string(this->chestInventory.size()), screen, vec2(96, 64));
 	}
 
-	void Player::clearFishes() {
+	void Player::clearFishInventory() {
 		this->fishInventory.clear();
+	}
+	
+	void Player::clearChestInventory() {
+		this->chestInventory.clear();
 	}
 
 	void Player::loadCollisionMaps(std::array<Map, 2>* currentMap) {
@@ -192,9 +200,17 @@ namespace Tmpl8 {
 	long long Player::getCoins() {
 		return this->coins;
 	}
+	
+	float Player::getMultiplier() {
+		return this->coinsMultiplier;
+	}
 
 	std::vector<Fish> Player::getFishes() {
 		return this->fishInventory;
+	}
+	
+	std::vector<ChestObject> Player::getChests() {
+		return this->chestInventory;
 	}
 
 	void Player::setInteracting(bool state) {
@@ -238,12 +254,24 @@ namespace Tmpl8 {
 		this->coins -= coins;
 	}
 
+	void Player::stealCoins(int coins) {
+		this->coins -= (long long) coins * this->coinsMultiplier * 1.5;
+		if (this->coins <= 0) {
+			this->coins = 0;
+			this->chestInventory.clear();
+		}
+	}
+
 	void Player::addCoins(int coins) {
-		this->coins += (long long) coins * this->coinsMultiplier;
+		this->coins += (long long)coins * this->coinsMultiplier;
 	}
 
 	void Player::addFish(Fish fish) {
 		this->fishInventory.push_back(fish);
+	}
+	
+	void Player::addChest(ChestObject chest) {
+		this->chestInventory.push_back(chest);
 	}
 
 	void Player::setMultiplier(float multiplier) {

@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Randomize.h"
 #include "functions.h"
+#include "ChestObject.h"
 
 namespace Tmpl8 {
 		
@@ -50,8 +51,10 @@ namespace Tmpl8 {
 	void Chest::interact(Player& player) {
 		if (!this->enabled) return;
 
-		printf("SONO UNA CHESTTT");
-		player.addCoins(this->value);
+		ChestObject chestObject = { this->type, this->value };
+
+		player.addChest(chestObject);
+
 		this->enabled = false;
 		this->textHover = "";
 	}

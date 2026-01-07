@@ -23,6 +23,38 @@ namespace Tmpl8 {
 		
 	}
 
+	void Text::printCoins(Surface* screen, vec2 pos, long long coins) {
+		if (font == nullptr) {
+			printf("BRO SONO NULL ANCORA EHEHEH");
+			return;
+		}
+
+		std::string text;
+
+		if (coins > 1'000'000'000) {
+			double value = coins / 1'000'000'000.0;
+			char buf[32];
+			snprintf(buf, sizeof(buf), "%.1fB", value);
+			text = buf;
+		}else if (coins > 1'000'000) {
+			double value = coins / 1'000'000.0;
+			char buf[32];
+			snprintf(buf, sizeof(buf), "%.1fM", value);
+			text = buf;
+		}else if (coins > 1000) {
+			double value = coins / 1'000.0;
+			char buf[32];
+			snprintf(buf, sizeof(buf), "%.1fK", value);
+			text = buf;
+		}
+		else {
+			text = std::to_string(coins);
+		}
+
+		drawString(text, screen, pos);
+
+	}
+
 	void Text::drawString(std::string str, Surface* screen, vec2 pos) {
 		if (font == nullptr) {
 			printf("BRO SONO NULL ANCORA EHEHEH");

@@ -1,6 +1,7 @@
 #include "Seller.h"
 #include "Player.h"
 #include "Fish.h"
+#include "ChestObject.h"
 #include <vector>
 
 
@@ -14,18 +15,22 @@ namespace Tmpl8 {
 	}
 
 	void Seller::interact(Player& player) {
-		std::vector<Fish> fishes = player.getFishes();
 		float totalValue = 0;
 
 		printf("FISHESS\n");
-		for (Fish& fish : fishes) {
+		for (Fish& fish : player.getFishes()) {
 			printf("%d, %.2f\n", fish.rarity, fish.value);
 			totalValue += fish.value;
+		}
+		for (ChestObject& chest : player.getChests()) {
+			printf("%d, %.2f\n", chest.type, chest.value);
+			totalValue += chest.value;
 		}
 
 		player.addCoins(totalValue);
 
-		player.clearFishes();
+		player.clearFishInventory();
+		player.clearChestInventory();
 	}
 
 }

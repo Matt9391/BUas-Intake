@@ -73,22 +73,22 @@ namespace Tmpl8 {
 			if (fishPercentage < 50) {
 				rarity = Rarity::COMMON;
 				this->cardText = "A common fish!";
-				value = 10;
+				value = 80;
 			}
 			else if (fishPercentage >= 50 && fishPercentage < 75) {
 				rarity = Rarity::RARE;
 				this->cardText = "A rare fish!";
-				value = 20;
+				value = 150;
 			}
 			else if (fishPercentage >= 75 && fishPercentage < 90) {
 				rarity = Rarity::EPIC;
 				this->cardText = "A epic fish!";
-				value = 50;
+				value = 300;
 			}
 			else if (fishPercentage >= 90) {
 				rarity = Rarity::LEGENDARY;
 				this->cardText = "A legendary fish!";
-				value = 150;
+				value = 500;
 
 			}
 

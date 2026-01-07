@@ -3,11 +3,10 @@
 #include "Player.h"
 
 namespace Tmpl8 {
+	float IncomeMultiplier::price = 100.f;
 
 	IncomeMultiplier::IncomeMultiplier(int type, vec2 pos, vec2 size) :
 		InteractableObject(type, pos, size),
-		multiplier(1),
-		price(100.f),
 		priceTextPosition(pos + vec2(0, 0)),
 		alertTextPosition(pos + vec2(0, 32)),
 		showAlert(false),
@@ -24,7 +23,8 @@ namespace Tmpl8 {
 
 	void IncomeMultiplier::showText(Surface* screen, vec2 cameraOffset) {
 		Text::drawString(this->textHover, screen, (this->textPosition - cameraOffset));
-		Text::drawString(this->priceText, screen, (this->priceTextPosition - cameraOffset));
+		Text::drawString("Price: ", screen, (this->priceTextPosition - cameraOffset));
+		Text::printCoins(screen, (this->priceTextPosition + vec2(42,0) - cameraOffset), price);
 		if (this->showAlert) {
 			Text::drawString(this->alertText, screen, (this->alertTextPosition - cameraOffset));
 		}
@@ -35,17 +35,15 @@ namespace Tmpl8 {
 			this->showAlert = true;
 			return;
 		}
-		printf("price: %2.f", price);
-
-		this->multiplier *= 1.5;
+		printf("pre price: %2.f ", price);
 
 		player.spendCoins(this->price);
 
-		player.setMultiplier(this->multiplier);
+		player.setMultiplier(player.getMultiplier() * 1.5);
 
-		this->price *= this->multiplier;
+		this->price *= 2.2;
 
-		printf("price: %2.f", price);
+		printf("post price: %2.f\n", price);
 		char buffer[64];
 		snprintf(buffer, sizeof(buffer), "price: %.2f", price);
 		priceText = buffer;

@@ -6,6 +6,8 @@
 #include "PlayerState.h"
 #include "PlayerVisual.h"
 #include "Fish.h"
+#include "ChestObject.h"
+
 #pragma once
 
 namespace Tmpl8 {
@@ -24,7 +26,8 @@ namespace Tmpl8 {
 
 		void draw(Surface* screen, vec2 cameraOffset);
 
-		void clearFishes();
+		void clearFishInventory();
+		void clearChestInventory();
 
 		void loadCollisionMaps(std::array<Map, 2>* currentMap);
 
@@ -36,7 +39,9 @@ namespace Tmpl8 {
 		bool isInteracting();
 		bool isFishing();
 		long long getCoins();
+		float getMultiplier();
 		std::vector<Fish> getFishes();
+		std::vector<ChestObject> getChests();
 
 		void setInteracting(bool state);
 		void setFishing(bool state);
@@ -46,8 +51,10 @@ namespace Tmpl8 {
 		void setInput(const char& input);
 		void setCoins(long long coins);
 		void spendCoins(int coins); 
+		void stealCoins(int coins);
 		void addCoins(int coins);
 		void addFish(Fish fish);
+		void addChest(ChestObject chest);
 		void setMultiplier(float multiplier);
 
 		void setAnimRange(int first, int last);
@@ -90,6 +97,7 @@ namespace Tmpl8 {
 		float coinsMultiplier;
 
 		std::vector<Fish> fishInventory;
+		std::vector<ChestObject> chestInventory;
 
 
 

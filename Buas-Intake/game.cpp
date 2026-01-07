@@ -76,9 +76,6 @@ namespace Tmpl8
 	{
 		this->currentScene->update(deltaTime, camera, player);
 		this->currentScene->draw(screen, camera, player);
-		
-
-		Text::print(screen);
 	}
 
 	void Game::changeScene(int nScene) {

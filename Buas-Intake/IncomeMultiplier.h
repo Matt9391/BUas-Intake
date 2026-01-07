@@ -19,8 +19,7 @@ namespace Tmpl8 {
 	private:
 
 
-		float price;
-		float multiplier;
+		static float price;
 
 		std::string priceText;
 		std::string alertText;

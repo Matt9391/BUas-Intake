@@ -251,6 +251,7 @@
   <ItemGroup>
     <ClInclude Include="Camera2D.h" />
     <ClInclude Include="Chest.h" />
+    <ClInclude Include="ChestObject.h" />
     <ClInclude Include="Enemy.h" />
     <ClInclude Include="Entity.h" />
     <ClInclude Include="FastNoiseLite.h" />
