@@ -8,6 +8,7 @@ namespace Tmpl8 {
 	void HumanState::enter(Player& player) {
 		//player.setState(0);
 		printf("Sono umano\n");
+		player.setSprinting(false);
 	}
 
 	void HumanState::handleInput(Player& player) {
@@ -40,6 +41,11 @@ namespace Tmpl8 {
 				player.setAnimRange(16, 23);
 			player.setInput('S');
 		}
+
+		//player.setSprinting(false);
+		//if (GetAsyncKeyState(VK_SHIFT)) {
+		//	player.setSprinting(true);
+		//}
 
 		if (player.getDir() == vec2(0, 0))
 			player.setAnimRange(32, 38);

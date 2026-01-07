@@ -2,6 +2,7 @@
 #include "HumanState.h"
 #include "FishState.h"
 #include "Text.h"
+#include "functions.h"
 
 
 #include <Windows.h>
@@ -24,7 +25,12 @@ namespace Tmpl8 {
 		input(' '),
 		fishing(false),
 		coins(100),
-		coinsMultiplier(1)
+		coinsMultiplier(1),
+		sprinting(false),
+		sprintElapsedTime(0.f),
+		maxSprintTime(5000.f),
+		sprintSpeed(0.35),
+		baseSpeed(0.15)
 	{
 		this->setState(0);
 		humanSprite.SetFrame(38);
@@ -33,6 +39,7 @@ namespace Tmpl8 {
 	void Player::update(float dt) {
 		//this->handleInput();
 		this->state->handleInput(*this);
+		this->sprint(dt);
 		this->move(dt);
 		this->playAnimation(dt);
 
@@ -97,6 +104,23 @@ namespace Tmpl8 {
 		}
 	}
 
+	void Player::sprint(float dt) {
+		if (!this->sprinting) {
+			this->sprintElapsedTime -= dt;
+			if (this->sprintElapsedTime <= 0.f) this->sprintElapsedTime = 0.f;
+			this->speed = this->baseSpeed;
+			return;
+		}
+
+		if (this->sprintElapsedTime < this->maxSprintTime) {
+			this->sprintElapsedTime += dt;
+			this->speed = this->sprintSpeed;
+		}
+		else {
+			this->speed = this->baseSpeed;
+		}
+	}
+
 	void Player::move(float dt) {
 		if (this->fishing)
 			return;
@@ -108,7 +132,8 @@ namespace Tmpl8 {
 		if (this->velocity.length() != 0)
 			this->velocity.normalize();
 
-		this->velocity *= speed * dt;
+		this->velocity.x *= speed * dt;
+		this->velocity.y *= baseSpeed * dt;
 
 		this->nextPos += velocity;
 
@@ -157,6 +182,8 @@ namespace Tmpl8 {
 		Text::printCoins(screen, vec2(32, 64), this->coins);
 		Text::drawString("Fishes: " + std::to_string(this->fishInventory.size()), screen, vec2(96, 48));
 		Text::drawString("Chests: " + std::to_string(this->chestInventory.size()), screen, vec2(96, 64));
+		
+		drawStamina(screen, vec2(32, 40));
 	}
 
 	void Player::clearFishInventory() {
@@ -215,6 +242,10 @@ namespace Tmpl8 {
 
 	void Player::setInteracting(bool state) {
 		this->interacting = state;
+	}
+
+	void Player::setSprinting(bool sprinting) {
+		this->sprinting = sprinting;
 	}
 
 	void Player::setFishing(bool state) {
@@ -285,6 +316,32 @@ namespace Tmpl8 {
 		Pixel* buffer = screen->GetBuffer();
 		int pitch = screen->GetPitch(); // pixel per riga
 		vec2 pos(this->pos.x - cameraOffset.x, this->pos.y - cameraOffset.y);
+
+		for (int dy = 0; dy < size.y; dy++)
+		{
+			int py = int(pos.y) + dy;
+			if (py < 0 || py >= screen->GetHeight()) continue;
+
+			for (int dx = 0; dx < size.x; dx++)
+			{
+				int px = int(pos.x) + dx;
+				if (px < 0 || px >= screen->GetWidth()) continue;
+
+				buffer[px + py * pitch] = red;
+			}
+		}
+	}
+
+	void Player::drawStamina(Surface* screen, vec2 pos) {
+		int maxSizeX = 100;
+		vec2 size(0, 5);
+
+		size.x = mapValue(this->sprintElapsedTime, 0, this->maxSprintTime, maxSizeX, 0);
+
+		Pixel red = 0xFF0000; // formato: 0xRRGGBB
+
+		Pixel* buffer = screen->GetBuffer();
+		int pitch = screen->GetPitch(); // pixel per riga
 
 		for (int dy = 0; dy < size.y; dy++)
 		{

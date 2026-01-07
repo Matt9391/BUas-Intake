@@ -20,6 +20,7 @@ namespace Tmpl8 {
 
 		void update(float dt);
 		
+		void sprint(float dt);
 		void move(float dt);
 		
 		void handleInput();
@@ -44,6 +45,7 @@ namespace Tmpl8 {
 		std::vector<ChestObject> getChests();
 
 		void setInteracting(bool state);
+		void setSprinting(bool sprinting);
 		void setFishing(bool state);
 		void setPos(const vec2& pos);
 		void setDir(const vec2& dir);
@@ -61,6 +63,7 @@ namespace Tmpl8 {
 
 	private:
 		void showHitbox(Surface* screen, vec2 cameraOffset);
+		void drawStamina(Surface* screen, vec2 pos);
 
 		void playAnimation(float dt);
 
@@ -80,6 +83,8 @@ namespace Tmpl8 {
 		vec2 velocity;
 
 		float speed;
+		float baseSpeed;
+		float sprintSpeed;
 
 		vec2 dir;
 		Sprite &humanSprite;
@@ -99,7 +104,9 @@ namespace Tmpl8 {
 		std::vector<Fish> fishInventory;
 		std::vector<ChestObject> chestInventory;
 
-
+		bool sprinting;
+		float maxSprintTime;
+		float sprintElapsedTime;
 
 	};
 

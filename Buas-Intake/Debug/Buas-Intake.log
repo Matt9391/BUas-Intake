@@ -1,4 +1,2 @@
-﻿  Player.cpp
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(258,60): warning C4244: '-=': conversione da 'double' a '__int64'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(266,35): warning C4244: '+=': conversione da 'float' a '__int64'. Possibile perdita di dati.
+﻿  HumanState.cpp
   Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe

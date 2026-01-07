@@ -38,6 +38,11 @@ namespace Tmpl8 {
 			player.setInput('S');
 		}
 
+		player.setSprinting(false);
+		if (GetAsyncKeyState(VK_SHIFT)) {
+			player.setSprinting(true);
+		}
+
 		if (player.getDir() == vec2(0, 0))
 			player.setAnimRange(0, 6);
 
