@@ -21,7 +21,6 @@ namespace Tmpl8 {
 
 		static float price;
 
-		std::string priceText;
 		std::string alertText;
 
 		vec2 priceTextPosition;

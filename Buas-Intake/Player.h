@@ -58,6 +58,7 @@ namespace Tmpl8 {
 		void addFish(Fish fish);
 		void addChest(ChestObject chest);
 		void setMultiplier(float multiplier);
+		void addStamina(float ms);
 
 		void setAnimRange(int first, int last);
 

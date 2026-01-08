@@ -7,6 +7,8 @@ namespace Tmpl8 {
 	void FishState::enter(Player& player) {
 		//player.setState(0);
 		printf("Sono un Pesce\n");
+		player.setSprinting(false);
+		this->sprintSpeed = 0.35;
 	}
 
 	void FishState::handleInput(Player& player) {

@@ -28,7 +28,7 @@ namespace Tmpl8 {
 		coinsMultiplier(1),
 		sprinting(false),
 		sprintElapsedTime(0.f),
-		maxSprintTime(5000.f),
+		maxSprintTime(2000.f),
 		sprintSpeed(0.35),
 		baseSpeed(0.15)
 	{
@@ -114,7 +114,7 @@ namespace Tmpl8 {
 
 		if (this->sprintElapsedTime < this->maxSprintTime) {
 			this->sprintElapsedTime += dt;
-			this->speed = this->sprintSpeed;
+			this->speed = this->state->getSprintSpeed();
 		}
 		else {
 			this->speed = this->baseSpeed;
@@ -179,11 +179,12 @@ namespace Tmpl8 {
 
 		//Text::drawString(std::to_string(this->coins), screen, vec2(64, 96));
 		Text::drawString("Coins:", screen, vec2(32, 48));
-		Text::printCoins(screen, vec2(32, 64), this->coins);
+		Text::printCoins(screen, vec2(33, 64), this->coins);
 		Text::drawString("Fishes: " + std::to_string(this->fishInventory.size()), screen, vec2(96, 48));
 		Text::drawString("Chests: " + std::to_string(this->chestInventory.size()), screen, vec2(96, 64));
 		
-		drawStamina(screen, vec2(32, 40));
+		drawStamina(screen, vec2(32, 34));
+		Text::drawString(std::to_string(int((this->maxSprintTime - this->sprintElapsedTime) / 1000)) + "s", screen, vec2(150, 32));
 	}
 
 	void Player::clearFishInventory() {
@@ -308,6 +309,9 @@ namespace Tmpl8 {
 	void Player::setMultiplier(float multiplier) {
 		this->coinsMultiplier = multiplier;
 	}
+	void Player::addStamina(float ms) {
+		this->maxSprintTime += ms;
+	}
 
 	void Player::showHitbox(Surface* screen, vec2 cameraOffset) {
 		vec2 size = this->size;
@@ -333,7 +337,7 @@ namespace Tmpl8 {
 	}
 
 	void Player::drawStamina(Surface* screen, vec2 pos) {
-		int maxSizeX = 100;
+		int maxSizeX = 110;
 		vec2 size(0, 5);
 
 		size.x = mapValue(this->sprintElapsedTime, 0, this->maxSprintTime, maxSizeX, 0);

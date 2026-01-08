@@ -18,7 +18,11 @@ namespace Tmpl8 {
 
 		virtual void update(Player& player) = 0;
 
+		float getSprintSpeed();
+
 		//virtual void draw(Player& player, Surface* screen, vec2 cameraOffset) = 0;
+	protected:
+		float sprintSpeed;
 	};
 }
 

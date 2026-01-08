@@ -14,9 +14,6 @@ namespace Tmpl8 {
 		alertElapsedTime(0)
 	{
 		this->textHover = "Income multiplier";
-		char buffer[64];
-		snprintf(buffer, sizeof(buffer), "price: %.2f", price);
-		priceText = buffer;
 		this->textPosition = vec2(pos + vec2(0, -48));
 		this->alertText = "Not enough coins";
 	}
@@ -44,9 +41,6 @@ namespace Tmpl8 {
 		this->price *= 2.2;
 
 		printf("post price: %2.f\n", price);
-		char buffer[64];
-		snprintf(buffer, sizeof(buffer), "price: %.2f", price);
-		priceText = buffer;
 
 	}
 
