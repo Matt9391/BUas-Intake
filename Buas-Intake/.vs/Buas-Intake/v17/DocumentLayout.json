@@ -218,8 +218,7 @@
               "RelativeToolTip": "PlayerState.cpp",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2026-01-08T15:14:15.699Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-08T15:14:15.699Z"
             },
             {
               "$type": "Document",
@@ -231,8 +230,7 @@
               "RelativeToolTip": "PlayerState.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2026-01-08T15:10:28.306Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-01-08T15:10:28.306Z"
             },
             {
               "$type": "Document",
@@ -412,8 +410,7 @@
               "RelativeToolTip": "HumanScene.cpp",
               "ViewState": "AgIAAC0AAAAAAAAAAAAAADsAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-25T16:24:50.432Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-25T16:24:50.432Z"
             },
             {
               "$type": "Document",
@@ -509,8 +506,7 @@
               "RelativeToolTip": "StaminaShop.cpp",
               "ViewState": "AgIAABUAAAAAAAAAAAAowCoAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-11T15:28:09.477Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T15:28:09.477Z"
             },
             {
               "$type": "Document",
@@ -522,8 +518,7 @@
               "RelativeToolTip": "StaminaShop.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-12-11T15:26:54.867Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T15:26:54.867Z"
             },
             {
               "$type": "Document",
@@ -535,8 +530,7 @@
               "RelativeToolTip": "IncomeMultiplier.cpp",
               "ViewState": "AgIAABgAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-11T15:01:46.98Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T15:01:46.98Z"
             },
             {
               "$type": "Document",
@@ -548,8 +542,7 @@
               "RelativeToolTip": "IncomeMultiplier.h",
               "ViewState": "AgIAAAMAAAAAAAAAAAAAAAsAAAAxAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-12-11T15:00:00.809Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-11T15:00:00.809Z"
             },
             {
               "$type": "Document",
@@ -597,8 +590,7 @@
               "RelativeToolTip": "InteractableObject.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAkAAAAZAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-18T17:58:00.462Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T17:58:00.462Z"
             },
             {
               "$type": "Document",
@@ -634,8 +626,7 @@
               "RelativeToolTip": "FishState.cpp",
               "ViewState": "AgIAABIAAAAAAAAAAAAAAAgAAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-12-22T09:22:37.407Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-22T09:22:37.407Z"
             },
             {
               "$type": "Document",
@@ -647,8 +638,7 @@
               "RelativeToolTip": "FishState.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-12-22T09:22:27.706Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-12-22T09:22:27.706Z"
             },
             {
               "$type": "Document",
@@ -660,8 +650,7 @@
               "RelativeToolTip": "HumanState.cpp",
               "ViewState": "AgIAAAwAAAAAAAAAAAAAAC0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
-              "WhenOpened": "2025-11-18T15:21:26.864Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T15:21:26.864Z"
             },
             {
               "$type": "Document",
@@ -673,8 +662,7 @@
               "RelativeToolTip": "HumanState.h",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAMAAAARAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-16T15:53:48.603Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-16T15:53:48.603Z"
             },
             {
               "$type": "Document",
@@ -684,7 +672,7 @@
               "RelativeDocumentMoniker": "Player.cpp",
               "ToolTip": "E:\\Informatica\\GitHubRepos\\BUas-Intake\\Buas-Intake\\Player.cpp",
               "RelativeToolTip": "Player.cpp",
-              "ViewState": "AgIAAJ8AAAAAAAAAAAAYwLAAAAA1AAAAAAAAAA==",
+              "ViewState": "AgIAAKYAAAAAAAAAAAAmwKoAAAAtAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
               "WhenOpened": "2025-11-13T19:55:30.999Z",
               "EditorCaption": ""
@@ -699,8 +687,7 @@
               "RelativeToolTip": "Player.h",
               "ViewState": "AgIAAEwAAAAAAAAAAAAowFwAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-13T19:53:29.126Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-13T19:53:29.126Z"
             },
             {
               "$type": "Document",
@@ -772,8 +759,7 @@
               "RelativeToolTip": "Camera2D.h",
               "ViewState": "AgIAAAEAAAAAAAAAAAAswBAAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000680|",
-              "WhenOpened": "2025-11-18T16:21:24.916Z",
-              "EditorCaption": ""
+              "WhenOpened": "2025-11-18T16:21:24.916Z"
             }
           ]
         }
