@@ -24,7 +24,7 @@ namespace Tmpl8 {
 		this->maxPos = this->pos + MapHandler::tileSize * 2;
 		this->minPos = this->pos - MapHandler::tileSize * 2;
 
-		this->value = mapValue(frame, 0.f, 3.f, 50.f, 500.f);
+		this->value = mapValue(frame, 0.f, 3.f, 50.f, 1000.f);
 
 		this->textHover = "Treasuer Chest";
 	}

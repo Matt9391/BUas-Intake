@@ -108,12 +108,12 @@ namespace Tmpl8 {
 
 		}
 
-		//for (auto object : MapHandler::objects) {
-		//	(*object).drawHitBox(screen, camera.getPos());
-		//}
-		//for (auto e : enemies) {
-		//	(*e).drawHitBox(screen, camera.getPos());
-		//}
+		for (auto object : MapHandler::objects) {
+			(*object).drawHitBox(screen, camera.getPos());
+		}
+		for (auto e : enemies) {
+			(*e).drawHitBox(screen, camera.getPos());
+		}
 
 		for (auto object : MapHandler::objects) {
 			(*object).draw(screen, camera.getPos());
