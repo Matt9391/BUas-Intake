@@ -1,5 +1,2 @@
 ﻿  Player.cpp
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(309,60): warning C4244: '-=': conversione da 'double' a '__int64'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(318,35): warning C4244: '+=': conversione da 'float' a '__int64'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(363,70): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
   Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe

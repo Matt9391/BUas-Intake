@@ -8,7 +8,7 @@ namespace Tmpl8 {
 		LEGENDARY
 	};
 
-
+ 
 	struct Fish {
 		Rarity rarity;
 		float value;

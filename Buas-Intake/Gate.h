@@ -11,7 +11,7 @@ namespace Tmpl8 {
 		void interact(Player& player) override;
 
 		//void showText(Surface* screen, vec2 cameraOffset) override;
-
+		 
 		//void draw(Surface* screen, vec2 cameraOffset) override;
 	private:
 

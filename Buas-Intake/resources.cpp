@@ -12,4 +12,4 @@ namespace Tmpl8 {
 
 	std::array<Sprite*, 3> fishingAreaSprites = { &barSprite, &indxSprite, &fishesSprite };
 
-}
+} 

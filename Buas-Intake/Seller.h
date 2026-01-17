@@ -11,7 +11,7 @@ namespace Tmpl8 {
 		void interact(Player& player) override;
 	
 	private:
-
+		 
 	};
 }
 

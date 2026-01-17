@@ -21,7 +21,7 @@ namespace Tmpl8 {
 	void StaminaShop::showText(Surface* screen, vec2 cameraOffset) {
 		Text::drawString(this->textHover, screen, (this->textPosition - cameraOffset));
 		Text::drawString("Price: ", screen, (this->priceTextPosition - cameraOffset));
-		Text::printCoins(screen, (this->priceTextPosition + vec2(42, 0) - cameraOffset), price);
+		Text::printCoins(screen, (this->priceTextPosition + vec2(42, 0) - cameraOffset), long long(price));
 		if (this->showAlert) {
 			Text::drawString(this->alertText, screen, (this->alertTextPosition - cameraOffset));
 		}
@@ -34,12 +34,12 @@ namespace Tmpl8 {
 		}
 		printf("pre price: %2.f ", price);
 
-		player.spendCoins(this->price);
+		player.spendCoins(int(this->price));
 
 		player.addStamina(1000); //1000ms
 
 		this->price *= 3;
-
+		 
 		printf("post price: %2.f\n", price);
 	}
 

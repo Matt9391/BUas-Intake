@@ -15,12 +15,12 @@ namespace Tmpl8 {
 
 	void Gate::interact(Player& player) {
 		if (player.getPlayerVisual() == PlayerVisual::Human) {
-			Game::changeScene(1);
+			Game::changeScene(SceneType::SceneFish);
 		}
 		else {
-			Game::changeScene(0);
+			Game::changeScene(SceneType::SceneHuman);
 		}
-	}
+	} 
 
 	//void Gate::draw(Surface* screen, vec2 cameraOffset) {
 	//	//this->drawHitBox(screen, cameraOffset, 0xFF00FF);

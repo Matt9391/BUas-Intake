@@ -232,6 +232,7 @@
     <ClCompile Include="functions.cpp" />
     <ClCompile Include="game.cpp" />
     <ClCompile Include="Gate.cpp" />
+    <ClCompile Include="HomeScene.cpp" />
     <ClCompile Include="HumanScene.cpp" />
     <ClCompile Include="HumanState.cpp" />
     <ClCompile Include="IncomeMultiplier.cpp" />
@@ -262,6 +263,7 @@
     <ClInclude Include="functions.h" />
     <ClInclude Include="game.h" />
     <ClInclude Include="Gate.h" />
+    <ClInclude Include="HomeScene.h" />
     <ClInclude Include="HumanScene.h" />
     <ClInclude Include="HumanState.h" />
     <ClInclude Include="IncomeMultiplier.h" />

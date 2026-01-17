@@ -5,4 +5,4 @@ namespace Tmpl8 {
 		Human,
 		Fish
 	};
-}
+} 

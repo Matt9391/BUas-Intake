@@ -18,6 +18,6 @@ namespace Tmpl8 {
 	private:
 		std::array<Map, 2> currentMap;
 	};
-
+	 
 }
 

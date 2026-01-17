@@ -40,7 +40,7 @@ namespace Tmpl8 {
 			clr = 0xFF0000;
 
 		return cond;
-
+		 
 
 	}
 

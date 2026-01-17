@@ -10,7 +10,7 @@ namespace Tmpl8 {
 		textHover("Plain text"),
 		textPosition(pos)
 	{}
-
+	 
 	void InteractableObject::update(float dt, Player& player) {
 		
 	}

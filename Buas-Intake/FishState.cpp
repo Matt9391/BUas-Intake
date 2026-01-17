@@ -39,7 +39,7 @@ namespace Tmpl8 {
 				player.setAnimRange(0, 6);
 			player.setInput('S');
 		}
-
+		 
 		player.setSprinting(false);
 		if (GetAsyncKeyState(VK_SHIFT)) {
 			player.setSprinting(true);

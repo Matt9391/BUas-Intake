@@ -8,7 +8,7 @@ namespace Tmpl8 {
 	{
 	public:
 		StaminaShop(int type, vec2 pos, vec2 size);
-
+		 
 		void update(float dt, Player& player) override;
 
 		void interact(Player& player) override;

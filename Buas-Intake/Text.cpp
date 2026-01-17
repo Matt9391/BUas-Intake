@@ -59,7 +59,7 @@ namespace Tmpl8 {
 		if (font == nullptr) {
 			printf("BRO SONO NULL ANCORA EHEHEH");
 			return;
-		}
+		} 
 
 		//printf("char: %c, c_index: %d, index: %d\n", character, character, index);
 

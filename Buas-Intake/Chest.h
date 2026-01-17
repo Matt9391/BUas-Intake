@@ -21,7 +21,7 @@ namespace Tmpl8 {
 		static FastNoiseLite noise;
 
 		bool enabled;
-
+ 
 		float timeX;
 		float timeY;
 		

@@ -17,7 +17,7 @@ namespace Tmpl8 {
 		void attack(Player& player);
 
 		void draw(Surface* screen, vec2 cameraOffset);
-
+		 
 
 	private:
 		Sprite& enemySprite;

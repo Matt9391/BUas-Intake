@@ -17,7 +17,7 @@ namespace Tmpl8 {
 		static void printCoins(Surface* screen, vec2 pos, long long coins);
 
 		static void drawString(std::string str, Surface* screen, vec2 pos);
-
+		 
 	private:
 		static Surface* font;
 		static int fontHeight;

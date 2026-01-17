@@ -11,13 +11,13 @@ namespace Tmpl8 {
 
 	void FishScene::onEnter(Player& player, Camera2D& camera) {
 		MapHandler::loadInteractableObject("2DInteractableObjectList.txt", 32);	
-		
+		 
 		int type = 6; //chest type
 
 		for (int i = 0; i < 10; i++) {
 			vec2 pos(
-				Randomize::randomInt(3 * MapHandler::tileSize, 22 * MapHandler::tileSize),
-				Randomize::randomInt(5 * MapHandler::tileSize, 33 * MapHandler::tileSize)
+				float(Randomize::randomInt(3 * MapHandler::tileSize, 22 * MapHandler::tileSize)),
+				float(Randomize::randomInt(5 * MapHandler::tileSize, 33 * MapHandler::tileSize))
 			);
 			//vec2 pos(
 			//	Randomize::randomInt(1 * MapHandler::tileSize, 24 * MapHandler::tileSize),
@@ -28,21 +28,21 @@ namespace Tmpl8 {
 			MapHandler::createInteractableObject(type, pos, size, nullptr, &chestsSprite);
 
 		}
-
+		 
 		for (int i = 0; i < 10; i++) {
 			vec2 pos(
-				-5 * MapHandler::tileSize,
-				Randomize::randomInt(5 * MapHandler::tileSize, 33 * MapHandler::tileSize)
+				float( - 5 * MapHandler::tileSize),
+				float(Randomize::randomInt(5 * MapHandler::tileSize, 33 * MapHandler::tileSize))
 			);
 
-			vec2 size(128,46);
+			vec2 size(124,46);
 			vec2 endPos(
-				26 * MapHandler::tileSize,
-				Randomize::randomInt(pos.y - 5 * MapHandler::tileSize, pos.y + 5 * MapHandler::tileSize)
+				float(26 * MapHandler::tileSize),
+				float(Randomize::randomInt(int(pos.y) - 5 * MapHandler::tileSize, int(pos.y) + 5 * MapHandler::tileSize))
 			);
 
-			if (endPos.y >= 35 * MapHandler::tileSize) endPos.y = 34 * MapHandler::tileSize;
-			if (endPos.y < 5 * MapHandler::tileSize) endPos.y = 5 * MapHandler::tileSize;
+			if (endPos.y >= 35.f * MapHandler::tileSize) endPos.y = 34.f * MapHandler::tileSize;
+			if (endPos.y < 5.f * MapHandler::tileSize) endPos.y = 5.f * MapHandler::tileSize;
 
 			float startOffset = Randomize::randomFloat(100, 1000);
 

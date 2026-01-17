@@ -10,7 +10,7 @@ namespace Tmpl8 {
 	{
 	public:
 		FishArea(int type, vec2 pos, vec2 size, std::array<Sprite*, 3> fishingSprites);
-		
+		 
 		void update(float dt, Player& player) override;
 		void interact(Player& player) override;
 

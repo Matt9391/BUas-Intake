@@ -21,7 +21,7 @@ namespace Tmpl8 {
 	void IncomeMultiplier::showText(Surface* screen, vec2 cameraOffset) {
 		Text::drawString(this->textHover, screen, (this->textPosition - cameraOffset));
 		Text::drawString("Price: ", screen, (this->priceTextPosition - cameraOffset));
-		Text::printCoins(screen, (this->priceTextPosition + vec2(42,0) - cameraOffset), price);
+		Text::printCoins(screen, (this->priceTextPosition + vec2(42,0) - cameraOffset), long long(price));
 		if (this->showAlert) {
 			Text::drawString(this->alertText, screen, (this->alertTextPosition - cameraOffset));
 		}
@@ -33,10 +33,10 @@ namespace Tmpl8 {
 			return;
 		}
 		printf("pre price: %2.f ", price);
+ 
+		player.spendCoins(int(this->price));
 
-		player.spendCoins(this->price);
-
-		player.setMultiplier(player.getMultiplier() * 1.5);
+		player.setMultiplier(player.getMultiplier() * 1.5f);
 
 		this->price *= 2.2;
 

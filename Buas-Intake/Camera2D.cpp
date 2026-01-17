@@ -14,7 +14,7 @@ namespace Tmpl8 {
 		this->pos.x = this->constrain(this->pos.x, 0, this->worldSize.x - this->size.x);
 		this->pos.y = this->constrain(this->pos.y, 0, this->worldSize.y - this->size.y);
 	}
-
+ 
 	vec2 Camera2D::getPos() {
 		return this->pos;
 	}

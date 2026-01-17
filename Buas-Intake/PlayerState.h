@@ -11,7 +11,7 @@ namespace Tmpl8 {
 	{
 	public:
 		virtual ~PlayerState() {}
-
+		 
 		virtual void enter(Player& player) = 0;
 
 		virtual void handleInput(Player& player) = 0;

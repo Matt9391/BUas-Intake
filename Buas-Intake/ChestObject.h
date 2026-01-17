@@ -6,5 +6,5 @@ namespace Tmpl8 {
 		int type;
 		float value;
 	};
-
+	 
 }

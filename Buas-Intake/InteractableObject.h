@@ -11,7 +11,7 @@ namespace Tmpl8 {
 	{
 	public:
 		InteractableObject(int type, vec2 pos, vec2 size);
-
+		 
 		virtual void update(float dt, Player& player);
 
 		virtual void interact(Player& player);

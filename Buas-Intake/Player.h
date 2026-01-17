@@ -24,8 +24,8 @@ namespace Tmpl8 {
 		void sprint(float dt);
 		void move(float dt);
 		
-		void handleInput();
-
+		//void handleInput();
+ 
 		void draw(Surface* screen, vec2 cameraOffset);
 
 		void clearFishInventory();

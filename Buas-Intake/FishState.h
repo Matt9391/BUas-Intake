@@ -14,5 +14,5 @@ namespace Tmpl8 {
 		void update(Player& player) override;
 	private:
 	};
-
+	 
 }

@@ -12,7 +12,7 @@ namespace Tmpl8 {
 		void handleInput(Player& player) override;
 		
 		void update(Player& player) override;
-
+		 
 		//void draw(Player& player, Surface* screen, vec2 cameraOffset) override;
 	private:
 	};

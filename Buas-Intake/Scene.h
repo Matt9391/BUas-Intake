@@ -1,9 +1,16 @@
 #include "surface.h"
 
-
+ 
 #pragma once
 
 namespace Tmpl8 {
+
+	enum SceneType {
+		SceneHome,
+		SceneHuman,
+		SceneFish
+	}; 
+
 	class Player;
 	class Camera2D;
 

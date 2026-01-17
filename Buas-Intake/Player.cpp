@@ -40,7 +40,7 @@ namespace Tmpl8 {
 		this->setState(0);
 		humanSprite.SetFrame(38);
 	}
-
+	 
 	void Player::update(float dt) {
 		//this->handleInput();
 		this->state->handleInput(*this);
@@ -306,7 +306,7 @@ namespace Tmpl8 {
 	}
 
 	void Player::stealCoins(int coins) {
-		this->coins -= (long long) coins * this->coinsMultiplier * 1.5;
+		this->coins -= (long long) (coins * this->coinsMultiplier * 1.5f);
 		if (this->coins <= 0) {
 			this->coins = 0;
 			this->chestInventory.clear();
@@ -315,7 +315,7 @@ namespace Tmpl8 {
 	}
 
 	void Player::addCoins(int coins) {
-		this->coins += (long long)coins * this->coinsMultiplier;
+		this->coins += (long long)(coins * this->coinsMultiplier);
 	}
 
 	void Player::addFish(Fish fish) {
@@ -360,7 +360,7 @@ namespace Tmpl8 {
 		int maxSizeX = 110;
 		vec2 size(0, 5);
 
-		size.x = mapValue(this->sprintElapsedTime, 0, this->maxSprintTime, maxSizeX, 0);
+		size.x = mapValue(this->sprintElapsedTime, 0, this->maxSprintTime, float(maxSizeX), 0);
 
 		Pixel red = 0xFF0000; // formato: 0xRRGGBB
 

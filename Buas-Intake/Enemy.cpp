@@ -92,7 +92,7 @@ namespace Tmpl8 {
 	void Enemy::draw(Surface* screen, vec2 cameraOffset)
 	{
 		this->enemySprite.SetFrame(this->currentFrame);
-		this->enemySprite.Draw(screen, this->pos.x - cameraOffset.x, this->pos.y - cameraOffset.y);
+		this->enemySprite.Draw(screen, int(this->pos.x - cameraOffset.x), int(this->pos.y - cameraOffset.y));
 	}
-
+	 
 }

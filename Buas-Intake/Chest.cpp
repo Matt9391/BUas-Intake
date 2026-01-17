@@ -21,10 +21,10 @@ namespace Tmpl8 {
 		Chest::noise.SetNoiseType(FastNoiseLite::NoiseType_Perlin);
 		this->chestsSprite = chestsSprite;
 
-		this->maxPos = this->pos + MapHandler::tileSize * 2;
-		this->minPos = this->pos - MapHandler::tileSize * 2;
+		this->maxPos = this->pos + float(MapHandler::tileSize * 2);
+		this->minPos = this->pos - float(MapHandler::tileSize * 2);
 
-		this->value = mapValue(frame, 0.f, 3.f, 50.f, 1000.f);
+		this->value = mapValue(float(frame), 0.f, 3.f, 50.f, 1000.f);
 
 		this->textHover = "Treasuer Chest";
 	}
@@ -32,9 +32,9 @@ namespace Tmpl8 {
 
 	void Chest::update(float dt, Player& player) {
 		if (!this->enabled) return;
-
-		this->timeX += dt * 0.05; // velocità orizzontale
-		this->timeY += dt * 0.05; // velocità verticale
+		 
+		this->timeX += dt * 0.05f; // velocità orizzontale
+		this->timeY += dt * 0.05f; // velocità verticale
 
 		float xValue = noise.GetNoise(timeX, 0.f); // -1 a 1
 		float yValue = noise.GetNoise(0.f, timeY); // -1 a 1

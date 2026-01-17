@@ -13,6 +13,6 @@ namespace Tmpl8 {
 
 	private:
 		static std::mt19937 gen;
-	};
+	}; 
 }
 

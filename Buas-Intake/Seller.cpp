@@ -12,7 +12,7 @@ namespace Tmpl8 {
 	{
 		this->textHover = "Seller";
 		this->textPosition = vec2(pos + vec2(10, -48));
-	}
+	} 
 
 	void Seller::interact(Player& player) {
 		float totalValue = 0;
@@ -27,7 +27,7 @@ namespace Tmpl8 {
 			totalValue += chest.value;
 		}
 
-		player.addCoins(totalValue);
+		player.addCoins(int(totalValue));
 
 		player.clearFishInventory();
 		player.clearChestInventory();

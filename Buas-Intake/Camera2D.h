@@ -15,7 +15,7 @@ namespace Tmpl8 {
 
 	private:
 		float constrain(float value, float min, float max);
-		
+	 	
 		vec2 pos;
 		vec2 size;
 		vec2 worldSize;

@@ -34,6 +34,8 @@ namespace Tmpl8
 
 	HumanScene Game::humanScene;
 	FishScene Game::fishScene;
+	HomeScene Game::homeScene;
+
 	Scene* Game::currentScene = nullptr;
 
 	void Game::Init()
@@ -44,19 +46,19 @@ namespace Tmpl8
 		MapHandler::maps2D[1] = MapHandler::loadMap("map2DLayer2.txt");
 
 		MapHandler::tilesTdw = vec2(
-								int(std::floor((MapHandler::mapsTdw[0][0].size() + 1) / 4)),
-							    int(MapHandler::mapsTdw[0].size())
+								float(std::floor((MapHandler::mapsTdw[0][0].size() + 1) / 4)),
+							    float(MapHandler::mapsTdw[0].size())
 								);
 
 		MapHandler::tiles2D = vec2(
-								int(std::floor((MapHandler::maps2D[0][0].size() + 1) / 4)), //div 4 perché ci sono 4 char nel txt
-								int(MapHandler::maps2D[0].size())
+								float(std::floor((MapHandler::maps2D[0][0].size() + 1) / 4)), //div 4 perché ci sono 4 char nel txt
+								float(MapHandler::maps2D[0].size())
 								);
 
 		this->currentScene = nullptr;
-		this->currentScene = &this->humanScene;
-
-		Game::changeScene(0);
+		this->currentScene = &this->homeScene;
+		 
+		Game::changeScene(SceneType::SceneHome);
 
 		Text::init(&fontSource);
 	}
@@ -78,12 +80,16 @@ namespace Tmpl8
 		this->currentScene->draw(screen, camera, player);
 	}
 
-	void Game::changeScene(int nScene) {
-		if (nScene == 0) {
+	void Game::changeScene(SceneType nextScene) {
+		if (nextScene == SceneType::SceneHome) {
+			currentScene->onExit();
+			currentScene = &homeScene;
+			currentScene->onEnter(player, camera);
+		}else if (nextScene == SceneType::SceneHuman) {
 			currentScene->onExit();
 			currentScene = &humanScene;
 			currentScene->onEnter(player,camera);
-		}else if (nScene == 1) {
+		}else if (nextScene == SceneType::SceneFish) {
 			currentScene->onExit();
 			currentScene = &fishScene;
 			currentScene->onEnter(player, camera);
