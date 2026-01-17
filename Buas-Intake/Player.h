@@ -7,6 +7,7 @@
 #include "PlayerVisual.h"
 #include "Fish.h"
 #include "ChestObject.h"
+#include <string>
 
 #pragma once
 
@@ -108,6 +109,12 @@ namespace Tmpl8 {
 		bool sprinting;
 		float maxSprintTime;
 		float sprintElapsedTime;
+
+		std::string deadText;
+		vec2 deadTextPosition;
+		bool showDeadText;
+		float deadTimeElapsed;
+		float deadTimer;
 
 	};
 

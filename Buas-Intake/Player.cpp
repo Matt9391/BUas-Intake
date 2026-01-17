@@ -3,9 +3,9 @@
 #include "FishState.h"
 #include "Text.h"
 #include "functions.h"
-
-
 #include <Windows.h>
+
+
 
 namespace Tmpl8 {
 
@@ -30,7 +30,12 @@ namespace Tmpl8 {
 		sprintElapsedTime(0.f),
 		maxSprintTime(2000.f),
 		sprintSpeed(0.35),
-		baseSpeed(0.15)
+		baseSpeed(0.15),
+		deadText("you got ate!! you've lost all your stuff"),
+		deadTextPosition(pos),
+		showDeadText(false),
+		deadTimer(1000.f),
+		deadTimeElapsed(0.f)
 	{
 		this->setState(0);
 		humanSprite.SetFrame(38);
@@ -42,6 +47,16 @@ namespace Tmpl8 {
 		this->sprint(dt);
 		this->move(dt);
 		this->playAnimation(dt);
+
+		if (showDeadText) {
+			this->deadTimeElapsed += dt;
+			if (this->deadTimeElapsed > this->deadTimer) {
+				this->showDeadText = false;
+				this->deadTimeElapsed = 0.f;
+			}
+			this->deadTextPosition = this->pos + vec2(-112, -32);
+			this->deadTextPosition.x = constrain(this->deadTextPosition.x, 10.f, float(ScreenWidth - 300));
+		}
 
 		//printf("FISHESSS\n");
 		//for (Fish& fish : this->fishInventory) {
@@ -185,6 +200,10 @@ namespace Tmpl8 {
 		
 		drawStamina(screen, vec2(32, 34));
 		Text::drawString(std::to_string(int((this->maxSprintTime - this->sprintElapsedTime) / 1000)) + "s", screen, vec2(150, 32));
+
+		if (showDeadText) {
+			Text::drawString(this->deadText, screen,this->deadTextPosition - cameraOffset);
+		}
 	}
 
 	void Player::clearFishInventory() {
@@ -291,6 +310,7 @@ namespace Tmpl8 {
 		if (this->coins <= 0) {
 			this->coins = 0;
 			this->chestInventory.clear();
+			this->showDeadText = true;
 		}
 	}
 
