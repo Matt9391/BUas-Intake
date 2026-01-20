@@ -15,4 +15,5 @@ namespace Tmpl8 {
 	extern Sprite gameTitle;
 	extern std::array<Sprite*, 3> fishingAreaSprites;
 
+	//https://ninjikin.itch.io/trees
 } 
