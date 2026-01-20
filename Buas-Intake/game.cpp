@@ -44,6 +44,8 @@ namespace Tmpl8
 		MapHandler::mapsTdw[1] = MapHandler::loadMap("mapTopDownLayer2.txt");
 		MapHandler::maps2D[0] = MapHandler::loadMap("map2D.txt");
 		MapHandler::maps2D[1] = MapHandler::loadMap("map2DLayer2.txt");
+		MapHandler::mapsHome[0] = MapHandler::loadMap("mapHome.txt");
+		MapHandler::mapsHome[1] = MapHandler::loadMap("mapHomeLayer2.txt");
 
 		MapHandler::tilesTdw = vec2(
 								float(std::floor((MapHandler::mapsTdw[0][0].size() + 1) / 4)),
@@ -53,6 +55,11 @@ namespace Tmpl8
 		MapHandler::tiles2D = vec2(
 								float(std::floor((MapHandler::maps2D[0][0].size() + 1) / 4)), //div 4 perché ci sono 4 char nel txt
 								float(MapHandler::maps2D[0].size())
+								);
+		
+		MapHandler::tilesHome = vec2(
+								float(std::floor((MapHandler::mapsHome[0][0].size() + 1) / 4)), //div 4 perché ci sono 4 char nel txt
+								float(MapHandler::mapsHome[0].size())
 								);
 
 		this->currentScene = nullptr;

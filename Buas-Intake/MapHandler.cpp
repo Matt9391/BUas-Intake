@@ -15,6 +15,7 @@ namespace Tmpl8 {
 
 	vec2 MapHandler::tilesTdw = vec2(0, 0);
 	vec2 MapHandler::tiles2D = vec2(0, 0);
+	vec2 MapHandler::tilesHome = vec2(0, 0);
 	
 	const int MapHandler::tileSize = 32;
 
@@ -22,9 +23,11 @@ namespace Tmpl8 {
 
 	std::array<Map, 2> MapHandler::mapsTdw;
 	std::array<Map, 2> MapHandler::maps2D;
+	std::array<Map, 2> MapHandler::mapsHome;
 	
 	Surface MapHandler::map2DTileset("./assets/2D/seaMap.png");
 	Surface MapHandler::mapTdwTileset("./assets/TopDown/map3.png");
+	Surface MapHandler::mapHomeTileset("./assets/TopDown/map3.png");
 
 	void MapHandler::loadInteractableObject(std::string fileName, int tileSize, const std::array<Sprite*, 3>* fishingSprites) {
 		std::ifstream objFile("assets/map/" + fileName);

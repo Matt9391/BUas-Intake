@@ -34,12 +34,16 @@ namespace Tmpl8 {
 
 		static std::array<Map, 2> maps2D;
 		static vec2 tiles2D;
+		
+		static std::array<Map, 2> mapsHome;
+		static vec2 tilesHome;
 
 		static const int tileSize;
 
 		
 		static Surface map2DTileset;
 		static Surface mapTdwTileset;
+		static Surface mapHomeTileset;
 
 	private:
 		static std::vector<float> parseFloatList(const std::string& s);
