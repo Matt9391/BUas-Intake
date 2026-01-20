@@ -2,6 +2,7 @@
 #include "Surface.h"
 #include "template.h"
 #include "MapHandler.h"
+#include <sstream>
 
 namespace Tmpl8 {
 
@@ -55,11 +56,26 @@ namespace Tmpl8 {
 
 	}
 
+	std::vector<std::string>  Text::splitLines(const std::string& text) {
+		std::vector<std::string> lines;
+		std::istringstream stream(text);
+		std::string line;
+
+		while (std::getline(stream, line)) {
+			lines.push_back(line);
+		}
+
+		return lines;
+	}
+
 	void Text::drawString(std::string str, Surface* screen, vec2 pos) {
 		if (font == nullptr) {
 			printf("BRO SONO NULL ANCORA EHEHEH");
 			return;
 		} 
+
+		std::vector<std::string> lines = splitLines(str);
+
 
 		//printf("char: %c, c_index: %d, index: %d\n", character, character, index);
 
@@ -75,25 +91,30 @@ namespace Tmpl8 {
 		if (pos.y + fontHeight> screen->GetHeight()) maxY = int(screen->GetHeight() - pos.y);
 
 		const Pixel black = 0xFF000000; //its black
-		int count = 0;
-		for (char character : str) {
-			Pixel* destination = screen->GetBuffer() + int(pos.x + fontWidth * count) + (int(pos.y) + dy) * screen->GetPitch();
+		int lineCounter = 0;
+		for (auto line : lines) {
+			int count = 0;
+			for (char character : line) {
+				Pixel* destination = screen->GetBuffer() + int(pos.x + fontWidth * count) + (int(pos.y) + dy + fontHeight * lineCounter) * screen->GetPitch();
 			
-			int index = int(character) - 32;
+				int index = int(character) - 32;
 	
-			Pixel* source = (*font).GetBuffer() + index * fontWidth;
-			source += dy * (*font).GetPitch();
+				Pixel* source = (*font).GetBuffer() + index * fontWidth;
+				source += dy * (*font).GetPitch();
 			
-			for (int i = dy; i < maxY; i++) {
-				for (int j = dx; j < maxX; j++) {
-					if (source[j] != black)
-						destination[j] = source[j];
+				for (int i = dy; i < maxY; i++) {
+					for (int j = dx; j < maxX; j++) {
+						if (source[j] != black)
+							destination[j] = source[j];
+					}
+					source += (*font).GetPitch();
+					destination += screen->GetPitch();
 				}
-				source += (*font).GetPitch();
-				destination += screen->GetPitch();
-			}
 			
-			count++;
+				count++;
+			}
+
+			lineCounter++;
 		}
 	}
 

@@ -9,6 +9,7 @@ namespace Tmpl8 {
 	Sprite fishesSprite(new Surface("./assets/TopDown/fishesv2.tga"), 4);
 	Sprite chestsSprite(new Surface("./assets/2D/Chests2.tga"), 4);
 	Sprite enemySprite(new Surface("./assets/2D/angryFish.tga"), 20);
+	Sprite gameTitle(new Surface("./assets/title.png"), 1);
 
 	std::array<Sprite*, 3> fishingAreaSprites = { &barSprite, &indxSprite, &fishesSprite };
 

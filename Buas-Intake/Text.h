@@ -1,4 +1,6 @@
 #include <string>
+#include <vector>
+
 #pragma once
 
 namespace Tmpl8 {
@@ -19,6 +21,8 @@ namespace Tmpl8 {
 		static void drawString(std::string str, Surface* screen, vec2 pos);
 		 
 	private:
+		static std::vector<std::string> splitLines(const std::string& text);
+
 		static Surface* font;
 		static int fontHeight;
 		static int fontWidth;

@@ -17,7 +17,14 @@ namespace Tmpl8 {
 	private:
 		std::string playText;
 		vec2 playTextPosition;
-		 
+		
+		std::string howToPlayText;
+		vec2 howToPlayTextPosition;
+		
+		std::string UIText;
+		vec2 UITextPosition;
+		
+		vec2 gameTitlePos;
 	};
 
 };

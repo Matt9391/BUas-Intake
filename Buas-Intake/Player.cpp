@@ -193,10 +193,10 @@ namespace Tmpl8 {
 		}
 
 		//Text::drawString(std::to_string(this->coins), screen, vec2(64, 96));
-		Text::drawString("Coins:", screen, vec2(32, 48));
-		Text::printCoins(screen, vec2(33, 64), this->coins);
-		Text::drawString("Fishes: " + std::to_string(this->fishInventory.size()), screen, vec2(96, 48));
-		Text::drawString("Chests: " + std::to_string(this->chestInventory.size()), screen, vec2(96, 64));
+		Text::drawString("Coins:", screen, vec2(32, 52));
+		Text::printCoins(screen, vec2(33, 72), this->coins);
+		Text::drawString("Fishes: " + std::to_string(this->fishInventory.size()), screen, vec2(96, 52));
+		Text::drawString("Chests: " + std::to_string(this->chestInventory.size()), screen, vec2(96, 72));
 		
 		drawStamina(screen, vec2(32, 34));
 		Text::drawString(std::to_string(int((this->maxSprintTime - this->sprintElapsedTime) / 1000)) + "s", screen, vec2(150, 32));
