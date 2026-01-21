@@ -3,6 +3,7 @@
 #include "Player.h"
 #include "InteractableObject.h"
 #include "resources.h"
+#include "Text.h"
 
 namespace Tmpl8 {
 
@@ -56,6 +57,9 @@ namespace Tmpl8 {
 			}
 
 		}
+
+		Text::drawString("Fish", screen, vec2(15.1 * MapHandler::tileSize, 3.8 * MapHandler::tileSize) - camera.getPos());
+		Text::drawString("Shop", screen, vec2(15.1 * MapHandler::tileSize, 4.3 * MapHandler::tileSize) - camera.getPos());
 
 		//for (auto object : MapHandler::objects) {
 		//	(*object).drawHitBox(screen, camera.getPos());

@@ -1,1 +1,6 @@
-﻿  Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe
+﻿  HumanScene.cpp
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HumanScene.cpp(61,74): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HumanScene.cpp(61,46): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HumanScene.cpp(62,74): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HumanScene.cpp(62,46): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+  Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe
