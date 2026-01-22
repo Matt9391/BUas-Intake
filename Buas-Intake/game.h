@@ -2,6 +2,7 @@
 #include "FishScene.h"
 #include "HomeScene.h"
 #include <unordered_map>
+#include <utility>
 
 #pragma once
 
@@ -26,7 +27,13 @@ namespace Tmpl8 {
 		static void checkAchievements(Player& player);
 
 		void drawAchievement(long long coins);
+
+
+
 	private:
+		void loadGameSaves();
+		std::pair<std::string, double> Game::getMap(std::string& str);
+		
 		static HumanScene humanScene;
 		static FishScene fishScene;
 		static HomeScene homeScene;
@@ -35,6 +42,8 @@ namespace Tmpl8 {
 		static bool showAchievement;
 		static long long achievedMoney;
 		static std::unordered_map<long long, bool> achievements;
+
+		static std::unordered_map<std::string, double> gameSaves;
 
 		float timeElapsedAchievement;
 		float timerAchievement;

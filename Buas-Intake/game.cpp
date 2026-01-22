@@ -3,6 +3,7 @@
 #include "template.h"
 #include <cstdio> //printf
 #include <vector> 
+#include <ifstream> 
 #include <array> 
 #include "MapHandler.h"
 #include "Camera2D.h"
@@ -114,6 +115,26 @@ namespace Tmpl8
 				showAchievement = false;
 			}
 		}
+	}
+
+
+	void Game::loadGameSaves() {
+		std::ifstream objFile("assets/gameSaves/gameSave.txt");
+		std::string line;
+
+		std::getline(objFile, line); //coins
+		std::pair<std::string, double> data = getMap(line);
+
+		
+	}
+
+	std::pair<std::string, double> Game::getMap(std::string& str) {
+		std::string strout = "";
+
+		for (char c : str) {
+
+		}
+
 	}
 
 	void Game::checkAchievements(Player& player) {
