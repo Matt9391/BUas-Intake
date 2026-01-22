@@ -41,7 +41,10 @@ namespace Tmpl8 {
 		if (GetAsyncKeyState(VK_SPACE)) {
 			Game::changeScene(SceneType::SceneHuman);
 		}
+
 		player.update(dt);
+
+		camera.follow(player.getPos());
 	}
 
 	void HomeScene::draw(Surface* screen, Camera2D& camera, Player& player){

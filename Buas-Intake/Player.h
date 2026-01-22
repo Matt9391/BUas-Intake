@@ -8,6 +8,7 @@
 #include "Fish.h"
 #include "ChestObject.h"
 #include <string>
+#include <unordered_map>
 
 #pragma once
 
@@ -62,6 +63,8 @@ namespace Tmpl8 {
 		void addStamina(float ms);
 
 		void setAnimRange(int first, int last);
+
+		void loadData(std::unordered_map<std::string, double>& gameSave);
 
 	private:
 		void showHitbox(Surface* screen, vec2 cameraOffset);

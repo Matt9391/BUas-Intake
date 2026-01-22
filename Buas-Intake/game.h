@@ -28,11 +28,12 @@ namespace Tmpl8 {
 
 		void drawAchievement(long long coins);
 
+		static double getDataSave(const std::string& key);
 
-
+		static bool isHomeScene;
 	private:
 		void loadGameSaves();
-		std::pair<std::string, double> Game::getMap(std::string& str);
+		std::pair<std::string, std::string> Game::getMap(const std::string& str);
 		
 		static HumanScene humanScene;
 		static FishScene fishScene;

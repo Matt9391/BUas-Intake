@@ -3,6 +3,7 @@
 #include "FishState.h"
 #include "Text.h"
 #include "functions.h"
+#include "Game.h"
 #include <Windows.h>
 
 
@@ -380,5 +381,41 @@ namespace Tmpl8 {
 				buffer[px + py * pitch] = red;
 			}
 		}
+	}
+
+	void Player::loadData(std::unordered_map<std::string, double>& gameSave) {
+		this->coins = long long(gameSave["coins"]);
+		this->fishInventory.clear();
+		//printf("LKKKK; %d\n", gameSave["fish_legendary"]);
+		for (int i = 0; i < int(gameSave["fish_common"]); i++) {
+			this->fishInventory.push_back({ Rarity::COMMON, 80 });
+		}
+		for (int i = 0; i < int(gameSave["fish_rare"]); i++) {
+			this->fishInventory.push_back({ Rarity::RARE, 150 });
+		}
+		for (int i = 0; i < int(gameSave["fish_epic"]); i++) {
+			this->fishInventory.push_back({ Rarity::EPIC, 300 });
+		}
+		for (int i = 0; i < int(gameSave["fish_legendary"]); i++) {
+			this->fishInventory.push_back({ Rarity::LEGENDARY, 500 });
+
+		}
+
+		this->chestInventory.clear();
+		for (int i = 0; i < int(gameSave["chest0"]); i++) {
+			this->chestInventory.push_back({ 0, mapValue(0.f, 0.f, 3.f, 50.f, 1000.f) });
+		}
+		for (int i = 0; i < int(gameSave["chest1"]); i++) {
+			this->chestInventory.push_back({ 0, mapValue(1.f, 0.f, 3.f, 50.f, 1000.f) });
+		}
+		for (int i = 0; i < int(gameSave["chest2"]); i++) {
+			this->chestInventory.push_back({ 0, mapValue(2.f, 0.f, 3.f, 50.f, 1000.f) });
+		}
+		for (int i = 0; i < int(gameSave["chest3"]); i++) {
+			this->chestInventory.push_back({ 0, mapValue(3.f, 0.f, 3.f, 50.f, 1000.f) });
+		}
+
+		this->coinsMultiplier = double(gameSave["incomeMultiplier"]);
+		this->maxSprintTime = float(gameSave["stamina"]);
 	}
 }

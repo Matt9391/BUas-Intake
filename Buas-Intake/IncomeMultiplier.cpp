@@ -1,9 +1,14 @@
 #include "IncomeMultiplier.h"
 #include "Text.h"
 #include "Player.h"
+#include "Game.h"
 
 namespace Tmpl8 {
 	float IncomeMultiplier::price = 100.f;
+
+	void IncomeMultiplier::loadPrice(float loadedPrice) {
+		price = loadedPrice;
+	}
 
 	IncomeMultiplier::IncomeMultiplier(int type, vec2 pos, vec2 size) :
 		InteractableObject(type, pos, size),

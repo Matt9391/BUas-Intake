@@ -3,7 +3,10 @@
 #include "template.h"
 #include <cstdio> //printf
 #include <vector> 
-#include <ifstream> 
+#include <string> 
+#include <iostream>
+#include <fstream>
+#include <cstring> 
 #include <array> 
 #include "MapHandler.h"
 #include "Camera2D.h"
@@ -11,6 +14,8 @@
 #include "Text.h"
 #include "InteractableObject.h"
 #include "resources.h"
+#include "IncomeMultiplier.h"
+#include "StaminaShop.h"
 
 #include <Windows.h>
 
@@ -42,9 +47,18 @@ namespace Tmpl8
 	bool Game::showAchievement = false;
 	long long Game::achievedMoney = 0.f;
 	std::unordered_map<long long, bool> Game::achievements;
+	std::unordered_map<std::string, double> Game::gameSaves;
+
+	bool Game::isHomeScene = true;
 
 	void Game::Init()
 	{
+		Game::loadGameSaves();
+
+		for (const auto& pair : Game::gameSaves) {
+			std::cout << pair.first << ": " << pair.second << "\n";
+		}
+
 		this->timerAchievement = 3000.f;
 		this->timeElapsedAchievement = 0.f;
 
@@ -89,6 +103,13 @@ namespace Tmpl8
 		Game::changeScene(SceneType::SceneHome);
 
 		Text::init(&fontSource);
+		
+		player.loadData(Game::gameSaves);
+		
+		IncomeMultiplier::loadPrice(Game::getDataSave("incomeMultiplierPrice"));
+		StaminaShop::loadPrice(Game::getDataSave("staminaPrice"));
+		printf("DDDDDDDDDDD %f ADDDNN %f\n", Game::getDataSave("incomeMultiplierPrice"), Game::gameSaves["incomeMultiplierPrice"]);
+
 	}
 
 	// -----------------------------------------------------------
@@ -115,26 +136,74 @@ namespace Tmpl8
 				showAchievement = false;
 			}
 		}
+
+		if (GetAsyncKeyState('P')) {
+			Game::changeScene(SceneType::SceneHome);
+		}
 	}
 
+
+	//void Game::loadGameSaves() {
+	//	std::ifstream objFile("assets/gameSaves/gameSave.txt");
+	//	std::string line;
+
+	//	std::getline(objFile, line); //coins
+	//	std::pair<std::string, std::string> data = getMap(line);
+	//	
+	//	gameSaves[data.first] = std::stoll(data.second);
+
+	//	for (int i = 0; i < 9; i++) {
+	//		std::getline(objFile, line); //fish common - rare - epic - legendary -> chest 0-1-2-3 -> stamina
+	//		data = getMap(line);
+
+	//		gameSaves[data.first] = std::stoi(data.second);
+	//	}
+
+	//	for (int i = 0; i < 3; i++) {
+	//		std::getline(objFile, line); //income multiplier price - income multiplier - stamina price
+	//		data = getMap(line);
+
+	//		gameSaves[data.first] = std::stof(data.second);
+	//	}
+	//	
+	//}
+
+	double Game::getDataSave(const std::string& key) {
+		return gameSaves[key];
+	}
 
 	void Game::loadGameSaves() {
 		std::ifstream objFile("assets/gameSaves/gameSave.txt");
 		std::string line;
-
-		std::getline(objFile, line); //coins
-		std::pair<std::string, double> data = getMap(line);
+		
+		//coins
+		//fish common - rare - epic - legendary -> chest 0-1-2-3 -> stamina
+		//income multiplier price - income multiplier - stamina price
+		while (std::getline(objFile, line)) {
+			std::pair<std::string, std::string> data = getMap(line);
+			gameSaves[data.first] = std::stod(data.second);
+		}
 
 		
 	}
 
-	std::pair<std::string, double> Game::getMap(std::string& str) {
-		std::string strout = "";
+	std::pair<std::string, std::string> Game::getMap(const std::string& str) {
+		std::string key = "";
+		bool keyDone = false;
+		std::string value = "";
 
-		for (char c : str) {
+		for (int i = 0; i < str.length(); i++) {
+			if (str[i] != ':' && !keyDone) {
+				key += str[i];
+			}
+			else if (str[i] == ':') {
+				keyDone = true;
+			}else if(keyDone) {
+				value += str[i];
+			}
 
 		}
-
+		return { key,value};
 	}
 
 	void Game::checkAchievements(Player& player) {
@@ -165,14 +234,17 @@ namespace Tmpl8
 			currentScene->onExit(player);
 			currentScene = &homeScene;
 			currentScene->onEnter(player, camera);
+			isHomeScene = true;
 		}else if (nextScene == SceneType::SceneHuman) {
 			currentScene->onExit(player);
 			currentScene = &humanScene;
 			currentScene->onEnter(player,camera);
+			isHomeScene = false;
 		}else if (nextScene == SceneType::SceneFish) {
 			currentScene->onExit(player);
 			currentScene = &fishScene;
 			currentScene->onEnter(player, camera);
+			isHomeScene = false;
 		}
 	}
 

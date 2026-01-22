@@ -7,7 +7,7 @@ chest0:0
 chest1:0
 chest2:0
 chest3:0
+stamina:2
 incomeMultiplierPrice:100
 incomeMultiplier:1
-stamina:2
 staminaPrice:200
