@@ -32,17 +32,17 @@ namespace Tmpl8 {
 
 		std::string text;
 
-		if (coins > 1'000'000'000) {
+		if (coins >= 1'000'000'000) {
 			double value = coins / 1'000'000'000.0;
 			char buf[32];
 			snprintf(buf, sizeof(buf), "%.1fB", value);
 			text = buf;
-		}else if (coins > 1'000'000) {
+		}else if (coins >= 1'000'000) {
 			double value = coins / 1'000'000.0;
 			char buf[32];
 			snprintf(buf, sizeof(buf), "%.1fM", value);
 			text = buf;
-		}else if (coins > 1000) {
+		}else if (coins >= 1000) {
 			double value = coins / 1'000.0;
 			char buf[32];
 			snprintf(buf, sizeof(buf), "%.1fK", value);

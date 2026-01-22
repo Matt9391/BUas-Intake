@@ -7,14 +7,14 @@ namespace Tmpl8 {
 
 	IncomeMultiplier::IncomeMultiplier(int type, vec2 pos, vec2 size) :
 		InteractableObject(type, pos, size),
-		priceTextPosition(pos + vec2(0, 0)),
-		alertTextPosition(pos + vec2(0, 32)),
+		priceTextPosition(pos + vec2(20, -44)),
+		alertTextPosition(pos + vec2(0, 56)),
 		showAlert(false),
 		alertTime(2000),
 		alertElapsedTime(0)
 	{
 		this->textHover = "Income multiplier";
-		this->textPosition = vec2(pos + vec2(0, -48));
+		this->textPosition = vec2(pos + vec2(0, -56));
 		this->alertText = "Not enough coins";
 	}
 

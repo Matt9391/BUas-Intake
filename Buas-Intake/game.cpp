@@ -18,12 +18,12 @@ namespace Tmpl8
 	//DATATYPES:
 
 	//void DrawTile(int tx, int ty, Surface* screen, Surface* map, int x, int y);
-	
 
-	
-	
-	Camera2D camera(vec2(0,0),vec2(ScreenWidth,ScreenHeight));
-	
+
+
+
+	Camera2D camera(vec2(0, 0), vec2(ScreenWidth, ScreenHeight));
+
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------
@@ -38,8 +38,28 @@ namespace Tmpl8
 
 	Scene* Game::currentScene = nullptr;
 
+	bool Game::showAchievement = false;
+	long long Game::achievedMoney = 0.f;
+	std::unordered_map<long long, bool> Game::achievements;
+
 	void Game::Init()
-	{	
+	{
+		this->timerAchievement = 3000.f;
+		this->timeElapsedAchievement = 0.f;
+
+		this->achievements = {
+			{1'000, false},
+			{10'000, false},
+			{50'000, false},
+			{100'000, false},
+			{200'000, false},
+			{500'000, false},
+			{1'000'000, false},
+			{1'500'000, false},
+			{2'000'000, false},
+			{5'000'000, false},
+		};
+
 		MapHandler::mapsTdw[0] = MapHandler::loadMap("mapTopDown.txt");
 		MapHandler::mapsTdw[1] = MapHandler::loadMap("mapTopDownLayer2.txt");
 		MapHandler::maps2D[0] = MapHandler::loadMap("map2D.txt");
@@ -48,28 +68,28 @@ namespace Tmpl8
 		MapHandler::mapsHome[1] = MapHandler::loadMap("mapHomeLayer2.txt");
 
 		MapHandler::tilesTdw = vec2(
-								float(std::floor((MapHandler::mapsTdw[0][0].size() + 1) / 4)),
-							    float(MapHandler::mapsTdw[0].size())
-								);
+			float(std::floor((MapHandler::mapsTdw[0][0].size() + 1) / 4)),
+			float(MapHandler::mapsTdw[0].size())
+		);
 
 		MapHandler::tiles2D = vec2(
-								float(std::floor((MapHandler::maps2D[0][0].size() + 1) / 4)), //div 4 perché ci sono 4 char nel txt
-								float(MapHandler::maps2D[0].size())
-								);
-		
+			float(std::floor((MapHandler::maps2D[0][0].size() + 1) / 4)), //div 4 perché ci sono 4 char nel txt
+			float(MapHandler::maps2D[0].size())
+		);
+
 		MapHandler::tilesHome = vec2(
-								float(std::floor((MapHandler::mapsHome[0][0].size() + 1) / 4)), //div 4 perché ci sono 4 char nel txt
-								float(MapHandler::mapsHome[0].size())
-								);
+			float(std::floor((MapHandler::mapsHome[0][0].size() + 1) / 4)), //div 4 perché ci sono 4 char nel txt
+			float(MapHandler::mapsHome[0].size())
+		);
 
 		this->currentScene = nullptr;
 		this->currentScene = &this->homeScene;
-		 
+
 		Game::changeScene(SceneType::SceneHome);
 
 		Text::init(&fontSource);
 	}
-	
+
 	// -----------------------------------------------------------
 	// Close down application
 	// -----------------------------------------------------------
@@ -85,19 +105,51 @@ namespace Tmpl8
 	{
 		this->currentScene->update(deltaTime, camera, player);
 		this->currentScene->draw(screen, camera, player);
+		
+		if (showAchievement) {
+			this->timeElapsedAchievement += deltaTime;
+			drawAchievement(achievedMoney);
+			if (this->timeElapsedAchievement > this->timerAchievement) {
+				this->timeElapsedAchievement = 0;
+				showAchievement = false;
+			}
+		}
+	}
+
+	void Game::checkAchievements(Player& player) {
+		long long playerCoins = player.getCoins();
+		long long achieved = 0;
+		for (auto& achieve : achievements) {
+			if (achieve.second)
+				continue;
+			if (playerCoins > achieve.first){
+				achieve.second = true;
+				achieved = achieve.first;
+			}
+		}
+		if (achieved > 0) {
+			showAchievement = true;
+			achievedMoney = achieved;
+		}
+			
+	}
+
+	void Game::drawAchievement(long long coins) {
+		Text::drawString("You made your first ", this->screen, vec2(ScreenWidth / 2.f - 96,MapHandler::tileSize * 2));
+		Text::printCoins(this->screen, vec2(ScreenWidth / 2.f + 40, MapHandler::tileSize * 2), coins);
 	}
 
 	void Game::changeScene(SceneType nextScene) {
 		if (nextScene == SceneType::SceneHome) {
-			currentScene->onExit();
+			currentScene->onExit(player);
 			currentScene = &homeScene;
 			currentScene->onEnter(player, camera);
 		}else if (nextScene == SceneType::SceneHuman) {
-			currentScene->onExit();
+			currentScene->onExit(player);
 			currentScene = &humanScene;
 			currentScene->onEnter(player,camera);
 		}else if (nextScene == SceneType::SceneFish) {
-			currentScene->onExit();
+			currentScene->onExit(player);
 			currentScene = &fishScene;
 			currentScene->onEnter(player, camera);
 		}

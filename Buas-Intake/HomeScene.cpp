@@ -23,6 +23,9 @@ namespace Tmpl8 {
 		this->UIText = "<-- Seconds of sprint left\n\n<-- Fishes count in the fish inventory\n\n<-- Chests count in the chest inventory";
 		this->UITextPosition = vec2(5.5 * MapHandler::tileSize, 1 * MapHandler::tileSize);
 
+		this->whatIsText = "It's finally your\nchance to get rich!!\nFish safely or swim\nthrough the dangers.\nThe choice is yours \nbut make sure to \nbecome the richest..";
+		this->whatIsTextPosition = vec2(1 * MapHandler::tileSize, 8 * MapHandler::tileSize);
+
 		this->gameTitlePos = vec2(17.5 * MapHandler::tileSize, -0.5 * MapHandler::tileSize);
 
 		player.setPos(vec2(ScreenWidth / 2 - 140.f, ScreenHeight / 2));
@@ -30,7 +33,9 @@ namespace Tmpl8 {
 		player.loadCollisionMaps(&MapHandler::mapsHome);
 	}
 
-	void HomeScene::onExit(){}
+	void HomeScene::onExit(Player& player){
+		player.setPos(vec2(MapHandler::tileSize * 15.f, MapHandler::tileSize * 6.f));
+	}
 
 	void HomeScene::update(float dt, Camera2D& camera, Player& player){
 		if (GetAsyncKeyState(VK_SPACE)) {
@@ -65,6 +70,7 @@ namespace Tmpl8 {
 		Text::drawString(this->playText, screen, this->playTextPosition);
 		Text::drawString(this->howToPlayText, screen, this->howToPlayTextPosition);
 		Text::drawString(this->UIText, screen, this->UITextPosition);
+		Text::drawString(this->whatIsText, screen, this->whatIsTextPosition);
 
 		gameTitle.DrawScaled(this->gameTitlePos.x, this->gameTitlePos.y, 250, 250, screen);
 	}

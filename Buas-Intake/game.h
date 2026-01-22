@@ -1,6 +1,7 @@
 #include "HumanScene.h"
 #include "FishScene.h"
 #include "HomeScene.h"
+#include <unordered_map>
 
 #pragma once
 
@@ -22,11 +23,21 @@ namespace Tmpl8 {
 
 		static void changeScene(SceneType nextScene);
 
+		static void checkAchievements(Player& player);
+
+		void drawAchievement(long long coins);
 	private:
 		static HumanScene humanScene;
 		static FishScene fishScene;
 		static HomeScene homeScene;
 		static Scene* currentScene;
+
+		static bool showAchievement;
+		static long long achievedMoney;
+		static std::unordered_map<long long, bool> achievements;
+
+		float timeElapsedAchievement;
+		float timerAchievement;
 
 		Surface* screen;
 	};

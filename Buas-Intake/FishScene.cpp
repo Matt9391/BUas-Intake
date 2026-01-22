@@ -58,8 +58,9 @@ namespace Tmpl8 {
 		player.setPos({ 32,32 });
 	}
 
-	void FishScene::onExit() {
+	void FishScene::onExit(Player& player) {
 		MapHandler::objects.clear();
+		player.setPos(vec2(MapHandler::tileSize * 29.f, MapHandler::tileSize * 3.f));
 	}
 
 	void FishScene::update(float dt, Camera2D& camera, Player& player) {

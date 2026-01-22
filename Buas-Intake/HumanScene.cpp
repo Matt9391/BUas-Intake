@@ -11,12 +11,11 @@ namespace Tmpl8 {
 		MapHandler::loadInteractableObject("tdwInteractableObjectList.txt", 32, &fishingAreaSprites);
 		camera.setWorldSize(MapHandler::tilesTdw);
 
-		player.setPos(vec2(MapHandler::tileSize * 15.f,MapHandler::tileSize * 5.f));
 		player.setState(int(PlayerVisual::Human));
 		player.loadCollisionMaps(&MapHandler::mapsTdw);
 	}
 
-	void HumanScene::onExit() {
+	void HumanScene::onExit(Player& player) {
 		MapHandler::objects.clear();
 	}
 

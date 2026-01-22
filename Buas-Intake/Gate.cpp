@@ -10,7 +10,7 @@ namespace Tmpl8 {
 		InteractableObject(type, pos, size)
 	{
 		this->textHover = "Press 'F' to change form";
-		this->textPosition = vec2(pos - vec2(24,0));
+		this->textPosition = vec2(pos.x + size.x / 2 - 64, pos.y);
 	}
 
 	void Gate::interact(Player& player) {

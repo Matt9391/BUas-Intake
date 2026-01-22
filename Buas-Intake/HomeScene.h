@@ -9,7 +9,7 @@ namespace Tmpl8 {
 	{
 	public:
 		void onEnter(Player& player, Camera2D& camera) override;
-		void onExit() override;
+		void onExit(Player& player) override;
 
 		void update(float dt, Camera2D& camera, Player& player) override;
 
@@ -23,6 +23,9 @@ namespace Tmpl8 {
 		
 		std::string UIText;
 		vec2 UITextPosition;
+		
+		std::string whatIsText;
+		vec2 whatIsTextPosition;
 		
 		vec2 gameTitlePos;
 	};

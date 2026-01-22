@@ -12,10 +12,10 @@ namespace Tmpl8 {
 	FishArea::FishArea(int type, vec2 pos, vec2 size, std::array<Sprite*, 3> fishingSprites) :
 		InteractableObject(type, pos, size),
 		fishingSprites(fishingSprites),
-		barPosition(pos + vec2(-16, 64)),
-		indxPosition(pos + vec2(+31, 64)),
-		cardPosition(pos + vec2(16, 24)),
-		textCardPosition(pos + vec2(-46, 88)),
+		barPosition(pos + vec2(-16, 72)),
+		indxPosition(pos + vec2(+31, 72)),
+		cardPosition(pos + vec2(16, 32)),
+		textCardPosition(pos + vec2(-46, 96)),
 		range(45),
 		angle(0),
 		maxAngle(2.f * 3.14),
@@ -73,21 +73,25 @@ namespace Tmpl8 {
 			if (fishPercentage < 50) {
 				rarity = Rarity::COMMON;
 				this->cardText = "A common fish!";
+				this->textCardPosition = this->pos + vec2(-16, 96);
 				value = 80;
 			}
 			else if (fishPercentage >= 50 && fishPercentage < 75) {
 				rarity = Rarity::RARE;
 				this->cardText = "A rare fish!";
 				value = 150;
+				this->textCardPosition = this->pos + vec2(-8, 96);
 			}
 			else if (fishPercentage >= 75 && fishPercentage < 90) {
 				rarity = Rarity::EPIC;
 				this->cardText = "A epic fish!";
+				this->textCardPosition = this->pos + vec2(-8, 96);
 				value = 300;
 			}
 			else if (fishPercentage >= 90) {
 				rarity = Rarity::LEGENDARY;
 				this->cardText = "A legendary fish!";
+				this->textCardPosition = this->pos + vec2(-24, 96);
 				value = 500;
 
 			}

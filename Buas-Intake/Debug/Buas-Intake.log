@@ -1,6 +1,7 @@
-﻿  HumanScene.cpp
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HumanScene.cpp(61,74): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HumanScene.cpp(61,46): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HumanScene.cpp(62,74): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HumanScene.cpp(62,46): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
-  Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe
+﻿  Text.cpp
+  game.cpp
+D:\GitHub\BUas-Intake\Buas-Intake\game.cpp(42,32): warning C4244: 'inizializzazione': conversione da 'float' a '__int64'. Possibile perdita di dati.
+D:\GitHub\BUas-Intake\Buas-Intake\game.cpp(138,107): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+D:\GitHub\BUas-Intake\Buas-Intake\game.cpp(139,84): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+  Generazione del codice in corso...
+  Buas-Intake.vcxproj -> D:\GitHub\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe

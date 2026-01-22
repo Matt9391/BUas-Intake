@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "Fish.h"
 #include "ChestObject.h"
+#include "Game.h"
 #include <vector>
 
 
@@ -11,7 +12,7 @@ namespace Tmpl8 {
 		InteractableObject(type, pos, size)
 	{
 		this->textHover = "Seller";
-		this->textPosition = vec2(pos + vec2(10, -48));
+		this->textPosition = vec2(pos + vec2(26, -44));
 	} 
 
 	void Seller::interact(Player& player) {
@@ -28,6 +29,8 @@ namespace Tmpl8 {
 		}
 
 		player.addCoins(int(totalValue));
+
+		Game::checkAchievements(player);
 
 		player.clearFishInventory();
 		player.clearChestInventory();
