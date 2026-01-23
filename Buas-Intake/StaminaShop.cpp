@@ -9,6 +9,10 @@ namespace Tmpl8 {
 		price = loadedPrice;
 	}
 
+	float StaminaShop::getPrice() {
+		return price;
+	}
+
 	StaminaShop::StaminaShop(int type, vec2 pos, vec2 size) :
 		InteractableObject(type, pos, size),
 		priceTextPosition(pos + vec2(20, -44)),

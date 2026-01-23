@@ -27,6 +27,9 @@ namespace Tmpl8 {
 		std::string whatIsText;
 		vec2 whatIsTextPosition;
 		
+		std::string resetText;
+		vec2 resetTextPosition;
+		
 		vec2 gameTitlePos;
 	};
 

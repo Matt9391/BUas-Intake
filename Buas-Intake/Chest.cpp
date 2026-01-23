@@ -51,7 +51,7 @@ namespace Tmpl8 {
 	void Chest::interact(Player& player) {
 		if (!this->enabled) return;
 
-		ChestObject chestObject = { this->type, this->value };
+		ChestObject chestObject = { this->frame, this->value };
 
 		player.addChest(chestObject);
 

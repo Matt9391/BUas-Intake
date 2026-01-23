@@ -33,6 +33,8 @@ namespace Tmpl8 {
 		static bool isHomeScene;
 	private:
 		void loadGameSaves();
+		void resetGameSaves();
+		void saveGame();
 		std::pair<std::string, std::string> Game::getMap(const std::string& str);
 		
 		static HumanScene humanScene;

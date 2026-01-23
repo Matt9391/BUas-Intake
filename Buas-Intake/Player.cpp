@@ -252,6 +252,10 @@ namespace Tmpl8 {
 	float Player::getMultiplier() {
 		return this->coinsMultiplier;
 	}
+	
+	float Player::getStamina() {
+		return this->maxSprintTime;
+	}
 
 	std::vector<Fish> Player::getFishes() {
 		return this->fishInventory;

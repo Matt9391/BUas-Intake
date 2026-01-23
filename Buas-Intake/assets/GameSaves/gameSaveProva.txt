@@ -1,0 +1,13 @@
+fish_common:2
+chest1:0
+coins:252
+fish_rare:1
+chest2:3
+fish_legendary:2
+fish_epic:0
+chest0:3
+chest3:2
+incomeMultiplierPrice:2342.56
+incomeMultiplier:5.0625
+stamina:4000
+staminaPrice:1800

@@ -118,6 +118,7 @@ namespace Tmpl8
 
 	void Game::Shutdown()
 	{
+		this->saveGame();
 	}
 
 	// -----------------------------------------------------------
@@ -137,39 +138,97 @@ namespace Tmpl8
 			}
 		}
 
-		if (GetAsyncKeyState('P')) {
-			Game::changeScene(SceneType::SceneHome);
+	
+
+		if (GetAsyncKeyState(VK_CONTROL) && GetAsyncKeyState('T')) {
+			if (Game::isHomeScene) {
+				this->resetGameSaves();
+
+				player.loadData(Game::gameSaves);
+				IncomeMultiplier::loadPrice(Game::getDataSave("incomeMultiplierPrice"));
+				StaminaShop::loadPrice(Game::getDataSave("staminaPrice"));
+			}
 		}
 	}
 
 
-	//void Game::loadGameSaves() {
-	//	std::ifstream objFile("assets/gameSaves/gameSave.txt");
-	//	std::string line;
+	void Game::saveGame() {
+		gameSaves["coins"] = player.getCoins();
 
-	//	std::getline(objFile, line); //coins
-	//	std::pair<std::string, std::string> data = getMap(line);
-	//	
-	//	gameSaves[data.first] = std::stoll(data.second);
+		gameSaves["fish_common"] = 0;
+		gameSaves["fish_rare"] = 0;
+		gameSaves["fish_epic"] = 0;
+		gameSaves["fish_legendary"] = 0;
 
-	//	for (int i = 0; i < 9; i++) {
-	//		std::getline(objFile, line); //fish common - rare - epic - legendary -> chest 0-1-2-3 -> stamina
-	//		data = getMap(line);
+		for (auto& fish : player.getFishes()) {
+			if(fish.rarity == Rarity::COMMON)
+				gameSaves["fish_common"] += 1;
+			if(fish.rarity == Rarity::RARE)
+				gameSaves["fish_rare"] += 1;
+			if(fish.rarity == Rarity::EPIC)
+				gameSaves["fish_epic"] += 1;
+			if(fish.rarity == Rarity::LEGENDARY)
+				gameSaves["fish_legendary"] += 1;
+		}
+		
+		gameSaves["chest0"] = 0;
+		gameSaves["chest1"] = 0;
+		gameSaves["chest2"] = 0;
+		gameSaves["chest3"] = 0;
 
-	//		gameSaves[data.first] = std::stoi(data.second);
-	//	}
+		for (auto& chest : player.getChests()) {
+			if (chest.type == 0)
+				gameSaves["chest0"] += 1;
+			if (chest.type == 1)
+				gameSaves["chest1"] += 1;
+			if (chest.type == 2)
+				gameSaves["chest2"] += 1;
+			if (chest.type == 3)
+				gameSaves["chest3"] += 1;
+		}
 
-	//	for (int i = 0; i < 3; i++) {
-	//		std::getline(objFile, line); //income multiplier price - income multiplier - stamina price
-	//		data = getMap(line);
+		gameSaves["incomeMultiplier"] = player.getMultiplier();
+		gameSaves["incomeMultiplierPrice"] = IncomeMultiplier::getPrice();
+		gameSaves["stamina"] = player.getStamina();
+		gameSaves["staminaPrice"] = StaminaShop::getPrice();
 
-	//		gameSaves[data.first] = std::stof(data.second);
-	//	}
-	//	
-	//}
+		std::ofstream outFile("assets/gameSaves/gameSave.txt");
+
+		for (auto &pair : gameSaves) {
+			outFile << pair.first << ":" << pair.second << "\n";
+		}
+
+		outFile.close();
+	}
 
 	double Game::getDataSave(const std::string& key) {
 		return gameSaves[key];
+	}
+
+	void Game::resetGameSaves() {
+		std::ifstream objFile("assets/gameSaves/defaultGameSave.txt");
+		std::string line;
+		std::unordered_map<std::string, double> defaultGameSaves;
+		//coins
+		//fish common - rare - epic - legendary -> chest 0-1-2-3 -> stamina
+		//income multiplier price - income multiplier - stamina price
+		while (std::getline(objFile, line)) {
+			std::pair<std::string, std::string> data = getMap(line);
+			defaultGameSaves[data.first] = std::stod(data.second);
+		}
+
+		objFile.close();
+
+		gameSaves = defaultGameSaves;
+
+		/*std::ofstream outFile("assets/gameSaves/gameSave.txt");
+
+		for (auto& pair : defaultGameSaves) {
+			outFile << pair.first << ":" << pair.second << "\n";
+		}
+
+		outFile.close();*/
+
 	}
 
 	void Game::loadGameSaves() {
@@ -184,6 +243,7 @@ namespace Tmpl8
 			gameSaves[data.first] = std::stod(data.second);
 		}
 
+		objFile.close();
 		
 	}
 

@@ -10,6 +10,10 @@ namespace Tmpl8 {
 		price = loadedPrice;
 	}
 
+	float IncomeMultiplier::getPrice() {
+		return price;
+	}
+
 	IncomeMultiplier::IncomeMultiplier(int type, vec2 pos, vec2 size) :
 		InteractableObject(type, pos, size),
 		priceTextPosition(pos + vec2(20, -44)),

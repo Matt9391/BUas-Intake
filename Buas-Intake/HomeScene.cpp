@@ -24,7 +24,10 @@ namespace Tmpl8 {
 		this->UITextPosition = vec2(5.5 * MapHandler::tileSize, 1 * MapHandler::tileSize);
 
 		this->whatIsText = "It's finally your\nchance to get rich!!\nFish safely or swim\nthrough the dangers.\nThe choice is yours \nbut make sure to \nbecome the richest..";
-		this->whatIsTextPosition = vec2(1 * MapHandler::tileSize, 8 * MapHandler::tileSize);
+		this->whatIsTextPosition = vec2(1 * MapHandler::tileSize, 11 * MapHandler::tileSize);
+		
+		this->resetText = "Press 'CTRL' + 'T' to reset all you game saves";
+		this->resetTextPosition = vec2(14 * MapHandler::tileSize, 15.3 * MapHandler::tileSize);
 
 		this->gameTitlePos = vec2(17.5 * MapHandler::tileSize, -0.5 * MapHandler::tileSize);
 
@@ -45,6 +48,8 @@ namespace Tmpl8 {
 		player.update(dt);
 
 		camera.follow(player.getPos());
+
+
 	}
 
 	void HomeScene::draw(Surface* screen, Camera2D& camera, Player& player){
@@ -74,6 +79,7 @@ namespace Tmpl8 {
 		Text::drawString(this->howToPlayText, screen, this->howToPlayTextPosition);
 		Text::drawString(this->UIText, screen, this->UITextPosition);
 		Text::drawString(this->whatIsText, screen, this->whatIsTextPosition);
+		Text::drawString(this->resetText, screen, this->resetTextPosition);
 
 		gameTitle.DrawScaled(this->gameTitlePos.x, this->gameTitlePos.y, 250, 250, screen);
 	}

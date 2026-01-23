@@ -18,6 +18,8 @@ namespace Tmpl8 {
 		void draw(Surface* screen, vec2 cameraOffset) override;
 
 		static void loadPrice(float loadedPrice);
+		
+		static float getPrice();
 	private:
 		static float price;
 

@@ -43,6 +43,7 @@ namespace Tmpl8 {
 		bool isFishing();
 		long long getCoins();
 		float getMultiplier();
+		float getStamina();
 		std::vector<Fish> getFishes();
 		std::vector<ChestObject> getChests();
 

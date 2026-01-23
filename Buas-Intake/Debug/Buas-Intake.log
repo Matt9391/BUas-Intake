@@ -1,18 +1,16 @@
-﻿  FishScene.cpp
-  HomeScene.cpp
+﻿  HomeScene.cpp
 E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(18,101): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
 E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(18,71): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
 E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(21,66): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
 E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(21,40): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
 E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(24,61): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
 E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(24,35): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(27,63): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(27,64): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
 E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(27,37): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(29,63): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(29,34): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(78,64): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(78,42): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
-  Player.cpp
-E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Player.cpp(418,33): warning C4244: '=': conversione da 'double' a 'float'. Possibile perdita di dati.
-  Generazione del codice in corso...
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(30,66): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(30,37): warning C4244: 'argomento': conversione da 'int' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(32,63): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(32,34): warning C4244: 'argomento': conversione da 'double' a 'float'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(84,64): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
+E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\HomeScene.cpp(84,42): warning C4244: 'argomento': conversione da 'float' a 'int'. Possibile perdita di dati.
   Buas-Intake.vcxproj -> E:\Informatica\GitHubRepos\BUas-Intake\Buas-Intake\Buas-Intake_x64_debug.exe

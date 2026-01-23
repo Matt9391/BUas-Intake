@@ -4,6 +4,8 @@
 #include "InteractableObject.h"
 #include "resources.h"
 #include "Text.h"
+#include "Game.h"
+#include <Windows.h>
 
 namespace Tmpl8 {
 
@@ -34,6 +36,10 @@ namespace Tmpl8 {
 				}
 
 			}
+		}
+
+		if (GetAsyncKeyState('P') & 0x8000) {
+			Game::changeScene(SceneType::SceneHome);
 		}
 	}
 
@@ -74,6 +80,8 @@ namespace Tmpl8 {
 		}
 
 		player.draw(screen, camera.getPos());
+		
+		Text::drawString("Press 'P' to pause", screen, vec2(20.5 * MapHandler::tileSize, 0.5 * MapHandler::tileSize));
 	}
 	 
 }
