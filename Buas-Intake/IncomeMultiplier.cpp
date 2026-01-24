@@ -16,7 +16,7 @@ namespace Tmpl8 {
 
 	IncomeMultiplier::IncomeMultiplier(int type, vec2 pos, vec2 size) :
 		InteractableObject(type, pos, size),
-		priceTextPosition(pos + vec2(20, -44)),
+		priceTextPosition(pos + vec2(20, -44)), 
 		alertTextPosition(pos + vec2(0, 56)),
 		showAlert(false),
 		alertTime(2000),
@@ -30,7 +30,7 @@ namespace Tmpl8 {
 	void IncomeMultiplier::showText(Surface* screen, vec2 cameraOffset) {
 		Text::drawString(this->textHover, screen, (this->textPosition - cameraOffset));
 		Text::drawString("Price: ", screen, (this->priceTextPosition - cameraOffset));
-		Text::printCoins(screen, (this->priceTextPosition + vec2(42,0) - cameraOffset), long long(price));
+		Text::drawCoins(screen, (this->priceTextPosition + vec2(42,0) - cameraOffset), long long(price));
 		if (this->showAlert) {
 			Text::drawString(this->alertText, screen, (this->alertTextPosition - cameraOffset));
 		}

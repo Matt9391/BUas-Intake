@@ -30,7 +30,7 @@ namespace Tmpl8 {
 
 		static double getDataSave(const std::string& key);
 
-		static bool isHomeScene;
+		static bool isHomeScene; 
 	private:
 		void loadGameSaves();
 		void resetGameSaves();

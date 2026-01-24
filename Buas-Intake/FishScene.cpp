@@ -7,7 +7,7 @@
 #include "Enemy.h"
 
 
-namespace Tmpl8 {
+namespace Tmpl8 { 
 
 	void FishScene::onEnter(Player& player, Camera2D& camera) {
 		MapHandler::loadInteractableObject("2DInteractableObjectList.txt", 32);	

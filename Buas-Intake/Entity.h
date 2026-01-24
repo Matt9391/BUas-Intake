@@ -11,7 +11,7 @@ namespace Tmpl8 {
 	public:
 		Entity(vec2 pos, vec2 size);
 
-		bool intersectPlayer(Player& player);
+		bool intersectPlayer(Player& player); 
 
 		virtual void update(float dt, Player& player) = 0;
 

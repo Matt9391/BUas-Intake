@@ -14,7 +14,7 @@ namespace Tmpl8 {
 		camera.setWorldSize(MapHandler::tilesTdw);
 
 		player.setState(int(PlayerVisual::Human));
-		player.loadCollisionMaps(&MapHandler::mapsTdw);
+		player.loadCollisionMaps(&MapHandler::mapsTdw); 
 	}
 
 	void HumanScene::onExit(Player& player) {
@@ -63,8 +63,8 @@ namespace Tmpl8 {
 
 		}
 
-		Text::drawString("Fish", screen, vec2(15.1 * MapHandler::tileSize, 3.8 * MapHandler::tileSize) - camera.getPos());
-		Text::drawString("Shop", screen, vec2(15.1 * MapHandler::tileSize, 4.3 * MapHandler::tileSize) - camera.getPos());
+		Text::drawString("Fish", screen, vec2(15.1f * MapHandler::tileSize, 3.8f * MapHandler::tileSize) - camera.getPos());
+		Text::drawString("Shop", screen, vec2(15.1f * MapHandler::tileSize, 4.3f * MapHandler::tileSize) - camera.getPos());
 
 		//for (auto object : MapHandler::objects) {
 		//	(*object).drawHitBox(screen, camera.getPos());
@@ -81,7 +81,7 @@ namespace Tmpl8 {
 
 		player.draw(screen, camera.getPos());
 		
-		Text::drawString("Press 'P' to pause", screen, vec2(20.5 * MapHandler::tileSize, 0.5 * MapHandler::tileSize));
+		Text::drawString("Press 'P' to pause", screen, vec2(20.5f * MapHandler::tileSize, 0.5f * MapHandler::tileSize));
 	}
 	 
 }

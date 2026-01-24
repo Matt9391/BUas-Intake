@@ -48,7 +48,7 @@ namespace Tmpl8 {
 			player.setSprinting(true);
 		}
 		 
-		if (player.getDir() == vec2(0, 0))
+		if (player.getDir() == vec2(0, 0)) 
 			player.setAnimRange(32, 38);
 
 		if(GetAsyncKeyState('F'))

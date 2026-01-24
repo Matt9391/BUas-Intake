@@ -9,7 +9,7 @@ namespace Tmpl8 {
 	public:
 		Enemy(vec2 pos, vec2 size, vec2 endPos, float startOffset, Sprite& sprite);
 			
-		void update(float dt, Player& player);
+		void update(float dt, Player& player); 
 
 		void setAnimRange(int first, int last);
 		void playAnimation(float dt);

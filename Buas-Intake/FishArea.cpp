@@ -50,7 +50,7 @@ namespace Tmpl8 {
 
 		this->elapsedTimeSpace += dt; //spacebar pressed
 		 
-		this->angle += 0.0035f * dt;
+		this->angle += 0.0035f * dt; 
 		//this->angle = 3.14 / -2.f;
 		if (this->angle > maxAngle)
 			this->angle = 0;

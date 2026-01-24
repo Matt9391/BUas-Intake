@@ -45,7 +45,7 @@ namespace Tmpl8
 	Scene* Game::currentScene = nullptr;
 
 	bool Game::showAchievement = false;
-	long long Game::achievedMoney = 0.f;
+	long long Game::achievedMoney = 0;
 	std::unordered_map<long long, bool> Game::achievements;
 	std::unordered_map<std::string, double> Game::gameSaves;
 
@@ -57,7 +57,7 @@ namespace Tmpl8
 
 		for (const auto& pair : Game::gameSaves) {
 			std::cout << pair.first << ": " << pair.second << "\n";
-		}
+		} 
 
 		this->timerAchievement = 3000.f;
 		this->timeElapsedAchievement = 0.f;
@@ -106,9 +106,9 @@ namespace Tmpl8
 		
 		player.loadData(Game::gameSaves);
 		
-		IncomeMultiplier::loadPrice(Game::getDataSave("incomeMultiplierPrice"));
-		StaminaShop::loadPrice(Game::getDataSave("staminaPrice"));
-		printf("DDDDDDDDDDD %f ADDDNN %f\n", Game::getDataSave("incomeMultiplierPrice"), Game::gameSaves["incomeMultiplierPrice"]);
+		IncomeMultiplier::loadPrice(float(Game::getDataSave("incomeMultiplierPrice")));
+		StaminaShop::loadPrice(float(Game::getDataSave("staminaPrice")));
+		//printf("DDDDDDDDDDD %f ADDDNN %f\n", Game::getDataSave("incomeMultiplierPrice"), Game::gameSaves["incomeMultiplierPrice"]);
 
 	}
 
@@ -145,15 +145,15 @@ namespace Tmpl8
 				this->resetGameSaves();
 
 				player.loadData(Game::gameSaves);
-				IncomeMultiplier::loadPrice(Game::getDataSave("incomeMultiplierPrice"));
-				StaminaShop::loadPrice(Game::getDataSave("staminaPrice"));
+				IncomeMultiplier::loadPrice(float(Game::getDataSave("incomeMultiplierPrice")));
+				StaminaShop::loadPrice(float(Game::getDataSave("staminaPrice")));
 			}
 		}
 	}
 
 
 	void Game::saveGame() {
-		gameSaves["coins"] = player.getCoins();
+		gameSaves["coins"] = double(player.getCoins());
 
 		gameSaves["fish_common"] = 0;
 		gameSaves["fish_rare"] = 0;
@@ -285,8 +285,8 @@ namespace Tmpl8
 	}
 
 	void Game::drawAchievement(long long coins) {
-		Text::drawString("You made your first ", this->screen, vec2(ScreenWidth / 2.f - 96,MapHandler::tileSize * 2));
-		Text::printCoins(this->screen, vec2(ScreenWidth / 2.f + 40, MapHandler::tileSize * 2), coins);
+		Text::drawString("You made your first ", this->screen, vec2(ScreenWidth / 2.f - 96.f,MapHandler::tileSize * 2.f));
+		Text::drawCoins(this->screen, vec2(ScreenWidth / 2.f + 40.f, MapHandler::tileSize * 2.f), coins);
 	}
 
 	void Game::changeScene(SceneType nextScene) {

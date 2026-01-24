@@ -10,7 +10,7 @@ namespace Tmpl8 {
 	{}
 
 	bool Entity::intersectPlayer(Player& player) {
-		vec2 playerPos = player.getPos();
+		vec2 playerPos = player.getPos(); 
 		vec2 playerSize = player.getSize();
 
 		bool cond = (playerPos.x > this->pos.x &&

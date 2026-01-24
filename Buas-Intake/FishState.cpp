@@ -11,7 +11,7 @@ namespace Tmpl8 {
 		this->sprintSpeed = 0.35;
 	}
 
-	void FishState::handleInput(Player& player) {
+	void FishState::handleInput(Player& player) { 
 		player.setDir({ 0,0 });
 
 		char lastInput = player.getInput();

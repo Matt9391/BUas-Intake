@@ -93,6 +93,6 @@ namespace Tmpl8 {
 	{
 		this->enemySprite.SetFrame(this->currentFrame);
 		this->enemySprite.Draw(screen, int(this->pos.x - cameraOffset.x), int(this->pos.y - cameraOffset.y));
-	}
+	} 
 	 
 }

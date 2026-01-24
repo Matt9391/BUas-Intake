@@ -12,5 +12,5 @@ namespace Tmpl8 {
 	Sprite gameTitle(new Surface("./assets/title.png"), 1);
 
 	std::array<Sprite*, 3> fishingAreaSprites = { &barSprite, &indxSprite, &fishesSprite };
-
+	 
 } 

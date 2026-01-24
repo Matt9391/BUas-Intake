@@ -10,7 +10,7 @@ namespace Tmpl8 {
 		if (value < min)
 			return min;
 		if (value > max)
-			return max;
+			return max; 
 		return value;
 	}
 

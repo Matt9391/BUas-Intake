@@ -13,7 +13,7 @@ namespace Tmpl8 {
 	{
 		this->textHover = "Seller";
 		this->textPosition = vec2(pos + vec2(26, -44));
-	} 
+	}  
 
 	void Seller::interact(Player& player) {
 		float totalValue = 0;

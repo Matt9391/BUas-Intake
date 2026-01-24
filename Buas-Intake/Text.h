@@ -16,10 +16,12 @@ namespace Tmpl8 {
 		static void init(Surface* fontSource);
 
 		static void print(Surface* screen);
-		static void printCoins(Surface* screen, vec2 pos, long long coins);
+		static void drawCoins(Surface* screen, vec2 pos, long long coins);
+		static void drawCoinsScaled(Surface* screen, vec2 pos, long long coins, int scale);
 
 		static void drawString(std::string str, Surface* screen, vec2 pos);
-		 
+		static void drawStringScaled(std::string str, Surface* screen, vec2 pos, int scale);
+
 	private:
 		static std::vector<std::string> splitLines(const std::string& text);
 

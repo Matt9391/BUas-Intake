@@ -14,8 +14,8 @@ namespace Tmpl8 {
 		humanSprite(humanSprite),
 		fishSprite(fishSprite),
 		currentMap(nullptr),
-		pos({ ScreenWidth / 2, ScreenHeight / 2 }),
-		size({ 32, 16 }),
+		pos({ ScreenWidth / 2, ScreenHeight / 2 }), 
+		size({ 32, 16 }), 
 		speed(0.15),
 		firstFrame(0),
 		lastFrame(1),
@@ -195,7 +195,7 @@ namespace Tmpl8 {
 
 		//Text::drawString(std::to_string(this->coins), screen, vec2(64, 96));
 		Text::drawString("Coins:", screen, vec2(32, 52));
-		Text::printCoins(screen, vec2(33, 72), this->coins);
+		Text::drawCoinsScaled(screen, vec2(5, 64), this->coins, 2);
 		Text::drawString("Fishes: " + std::to_string(this->fishInventory.size()), screen, vec2(96, 52));
 		Text::drawString("Chests: " + std::to_string(this->chestInventory.size()), screen, vec2(96, 72));
 		
@@ -402,7 +402,6 @@ namespace Tmpl8 {
 		}
 		for (int i = 0; i < int(gameSave["fish_legendary"]); i++) {
 			this->fishInventory.push_back({ Rarity::LEGENDARY, 500 });
-
 		}
 
 		this->chestInventory.clear();
@@ -419,7 +418,7 @@ namespace Tmpl8 {
 			this->chestInventory.push_back({ 0, mapValue(3.f, 0.f, 3.f, 50.f, 1000.f) });
 		}
 
-		this->coinsMultiplier = double(gameSave["incomeMultiplier"]);
+		this->coinsMultiplier = float(gameSave["incomeMultiplier"]);
 		this->maxSprintTime = float(gameSave["stamina"]);
 	}
 }

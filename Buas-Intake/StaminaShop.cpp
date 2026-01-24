@@ -18,7 +18,7 @@ namespace Tmpl8 {
 		priceTextPosition(pos + vec2(20, -44)),
 		alertTextPosition(pos + vec2(0, 56)),
 		showAlert(false),
-		alertTime(2000),
+		alertTime(2000), 
 		alertElapsedTime(0)
 	{
 		this->textHover = "Stamina shop";
@@ -29,7 +29,7 @@ namespace Tmpl8 {
 	void StaminaShop::showText(Surface* screen, vec2 cameraOffset) {
 		Text::drawString(this->textHover, screen, (this->textPosition - cameraOffset));
 		Text::drawString("Price: ", screen, (this->priceTextPosition - cameraOffset));
-		Text::printCoins(screen, (this->priceTextPosition + vec2(42, 0) - cameraOffset), long long(price));
+		Text::drawCoins(screen, (this->priceTextPosition + vec2(42, 0) - cameraOffset), long long(price));
 		if (this->showAlert) {
 			Text::drawString(this->alertText, screen, (this->alertTextPosition - cameraOffset));
 		}

@@ -10,7 +10,7 @@ namespace Tmpl8 {
 
 	Chest::Chest(int type, vec2 pos, vec2 size, Sprite* chestsSprite, int frame) :
 		InteractableObject(type, pos, size),
-		frame(frame),
+		frame(frame), 
 		timeX(Randomize::randomFloat(0.f, 1000000.f)),
 		timeY(Randomize::randomFloat(0.f, 1000000.f)),
 		maxPos(0),

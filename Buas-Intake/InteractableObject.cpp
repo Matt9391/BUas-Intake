@@ -15,7 +15,7 @@ namespace Tmpl8 {
 		
 	}
 
-	void InteractableObject::interact(Player& player) {
+	void InteractableObject::interact(Player& player) { 
 		printf("BOBBI\n");
 	}
 

@@ -10,7 +10,7 @@ namespace Tmpl8 {
 	public:
 		Chest(int type, vec2 pos, vec2 size, Sprite* chestsSprite, int frame);
 
-		void interact(Player& player) override;
+		void interact(Player& player) override; 
 
 		void update(float dt, Player& player) override;
 

@@ -5,7 +5,7 @@ namespace Tmpl8 {
 	class Camera2D
 	{
 	public:
-		Camera2D(vec2 pos, vec2 size);
+		Camera2D(vec2 pos, vec2 size); 
 
 		void follow(vec2 target);
 

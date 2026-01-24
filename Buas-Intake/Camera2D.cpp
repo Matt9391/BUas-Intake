@@ -5,7 +5,7 @@ namespace Tmpl8 {
 		pos(pos),
 		size(size),
 		worldSize({0,0})
-		{}
+		{} 
 
 	void Camera2D::follow(vec2 target) {
 		this->pos.x = target.x - this->size.x / 2;

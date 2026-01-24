@@ -12,7 +12,7 @@ namespace Tmpl8 {
 	{
 	public:
 		void onEnter(Player& player, Camera2D& camera) override;
-		void onExit(Player& player) override;
+		void onExit(Player& player) override; 
  
 		void update(float dt, Camera2D& camera, Player& player) override;
 

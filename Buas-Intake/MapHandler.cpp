@@ -153,7 +153,7 @@ namespace Tmpl8 {
 	void MapHandler::drawTile(int tx, int ty, Surface* screen, Surface *map, int x, int y, int tileSize) {
 		 
 		if (x + tileSize < 0 || y + tileSize < 0 || x > screen->GetWidth() || y > screen->GetHeight())
-			return;
+			return; 
 
 		if ((tx + 'a' == 'g') && (ty + 'a' == 'g')) //gg is a void pixel
 			return;

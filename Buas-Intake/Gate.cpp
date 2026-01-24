@@ -19,7 +19,7 @@ namespace Tmpl8 {
 		}
 		else {
 			Game::changeScene(SceneType::SceneHuman);
-		}
+		} 
 	} 
 
 	//void Gate::draw(Surface* screen, vec2 cameraOffset) {
