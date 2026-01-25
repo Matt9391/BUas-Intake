@@ -36,7 +36,8 @@ namespace Tmpl8 {
 		deadTextPosition(pos),
 		showDeadText(false),
 		deadTimer(1000.f),
-		deadTimeElapsed(0.f)
+		deadTimeElapsed(0.f),
+		debug(false)
 	{
 		this->setState(0);
 		humanSprite.SetFrame(38);
@@ -181,7 +182,10 @@ namespace Tmpl8 {
 	}
 
 	void Player::draw(Surface* screen, vec2 cameraOffset) {
-		//this->showHitbox(screen, cameraOffset);
+		if (this->debug) {
+			this->showHitbox(screen, cameraOffset);
+		}
+
 		if (this->visual == PlayerVisual::Human) {
 			int yDrawPos = int(this->pos.y - this->size.y * 2  - cameraOffset.y);
 			int xDrawPos = int(this->pos.x + 1 - cameraOffset.x);
@@ -195,7 +199,7 @@ namespace Tmpl8 {
 
 		//Text::drawString(std::to_string(this->coins), screen, vec2(64, 96));
 		Text::drawString("Coins:", screen, vec2(32, 52));
-		Text::drawCoinsScaled(screen, vec2(5, 64), this->coins, 2);
+		Text::drawCoins(screen, vec2(32, 72), this->coins);
 		Text::drawString("Fishes: " + std::to_string(this->fishInventory.size()), screen, vec2(96, 52));
 		Text::drawString("Chests: " + std::to_string(this->chestInventory.size()), screen, vec2(96, 72));
 		
@@ -336,6 +340,10 @@ namespace Tmpl8 {
 	}
 	void Player::addStamina(float ms) {
 		this->maxSprintTime += ms;
+	}
+
+	void Player::enableDebug(bool enable) {
+		this->debug = enable;
 	}
 
 	void Player::showHitbox(Surface* screen, vec2 cameraOffset) {

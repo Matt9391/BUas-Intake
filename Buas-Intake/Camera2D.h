@@ -1,4 +1,4 @@
-#include "template.h"
+#include "./tmpl8/template.h"
 
 #pragma once
 namespace Tmpl8 {

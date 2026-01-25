@@ -1,6 +1,6 @@
 #include "HumanState.h"
 #include "Player.h"
-#include "surface.h"
+#include "./tmpl8/surface.h"
 #include <Windows.h>
 
 namespace Tmpl8 {

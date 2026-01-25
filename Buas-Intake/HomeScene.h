@@ -1,6 +1,6 @@
 #include "Scene.h"
 #include <string>
-#include "template.h"
+#include "./tmpl8/template.h"
 #pragma once
 
 namespace Tmpl8 {

@@ -4,8 +4,8 @@
 #include <cstring>
 #include <vector>
 #include <array>
-#include "surface.h"
-#include "template.h"
+#include "./tmpl8/surface.h"
+#include "./tmpl8/template.h"
 
 #pragma once
 

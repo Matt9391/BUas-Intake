@@ -35,7 +35,7 @@ namespace Tmpl8 {
 		void loadGameSaves();
 		void resetGameSaves();
 		void saveGame();
-		std::pair<std::string, std::string> Game::getMap(const std::string& str);
+		std::pair<std::string, std::string> getMap(const std::string& str);
 		
 		static HumanScene humanScene;
 		static FishScene fishScene;
@@ -52,6 +52,8 @@ namespace Tmpl8 {
 		float timerAchievement;
 
 		Surface* screen;
+
+		bool debug;
 	};
 	 
 }; // namespace Tmpl8

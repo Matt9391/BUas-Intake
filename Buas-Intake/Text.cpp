@@ -1,6 +1,6 @@
 #include "Text.h"
-#include "Surface.h"
-#include "template.h"
+#include "./tmpl8/surface.h"
+#include "./tmpl8/template.h"
 #include "MapHandler.h"
 #include <sstream>
 

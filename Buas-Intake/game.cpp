@@ -1,6 +1,6 @@
 #include "game.h"
-#include "surface.h"
-#include "template.h"
+#include "./tmpl8/surface.h"
+#include "./tmpl8/template.h"
 #include <cstdio> //printf
 #include <vector> 
 #include <string> 
@@ -53,15 +53,6 @@ namespace Tmpl8
 
 	void Game::Init()
 	{
-		Game::loadGameSaves();
-
-		for (const auto& pair : Game::gameSaves) {
-			std::cout << pair.first << ": " << pair.second << "\n";
-		} 
-
-		this->timerAchievement = 3000.f;
-		this->timeElapsedAchievement = 0.f;
-
 		this->achievements = {
 			{1'000, false},
 			{10'000, false},
@@ -74,6 +65,23 @@ namespace Tmpl8
 			{2'000'000, false},
 			{5'000'000, false},
 		};
+
+
+		Game::loadGameSaves();
+
+		for (const auto& pair : Game::gameSaves) {
+			std::cout << pair.first << ": " << pair.second << "\n";
+		} 
+
+		this->timerAchievement = 3000.f;
+		this->timeElapsedAchievement = 0.f;
+		this->debug = true;
+
+		
+
+		for (auto& pair : this->achievements) {
+			std::cout << pair.first << ": " << pair.second << "\n";
+		}
 
 		MapHandler::mapsTdw[0] = MapHandler::loadMap("mapTopDown.txt");
 		MapHandler::mapsTdw[1] = MapHandler::loadMap("mapTopDownLayer2.txt");
@@ -110,6 +118,8 @@ namespace Tmpl8
 		StaminaShop::loadPrice(float(Game::getDataSave("staminaPrice")));
 		//printf("DDDDDDDDDDD %f ADDDNN %f\n", Game::getDataSave("incomeMultiplierPrice"), Game::gameSaves["incomeMultiplierPrice"]);
 
+		Scene::enableDebug(this->debug);
+		player.enableDebug(this->debug);
 	}
 
 	// -----------------------------------------------------------
@@ -191,12 +201,21 @@ namespace Tmpl8
 		gameSaves["incomeMultiplierPrice"] = IncomeMultiplier::getPrice();
 		gameSaves["stamina"] = player.getStamina();
 		gameSaves["staminaPrice"] = StaminaShop::getPrice();
+		
+		long long coinsAchieved = 0;
+		for (auto& pair : this->achievements) {
+			if (pair.second)
+				coinsAchieved = pair.first;
+		}
+
+		gameSaves["lastAchievement"] = double(coinsAchieved);
 
 		std::ofstream outFile("assets/gameSaves/gameSave.txt");
 
 		for (auto &pair : gameSaves) {
 			outFile << pair.first << ":" << pair.second << "\n";
 		}
+
 
 		outFile.close();
 	}
@@ -221,6 +240,10 @@ namespace Tmpl8
 
 		gameSaves = defaultGameSaves;
 
+		for (auto& pair : this->achievements) {
+			pair.second = false;
+		}
+
 		/*std::ofstream outFile("assets/gameSaves/gameSave.txt");
 
 		for (auto& pair : defaultGameSaves) {
@@ -241,6 +264,12 @@ namespace Tmpl8
 		while (std::getline(objFile, line)) {
 			std::pair<std::string, std::string> data = getMap(line);
 			gameSaves[data.first] = std::stod(data.second);
+		}
+
+		for (auto& pair : this->achievements) {
+			if (gameSaves["lastAchievement"] >= pair.first) {
+				pair.second = true;
+			}
 		}
 
 		objFile.close();
@@ -285,8 +314,8 @@ namespace Tmpl8
 	}
 
 	void Game::drawAchievement(long long coins) {
-		Text::drawString("You made your first ", this->screen, vec2(ScreenWidth / 2.f - 96.f,MapHandler::tileSize * 2.f));
-		Text::drawCoins(this->screen, vec2(ScreenWidth / 2.f + 40.f, MapHandler::tileSize * 2.f), coins);
+		Text::drawStringScaled("You made your first ", this->screen, vec2(ScreenWidth / 2.f - 200.f,MapHandler::tileSize * 2.f),2);
+		Text::drawCoinsScaled(this->screen, vec2(ScreenWidth / 2.f + 70.f, MapHandler::tileSize * 2.f), coins,2);
 	}
 
 	void Game::changeScene(SceneType nextScene) {

@@ -1,5 +1,5 @@
-#include "template.h"
-#include "surface.h"
+#include "./tmpl8/surface.h"
+#include "./tmpl8/template.h"
 #include <array>
 #include <vector>
 #include "MapHandler.h"
@@ -62,6 +62,7 @@ namespace Tmpl8 {
 		void addChest(ChestObject chest);
 		void setMultiplier(float multiplier);
 		void addStamina(float ms);
+		void enableDebug(bool enable);
 
 		void setAnimRange(int first, int last);
 
@@ -70,6 +71,8 @@ namespace Tmpl8 {
 	private:
 		void showHitbox(Surface* screen, vec2 cameraOffset);
 		void drawStamina(Surface* screen, vec2 pos);
+
+		bool debug;
 
 		void playAnimation(float dt);
 

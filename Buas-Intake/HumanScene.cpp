@@ -66,9 +66,11 @@ namespace Tmpl8 {
 		Text::drawString("Fish", screen, vec2(15.1f * MapHandler::tileSize, 3.8f * MapHandler::tileSize) - camera.getPos());
 		Text::drawString("Shop", screen, vec2(15.1f * MapHandler::tileSize, 4.3f * MapHandler::tileSize) - camera.getPos());
 
-		//for (auto object : MapHandler::objects) {
-		//	(*object).drawHitBox(screen, camera.getPos());
-		//}
+		if (this->debug) {
+			for (auto object : MapHandler::objects) {
+				(*object).drawHitBox(screen, camera.getPos());
+			}
+		}
 
 		for (auto object : MapHandler::objects) {
 			(*object).draw(screen, camera.getPos());

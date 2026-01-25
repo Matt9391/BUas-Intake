@@ -1,4 +1,4 @@
-#include "surface.h"
+#include "./tmpl8/surface.h"
 
  
 #pragma once
@@ -26,7 +26,9 @@ namespace Tmpl8 {
 
 		virtual void draw(Surface* screen, Camera2D& camera, Player& player) = 0;
 
-	private:
+		static void enableDebug(bool enable);
+	protected:
+		static bool debug;
 	};
 
 }
