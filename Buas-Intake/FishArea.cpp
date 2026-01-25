@@ -67,29 +67,29 @@ namespace Tmpl8 {
 			float fishPercentage = mapValue(std::abs(this->xIndxPos), 0, this->range, 1.0, 0.01) * 100.f;
 			this->showFishCard = true;
 			printf("%.2f PRESSEDD\n", fishPercentage);
-			Rarity rarity = Rarity::COMMON;
+			FishRarity rarity = FishRarity::COMMON;
 			float value = 0;
 
 			if (fishPercentage < 50) {
-				rarity = Rarity::COMMON;
+				rarity = FishRarity::COMMON;
 				this->cardText = "A common fish!";
 				this->textCardPosition = this->pos + vec2(-16, 96);
 				value = 80;
 			}
 			else if (fishPercentage >= 50 && fishPercentage < 75) {
-				rarity = Rarity::RARE;
+				rarity = FishRarity::RARE;
 				this->cardText = "A rare fish!";
 				value = 150;
 				this->textCardPosition = this->pos + vec2(-8, 96);
 			}
 			else if (fishPercentage >= 75 && fishPercentage < 90) {
-				rarity = Rarity::EPIC;
+				rarity = FishRarity::EPIC;
 				this->cardText = "A epic fish!";
 				this->textCardPosition = this->pos + vec2(-8, 96);
 				value = 300;
 			}
 			else if (fishPercentage >= 90) {
-				rarity = Rarity::LEGENDARY;
+				rarity = FishRarity::LEGENDARY;
 				this->cardText = "A legendary fish!";
 				this->textCardPosition = this->pos + vec2(-24, 96);
 				value = 500;

@@ -400,16 +400,16 @@ namespace Tmpl8 {
 		this->fishInventory.clear();
 		//printf("LKKKK; %d\n", gameSave["fish_legendary"]);
 		for (int i = 0; i < int(gameSave["fish_common"]); i++) {
-			this->fishInventory.push_back({ Rarity::COMMON, 80 });
+			this->fishInventory.push_back({ FishRarity::COMMON, 80 });
 		}
 		for (int i = 0; i < int(gameSave["fish_rare"]); i++) {
-			this->fishInventory.push_back({ Rarity::RARE, 150 });
+			this->fishInventory.push_back({ FishRarity::RARE, 150 });
 		}
 		for (int i = 0; i < int(gameSave["fish_epic"]); i++) {
-			this->fishInventory.push_back({ Rarity::EPIC, 300 });
+			this->fishInventory.push_back({ FishRarity::EPIC, 300 });
 		}
 		for (int i = 0; i < int(gameSave["fish_legendary"]); i++) {
-			this->fishInventory.push_back({ Rarity::LEGENDARY, 500 });
+			this->fishInventory.push_back({ FishRarity::LEGENDARY, 500 });
 		}
 
 		this->chestInventory.clear();

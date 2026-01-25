@@ -75,7 +75,7 @@ namespace Tmpl8
 
 		this->timerAchievement = 3000.f;
 		this->timeElapsedAchievement = 0.f;
-		this->debug = true;
+		this->debug = false;
 
 		
 
@@ -171,13 +171,13 @@ namespace Tmpl8
 		gameSaves["fish_legendary"] = 0;
 
 		for (auto& fish : player.getFishes()) {
-			if(fish.rarity == Rarity::COMMON)
+			if(fish.rarity == FishRarity::COMMON)
 				gameSaves["fish_common"] += 1;
-			if(fish.rarity == Rarity::RARE)
+			if(fish.rarity == FishRarity::RARE)
 				gameSaves["fish_rare"] += 1;
-			if(fish.rarity == Rarity::EPIC)
+			if(fish.rarity == FishRarity::EPIC)
 				gameSaves["fish_epic"] += 1;
-			if(fish.rarity == Rarity::LEGENDARY)
+			if(fish.rarity == FishRarity::LEGENDARY)
 				gameSaves["fish_legendary"] += 1;
 		}
 		

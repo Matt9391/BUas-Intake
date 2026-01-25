@@ -1,7 +1,7 @@
 #pragma once
 
 namespace Tmpl8 {
-	enum Rarity {
+	enum FishRarity {
 		COMMON,
 		RARE,
 		EPIC,
@@ -10,7 +10,7 @@ namespace Tmpl8 {
 
  
 	struct Fish {
-		Rarity rarity;
+		FishRarity rarity;
 		float value;
 	};
 
