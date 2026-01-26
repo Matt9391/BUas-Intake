@@ -7,7 +7,7 @@
 namespace Tmpl8 {
 	class Enemy;
 
-
+	//FishScene inherits from Scene
 	class FishScene : public Scene
 	{
 	public:
@@ -18,7 +18,9 @@ namespace Tmpl8 {
 
 		void draw(Surface* screen, Camera2D& camera, Player& player) override;
 	private:
+		//current enabled maps
 		std::array<Map, 2> currentMap;
+		//vector of pointers to enemies 
 		std::vector<Enemy*> enemies;
 	};
 

@@ -11,33 +11,38 @@ namespace Tmpl8 {
 
 	FishArea::FishArea(int type, vec2 pos, vec2 size, std::array<Sprite*, 3> fishingSprites) :
 		InteractableObject(type, pos, size),
-		fishingSprites(fishingSprites),
+		enable(false),
+		showFishCard(false),
 		barPosition(pos + vec2(-16, 72)),
 		indxPosition(pos + vec2(+31, 72)),
 		cardPosition(pos + vec2(16, 32)),
 		textCardPosition(pos + vec2(-46, 96)),
+		cardText(""),
+		xIndxPos(0),
 		range(45),
 		angle(0),
 		maxAngle(2.f * 3.14),
-		xIndxPos(0),
-		enable(false),
+		elapsedTimeFishCard(0),
+		fishCardMaxTime(2000),
 		elapsedTimeSpace(500),
 		rebounceTime(0),
-		showFishCard(false),
-		elapsedTimeFishCard(0),
-		fishCardMaxTime(2000)
+		fishingSprites(fishingSprites)
 	{
 		textPosition = vec2(pos + vec2(-46, -32));
 		textHover = "press 'F' to start fishing";
 	}
 
 	void FishArea::interact(Player& player) {
+		//handle player interaction within the fishing area
+		//check if the player is currently fishing
 		if (player.isFishing()) {
+			//disable fishing state and fishing area
 			player.setFishing(false);
 			this->enable = false;
 			this->showFishCard = false;
 			this->textHover = "press 'F' to start fishing";
 		}else {
+			//otherwise enable all
 			player.setFishing(true);
 			this->enable = true;
 			this->textHover = "press 'F' to stop fishing";
@@ -45,28 +50,36 @@ namespace Tmpl8 {
 	}
 
 	void FishArea::fish(float dt, Player& player) {
+		//skip if fishing is on cooldown
 		if (this->showFishCard)
 			return;
 
-		this->elapsedTimeSpace += dt; //spacebar pressed
+		this->elapsedTimeSpace += dt;
 		 
+		//increase the angle by a certain speed
 		this->angle += 0.0035f * dt; 
-		//this->angle = 3.14 / -2.f;
+		//reset angle after a full rotation
 		if (this->angle > maxAngle)
 			this->angle = 0;
 
+		//calculate index position: sin(angle) scaled by range
 		this->xIndxPos = std::sin(angle) * this->range;
 
+		//check if player can fish
 		if (this->elapsedTimeSpace < this->rebounceTime) {
 			return;
 		}
 		
-		this->elapsedTimeSpace = 0;
-
+		//check if the player has pressed space
 		if(GetAsyncKeyState(' ') & 0x8000) {
+			this->elapsedTimeSpace = 0;
+			//calculate the % based on abs(index position):
+			//closer to 0 -> higher %, further -> lower %
 			float fishPercentage = mapValue(std::abs(this->xIndxPos), 0, this->range, 1.0, 0.01) * 100.f;
+
 			this->showFishCard = true;
-			printf("%.2f PRESSEDD\n", fishPercentage);
+			
+			//set default values
 			FishRarity rarity = FishRarity::COMMON;
 			float value = 0;
 
@@ -96,32 +109,36 @@ namespace Tmpl8 {
 
 			}
 
+			//create a fish object to store its data
 			Fish fish = { rarity, value};
+			//add the fish to the player's inventory
+			player.addFish(fish);
 
+			//set fish sprite frame based on rarity
 			(*this->fishingSprites[2]).SetFrame(rarity);
 
-			//printf("%d e %d\n", rarity, fish.rarity);
-			player.addFish(fish);
+			//reset the angle to set the index postion on the left
 			this->angle = -3.14 / 2.f;
 		}
 
-		//printf("%.2f\n", xIndxPos);
 	}
 
 
 	void FishArea::update(float dt, Player& player) {
+		//check whether the fish area is enabled
 		if (!this->enable)
 			return;
 
 		this->fish(dt, player);
 
 
+		//check whether the fishCard is enabled
 		if (this->showFishCard) {
 			this->elapsedTimeFishCard += dt;
 
 			if (this->elapsedTimeFishCard > this->fishCardMaxTime) {
+				//disable the fishCard after fixed time
 				this->showFishCard = false;
-				printf("STOPPPP: %.2f\n", this->elapsedTimeFishCard);
 				this->elapsedTimeFishCard = 0;
 			}
 		}
@@ -132,10 +149,9 @@ namespace Tmpl8 {
 	}
 
 	void FishArea::draw(Surface* screen, vec2 cameraOffset) {
-		//this->drawHitBox(screen, cameraOffset);
 		if (!this->enable)
 			return;
-
+		// "- cameraOffset.x/y" to keep the sprites fixed according to the camera
 		(*this->fishingSprites[0]).Draw(screen, int(this->barPosition.x - cameraOffset.x), int(this->barPosition.y - cameraOffset.y));
 		(*this->fishingSprites[1]).Draw(screen, int(this->indxPosition.x - cameraOffset.x + this->xIndxPos), int(this->indxPosition.y - cameraOffset.y));
 

@@ -10,6 +10,7 @@
 namespace Tmpl8 { 
 
 	void FishScene::onEnter(Player& player, Camera2D& camera) {
+		//load the interactable objects of the current scene
 		MapHandler::loadInteractableObject("2DInteractableObjectList.txt", 32);	
 		 
 		int type = 6; //chest type

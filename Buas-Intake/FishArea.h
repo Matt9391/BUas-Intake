@@ -6,6 +6,7 @@
 
 namespace Tmpl8 {
 
+	//FishArea inherits from InteractableObject
 	class FishArea : public InteractableObject
 	{
 	public:
@@ -19,29 +20,43 @@ namespace Tmpl8 {
 		void draw(Surface* screen, vec2 cameraOffset) override;
 
 	private:
+		//handle player fishing
 		void fish(float dt, Player& player);
+		//fish area enabled or disabled
 		bool enable;
+		//variable to show or hide the caught fish
 		bool showFishCard;
 
+		//slider position
 		vec2 barPosition;
+		//origin of the slider index position
 		vec2 indxPosition;
+		//position of the caught fish card
 		vec2 cardPosition;
+		//position of card text
 		vec2 textCardPosition;
-		
+		//text that display the fish type
 		std::string cardText;
 
+		//current slider index position
 		float xIndxPos;
-		
-		float angle;
-		float maxAngle;
-
+		//range of motion (x-coordinate) of the index
 		float range;
 		
-		float elapsedTimeFishCard; //time passed of showing fishCard
-		float fishCardMaxTime; //time needed to pass
+		//current angle used to calculate the index position
+		float angle;
+		//max angle at which the current angle is reset
+		float maxAngle;
+		
+		//elapsed time while the card is enabled
+		float elapsedTimeFishCard; 
+		//max time the card can stay enabled
+		float fishCardMaxTime; 
 
-		float elapsedTimeSpace; //time passed since you last pressed space
-		float rebounceTime; // time needed to pass
+ 		//elapsed time since last space press
+		float elapsedTimeSpace;
+		//minimum time required before pressing again
+		float rebounceTime; 
 
 		std::array<Sprite*, 3> fishingSprites;
 	};
