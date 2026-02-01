@@ -1,12 +1,16 @@
 #include "Text.h"
 #include "./tmpl8/surface.h"
 #include "./tmpl8/template.h"
-#include "MapHandler.h"
 #include <sstream>
+#include <cstdio>
+#include <string>
+#include <vector>
 
 namespace Tmpl8 {
 
+	//font surface and its character dimensions
 	Surface* Text::font = nullptr;
+	//counted manually from the font source image
 	int Text::fontHeight = 10;
 	int Text::fontWidth = 7;
 
@@ -16,22 +20,15 @@ namespace Tmpl8 {
 		font = fontSource;
 	}
 
-	void Text::print(Surface* screen) {
+	void Text::drawCoins(Surface* screen, vec2 pos, long long coins, int scale) {
 		if (font == nullptr) {
-			printf("BRO SONO NULL ANCORA EHEHEH");
-			return;
-		}
-		
-	}
-
-	void Text::drawCoins(Surface* screen, vec2 pos, long long coins) {
-		if (font == nullptr) {
-			printf("BRO SONO NULL ANCORA EHEHEH");
+			printf("Font not initialized yet! Initialize it before using");
 			return;
 		}
 
 		std::string text;
 
+		//format coins into K, M, B notation
 		if (coins >= 1'000'000'000) {
 			double value = coins / 1'000'000'000.0;
 			char buf[32];
@@ -52,142 +49,69 @@ namespace Tmpl8 {
 			text = std::to_string(coins);
 		}
 
-		drawString(text, screen, pos);
+		drawString(text, screen, pos, scale);
 
 	}
-	void Text::drawCoinsScaled(Surface* screen, vec2 pos, long long coins, int scale) {
-		if (font == nullptr) {
-			printf("BRO SONO NULL ANCORA EHEHEH");
-			return;
-		}
-
-		std::string text;
-
-		if (coins >= 1'000'000'000) {
-			double value = coins / 1'000'000'000.0;
-			char buf[32];
-			snprintf(buf, sizeof(buf), "%.1fB", value);
-			text = buf;
-		}else if (coins >= 1'000'000) {
-			double value = coins / 1'000'000.0;
-			char buf[32];
-			snprintf(buf, sizeof(buf), "%.1fM", value);
-			text = buf;
-		}else if (coins >= 1000) {
-			double value = coins / 1'000.0;
-			char buf[32];
-			snprintf(buf, sizeof(buf), "%.1fK", value);
-			text = buf;
-		}
-		else {
-			text = std::to_string(coins);
-		}
-
-		drawStringScaled(text, screen, pos, scale);
-
-	}
-
-	std::vector<std::string>  Text::splitLines(const std::string& text) {
-		std::vector<std::string> lines;
-		std::istringstream stream(text);
-		std::string line; 
-
-		while (std::getline(stream, line)) {
-			lines.push_back(line);
-		}
-
-		return lines;
-	}
-
-	void Text::drawString(std::string str, Surface* screen, vec2 pos) {
-		if (font == nullptr) {
-			printf("BRO SONO NULL ANCORA EHEHEH");
-			return;
-		} 
-
-		std::vector<std::string> lines = splitLines(str);
-
-
-		//printf("char: %c, c_index: %d, index: %d\n", character, character, index);
-
-		if (pos.x + fontWidth < 0 || pos.y + fontHeight < 0 || pos.x > screen->GetWidth() || pos.y > screen->GetHeight())
-			return;
-
-		int dx = 0, dy = 0;
-		int maxX = fontWidth, maxY = fontHeight;
-
-		if (pos.x < 0) dx = int(-pos.x);
-		if (pos.x < 0) dy = int(-pos.y);
-		if (pos.x + fontWidth > screen->GetWidth())  maxX = int(screen->GetWidth() - pos.x);
-		if (pos.y + fontHeight> screen->GetHeight()) maxY = int(screen->GetHeight() - pos.y);
-
-		const Pixel black = 0xFF000000; //its black
-		int lineCounter = 0;
-		for (auto line : lines) {
-			int count = 0;
-			for (char character : line) {
-				Pixel* destination = screen->GetBuffer() + int(pos.x + fontWidth * count) + (int(pos.y) + dy + fontHeight * lineCounter) * screen->GetPitch();
-			
-				int index = int(character) - 32;
 	
-				Pixel* source = (*font).GetBuffer() + index * fontWidth;
-				source += dy * (*font).GetPitch();
-			
-				for (int i = dy; i < maxY; i++) {
-					for (int j = dx; j < maxX; j++) {
-						if (source[j] != black)
-							destination[j] = source[j];
-					}
-					source += (*font).GetPitch();
-					destination += screen->GetPitch();
-				}
-			
-				count++;
-			}
+	
 
-			lineCounter++;
-		}
-	}
-
-	void Text::drawStringScaled(std::string str, Surface* screen, vec2 pos, int scale) {
+	void Text::drawString(std::string str, Surface* screen, vec2 pos, int scale) {
 		if (font == nullptr) {
-			printf("BRO SONO NULL ANCORA EHEHEH");
+			printf("Font not initialized yet! Initialize it before using");
 			return;
 		} 
 
 		std::vector<std::string> lines = splitLines(str);
 
 
-		//printf("char: %c, c_index: %d, index: %d\n", character, character, index);
-
+		//check if the text is outside the screen bounds
 		if (pos.x + fontWidth < 0 || pos.y + fontHeight < 0 || pos.x > screen->GetWidth() || pos.y > screen->GetHeight())
 			return;
 
+		//clipping variables
 		int dx = 0, dy = 0;
 		int maxX = fontWidth, maxY = fontHeight;
 
+		//clip position and size if the text is partially outside the screen
 		if (pos.x < 0) dx = int(-pos.x);
 		if (pos.x < 0) dy = int(-pos.y);
 		if (pos.x + fontWidth > screen->GetWidth())  maxX = int(screen->GetWidth() - pos.x);
 		if (pos.y + fontHeight> screen->GetHeight()) maxY = int(screen->GetHeight() - pos.y);
 
+		//black pixel used for transparent/void pixels
 		const Pixel black = 0xFF000000; //its black
 		int lineCounter = 0;
-		for (auto line : lines) {
+
+		//for each line
+		for (auto& line : lines) {
 			int count = 0;
+			//for each character in the line
 			for (char character : line) {
 
+				//get character index in the font surface
 				int index = int(character) - 32;
+				//get source based on character index
 				Pixel* source = (*font).GetBuffer() + index * fontWidth;
+				//add clipping offset
 				source += dy * (*font).GetPitch();
 
+				//set destination on screen with clipping offsets and line offset
+				//get the buffer off the screen and the calculate the position based on character count and line counter
 				Pixel* destination = screen->GetBuffer() + int(pos.x + fontWidth * scale  * count) + (int(pos.y) + dy + fontHeight * scale * lineCounter) * screen->GetPitch();
 			
+				//draw character pixel by pixel with scaling
+				//si/sj are scale iterators
+				//iterate through original rows
 				for (int i = dy; i < maxY; i++) {
+					//for each row it iterates scale times the same row
 					for (int si = 0; si < scale; si++) {
+						//jIndex is the index of the pixel needed to be drawn
 						int jIndex = 0;
+						//iterate through original columns
 						for (int j = dx; j < maxX * scale; j+= scale) {
+							//for each column it iterates scale times the same column
 							for (int sj = 0; sj < scale; sj++) {
+								//if the source pixel is not black (transparent) copy it to the screen
 								if (source[jIndex] != black)
 									destination[j + sj] = source[jIndex];
 							}
@@ -195,74 +119,25 @@ namespace Tmpl8 {
 						}
 						destination += screen->GetPitch();
 					}
-				
 					source += (*font).GetPitch();
 				}
-	
-				count++;
-			
-			
-				
+				count++;	
 			}
-
 			lineCounter++;
 		}
 	}
 
-	/*void Text::drawStringScaled(std::string str, Surface* screen, vec2 pos, int scale)
-	{
-		if (font == nullptr) return;
-		if (scale <= 0) return;
+	//split string into multiple lines based on '\n' character
+	std::vector<std::string>  Text::splitLines(const std::string& text) {
+		std::vector<std::string> lines;
+		std::istringstream stream(text);
+		std::string line;
 
-		std::vector<std::string> lines = splitLines(str);
-
-		int scaledFontW = fontWidth * scale;
-		int scaledFontH = fontHeight * scale;
-
-		const Pixel black = 0xFF000000;
-
-		int lineCounter = 0;
-
-		for (auto& line : lines)
-		{
-			int count = 0;
-
-			for (char character : line)
-			{
-				int index = int(character) - 32;
-
-				Pixel* sourceBase = font->GetBuffer() + index * fontWidth;
-
-				for (int y = 0; y < fontHeight; y++)
-				{
-					for (int sy = 0; sy < scale; sy++)
-					{
-						Pixel* source = sourceBase + y * font->GetPitch();
-
-						Pixel* destination =
-							screen->GetBuffer()
-							+ int(pos.x + count * scaledFontW)
-							+ int(pos.y + lineCounter * scaledFontH + y * scale + sy) * screen->GetPitch();
-
-						for (int x = 0; x < fontWidth; x++)
-						{
-							Pixel c = source[x];
-							if (c != black)
-							{
-								for (int sx = 0; sx < scale; sx++)
-									destination[x * scale + sx] = c;
-							}
-						}
-					}
-				}
-
-				count++;
-			}
-
-			lineCounter++;
+		while (std::getline(stream, line)) {
+			lines.push_back(line);
 		}
-	}*/
 
-
+		return lines;
+	}
 
 }

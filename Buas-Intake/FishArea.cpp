@@ -4,6 +4,12 @@
 #include <Windows.h>
 #include "Fish.h"
 #include "functions.h"
+#include <array>
+#include <cmath>
+#include <cstdlib>
+#include "InteractableObject.h"
+#include "tmpl8/surface.h"
+#include "tmpl8/template.h"
 
 namespace Tmpl8 {
 

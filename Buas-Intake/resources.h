@@ -4,6 +4,7 @@
 #pragma once
 
 namespace Tmpl8 {
+	//assets declaration
 	extern Surface fontSource;
 	extern Sprite humanSprite;
 	extern Sprite fishSprite;
@@ -14,6 +15,4 @@ namespace Tmpl8 {
 	extern Sprite enemySprite;
 	extern Sprite gameTitle;
 	extern std::array<Sprite*, 3> fishingAreaSprites;
-
-	//https://ninjikin.itch.io/trees
 } 

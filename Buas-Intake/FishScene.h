@@ -18,7 +18,7 @@ namespace Tmpl8 {
 
 		void draw(Surface* screen, Camera2D& camera, Player& player) override;
 	private:
-		//current enabled maps
+		//current active maps
 		std::array<Map, 2> currentMap;
 		//vector of pointers to enemies 
 		std::vector<Enemy*> enemies;

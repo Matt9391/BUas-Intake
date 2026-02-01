@@ -1,7 +1,9 @@
 #include "IncomeMultiplier.h"
 #include "Text.h"
 #include "Player.h"
-#include "Game.h"
+#include "tmpl8/surface.h"
+#include "tmpl8/template.h"
+#include <cstdio>
 
 namespace Tmpl8 {
 	float IncomeMultiplier::price = 100.f;
@@ -37,23 +39,23 @@ namespace Tmpl8 {
 	}
 
 	void IncomeMultiplier::interact(Player& player) {
+		//check if the player has enough coins
 		if (player.getCoins() < this->price) {
 			this->showAlert = true;
 			return;
 		}
-		printf("pre price: %2.f ", price);
- 
+
+		//if so, spend the coins and apply the income multiplier 
 		player.spendCoins(int(this->price));
 
 		player.setMultiplier(player.getMultiplier() * 1.5f);
 
+		//increase the price for the next purchase
 		this->price *= 2.2;
-
-		printf("post price: %2.f\n", price);
-
 	}
 
 	void IncomeMultiplier::update(float dt, Player& player) {
+		//if alert is showing, update the timer
 		if (this->showAlert) {
 			this->alertElapsedTime += dt;
 			if (this->alertElapsedTime > alertTime) {
@@ -63,10 +65,5 @@ namespace Tmpl8 {
 		}
 	}
 
-	void IncomeMultiplier::draw(Surface* screen, vec2 cameraOffset) {
-		//this->drawHitBox(screen, cameraOffset, 0xFF00FF);
-		//this->drawHitBox(screen, cameraOffset);
-		
-	}
 
 };

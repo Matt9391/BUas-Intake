@@ -1,9 +1,14 @@
 #include "Scene.h"
 #include <string>
-#include "./tmpl8/template.h"
+#include "tmpl8/template.h"
+
 #pragma once
 
 namespace Tmpl8 {
+	class Player;
+	class vec2;
+	class Camera2D;
+	class Surface;
 
 	class HomeScene : public Scene
 	{
@@ -15,6 +20,7 @@ namespace Tmpl8 {
 
 		void draw(Surface* screen, Camera2D& camera, Player& player) override;
 	private:
+
 		std::string playText;
 		vec2 playTextPosition;
 		

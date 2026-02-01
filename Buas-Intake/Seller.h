@@ -2,7 +2,10 @@
 #pragma once
 
 namespace Tmpl8 {
+	class vec2;
+	class Player;
 
+	//Seller inherits from InteractableObject
 	class Seller : public InteractableObject
 	{
 	public:
@@ -10,8 +13,7 @@ namespace Tmpl8 {
 
 		void interact(Player& player) override;
 	
-	private:
-		 
+	private: 
 	};
 }
 

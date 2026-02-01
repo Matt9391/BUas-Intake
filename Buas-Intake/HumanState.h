@@ -4,16 +4,13 @@
 namespace Tmpl8 {
 	class Player;
 
+	//HumanState inherits from PlayerState
 	class HumanState : public PlayerState
 	{
 	public:
 		void enter(Player& player) override;
 
 		void handleInput(Player& player) override;
-		
-		void update(Player& player) override;
-		 
-		//void draw(Player& player, Surface* screen, vec2 cameraOffset) override;
 	private:
 	};
 }

@@ -1,12 +1,13 @@
-#include "./tmpl8/surface.h"
-#include "./tmpl8/template.h"
 #include "Entity.h"
 #include <string>
 
 #pragma once
 namespace Tmpl8 {
 	class Player;
+	class Surface;
+	class vec2;
 
+	//InteractableObject inherits from Entity
 	class InteractableObject : public Entity
 	{
 	public:
@@ -20,12 +21,14 @@ namespace Tmpl8 {
 
 		virtual void draw(Surface* screen, vec2 cameraOffset);
 
+		//index of the interactable object type in the file
 		int type;
 
 	protected:
-		
 
+		//position to show the text
 		vec2 textPosition;
+		//text to show when hovering the object
 		std::string textHover;
 
 	};

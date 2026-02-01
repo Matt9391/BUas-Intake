@@ -1,8 +1,13 @@
 #include "StaminaShop.h"
 #include "Text.h"
 #include "Player.h"
+#include <cstdio>
+#include "InteractableObject.h"
+#include "tmpl8/surface.h"
+#include "tmpl8/template.h"
 
 namespace Tmpl8 {
+	//deafult price of the stamina shop
 	float StaminaShop::price = 200.f;
 
 	void StaminaShop::loadPrice(float loadedPrice) {
@@ -36,19 +41,19 @@ namespace Tmpl8 {
 	}
 
 	void StaminaShop::interact(Player& player) {
+		//check if the player has enough coins
 		if (player.getCoins() < this->price) {
 			this->showAlert = true;
 			return;
 		}
-		printf("pre price: %2.f ", price);
-
+		
 		player.spendCoins(int(this->price));
 
-		player.addStamina(1000); //1000ms
+		player.addStamina(1000); //1000ms -> 1 second of stamina
 
+		//triple the price for the next purchase
 		this->price *= 3;
 		 
-		printf("post price: %2.f\n", price);
 	}
 
 	void StaminaShop::update(float dt, Player& player) {
@@ -61,8 +66,4 @@ namespace Tmpl8 {
 		}
 	}
 
-	void StaminaShop::draw(Surface* screen, vec2 cameraOffset) {
-		//this->drawHitBox(screen, cameraOffset, 0xFF00FF);
-		//this->drawHitBox(screen, cameraOffset);
-	}
 }

@@ -3,53 +3,63 @@
 #include "FishState.h"
 #include "Text.h"
 #include "functions.h"
-#include "Game.h"
-#include <Windows.h>
+#include "ChestObject.h"
+#include "Fish.h"
+#include "PlayerVisual.h"
+#include "tmpl8/surface.h"
+#include "tmpl8/template.h"
 
 
 
 namespace Tmpl8 {
 
 	Player::Player(Sprite& humanSprite, Sprite& fishSprite) :
-		humanSprite(humanSprite),
-		fishSprite(fishSprite),
-		currentMap(nullptr),
-		pos({ ScreenWidth / 2, ScreenHeight / 2 }), 
-		size({ 32, 16 }), 
-		speed(0.15),
+		debug(false),
+		interacting(false),
+		input(' '),
 		firstFrame(0),
 		lastFrame(1),
 		currentFrame(0),
 		timeBetweenFrames(70),
 		timeElapsedBF(0),
+		pos({ ScreenWidth / 2, ScreenHeight / 2 }), 
+		nextPos(pos),
+		size({ 32, 16 }), 
 		velocity(0, 0),
-		input(' '),
+		speed(0.15),
+		baseSpeed(0.15),
+		sprintSpeed(0.35),
+		dir(0,0),
+		humanSprite(humanSprite),
+		fishSprite(fishSprite),
+		state(nullptr),
+		visual(PlayerVisual::Human),
+		currentMap(nullptr),
 		fishing(false),
 		coins(100),
 		coinsMultiplier(1),
 		sprinting(false),
-		sprintElapsedTime(0.f),
 		maxSprintTime(2000.f),
-		sprintSpeed(0.35),
-		baseSpeed(0.15),
+		sprintElapsedTime(0.f),
 		deadText("you got ate!! you've lost all your stuff"),
 		deadTextPosition(pos),
 		showDeadText(false),
 		deadTimer(1000.f),
-		deadTimeElapsed(0.f),
-		debug(false)
+		deadTimeElapsed(0.f)
 	{
 		this->setState(0);
 		humanSprite.SetFrame(38);
 	}
 	 
 	void Player::update(float dt) {
-		//this->handleInput();
+		
+		//call state input handler
 		this->state->handleInput(*this);
 		this->sprint(dt);
 		this->move(dt);
 		this->playAnimation(dt);
 
+		//if dead text is showing, update its timer and position
 		if (showDeadText) {
 			this->deadTimeElapsed += dt;
 			if (this->deadTimeElapsed > this->deadTimer) {
@@ -57,42 +67,14 @@ namespace Tmpl8 {
 				this->deadTimeElapsed = 0.f;
 			}
 			this->deadTextPosition = this->pos + vec2(-112, -32);
+			//constrain dead text position within screen bounds
 			this->deadTextPosition.x = constrain(this->deadTextPosition.x, 10.f, float(ScreenWidth - 300));
 		}
 
-		//printf("FISHESSS\n");
-		//for (Fish& fish : this->fishInventory) {
-		//	printf("%d, %.0f\n", fish.rarity, fish.value);
-		//}
-		//printf("FINE----------------------\n");
+
 	}
 
-	/*void Player::handleInput() {
-		this->dir = { 0,0 };
-
-		if (GetAsyncKeyState('A')) {
-			this->dir.x = -1;
-			this->setAnimRange(8, 15);
-		}
-		else if (GetAsyncKeyState('D')) {
-			this->dir.x = 1;
-			this->setAnimRange(0, 7);
-		}
-		if (GetAsyncKeyState('W')) {
-			this->dir.y = -1;
-			if (this->dir.x == 0)
-				this->setAnimRange(24, 31);
-		}
-		else if (GetAsyncKeyState('S')) {
-			this->dir.y = 1;
-			if (this->dir.x == 0)
-				this->setAnimRange(16, 23);
-		}
-
-		if (this->dir == vec2(0, 0))
-			this->setAnimRange(32, 38);
-	}*/
-
+	//set the animation range if changed
 	void Player::setAnimRange(int first, int last) {
 		if (first != firstFrame) {
 			currentFrame = first;
@@ -101,7 +83,9 @@ namespace Tmpl8 {
 		this->lastFrame = last;
 	}
 
+	//play animation within the set frame range
 	void Player::playAnimation(float dt) {
+		//dont play animation if fishing
 		if (this->fishing)
 			return;
 		timeElapsedBF += dt;
@@ -113,6 +97,7 @@ namespace Tmpl8 {
 				currentFrame = firstFrame;
 			}
 
+			//set the frame to the related sprite
 			if (this->visual == PlayerVisual::Human) {
 				this->humanSprite.SetFrame(currentFrame);
 			}else if (this->visual == PlayerVisual::Fish) {
@@ -122,6 +107,7 @@ namespace Tmpl8 {
 	}
 
 	void Player::sprint(float dt) {
+		//if not sprinting, recover stamina and set speed to base speed
 		if (!this->sprinting) {
 			this->sprintElapsedTime -= dt;
 			if (this->sprintElapsedTime <= 0.f) this->sprintElapsedTime = 0.f;
@@ -129,6 +115,7 @@ namespace Tmpl8 {
 			return;
 		}
 
+		//if sprinting, increase elapsed sprint time and set speed to sprint speed if stamina is available
 		if (this->sprintElapsedTime < this->maxSprintTime) {
 			this->sprintElapsedTime += dt;
 			this->speed = this->state->getSprintSpeed();
@@ -139,32 +126,37 @@ namespace Tmpl8 {
 	}
 
 	void Player::move(float dt) {
+		//cant move while fishing
 		if (this->fishing)
 			return;
 
+		//set next position based on direction and speed
 		this->nextPos = this->pos;
 
 		this->velocity = vec2(this->dir.x, this->dir.y);
 
+		//normalize velocity to avoid faster diagonal movement
 		if (this->velocity.length() != 0)
 			this->velocity.normalize();
 
+		//variable speed only on x axis for sideway sprinting (I thought it would be better)
 		this->velocity.x *= speed * dt;
 		this->velocity.y *= baseSpeed * dt;
 
 		this->nextPos += velocity;
-
-
+		
+		//if no collision maps loaded, move freely
 		if (this->currentMap == nullptr)
 		{
 			this->pos = this->nextPos;
 			return;
 		}
 
+		//separate axis collision detection
 		vec2 xNextPos(this->nextPos.x, this->pos.y);
 		vec2 yNextPos(this->pos.x, this->nextPos.y);
 
-		//to check collision on both axis separately
+		//check collisions on each axis separately and apply movement if no collision
 		if (!MapHandler::isSolid((*this->currentMap)[1], xNextPos, this->size, 32)&&
 			!MapHandler::isSolid((*this->currentMap)[0], xNextPos, this->size, 32)) {
 			this->pos.x = xNextPos.x;
@@ -173,11 +165,6 @@ namespace Tmpl8 {
 			!MapHandler::isSolid((*this->currentMap)[0], yNextPos, this->size, 32)) {
 			this->pos.y = yNextPos.y;
 		}
-		/*
-		if (!MapHandler::isSolid((*this->currentMap)[1], nextPos, this->size, 32)&&
-			!MapHandler::isSolid((*this->currentMap)[0], nextPos, this->size, 32)) {
-			this->pos = this->nextPos;
-		}*/
 
 	}
 
@@ -186,6 +173,7 @@ namespace Tmpl8 {
 			this->showHitbox(screen, cameraOffset);
 		}
 
+		//draw the related sprite based on current visual
 		if (this->visual == PlayerVisual::Human) {
 			int yDrawPos = int(this->pos.y - this->size.y * 2  - cameraOffset.y);
 			int xDrawPos = int(this->pos.x + 1 - cameraOffset.x);
@@ -197,7 +185,7 @@ namespace Tmpl8 {
 			this->fishSprite.Draw(screen, xDrawPos, yDrawPos);
 		}
 
-		//Text::drawString(std::to_string(this->coins), screen, vec2(64, 96));
+		//draw UI elements (should be done in a separate UI class but for simplicity done here)
 		Text::drawString("Coins:", screen, vec2(32, 52));
 		Text::drawCoins(screen, vec2(32, 72), this->coins);
 		Text::drawString("Fishes: " + std::to_string(this->fishInventory.size()), screen, vec2(96, 52));
@@ -211,6 +199,7 @@ namespace Tmpl8 {
 		}
 	}
 
+	//clear inventories
 	void Player::clearFishInventory() {
 		this->fishInventory.clear();
 	}
@@ -219,10 +208,12 @@ namespace Tmpl8 {
 		this->chestInventory.clear();
 	}
 
+	//load current active collision maps
 	void Player::loadCollisionMaps(std::array<Map, 2>* currentMap) {
 		this->currentMap = currentMap;
 	}
 
+	//getters
 	vec2 Player::getPos() {
 		return this->pos;
 	}
@@ -269,6 +260,7 @@ namespace Tmpl8 {
 		return this->chestInventory;
 	}
 
+	//setters
 	void Player::setInteracting(bool state) {
 		this->interacting = state;
 	}
@@ -314,6 +306,7 @@ namespace Tmpl8 {
 		this->coins -= coins;
 	}
 
+	//stealCoins spends coins with a multiplier and triggers "death" if coins go below 0
 	void Player::stealCoins(int coins) {
 		this->coins -= (long long) (coins * this->coinsMultiplier * 1.5f);
 		if (this->coins <= 0) {
@@ -346,59 +339,78 @@ namespace Tmpl8 {
 		this->debug = enable;
 	}
 
+	//draw player hitbox for debugging
 	void Player::showHitbox(Surface* screen, vec2 cameraOffset) {
 		vec2 size = this->size;
-		Pixel red = 0xFF0000; // formato: 0xRRGGBB
+		Pixel red = 0xFF0000; //format: 0xRRGGBB
 
 		Pixel* buffer = screen->GetBuffer();
-		int pitch = screen->GetPitch(); // pixel per riga
+		int pitch = screen->GetPitch(); // pixel per row
 		vec2 pos(this->pos.x - cameraOffset.x, this->pos.y - cameraOffset.y);
 
+		//draw rectangle based on player size
 		for (int dy = 0; dy < size.y; dy++)
 		{
+			//calculate y position
 			int py = int(pos.y) + dy;
+			//skip if outside screen
 			if (py < 0 || py >= screen->GetHeight()) continue;
 
 			for (int dx = 0; dx < size.x; dx++)
 			{
+				//calculate x position
 				int px = int(pos.x) + dx;
+				//skip if outside screen
 				if (px < 0 || px >= screen->GetWidth()) continue;
 
+				//set pixel to red
 				buffer[px + py * pitch] = red;
 			}
 		}
 	}
 
 	void Player::drawStamina(Surface* screen, vec2 pos) {
+		//x size of the stamina bar (could be a class constant)
 		int maxSizeX = 110;
+		//bar size
 		vec2 size(0, 5);
 
-		size.x = mapValue(this->sprintElapsedTime, 0, this->maxSprintTime, float(maxSizeX), 0);
+		//map size.x based on sprint elapsed time
+		size.x = mapValue(this->sprintElapsedTime, 0.f, this->maxSprintTime, float(maxSizeX), 0.f);
 
-		Pixel red = 0xFF0000; // formato: 0xRRGGBB
+		Pixel red = 0xFF0000; //format: 0xRRGGBB
 
 		Pixel* buffer = screen->GetBuffer();
 		int pitch = screen->GetPitch(); // pixel per riga
 
+		//draw stamina bar
 		for (int dy = 0; dy < size.y; dy++)
 		{
+			//calculate y position
 			int py = int(pos.y) + dy;
+			//skip if outside screen
 			if (py < 0 || py >= screen->GetHeight()) continue;
 
 			for (int dx = 0; dx < size.x; dx++)
 			{
+				//calculate x position
 				int px = int(pos.x) + dx;
+				//skip if outside screen
 				if (px < 0 || px >= screen->GetWidth()) continue;
 
+				//set pixel to red
 				buffer[px + py * pitch] = red;
 			}
 		}
 	}
 
+	//load data passed from gameSave
 	void Player::loadData(std::unordered_map<std::string, double>& gameSave) {
 		this->coins = long long(gameSave["coins"]);
+		
+		//clear current inventories and then load from save data
 		this->fishInventory.clear();
-		//printf("LKKKK; %d\n", gameSave["fish_legendary"]);
+		
 		for (int i = 0; i < int(gameSave["fish_common"]); i++) {
 			this->fishInventory.push_back({ FishRarity::COMMON, 80 });
 		}

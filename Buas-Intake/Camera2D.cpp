@@ -1,6 +1,7 @@
 #include "Camera2D.h"
 #include "MapHandler.h"
 #include "functions.h"
+#include "tmpl8/template.h"
 
 namespace Tmpl8 {
 	Camera2D::Camera2D(vec2 pos, vec2 size) :

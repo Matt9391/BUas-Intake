@@ -6,6 +6,9 @@
 #include "Player.h"
 #include "Camera2D.h"
 #include "resources.h"
+#include "PlayerVisual.h"
+#include "Scene.h"
+#include "tmpl8/surface.h"
  
 
 namespace Tmpl8 {
@@ -13,7 +16,8 @@ namespace Tmpl8 {
 	void HomeScene::onEnter(Player& player, Camera2D& camera){
 		MapHandler::objects.clear();
 		camera.setWorldSize(MapHandler::tilesHome);
-
+		
+		//just some texts to show in the home scene
 		this->playText = "Press 'SPACE' to play";	
 		this->playTextPosition = vec2((MapHandler::tilesHome.x / 2.f - 2.3f) * MapHandler::tileSize, 11.35f * MapHandler::tileSize);
 		
@@ -48,23 +52,21 @@ namespace Tmpl8 {
 		player.update(dt);
 
 		camera.follow(player.getPos());
-
-
 	}
 
 	void HomeScene::draw(Surface* screen, Camera2D& camera, Player& player){
 		screen->Clear(0);
 		
-
+		//draw the home map
 		for (int i = 0; i < MapHandler::tilesHome.y; i++) {
 			for (int j = 0; j < MapHandler::tilesHome.x; j++) {
 				for (int iMap = 0; iMap < MapHandler::mapsHome.size(); iMap++) {
+					//'-a' to get the tile index from the char map
 					int tx = MapHandler::mapsHome[iMap][i][j * 4] - 'a';
 					int ty = MapHandler::mapsHome[iMap][i][j * 4 + 1] - 'a';
-					//printf("%c e %c\n", tx + 'a', ty + 'a');
+					//calculate tile position based on camera position
 					int x = j * MapHandler::tileSize - int(camera.getPos().x);
 					int y = i * MapHandler::tileSize - int(camera.getPos().y);
-					//printf("%d e %d\n", x, y);
 
 					MapHandler::drawTile(tx, ty, screen, &MapHandler::mapTdwTileset, x, y, 32);
 				}
@@ -76,10 +78,9 @@ namespace Tmpl8 {
 		player.draw(screen, camera.getPos());
 
 		Text::drawString(this->playText, screen, this->playTextPosition);
-		Text::drawStringScaled(this->howToPlayText, screen, this->howToPlayTextPosition, 2);
+		Text::drawString(this->howToPlayText, screen, this->howToPlayTextPosition, 2);
 		Text::drawString(this->UIText, screen, this->UITextPosition);
-		//Text::drawString(this->whatIsText, screen, this->whatIsTextPosition);
-		Text::drawStringScaled(this->whatIsText, screen, this->whatIsTextPosition, 2);
+		Text::drawString(this->whatIsText, screen, this->whatIsTextPosition, 2);
 		Text::drawString(this->resetText, screen, this->resetTextPosition);
 
 		gameTitle.DrawScaled(int(this->gameTitlePos.x), int(this->gameTitlePos.y), 250, 250, screen);

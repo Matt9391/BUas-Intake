@@ -1,6 +1,3 @@
-#include "./tmpl8/surface.h"
-
- 
 #pragma once
 
 namespace Tmpl8 {
@@ -13,7 +10,9 @@ namespace Tmpl8 {
 
 	class Player;
 	class Camera2D;
+	class Surface;
 
+	//base class for scenes
 	class Scene
 	{
 	public:

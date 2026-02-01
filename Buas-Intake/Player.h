@@ -1,18 +1,20 @@
-#include "./tmpl8/surface.h"
-#include "./tmpl8/template.h"
 #include <array>
 #include <vector>
 #include "MapHandler.h"
-#include "PlayerState.h"
 #include "PlayerVisual.h"
 #include "Fish.h"
 #include "ChestObject.h"
 #include <string>
 #include <unordered_map>
+#include "tmpl8/template.h"
 
 #pragma once
 
 namespace Tmpl8 {
+	class Sprite;
+	class vec2;
+	class Surface;
+	class PlayerState;
 
 	class Player
 	{
@@ -22,18 +24,22 @@ namespace Tmpl8 {
 
 		void update(float dt);
 		
+		//sprinting mechanic
 		void sprint(float dt);
+
+		//movement mechanic based on input and collision maps
 		void move(float dt);
-		
-		//void handleInput();
- 
+		 
 		void draw(Surface* screen, vec2 cameraOffset);
 
+		//clear inventories
 		void clearFishInventory();
 		void clearChestInventory();
 
+		//load current active collision maps
 		void loadCollisionMaps(std::array<Map, 2>* currentMap);
 
+		//getters
 		vec2 getPos();
 		vec2 getDir();
 		vec2 getSize();
@@ -47,6 +53,7 @@ namespace Tmpl8 {
 		std::vector<Fish> getFishes();
 		std::vector<ChestObject> getChests();
 
+		//setters
 		void setInteracting(bool state);
 		void setSprinting(bool sprinting);
 		void setFishing(bool state);
@@ -55,7 +62,9 @@ namespace Tmpl8 {
 		void setState(int state);
 		void setInput(const char& input);
 		void setCoins(long long coins);
+		//spendCoins just spends coins normally
 		void spendCoins(int coins); 
+		//stealCoins spends coins with a multiplier and triggers "death" if coins go below 0
 		void stealCoins(int coins);
 		void addCoins(int coins);
 		void addFish(Fish fish);
@@ -64,62 +73,84 @@ namespace Tmpl8 {
 		void addStamina(float ms);
 		void enableDebug(bool enable);
 
+		//set the animation range
 		void setAnimRange(int first, int last);
 
+		//load data passed from gameSave
 		void loadData(std::unordered_map<std::string, double>& gameSave);
 
 	private:
 		void showHitbox(Surface* screen, vec2 cameraOffset);
+		//draw stamina bar
 		void drawStamina(Surface* screen, vec2 pos);
 
 		bool debug;
 
+		//play animation within the set frame range
 		void playAnimation(float dt);
 
+		//current interaction state
 		bool interacting;
-
+		//last input received
 		char input;
-
+		//animation frames info
 		int firstFrame;
 		int lastFrame;
 		int currentFrame;	
+		//time required between frames 
 		float timeBetweenFrames;
+		//time elapsed since last frame change
 		float timeElapsedBF;
 
+		//position of the player
 		vec2 pos;
+		//next position after movement calculation, applied if no collision
 		vec2 nextPos;
 		vec2 size;
 		vec2 velocity;
 
+		//speed variables
 		float speed;
 		float baseSpeed;
 		float sprintSpeed;
 
+		//direction vector based on input
 		vec2 dir;
+
+		//sprites for different player visuals
 		Sprite &humanSprite;
 		Sprite &fishSprite;
 
+		//current state of the player
 		PlayerState* state;
+		//current visual representation, could be done with bool but this allows for future expansions
 		PlayerVisual visual;
 
+		//current collision maps
 		std::array<Map, 2> *currentMap;
-		//Sprite &fishSprite;
 
+		//fishing state
 		bool fishing;
 
+		//coins of the player
 		long long coins;
+		//coins multiplier when selling fish/chests or getting stolen
 		float coinsMultiplier;
 
+		//inventories
 		std::vector<Fish> fishInventory;
 		std::vector<ChestObject> chestInventory;
 
+		//sprinting variables
 		bool sprinting;
 		float maxSprintTime;
 		float sprintElapsedTime;
 
+		//death text variables
 		std::string deadText;
 		vec2 deadTextPosition;
 		bool showDeadText;
+		//dead timer variables
 		float deadTimeElapsed;
 		float deadTimer;
 

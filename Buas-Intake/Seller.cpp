@@ -3,7 +3,9 @@
 #include "Fish.h"
 #include "ChestObject.h"
 #include "Game.h"
-#include <vector>
+#include <cstdio>
+#include "InteractableObject.h"
+#include "tmpl8/template.h"
 
 
 namespace Tmpl8 {
@@ -16,22 +18,23 @@ namespace Tmpl8 {
 	}  
 
 	void Seller::interact(Player& player) {
+		//count total value of fishes and chests
 		float totalValue = 0;
 
 		printf("FISHESS\n");
 		for (Fish& fish : player.getFishes()) {
-			printf("%d, %.2f\n", fish.rarity, fish.value);
 			totalValue += fish.value;
 		}
 		for (ChestObject& chest : player.getChests()) {
-			printf("%d, %.2f\n", chest.type, chest.value);
 			totalValue += chest.value;
 		}
 
 		player.addCoins(int(totalValue));
 
+		//check for achievements based on new coins total
 		Game::checkAchievements(player);
 
+		//clear inventories after selling
 		player.clearFishInventory();
 		player.clearChestInventory();
 	}

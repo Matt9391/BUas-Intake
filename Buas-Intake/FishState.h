@@ -4,6 +4,7 @@
 namespace Tmpl8 {
 	class Player;
 
+	//FishState inherits from PlayerState
 	class FishState : public PlayerState
 	{
 	public:
@@ -11,7 +12,6 @@ namespace Tmpl8 {
 
 		void handleInput(Player& player) override;
 
-		void update(Player& player) override;
 	private:
 	}; 
 	 

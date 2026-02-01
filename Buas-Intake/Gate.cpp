@@ -1,8 +1,10 @@
 #include "Gate.h"
 #include "PlayerVisual.h"
 #include "Player.h"
-#include "MapHandler.h"
 #include "game.h"
+#include "InteractableObject.h"
+#include "Scene.h"
+#include "tmpl8/template.h"
 
 namespace Tmpl8 {
 
@@ -12,7 +14,8 @@ namespace Tmpl8 {
 		this->textHover = "Press 'F' to change form";
 		this->textPosition = vec2(pos.x + size.x / 2 - 64, pos.y);
 	}
-
+	
+	//if the player is human, change to fish scene, else change to human scene
 	void Gate::interact(Player& player) {
 		if (player.getPlayerVisual() == PlayerVisual::Human) {
 			Game::changeScene(SceneType::SceneFish);
@@ -22,8 +25,4 @@ namespace Tmpl8 {
 		} 
 	} 
 
-	//void Gate::draw(Surface* screen, vec2 cameraOffset) {
-	//	//this->drawHitBox(screen, cameraOffset, 0xFF00FF);
-	//	//this->drawHitBox(screen, cameraOffset);
-	//}
 }

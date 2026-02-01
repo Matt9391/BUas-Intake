@@ -5,6 +5,9 @@
 #pragma once
 
 namespace Tmpl8 {
+	class Player;
+	class Camera2D;
+	class Surface;
 
 	class HumanScene : public Scene
 	{
@@ -16,6 +19,7 @@ namespace Tmpl8 {
 
 		void draw(Surface* screen, Camera2D& camera, Player& player) override;
 	private:
+		//current active maps
 		std::array<Map, 2> currentMap;
 	};
 	 

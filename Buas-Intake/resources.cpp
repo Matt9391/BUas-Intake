@@ -1,6 +1,9 @@
 #include "resources.h"
+#include <array>
+#include "tmpl8/surface.h"
 
 namespace Tmpl8 {
+	//assets definition
 	Surface fontSource("./assets/Font/fontHorizontal.png");
 	Sprite humanSprite(new Surface("./assets/TopDown/player.tga"), 40);
 	Sprite fishSprite(new Surface("./assets/2D/mainFish@0,5x.tga"), 14);

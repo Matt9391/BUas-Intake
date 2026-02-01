@@ -1,5 +1,7 @@
 #include "Entity.h"
 #include "Player.h"
+#include "tmpl8/surface.h"
+#include "tmpl8/template.h"
 
 namespace Tmpl8 {
 

@@ -3,6 +3,11 @@
 #include "Randomize.h"
 #include "functions.h"
 #include "ChestObject.h"
+#include "FastNoiseLite.h"
+#include "InteractableObject.h"
+#include "MapHandler.h"
+#include "tmpl8/surface.h"
+#include "tmpl8/template.h"
 
 namespace Tmpl8 {
 		

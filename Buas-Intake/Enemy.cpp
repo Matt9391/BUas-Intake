@@ -2,6 +2,9 @@
 #include "Randomize.h"
 #include "functions.h"
 #include "Player.h"
+#include "Entity.h"
+#include "tmpl8/surface.h"
+#include "tmpl8/template.h"
 
 namespace Tmpl8 {
 
