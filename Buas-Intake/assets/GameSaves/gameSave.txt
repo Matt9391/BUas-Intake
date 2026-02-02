@@ -1,4 +1,4 @@
-coins:6574
+coins:100
 chest1:0
 fish_common:0
 chest2:0
@@ -11,5 +11,5 @@ stamina:2000
 incomeMultiplierPrice:100
 incomeMultiplier:1
 staminaPrice:200
-lastAchievement:1000
+lastAchievement:0
 fish_legendary:0
