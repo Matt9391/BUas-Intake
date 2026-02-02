@@ -1,76 +1,142 @@
-BRIEF INFO ON THE 2026 TEMPLATE
-Template, BUAS version https://www.buas.nl/games
-IGAD/BUAS(NHTV)/UU - Jacco Bikker - 2006-2020
-CMGT/BUAS - Jeremiah van Oosten - 2021-2026
+# Hook & Swim
 
-Purpose:
-The template has been designed to make it easy to start coding C++
-using games and graphics. It intends to offer the programmer a
-simple library with the main purpose of providing a 32-bit graphical
-window with a linear frame buffer. Some basic additional functionality
-is available, such as sprites, bitmap fonts, and vector math support.
+#### Theme: **Transform**
 
-How to use:
-1. Copy the template folder (or extract the zip) to a fresh folder for
-   your project. 
-2. Open the .sln file with any version of Visual Studio 2022 or open the .slnx file with Visual Studio 2026.
-3. Replace the example code in game.cpp with your own code.
-4. Copy the 64-bit dll's from dlls_x64 to the project folder if you
-   want to run a 64-bit build.
-You can go further by:
-- Expanding the game class in game.h;
-- Implementing some of the empty functions for mouse and keyboard
-  handling;
-- Exploring the code of the template in surface.cpp and template.cpp.
+> A tiny two-mode arcade/adventure where you swap between Human and Fish
+> forms → fish for treasure, sell to grow your economy, and survive
+> the sea to become rich.
 
-When handing in assignments based on this template, please run
-clean.bat prior to zipping the folder. This deletes any intermediate
-files created during compilation.
+------------------------------------------------------------------------
+# How to play
 
-The Template is a 'quickstart' template, and not meant to be elaborate
-performant or complete. 
-At some point, and depending on your requirements, you may want to
-advance to a more full-fledged library, or you can expand the template
-with OpenGL or SDL2 code.
+**Controls**
 
-Credits
-Although the template is small and bare bones, it still uses a lot of
-code gathered over the years:
-- EasyCE's 5x5 bitmap font (primarily used for debugging);
-- EasyCE's surface class (with lots of modifications);
-- This version of the template uses SDL2 for low-level window handling,
-  hopefully improving on the compatibility of earlier versions.
+    WASD  - Move (Human and Fish)
+    SHIFT - Sprint (hold) / sprint sideways
+    F     - Interact with:
+              - Shops (Seller, Upgrades)
+              - Fishing zones
+              - Chests (collect)
+    SPACE - Start game (home screen)
+    CTRL + T - Reset save (wipe saved progression)
 
-Copyright
-This code is completely free to use and distribute in any form.
+------------------------------------------------------------------------
 
-Template Naming
-Starting January 2017, the name of the template represents the version.
-This version also appears in the title of the window. Make sure you
-are using the most recent version.
+## 2 Modes
 
-Breda, 2014-2026, Games @ Breda University (NHTV/IGAD)
-Utrecht, 2015-2019, Utrecht University
-Report problems and suggestions to Jeremiah van Oosten if working on this 
-connected to Breda University then email oosten.j@buas.nl
-otherwise bikker.j@gmail.com.
+-   **Human** mode
+-   **Fish** mode
+
+## Objective
+
+-   earn **coins**
+-   **improve** your economy (upgrades, multipliers)
+-   **avoid losses** (enemies steal money)
+-   become **rich**
+
+### How to earn money
+
+-   Catch **chests** in the sea (treasure)
+-   **Fish** at the pier/mole (timing mini-game)
+
+### How to use money
+
+-   To **improve** economy (income multiplier seller)\
+-   To **enhance** fish skills (stamina, inventory upgrades)
+
+------------------------------------------------------------------------
+
+# Game main mechanics
+
+## Human mode
+
+-   **Top-down** view & movement
+-   Free exploration around town and pier
+-   **Fishing** mini-game when on the mole:
+    -   timing based → get closer to center to increase rarity
+-   **Sell** fish and chests to the Seller to collect coins
+-   **Buy** upgrades (stamina, multiplier, inventory size)
+
+## Fish mode
+
+-   **2D platformer** view & movement
+-   **Enemies** (shark-like fishes) that can steal coins if they catch
+    you
+-   **Treasures / Chests**:
+    -   chests contain coin value and behave as simple colliders (no
+        grab animation required) but they move with **Perlin Noise**
+-   **Stamina** system:
+    -   sprinting drains stamina; stamina recovers when not sprinting
+
+## Losses / penalties
+
+This game is idle-ish . you don't "die" permanently, but there
+are penalties: 
+- enemies can **steal** coins (avoid being caught) 
+- if coins drop below zero you **lose all chests** in your inventory
+------------------------------------------------------------------------
 
 
-Changelog
+# Story
 
-v2026:
-Update project and solution files to Visual Studio 2022 and Viasual Studio 2026.
-Fix compiler errors when using C++17 or higher.
 
-v2019-08:
-removed headers from the precompiled header file to speed up compilation 
-fixed uninitialised values in the surface class. 
 
-v2017-01: 
-initial DGDARC release.
 
-v2017-02:
-added a changelog.
-debug mode now also emits .exe to project folder.
-removed rogue SDL2 folder.
-added assert.h to precomp.h.
+
+>For years, you’ve lived a quiet life in a small coastal town, watching ships 
+>disappear beyond the horizon and wondering what it would feel like to chase 
+>fortune instead of dreaming about it.
+>One night, after a violent storm, the sea leaves behind something unusual
+>strange **glowing** **chests** scattered across the ocean floor. Fishermen whisper 
+>about lost **treasures**, ancient cargo, and currents that carry wealth to those 
+>brave enough to dive for it.
+>But the sea is never generous **without a price**.
+>Equipped with a mysterious ability to **transform** between human and fish, 
+>you now possess the ultimate advantage:
+>- Stay human to fish **safely** from the pier and build your first **savings**.
+>- **Dive into the depths** as a fish to hunt for treasures others cannot reach.
+>- Risk everything to grow your fortune faster… or lose it to the predators lurking below
+>
+>Every coin you earn pushes you closer to a single goal:
+>**Become the *richest soul* the coast has ever known.**
+>
+>Will you play it safe and grow steadily, or embrace the danger and chase
+>unimaginable wealth?
+>
+>***The ocean is calling***
+
+---
+
+# Project structure & architecture
+
+-   `Game` → global manager, scene switching, global UI (achievements,
+    save/load)
+-   `Scene` base class → `HumanScene`, `FishScene`, `HomeScene`
+-   `Player` with state pattern: `HumanState`, `FishState`
+-   `MapHandler` → map loading, tile drawing, interactable object
+-   `InteractableObject` base → `Seller`, `IncomeMultiplier`,
+    `StaminaShop`, `Gate`, `FishArea`
+-   `Entity` base →  `Enemy`, `Chest`
+-   `Text` utility for drawing text done by me
+
+------------------------------------------------------------------------
+
+# Save system
+
+-   Simple key → double type (e.g. `unordered_map<string,double>`)
+-   Saved as `key=value` lines in a text file (human readable and
+    editable)
+-   Game state saved and loaded on exit/start (coins, multipliers,
+    upgrades, inventory counters)
+-   Achievements based on coins are re-evaluated on load
+------------------------------------------------------------------------
+# Possible future improvements
+
+-   Sounds and Music
+-   Better upgrade balancing
+-   More fish types and smarter enemy AI
+-   Wider variety of shop
+-   First-run tutorial overlay
+-   Better feedback when get stolen
+-   Use DB instead of .txt files to store data
+
