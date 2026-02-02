@@ -326,8 +326,8 @@ namespace Tmpl8
 	}
 
 	void Game::drawAchievement(long long coins) {
-		Text::drawString("You made your first ", this->screen, vec2(ScreenWidth / 2.f - 200.f,MapHandler::tileSize * 2.f),2);
-		Text::drawCoins(this->screen, vec2(ScreenWidth / 2.f + 70.f, MapHandler::tileSize * 2.f), coins,2);
+		Text::drawString("You made your first ", this->screen, vec2(ScreenWidth / 2.f - 200.f,MapHandler::tileSize * 5.5f),2);
+		Text::drawCoins(this->screen, vec2(ScreenWidth / 2.f + 70.f, MapHandler::tileSize * 5.5f), coins,2);
 	}
 
 	void Game::changeScene(SceneType nextScene) {
