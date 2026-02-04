@@ -34,7 +34,7 @@ namespace Tmpl8 {
 		//maps the chest value based on its frame. Just to make it more dynamic
 		this->value = mapValue(float(frame), 0.f, 3.f, 50.f, 1000.f);
 
-		this->textHover = "Treasuer Chest";
+		this->textHover = "Treasure Chest";
 	}
 
 
