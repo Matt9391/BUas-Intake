@@ -138,5 +138,7 @@ are penalties:
 -   Wider variety of shop
 -   First-run tutorial overlay
 -   Better feedback when get stolen
+-   Graphic inventory
+-   Settings menu
 -   Use DB instead of .txt files to store data
 
