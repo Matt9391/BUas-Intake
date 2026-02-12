@@ -8,7 +8,7 @@
 #include "PlayerVisual.h"
 #include "tmpl8/surface.h"
 #include "tmpl8/template.h"
-
+#include <iostream>
 
 
 namespace Tmpl8 {
@@ -405,40 +405,42 @@ namespace Tmpl8 {
 	}
 
 	//load data passed from gameSave
-	void Player::loadData(std::unordered_map<std::string, double>& gameSave) {
-		this->coins = long long(gameSave["coins"]);
-		
+	void Player::loadData(const std::unordered_map<std::string, double>& gameSave) {
+		this->coins = long long(gameSave.at("coins"));
+		for (auto& p : gameSave)
+			std::cout << "[" << p.first << "]\n";
+
 		//clear current inventories and then load from save data
 		this->fishInventory.clear();
 		
-		for (int i = 0; i < int(gameSave["fish_common"]); i++) {
+		for (int i = 0; i < int(gameSave.at("fish_common")); i++) {
 			this->fishInventory.push_back({ FishRarity::COMMON, 80 });
 		}
-		for (int i = 0; i < int(gameSave["fish_rare"]); i++) {
+		for (int i = 0; i < int(gameSave.at("fish_rare")); i++) {
 			this->fishInventory.push_back({ FishRarity::RARE, 150 });
 		}
-		for (int i = 0; i < int(gameSave["fish_epic"]); i++) {
+		for (int i = 0; i < int(gameSave.at("fish_epic")); i++) {
 			this->fishInventory.push_back({ FishRarity::EPIC, 300 });
 		}
-		for (int i = 0; i < int(gameSave["fish_legendary"]); i++) {
+		for (int i = 0; i < int(gameSave.at("fish_legendary")); i++) {
 			this->fishInventory.push_back({ FishRarity::LEGENDARY, 500 });
 		}
 
 		this->chestInventory.clear();
-		for (int i = 0; i < int(gameSave["chest0"]); i++) {
+		for (int i = 0; i < int(gameSave.at("chest0")); i++) {
 			this->chestInventory.push_back({ 0, mapValue(0.f, 0.f, 3.f, 50.f, 1000.f) });
 		}
-		for (int i = 0; i < int(gameSave["chest1"]); i++) {
+		for (int i = 0; i < int(gameSave.at("chest1")); i++) {
 			this->chestInventory.push_back({ 0, mapValue(1.f, 0.f, 3.f, 50.f, 1000.f) });
 		}
-		for (int i = 0; i < int(gameSave["chest2"]); i++) {
+		for (int i = 0; i < int(gameSave.at("chest2")); i++) {
 			this->chestInventory.push_back({ 0, mapValue(2.f, 0.f, 3.f, 50.f, 1000.f) });
 		}
-		for (int i = 0; i < int(gameSave["chest3"]); i++) {
+		for (int i = 0; i < int(gameSave.at("chest3")); i++) {
 			this->chestInventory.push_back({ 0, mapValue(3.f, 0.f, 3.f, 50.f, 1000.f) });
 		}
 
-		this->coinsMultiplier = float(gameSave["incomeMultiplier"]);
-		this->maxSprintTime = float(gameSave["stamina"]);
+		this->coinsMultiplier = float(gameSave.at("incomeMultiplier"));
+		this->maxSprintTime = float(gameSave.at("stamina"));
 	}
 }

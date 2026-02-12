@@ -31,6 +31,7 @@
     <ClCompile Include="..\Seller.cpp" />
     <ClCompile Include="..\StaminaShop.cpp" />
     <ClCompile Include="..\Text.cpp" />
+    <ClCompile Include="..\SaveSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="surface.h">
@@ -67,6 +68,7 @@
     <ClInclude Include="..\Seller.h" />
     <ClInclude Include="..\StaminaShop.h" />
     <ClInclude Include="..\Text.h" />
+    <ClInclude Include="..\SaveSystem.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">

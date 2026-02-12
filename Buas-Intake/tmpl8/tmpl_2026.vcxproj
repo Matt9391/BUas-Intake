@@ -141,6 +141,7 @@
     <ClCompile Include="..\PlayerState.cpp" />
     <ClCompile Include="..\Randomize.cpp" />
     <ClCompile Include="..\resources.cpp" />
+    <ClCompile Include="..\SaveSystem.cpp" />
     <ClCompile Include="..\Scene.cpp" />
     <ClCompile Include="..\Seller.cpp" />
     <ClCompile Include="..\StaminaShop.cpp" />
@@ -173,6 +174,7 @@
     <ClInclude Include="..\PlayerVisual.h" />
     <ClInclude Include="..\Randomize.h" />
     <ClInclude Include="..\resources.h" />
+    <ClInclude Include="..\SaveSystem.h" />
     <ClInclude Include="..\Scene.h" />
     <ClInclude Include="..\Seller.h" />
     <ClInclude Include="..\StaminaShop.h" />

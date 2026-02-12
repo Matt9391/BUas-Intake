@@ -2,7 +2,7 @@ coins:100
 fish_common:0
 fish_rare:0
 fish_epic:0
-fish_legenday:0
+fish_legendary:0
 chest0:0
 chest1:0
 chest2:0

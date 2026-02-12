@@ -77,7 +77,7 @@ namespace Tmpl8 {
 		void setAnimRange(int first, int last);
 
 		//load data passed from gameSave
-		void loadData(std::unordered_map<std::string, double>& gameSave);
+		void loadData(const std::unordered_map<std::string, double>& gameSave);
 
 	private:
 		void showHitbox(Surface* screen, vec2 cameraOffset);

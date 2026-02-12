@@ -1,6 +1,7 @@
 #include "HumanScene.h"
 #include "FishScene.h"
 #include "HomeScene.h"
+#include "SaveSystem.h"
 #include <unordered_map>
 #include <utility>
 
@@ -9,6 +10,7 @@
 namespace Tmpl8 {
 
 	class Surface;
+
 	class Game
 	{
 	public:
@@ -31,18 +33,10 @@ namespace Tmpl8 {
 		//draw achievement alert
 		void drawAchievement(long long coins);
 
-		//get saved data from game saves
-		static double getDataSave(const std::string& key);
-
+		
 		//check if in home scene
 		static bool isHomeScene; 
 	private:
-		//load and reset and save game saves
-		void loadGameSaves();
-		void resetGameSaves();
-		void saveGame();
-		//get map from string
-		std::pair<std::string, std::string> getMap(const std::string& str);
 		
 		//scenes
 		static HumanScene humanScene;
@@ -57,9 +51,6 @@ namespace Tmpl8 {
 		//achievement dictionary
 		static std::unordered_map<long long, bool> achievements;
 
-		//game saves dictionary
-		static std::unordered_map<std::string, double> gameSaves;
-
 		float timeElapsedAchievement;
 		float timerAchievement;
 
@@ -67,6 +58,8 @@ namespace Tmpl8 {
 		
 		//variable to enable debug mode
 		bool debug;
+
+		SaveSystem saveSystem;
 	};
 	 
 }; // namespace Tmpl8
