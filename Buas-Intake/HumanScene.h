@@ -12,6 +12,8 @@ namespace Tmpl8 {
 	class HumanScene : public Scene
 	{
 	public:
+		HumanScene(Game& game);
+
 		void onEnter(Player& player, Camera2D& camera) override;
 		void onExit(Player& player) override;
 

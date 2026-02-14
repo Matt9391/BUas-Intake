@@ -5,6 +5,10 @@
 #pragma once
 
 namespace Tmpl8 {
+	class Game;
+	class vec2;
+	class Sprite;
+	class Player;
 
 	//FishArea inherits from InteractableObject
 	class FishArea : public InteractableObject
@@ -13,7 +17,7 @@ namespace Tmpl8 {
 		FishArea(int type, vec2 pos, vec2 size, std::array<Sprite*, 3> fishingSprites);
 		 
 		void update(float dt, Player& player) override; 
-		void interact(Player& player) override;
+		void interact(Player& player,Game& game) override;
 
 		void showText(Surface* screen, vec2 cameraOffset) override;
 

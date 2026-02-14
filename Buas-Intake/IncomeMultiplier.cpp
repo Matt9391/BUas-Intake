@@ -4,6 +4,7 @@
 #include "tmpl8/surface.h"
 #include "tmpl8/template.h"
 #include <cstdio>
+#include "Game.h"
 
 namespace Tmpl8 {
 	float IncomeMultiplier::price = 100.f;
@@ -38,7 +39,7 @@ namespace Tmpl8 {
 		}
 	}
 
-	void IncomeMultiplier::interact(Player& player) {
+	void IncomeMultiplier::interact(Player& player, Game& game) {
 		//check if the player has enough coins
 		if (player.getCoins() < this->price) {
 			this->showAlert = true;

@@ -4,6 +4,11 @@
 #pragma once
 
 namespace Tmpl8 {
+	class vec2;
+	class Sprite;
+	class Surface;
+	class Player;
+	class Game;
 
 	//Chest inherits from InteractableObject
 	class Chest : public InteractableObject	
@@ -11,7 +16,7 @@ namespace Tmpl8 {
 	public:
 		Chest(int type, vec2 pos, vec2 size, Sprite* chestsSprite, int frame);
 
-		void interact(Player& player) override; 
+		void interact(Player& player, Game& game) override; 
 
 		void update(float dt, Player& player) override;
 

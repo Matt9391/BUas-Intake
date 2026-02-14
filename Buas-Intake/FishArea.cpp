@@ -10,6 +10,7 @@
 #include "InteractableObject.h"
 #include "tmpl8/surface.h"
 #include "tmpl8/template.h"
+#include "Game.h"
 
 namespace Tmpl8 {
 
@@ -38,7 +39,7 @@ namespace Tmpl8 {
 		textHover = "press 'F' to start fishing";
 	}
 
-	void FishArea::interact(Player& player) {
+	void FishArea::interact(Player& player, Game& game) {
 		//handle player interaction within the fishing area
 		//check if the player is currently fishing
 		if (player.isFishing()) {

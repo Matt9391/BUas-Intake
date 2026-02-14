@@ -29,7 +29,7 @@ namespace Tmpl8 {
 	const int MapHandler::tileSize = 32;
 
 	//initialize vector and arrays
-	std::vector<InteractableObject*> MapHandler::objects;
+	std::vector <std::unique_ptr<InteractableObject>> MapHandler::objects;
 
 	std::array<Map, 2> MapHandler::mapsTdw;
 	std::array<Map, 2> MapHandler::maps2D;
@@ -71,25 +71,25 @@ namespace Tmpl8 {
 		switch (type)
 		{
 		case 1:
-			objects.push_back(new FishArea(type, pos, size, *fishingSprites));
+			objects.push_back(std::make_unique <FishArea>(type, pos, size, *fishingSprites));
 			break;
 		case 2:
-			objects.push_back(new IncomeMultiplier(type, pos, size));
+			objects.push_back(std::make_unique <IncomeMultiplier>(type, pos, size));
 			break;
 		case 3:
-			objects.push_back(new StaminaShop(type, pos, size));
+			objects.push_back(std::make_unique <StaminaShop>(type, pos, size));
 			break;
 		case 4:
-			objects.push_back(new Seller(type, pos, size));
+			objects.push_back(std::make_unique <Seller>(type, pos, size));
 			break;
 		case 5:
-			objects.push_back(new Gate(type, pos, size));
+			objects.push_back(std::make_unique <Gate>(type, pos, size));
 			break;
 		case 6:
-			objects.push_back(new Chest(type, pos, size, chestsSprite, Randomize::randomInt(0, 3)));
+			objects.push_back(std::make_unique <Chest>(type, pos, size, chestsSprite, Randomize::randomInt(0, 3)));
 			break;
 		default:
-			objects.push_back(new InteractableObject(type, pos, size));
+			objects.push_back(std::make_unique <InteractableObject>(type, pos, size));
 			break;
 		}
 	}

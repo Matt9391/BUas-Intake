@@ -8,6 +8,7 @@
 #include "MapHandler.h"
 #include "tmpl8/surface.h"
 #include "tmpl8/template.h"
+#include "Game.h"
 
 namespace Tmpl8 {
 		
@@ -55,7 +56,7 @@ namespace Tmpl8 {
 	}
 
 
-	void Chest::interact(Player& player) {
+	void Chest::interact(Player& player, Game& game) {
 		if (!this->enabled) return;
 
 		//if "caught" it create a Chest Object that stores

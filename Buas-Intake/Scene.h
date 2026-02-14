@@ -11,11 +11,13 @@ namespace Tmpl8 {
 	class Player;
 	class Camera2D;
 	class Surface;
+	class Game;
 
 	//base class for scenes
 	class Scene
 	{
 	public:
+		Scene(Game& game);
 		virtual ~Scene() = default;
 
 		virtual void onEnter(Player& player, Camera2D& camera) = 0;
@@ -27,6 +29,8 @@ namespace Tmpl8 {
 
 		static void enableDebug(bool enable);
 	protected:
+		Game& game;
+
 		static bool debug;
 	};
 

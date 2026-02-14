@@ -1,6 +1,8 @@
 #include <string> 
 #include <vector>
 #include <array>
+#include <memory>
+#include "InteractableObject.h"
 
 #pragma once
 
@@ -8,7 +10,6 @@ namespace Tmpl8 {
 	//map datatype
 	using Map = std::vector<std::string>;
 	 
-	class InteractableObject;
 	class vec2;
 	class Surface;
 	class Sprite;
@@ -33,7 +34,7 @@ namespace Tmpl8 {
 		static void drawTile(int tx, int ty, Surface* screen, Surface *map, int x, int y, int tileSize);
 		
 		//all interactable objects in the scene
-		static std::vector<InteractableObject*> objects;
+		static std::vector<std::unique_ptr<InteractableObject>> objects;
 		
 		//maps and tiles info of top-down scene
 		static std::array<Map, 2> mapsTdw;

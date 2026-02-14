@@ -9,10 +9,14 @@ namespace Tmpl8 {
 	class vec2;
 	class Camera2D;
 	class Surface;
+	class Game;
 
 	class HomeScene : public Scene
 	{
 	public:
+
+		HomeScene(Game& game);
+
 		void onEnter(Player& player, Camera2D& camera) override;
 		void onExit(Player& player) override;
 

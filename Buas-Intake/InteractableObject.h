@@ -6,6 +6,7 @@ namespace Tmpl8 {
 	class Player;
 	class Surface;
 	class vec2;
+	class Game;
 
 	//InteractableObject inherits from Entity
 	class InteractableObject : public Entity
@@ -15,7 +16,7 @@ namespace Tmpl8 {
 		 
 		virtual void update(float dt, Player& player);
 
-		virtual void interact(Player& player);
+		virtual void interact(Player& player, Game& game);
 
 		virtual void showText(Surface* screen, vec2 cameraOffset);
 

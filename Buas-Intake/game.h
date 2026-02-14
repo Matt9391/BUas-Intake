@@ -14,6 +14,7 @@ namespace Tmpl8 {
 	class Game
 	{
 	public:
+		Game();
 		void SetTarget( Surface* surface ) { screen = surface; }
 		void Init();
 		void Shutdown();
@@ -25,10 +26,12 @@ namespace Tmpl8 {
 		void KeyDown( int key ) { /* implement if you want to handle keys */ }
 
 		//change the current scene into the next scene
-		static void changeScene(SceneType nextScene);
+		void changeScene(SceneType nextScene);
+
+		void setPendingScene(SceneType nextScene);
 
 		//check and unlock achievements based on player coins
-		static void checkAchievements(Player& player);
+		void checkAchievements(Player& player);
 
 		//draw achievement alert
 		void drawAchievement(long long coins);
@@ -37,13 +40,15 @@ namespace Tmpl8 {
 		//check if in home scene
 		static bool isHomeScene; 
 	private:
-		
+		bool pendingScene;
+		SceneType nextScene;
+
 		//scenes
-		static HumanScene humanScene;
-		static FishScene fishScene;
-		static HomeScene homeScene;
+		HumanScene humanScene;
+		FishScene fishScene;
+		HomeScene homeScene;
 		//pointer to the current scene
-		static Scene* currentScene;
+		Scene* currentScene;
 
 		//achievement variables
 		static bool showAchievement;

@@ -9,9 +9,14 @@
 #include "PlayerVisual.h"
 #include "Scene.h"
 #include "tmpl8/surface.h"
+#include "Game.h"
  
 
 namespace Tmpl8 {
+
+	HomeScene::HomeScene(Game& game) :
+		Scene(game)
+	{}
 
 	void HomeScene::onEnter(Player& player, Camera2D& camera){
 		MapHandler::objects.clear();
@@ -46,7 +51,7 @@ namespace Tmpl8 {
 
 	void HomeScene::update(float dt, Camera2D& camera, Player& player){
 		if (GetAsyncKeyState(VK_SPACE)) {
-			Game::changeScene(SceneType::SceneHuman);
+			this->game.setPendingScene(SceneType::SceneHuman);
 		}
 
 		player.update(dt);

@@ -36,18 +36,24 @@ namespace Tmpl8
 
 	Player player(humanSprite, fishSprite);
 
-	//scenes
-	HumanScene Game::humanScene;
-	FishScene Game::fishScene;
-	HomeScene Game::homeScene;
-
-	Scene* Game::currentScene = nullptr;
 
 	bool Game::showAchievement = false;
 	long long Game::achievedMoney = 0;
 	std::unordered_map<long long, bool> Game::achievements;
 
 	bool Game::isHomeScene = true;
+
+	Game::Game() :
+		humanScene(*this),
+		fishScene(*this),
+		homeScene(*this),
+		currentScene(nullptr),
+		pendingScene(false),
+		nextScene(SceneType::SceneHome),
+		timeElapsedAchievement(0.f),
+		timerAchievement(0.f),
+		debug(false)
+	{}
 
 	void Game::Init()
 	{
@@ -105,7 +111,7 @@ namespace Tmpl8
 		this->currentScene = &this->homeScene;
 
 		//start in home scene
-		Game::changeScene(SceneType::SceneHome);
+		this->changeScene(SceneType::SceneHome);
 
 		//initialize text system
 		Text::init(&fontSource);
@@ -150,6 +156,9 @@ namespace Tmpl8
 			}
 		}
 
+		if (this->pendingScene) {
+			this->changeScene(this->nextScene);
+		}
 	
 		//if ctrl + T is pressed reset game saves and reload data
 		if (GetAsyncKeyState(VK_CONTROL) && GetAsyncKeyState('T')) {
@@ -197,18 +206,26 @@ namespace Tmpl8
 			currentScene->onExit(player);
 			currentScene = &homeScene;
 			currentScene->onEnter(player, camera);
+			this->pendingScene = false;
 			isHomeScene = true;
 		}else if (nextScene == SceneType::SceneHuman) {
 			currentScene->onExit(player);
 			currentScene = &humanScene;
 			currentScene->onEnter(player,camera);
+			this->pendingScene = false;
 			isHomeScene = false;
 		}else if (nextScene == SceneType::SceneFish) {
 			currentScene->onExit(player);
 			currentScene = &fishScene;
 			currentScene->onEnter(player, camera);
+			this->pendingScene = false;
 			isHomeScene = false;
 		}
+	}
+
+	void Game::setPendingScene(SceneType nextScene) {
+		this->pendingScene = true;
+		this->nextScene = nextScene;
 	}
 
 };

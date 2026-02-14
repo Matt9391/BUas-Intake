@@ -4,6 +4,7 @@
 namespace Tmpl8 {
 	class vec2;
 	class Player;
+	class Game;
 
 	//Seller inherits from InteractableObject
 	class Seller : public InteractableObject
@@ -11,7 +12,7 @@ namespace Tmpl8 {
 	public:
 		Seller(int type, vec2 pos, vec2 size);
 
-		void interact(Player& player) override;
+		void interact(Player& player, Game& game) override;
 	
 	private: 
 	};

@@ -4,6 +4,7 @@
 #include <cstdio>
 #include "tmpl8/surface.h"
 #include "tmpl8/template.h"
+#include "Game.h"
 
 namespace Tmpl8 {
 
@@ -17,7 +18,7 @@ namespace Tmpl8 {
 	//blank class methods
 	void InteractableObject::update(float dt, Player& player) {}
 
-	void InteractableObject::interact(Player& player) { 
+	void InteractableObject::interact(Player& player, Game& game) { 
 		printf("Interacted\n");
 	}
 

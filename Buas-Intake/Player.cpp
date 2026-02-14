@@ -407,8 +407,6 @@ namespace Tmpl8 {
 	//load data passed from gameSave
 	void Player::loadData(const std::unordered_map<std::string, double>& gameSave) {
 		this->coins = long long(gameSave.at("coins"));
-		for (auto& p : gameSave)
-			std::cout << "[" << p.first << "]\n";
 
 		//clear current inventories and then load from save data
 		this->fishInventory.clear();

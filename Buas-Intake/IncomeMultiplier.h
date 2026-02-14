@@ -6,6 +6,7 @@ namespace Tmpl8 {
 	class Surface;
 	class Player;
 	class vec2;
+	class Game;
 
 	//IncomeMultiplier inherits from InteractableObject
 	class IncomeMultiplier : public InteractableObject
@@ -15,7 +16,7 @@ namespace Tmpl8 {
 		
 		void update(float dt, Player& player) override;
 		 
-		void interact(Player& player) override;
+		void interact(Player& player, Game& game) override;
 		
 		void showText(Surface* screen, vec2 cameraOffset) override;
 

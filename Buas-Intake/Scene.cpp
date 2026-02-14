@@ -7,4 +7,8 @@ namespace Tmpl8 {
 	void Scene::enableDebug(bool enable) {
 		debug = enable;
 	}
+
+	Scene::Scene(Game& game):
+		game(game)
+	{}
 }

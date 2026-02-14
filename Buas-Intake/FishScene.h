@@ -6,11 +6,18 @@
 
 namespace Tmpl8 {
 	class Enemy;
+	class Player;
+	class vec2;
+	class Camera2D;
+	class Surface;
+	class Game;
 
 	//FishScene inherits from Scene
 	class FishScene : public Scene
 	{
 	public:
+		FishScene(Game& game);
+
 		void onEnter(Player& player, Camera2D& camera) override;
 		void onExit(Player& player) override; 
  

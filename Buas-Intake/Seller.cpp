@@ -6,7 +6,7 @@
 #include <cstdio>
 #include "InteractableObject.h"
 #include "tmpl8/template.h"
-
+#include "Game.h"
 
 namespace Tmpl8 {
 
@@ -17,7 +17,7 @@ namespace Tmpl8 {
 		this->textPosition = vec2(pos + vec2(26, -44));
 	}  
 
-	void Seller::interact(Player& player) {
+	void Seller::interact(Player& player, Game& game) {
 		//count total value of fishes and chests
 		float totalValue = 0;
 
@@ -32,7 +32,7 @@ namespace Tmpl8 {
 		player.addCoins(int(totalValue));
 
 		//check for achievements based on new coins total
-		Game::checkAchievements(player);
+		game.checkAchievements(player);
 
 		//clear inventories after selling
 		player.clearFishInventory();

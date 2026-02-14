@@ -16,12 +16,12 @@ namespace Tmpl8 {
 	}
 	
 	//if the player is human, change to fish scene, else change to human scene
-	void Gate::interact(Player& player) {
+	void Gate::interact(Player& player, Game& game) {
 		if (player.getPlayerVisual() == PlayerVisual::Human) {
-			Game::changeScene(SceneType::SceneFish);
+			game.setPendingScene(SceneType::SceneFish);
 		}
 		else {
-			Game::changeScene(SceneType::SceneHuman);
+			game.setPendingScene(SceneType::SceneHuman);
 		} 
 	} 
 

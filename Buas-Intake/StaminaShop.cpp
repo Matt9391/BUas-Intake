@@ -5,6 +5,7 @@
 #include "InteractableObject.h"
 #include "tmpl8/surface.h"
 #include "tmpl8/template.h"
+#include "Game.h"
 
 namespace Tmpl8 {
 	//deafult price of the stamina shop
@@ -40,7 +41,7 @@ namespace Tmpl8 {
 		}
 	}
 
-	void StaminaShop::interact(Player& player) {
+	void StaminaShop::interact(Player& player, Game& game) {
 		//check if the player has enough coins
 		if (player.getCoins() < this->price) {
 			this->showAlert = true;

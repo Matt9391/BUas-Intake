@@ -9,9 +9,13 @@
 #include "PlayerVisual.h"
 #include "tmpl8/surface.h"
 #include "tmpl8/template.h"
+#include "Game.h"
 
 
 namespace Tmpl8 { 
+	FishScene::FishScene(Game& game) :
+		Scene(game)
+	{}
 
 	void FishScene::onEnter(Player& player, Camera2D& camera) {
 		//load the interactable objects of the current scene
@@ -68,6 +72,7 @@ namespace Tmpl8 {
 
 	void FishScene::onExit(Player& player) {
 		MapHandler::objects.clear();
+		enemies.clear();
 		//set player position to the exit point of the scene
 		player.setPos(vec2(MapHandler::tileSize * 29.f, MapHandler::tileSize * 3.f));
 	}
@@ -79,14 +84,14 @@ namespace Tmpl8 {
 		camera.follow(player.getPos());
 
 		//for each interactable object
-		for (auto object : MapHandler::objects) {
-			(*object).update(dt, player);
+		for (auto& object : MapHandler::objects) {
+			object->update(dt, player);
 
 			//check if it intersects with the player
-			if ((*object).intersectPlayer(player)) {
+			if (object->intersectPlayer(player)) {
 				//check if the player is interacting
 				if (player.isInteracting()) {
-					(*object).interact(player);
+					object->interact(player, this->game);
 				}
 
 			}
@@ -126,20 +131,20 @@ namespace Tmpl8 {
 		
 		//if debug is enabled draw hitboxes
 		if (this->debug) {
-			for (auto object : MapHandler::objects) {
-				(*object).drawHitBox(screen, camera.getPos());
+			for (auto& object : MapHandler::objects) {
+				object->drawHitBox(screen, camera.getPos());
 			}
 			for (auto e : enemies) {
 				(*e).drawHitBox(screen, camera.getPos());
 			}
 		}
 
-		for (auto object : MapHandler::objects) {
-			(*object).draw(screen, camera.getPos());
+		for (auto& object : MapHandler::objects) {
+			object->draw(screen, camera.getPos());
 
 			//if the player intersects with the object show its text
-			if ((*object).intersectPlayer(player)) {
-				(*object).showText(screen, camera.getPos());
+			if (object->intersectPlayer(player)) {
+				object->showText(screen, camera.getPos());
 			}
 		}
 

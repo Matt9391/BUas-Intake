@@ -7,6 +7,7 @@ namespace Tmpl8 {
 	class vec2;
 	class Player;
 	class Surface;
+	class Game;
 
 	//StaminaShop inherits from InteractableObject
 	class StaminaShop : public InteractableObject
@@ -16,7 +17,7 @@ namespace Tmpl8 {
 		 
 		void update(float dt, Player& player) override;
 
-		void interact(Player& player) override;
+		void interact(Player& player, Game& game) override;
 
 		void showText(Surface* screen, vec2 cameraOffset) override;
 
