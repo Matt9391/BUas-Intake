@@ -3,6 +3,7 @@
 namespace Tmpl8 {
 
 	enum SceneType {
+		SceneNull,
 		SceneHome,
 		SceneHuman,
 		SceneFish
@@ -28,9 +29,13 @@ namespace Tmpl8 {
 		virtual void draw(Surface* screen, Camera2D& camera, Player& player) = 0;
 
 		static void enableDebug(bool enable);
+
+		SceneType getSceneType();
+
 	protected:
 		Game& game;
 
+		SceneType type;
 		static bool debug;
 	};
 

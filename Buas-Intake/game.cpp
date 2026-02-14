@@ -14,6 +14,7 @@
 #include "IncomeMultiplier.h"
 #include "StaminaShop.h"
 #include "SaveSystem.h"
+#include "SceneManager.h"
 
 #include <Windows.h>
 #include <cmath>
@@ -32,27 +33,21 @@ namespace Tmpl8
 	// -----------------------------------------------------------
 
 	
-	Camera2D camera(vec2(0, 0), vec2(ScreenWidth, ScreenHeight));
 
-	Player player(humanSprite, fishSprite);
+
 
 
 	bool Game::showAchievement = false;
 	long long Game::achievedMoney = 0;
 	std::unordered_map<long long, bool> Game::achievements;
 
-	bool Game::isHomeScene = true;
-
 	Game::Game() :
-		humanScene(*this),
-		fishScene(*this),
-		homeScene(*this),
-		currentScene(nullptr),
-		pendingScene(false),
-		nextScene(SceneType::SceneHome),
 		timeElapsedAchievement(0.f),
 		timerAchievement(0.f),
-		debug(false)
+		debug(false),
+		sceneManager(*this),
+		player(humanSprite, fishSprite),
+		camera(vec2(0, 0), vec2(ScreenWidth, ScreenHeight))
 	{}
 
 	void Game::Init()
@@ -107,11 +102,10 @@ namespace Tmpl8
 			float(MapHandler::mapsHome[0].size())
 		);
 
-		this->currentScene = nullptr;
-		this->currentScene = &this->homeScene;
 
 		//start in home scene
-		this->changeScene(SceneType::SceneHome);
+		this->sceneManager.setPendingScene(SceneType::SceneHome);
+		this->sceneManager.changeScene(player, camera);
 
 		//initialize text system
 		Text::init(&fontSource);
@@ -143,8 +137,8 @@ namespace Tmpl8
 	void Game::Tick(float deltaTime)
 	{
 		//update and draw current scene
-		this->currentScene->update(deltaTime, camera, player);
-		this->currentScene->draw(screen, camera, player);
+		this->sceneManager.currentScene->update(deltaTime, camera, player);
+		this->sceneManager.currentScene->draw(screen, camera, player);
 		
 		//if achievement is being shown update timer and draw it
 		if (showAchievement) {
@@ -156,13 +150,13 @@ namespace Tmpl8
 			}
 		}
 
-		if (this->pendingScene) {
-			this->changeScene(this->nextScene);
+		if (this->sceneManager.pendingScene) {
+			this->sceneManager.changeScene(player, camera);
 		}
 	
 		//if ctrl + T is pressed reset game saves and reload data
 		if (GetAsyncKeyState(VK_CONTROL) && GetAsyncKeyState('T')) {
-			if (Game::isHomeScene) {
+			if (this->sceneManager.currentScene->getSceneType() == SceneType::SceneHome) {
 				this->saveSystem.resetGameSaves(this->achievements);
 
 				player.loadData(this->saveSystem.getGameSaves());
@@ -201,31 +195,8 @@ namespace Tmpl8
 		Text::drawCoins(this->screen, vec2(ScreenWidth / 2.f + 70.f, MapHandler::tileSize * 5.5f), coins,2);
 	}
 
-	void Game::changeScene(SceneType nextScene) {
-		if (nextScene == SceneType::SceneHome) {
-			currentScene->onExit(player);
-			currentScene = &homeScene;
-			currentScene->onEnter(player, camera);
-			this->pendingScene = false;
-			isHomeScene = true;
-		}else if (nextScene == SceneType::SceneHuman) {
-			currentScene->onExit(player);
-			currentScene = &humanScene;
-			currentScene->onEnter(player,camera);
-			this->pendingScene = false;
-			isHomeScene = false;
-		}else if (nextScene == SceneType::SceneFish) {
-			currentScene->onExit(player);
-			currentScene = &fishScene;
-			currentScene->onEnter(player, camera);
-			this->pendingScene = false;
-			isHomeScene = false;
-		}
-	}
-
 	void Game::setPendingScene(SceneType nextScene) {
-		this->pendingScene = true;
-		this->nextScene = nextScene;
+		this->sceneManager.setPendingScene(nextScene);
 	}
 
 };

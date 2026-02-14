@@ -9,6 +9,11 @@ namespace Tmpl8 {
 	}
 
 	Scene::Scene(Game& game):
-		game(game)
+		game(game),
+		type(SceneType::SceneNull)
 	{}
+
+	SceneType Scene::getSceneType() {
+		return this->type;
+	}
 }

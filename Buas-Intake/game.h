@@ -2,6 +2,9 @@
 #include "FishScene.h"
 #include "HomeScene.h"
 #include "SaveSystem.h"
+#include "SceneManager.h"
+#include "Player.h"
+#include "Camera2D.h"
 #include <unordered_map>
 #include <utility>
 
@@ -25,30 +28,17 @@ namespace Tmpl8 {
 		void KeyUp( int key ) { /* implement if you want to handle keys */ }
 		void KeyDown( int key ) { /* implement if you want to handle keys */ }
 
-		//change the current scene into the next scene
-		void changeScene(SceneType nextScene);
-
-		void setPendingScene(SceneType nextScene);
-
+	
 		//check and unlock achievements based on player coins
 		void checkAchievements(Player& player);
 
 		//draw achievement alert
 		void drawAchievement(long long coins);
 
+		//set the next pending scene
+		void setPendingScene(SceneType nextScene);
 		
-		//check if in home scene
-		static bool isHomeScene; 
 	private:
-		bool pendingScene;
-		SceneType nextScene;
-
-		//scenes
-		HumanScene humanScene;
-		FishScene fishScene;
-		HomeScene homeScene;
-		//pointer to the current scene
-		Scene* currentScene;
 
 		//achievement variables
 		static bool showAchievement;
@@ -65,6 +55,10 @@ namespace Tmpl8 {
 		bool debug;
 
 		SaveSystem saveSystem;
+		SceneManager sceneManager;
+
+		Player player;
+		Camera2D camera;
 	};
 	 
 }; // namespace Tmpl8
