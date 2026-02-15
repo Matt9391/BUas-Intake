@@ -1,11 +1,12 @@
-#include "StaminaShop.h"
-#include "../Utils/Text.h"
-#include "../Gameplay/Player.h"
 #include <cstdio>
-#include "InteractableObject.h"
 #include "../../tmpl8/surface.h"
 #include "../../tmpl8/template.h"
+#include "../Utils/Text.h"
+#include "../Gameplay/Player.h"
+#include "InteractableObject.h"
 #include "../game.h"
+
+#include "StaminaShop.h"
 
 namespace Tmpl8 {
 	//deafult price of the stamina shop

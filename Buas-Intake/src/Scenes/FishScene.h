@@ -1,8 +1,8 @@
-#include "Scene.h"
-#include "../Utils/MapHandler.h"
 #include <array>
 #include <vector>
 #include <memory>
+#include "../Utils/MapHandler.h"
+#include "Scene.h"
 
 #pragma once
 

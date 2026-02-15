@@ -1,10 +1,10 @@
-coins:57584
 chest1:0
 fish_common:0
+coins:57584
 chest2:0
 fish_rare:0
-fish_epic:0
 fish_legendary:0
+fish_epic:0
 chest0:0
 chest3:0
 stamina:2000

@@ -1,7 +1,8 @@
-#include "Entity.h"
-#include "../Gameplay/Player.h"
 #include "../../tmpl8/surface.h"
 #include "../../tmpl8/template.h"
+#include "../Gameplay/Player.h"
+
+#include "Entity.h"
 
 namespace Tmpl8 {
 

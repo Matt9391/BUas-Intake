@@ -1,5 +1,6 @@
-#include "SceneManager.h"
 #include "../game.h"
+
+#include "SceneManager.h"
 
 namespace Tmpl8 {
 

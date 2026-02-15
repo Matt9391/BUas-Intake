@@ -1,10 +1,11 @@
-#include "InteractableObject.h"
-#include "../Gameplay/Player.h"
-#include "../Utils/Text.h"
 #include <cstdio>
 #include "../../tmpl8/surface.h"
 #include "../../tmpl8/template.h"
+#include "../Utils/Text.h"
+#include "../Gameplay/Player.h"
 #include "../game.h"
+
+#include "InteractableObject.h"
 
 namespace Tmpl8 {
 

@@ -1,10 +1,11 @@
-#include "Text.h"
-#include "../../tmpl8/surface.h"
-#include "../../tmpl8/template.h"
 #include <sstream>
 #include <cstdio>
 #include <string>
 #include <vector>
+#include "../../tmpl8/surface.h"
+#include "../../tmpl8/template.h"
+
+#include "Text.h"
 
 namespace Tmpl8 {
 

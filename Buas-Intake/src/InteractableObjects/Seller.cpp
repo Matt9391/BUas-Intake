@@ -1,12 +1,12 @@
-#include "Seller.h"
+#include <cstdio>
+#include "../../tmpl8/template.h"
 #include "../Gameplay/Player.h"
+#include "InteractableObject.h"
 #include "../DataTypes/Fish.h"
 #include "../DataTypes/ChestObject.h"
 #include "../game.h"
-#include <cstdio>
-#include "InteractableObject.h"
-#include "../../tmpl8/template.h"
 
+#include "Seller.h"
 
 namespace Tmpl8 {
 

@@ -1,10 +1,11 @@
-#include "Enemy.h"
+#include "../../tmpl8/surface.h"
+#include "../../tmpl8/template.h"
 #include "../Utils/Randomize.h"
 #include "../Utils/functions.h"
 #include "../Gameplay/Player.h"
+#include "Enemy.h"
+
 #include "Entity.h"
-#include "../../tmpl8/surface.h"
-#include "../../tmpl8/template.h"
 
 namespace Tmpl8 {
 

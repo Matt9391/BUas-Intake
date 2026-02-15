@@ -1,10 +1,11 @@
-#include "IncomeMultiplier.h"
+#include <cstdio>
+#include "../../tmpl8/template.h"
+#include "../../tmpl8/surface.h"
 #include "../Utils/Text.h"
 #include "../Gameplay/Player.h"
-#include "../../tmpl8/surface.h"
-#include "../../tmpl8/template.h"
-#include <cstdio>
 #include "../game.h"
+
+#include "IncomeMultiplier.h"
 
 namespace Tmpl8 {
 	float IncomeMultiplier::price = 100.f;

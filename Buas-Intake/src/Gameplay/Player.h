@@ -1,12 +1,12 @@
 #include <array>
 #include <vector>
+#include <string>
+#include <unordered_map>
+#include "../../tmpl8/template.h"
 #include "../Utils/MapHandler.h"
 #include "../DataTypes/PlayerVisual.h"
 #include "../DataTypes/Fish.h"
 #include "../DataTypes/ChestObject.h"
-#include <string>
-#include <unordered_map>
-#include "../../tmpl8/template.h"
 
 #pragma once
 

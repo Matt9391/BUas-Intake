@@ -1,12 +1,3 @@
-#include "MapHandler.h"
-#include "../InteractableObjects/InteractableObject.h"
-#include "../InteractableObjects/IncomeMultiplier.h"
-#include "../InteractableObjects/StaminaShop.h"
-#include "../InteractableObjects/FishArea.h"
-#include "../InteractableObjects/Seller.h"
-#include "../InteractableObjects/Gate.h"
-#include "../InteractableObjects/Chest.h"
-#include "../Utils/Randomize.h"
 #include <array>
 #include <cstdio>
 #include <fstream>
@@ -14,7 +5,16 @@
 #include <vector>
 #include "../../tmpl8/surface.h"
 #include "../../tmpl8/template.h"
+#include "../Utils/Randomize.h"
+#include "../InteractableObjects/InteractableObject.h"
+#include "../InteractableObjects/IncomeMultiplier.h"
+#include "../InteractableObjects/StaminaShop.h"
+#include "../InteractableObjects/FishArea.h"
+#include "../InteractableObjects/Seller.h"
+#include "../InteractableObjects/Gate.h"
+#include "../InteractableObjects/Chest.h"
 
+#include "MapHandler.h"
 
 namespace Tmpl8 {
 

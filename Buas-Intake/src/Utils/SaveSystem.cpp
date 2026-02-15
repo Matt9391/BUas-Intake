@@ -1,10 +1,11 @@
-#include "SaveSystem.h"
-#include "../Gameplay/Player.h"
-#include "../DataTypes/Fish.h"
-#include "../InteractableObjects/IncomeMultiplier.h"
-#include "../InteractableObjects/StaminaShop.h"
 #include <iostream>
 #include <fstream>
+#include "../Gameplay/Player.h"
+#include "../InteractableObjects/IncomeMultiplier.h"
+#include "../InteractableObjects/StaminaShop.h"
+#include "../DataTypes/Fish.h"
+
+#include "SaveSystem.h"
 
 namespace Tmpl8 {
 	std::unordered_map<std::string, double> SaveSystem::getGameSaves() {

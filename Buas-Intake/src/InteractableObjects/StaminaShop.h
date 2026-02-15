@@ -1,5 +1,5 @@
-#include "InteractableObject.h"
 #include <string>
+#include "InteractableObject.h"
 #pragma once
 
 namespace Tmpl8 {

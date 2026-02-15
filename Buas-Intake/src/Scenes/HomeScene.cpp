@@ -1,16 +1,15 @@
-#include "HomeScene.h"
+#include <Windows.h>
+#include "../../tmpl8/surface.h"
 #include "../Utils/MapHandler.h"
-#include "Windows.h"
-#include "../game.h"
 #include "../Utils/Text.h"
 #include "../Gameplay/Player.h"
 #include "../Gameplay/Camera2D.h"
 #include "../GFX/resources.h"
 #include "../DataTypes/PlayerVisual.h"
 #include "Scene.h"
-#include "../../tmpl8/surface.h"
 #include "../game.h"
  
+#include "HomeScene.h"
 
 namespace Tmpl8 {
 

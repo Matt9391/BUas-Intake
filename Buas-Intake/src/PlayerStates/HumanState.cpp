@@ -1,7 +1,8 @@
-#include "HumanState.h"
-#include "../Gameplay/Player.h"
-#include "../../tmpl8/template.h"
 #include <Windows.h>
+#include "../../tmpl8/template.h"
+#include "../Gameplay/Player.h"
+
+#include "HumanState.h"
 
 namespace Tmpl8 {
 

@@ -1,16 +1,17 @@
-#include "HumanScene.h"
-#include "../Gameplay/Camera2D.h"
-#include "../Gameplay/Player.h"
-#include "../InteractableObjects/InteractableObject.h"
-#include "../GFX/resources.h"
-#include "../Utils/Text.h"
-#include "../game.h"
 #include <Windows.h>
-#include "../Utils/MapHandler.h"
-#include "../DataTypes/PlayerVisual.h"
-#include "Scene.h"
 #include "../../tmpl8/surface.h"
 #include "../../tmpl8/template.h"
+#include "../Utils/Text.h"
+#include "../Utils/MapHandler.h"
+#include "../Gameplay/Camera2D.h"
+#include "../Gameplay/Player.h"
+#include "../GFX/resources.h"
+#include "../InteractableObjects/InteractableObject.h"
+#include "../DataTypes/PlayerVisual.h"
+#include "Scene.h"
+#include "../game.h"
+
+#include "HumanScene.h"
 
 namespace Tmpl8 {
 

@@ -1,14 +1,15 @@
-#include "Player.h"
-#include "../PlayerStates/HumanState.h"
-#include "../PlayerStates/FishState.h"
+#include <iostream>
+#include "../../tmpl8/surface.h"
+#include "../../tmpl8/template.h"
 #include "../Utils/Text.h"
 #include "../Utils/functions.h"
 #include "../DataTypes/ChestObject.h"
 #include "../DataTypes/Fish.h"
 #include "../DataTypes/PlayerVisual.h"
-#include "../../tmpl8/surface.h"
-#include "../../tmpl8/template.h"
-#include <iostream>
+#include "../PlayerStates/HumanState.h"
+#include "../PlayerStates/FishState.h"
+
+#include "Player.h"
 
 
 namespace Tmpl8 {

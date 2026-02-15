@@ -1,41 +1,29 @@
-#include "game.h"
-#include "../tmpl8/template.h"
 #include <cstdio> //printf
 #include <vector> 
 #include <string> 
-#include <iostream>
-#include <fstream>
 #include <array> 
-#include "./Utils/MapHandler.h"
-#include "./Gameplay/Camera2D.h"
-#include "./Gameplay/Player.h"
-#include "./Utils/Text.h"
-#include "./GFX/resources.h"
-#include "./InteractableObjects/IncomeMultiplier.h"
-#include "./InteractableObjects/StaminaShop.h"
-#include "./Utils/SaveSystem.h"
-#include "./Utils/SceneManager.h"
-
 #include <Windows.h>
 #include <cmath>
 #include <unordered_map>
 #include <utility>
-#include "./DataTypes/Fish.h"
-#include "./Scenes/FishScene.h"
-#include "./Scenes/HomeScene.h"
-#include "./Scenes/HumanScene.h"
-#include "./Scenes/Scene.h"
+#include "../tmpl8/template.h"
+#include "./Utils/MapHandler.h"
+#include "./Utils/Text.h"
+#include "./Utils/SaveSystem.h"
+#include "./Utils/SceneManager.h"
+#include "./Gameplay/Camera2D.h"
+#include "./Gameplay/Player.h"
+#include "./GFX/resources.h"
+#include "./InteractableObjects/IncomeMultiplier.h"
+#include "./InteractableObjects/StaminaShop.h"
+
+#include "game.h"
 
 namespace Tmpl8
 {
 	// -----------------------------------------------------------
 	// Initialize the application
 	// -----------------------------------------------------------
-
-	
-
-
-
 
 	bool Game::showAchievement = false;
 	long long Game::achievedMoney = 0;
@@ -47,7 +35,8 @@ namespace Tmpl8
 		debug(false),
 		sceneManager(*this),
 		player(humanSprite, fishSprite),
-		camera(vec2(0, 0), vec2(ScreenWidth, ScreenHeight))
+		camera(vec2(0, 0), vec2(ScreenWidth, ScreenHeight)),
+		screen(nullptr)
 	{}
 
 	void Game::Init()

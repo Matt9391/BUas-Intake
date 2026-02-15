@@ -1,14 +1,15 @@
-#include "Chest.h"
-#include "../Gameplay/Player.h"
-#include "../Utils/Randomize.h"
-#include "../Utils/functions.h"
-#include "../DataTypes/ChestObject.h"
-#include "../Utils/FastNoiseLite.h"
-#include "../InteractableObjects/InteractableObject.h"
-#include "../Utils/MapHandler.h"
 #include "../../tmpl8/surface.h"
 #include "../../tmpl8/template.h"
+#include "../Utils/Randomize.h"
+#include "../Utils/functions.h"
+#include "../Utils/FastNoiseLite.h"
+#include "../Utils/MapHandler.h"
+#include "../Gameplay/Player.h"
+#include "../InteractableObjects/InteractableObject.h"
+#include "../DataTypes/ChestObject.h"
 #include "../game.h"
+
+#include "Chest.h"
 
 namespace Tmpl8 {
 		
