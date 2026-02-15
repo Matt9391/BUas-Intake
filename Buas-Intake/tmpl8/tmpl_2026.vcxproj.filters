@@ -7,32 +7,82 @@
     <ClCompile Include="template.cpp">
       <Filter>template code</Filter>
     </ClCompile>
-    <ClCompile Include="..\game.cpp" />
-    <ClCompile Include="..\Camera2D.cpp" />
-    <ClCompile Include="..\Chest.cpp" />
-    <ClCompile Include="..\Enemy.cpp" />
-    <ClCompile Include="..\Entity.cpp" />
-    <ClCompile Include="..\FishArea.cpp" />
-    <ClCompile Include="..\FishScene.cpp" />
-    <ClCompile Include="..\FishState.cpp" />
-    <ClCompile Include="..\functions.cpp" />
-    <ClCompile Include="..\Gate.cpp" />
-    <ClCompile Include="..\HomeScene.cpp" />
-    <ClCompile Include="..\HumanScene.cpp" />
-    <ClCompile Include="..\HumanState.cpp" />
-    <ClCompile Include="..\IncomeMultiplier.cpp" />
-    <ClCompile Include="..\InteractableObject.cpp" />
-    <ClCompile Include="..\MapHandler.cpp" />
-    <ClCompile Include="..\Player.cpp" />
-    <ClCompile Include="..\PlayerState.cpp" />
-    <ClCompile Include="..\Randomize.cpp" />
-    <ClCompile Include="..\resources.cpp" />
-    <ClCompile Include="..\Scene.cpp" />
-    <ClCompile Include="..\Seller.cpp" />
-    <ClCompile Include="..\StaminaShop.cpp" />
-    <ClCompile Include="..\Text.cpp" />
-    <ClCompile Include="..\SaveSystem.cpp" />
-    <ClCompile Include="..\SceneManager.cpp" />
+    <ClCompile Include="..\src\Entities\Enemy.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Entities\Entity.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gameplay\Camera2D.cpp">
+      <Filter>Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gameplay\Player.cpp">
+      <Filter>Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GFX\resources.cpp">
+      <Filter>GFX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\Chest.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\FishArea.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\Gate.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\IncomeMultiplier.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\InteractableObject.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\Seller.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\StaminaShop.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\functions.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\MapHandler.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\Randomize.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\SaveSystem.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\SceneManager.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\Text.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scenes\FishScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scenes\HomeScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scenes\HumanScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scenes\Scene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PlayerStates\FishState.cpp">
+      <Filter>PlayerStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PlayerStates\HumanState.cpp">
+      <Filter>PlayerStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PlayerStates\PlayerState.cpp">
+      <Filter>PlayerStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="surface.h">
@@ -41,48 +91,130 @@
     <ClInclude Include="template.h">
       <Filter>template code</Filter>
     </ClInclude>
-    <ClInclude Include="..\game.h" />
-    <ClInclude Include="..\Camera2D.h" />
-    <ClInclude Include="..\Chest.h" />
-    <ClInclude Include="..\ChestObject.h" />
-    <ClInclude Include="..\Enemy.h" />
-    <ClInclude Include="..\Entity.h" />
-    <ClInclude Include="..\FastNoiseLite.h" />
-    <ClInclude Include="..\Fish.h" />
-    <ClInclude Include="..\FishArea.h" />
-    <ClInclude Include="..\FishScene.h" />
-    <ClInclude Include="..\FishState.h" />
-    <ClInclude Include="..\functions.h" />
-    <ClInclude Include="..\Gate.h" />
-    <ClInclude Include="..\HomeScene.h" />
-    <ClInclude Include="..\HumanScene.h" />
-    <ClInclude Include="..\HumanState.h" />
-    <ClInclude Include="..\IncomeMultiplier.h" />
-    <ClInclude Include="..\InteractableObject.h" />
-    <ClInclude Include="..\MapHandler.h" />
-    <ClInclude Include="..\Player.h" />
-    <ClInclude Include="..\PlayerState.h" />
-    <ClInclude Include="..\PlayerVisual.h" />
-    <ClInclude Include="..\Randomize.h" />
-    <ClInclude Include="..\resources.h" />
-    <ClInclude Include="..\Scene.h" />
-    <ClInclude Include="..\Seller.h" />
-    <ClInclude Include="..\StaminaShop.h" />
-    <ClInclude Include="..\Text.h" />
-    <ClInclude Include="..\SaveSystem.h" />
-    <ClInclude Include="..\SceneManager.h" />
+    <ClInclude Include="..\src\DataTypes\ChestObject.h">
+      <Filter>DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DataTypes\Fish.h">
+      <Filter>DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DataTypes\PlayerVisual.h">
+      <Filter>DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DataTypes\SceneType.h">
+      <Filter>DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Entities\Enemy.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Entities\Entity.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\gameplay\Camera2D.h">
+      <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\gameplay\Player.h">
+      <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GFX\resources.h">
+      <Filter>GFX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\Chest.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\FishArea.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\Gate.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\IncomeMultiplier.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\InteractableObject.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\Seller.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\StaminaShop.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\FastNoiseLite.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\functions.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\MapHandler.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\Randomize.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\SaveSystem.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\SceneManager.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\Text.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scenes\FishScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scenes\HomeScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scenes\HumanScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scenes\Scene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PlayerStates\FishState.h">
+      <Filter>PlayerStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PlayerStates\HumanState.h">
+      <Filter>PlayerStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PlayerStates\PlayerState.h">
+      <Filter>PlayerStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">
       <UniqueIdentifier>{bf32dd6e-4be7-4889-8ac6-49e7ee163c40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataTypes">
+      <UniqueIdentifier>{e7ba492c-ccd4-4110-beb2-fd8128baa10c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{68d3ae0a-d319-4e35-ad27-8158520f3014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gameplay">
+      <UniqueIdentifier>{2fdc64b0-92f5-46aa-90f1-3387679a98f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GFX">
+      <UniqueIdentifier>{ea35284f-9f24-4deb-9ccb-21552069ea4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InteractableObjects">
+      <UniqueIdentifier>{4e0e6d52-32e3-4c75-a19a-83e275194c23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayerStates">
+      <UniqueIdentifier>{ce3e1b5c-a032-41ae-bda8-20d7cbc91e09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{7c0102cc-f6f1-43a2-a101-f4eb40bf191f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{14aafabd-dbd2-4cf7-aaf6-605c1bcf9b11}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <Text Include="_readme.txt">
       <Filter>template code</Filter>
     </Text>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\README.md" />
   </ItemGroup>
 </Project>

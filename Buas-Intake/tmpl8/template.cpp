@@ -13,7 +13,7 @@
 //#define FULLSCREEN
 //#define ADVANCEDGL
 
-#include "../game.h"
+#include "../src/game.h"
 
 #include <fcntl.h>
 #include <io.h>

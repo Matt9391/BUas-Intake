@@ -119,76 +119,77 @@
       <DataExecutionPrevention>
       </DataExecutionPrevention>
     </Link>
+    <PostBuildEvent>
+      <Command>echo Solution directory: $(SolutionDir)</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\Camera2D.cpp" />
-    <ClCompile Include="..\Chest.cpp" />
-    <ClCompile Include="..\Enemy.cpp" />
-    <ClCompile Include="..\Entity.cpp" />
-    <ClCompile Include="..\FishArea.cpp" />
-    <ClCompile Include="..\FishScene.cpp" />
-    <ClCompile Include="..\FishState.cpp" />
-    <ClCompile Include="..\functions.cpp" />
-    <ClCompile Include="..\game.cpp" />
-    <ClCompile Include="..\Gate.cpp" />
-    <ClCompile Include="..\HomeScene.cpp" />
-    <ClCompile Include="..\HumanScene.cpp" />
-    <ClCompile Include="..\HumanState.cpp" />
-    <ClCompile Include="..\IncomeMultiplier.cpp" />
-    <ClCompile Include="..\InteractableObject.cpp" />
-    <ClCompile Include="..\MapHandler.cpp" />
-    <ClCompile Include="..\Player.cpp" />
-    <ClCompile Include="..\PlayerState.cpp" />
-    <ClCompile Include="..\Randomize.cpp" />
-    <ClCompile Include="..\resources.cpp" />
-    <ClCompile Include="..\SaveSystem.cpp" />
-    <ClCompile Include="..\Scene.cpp" />
-    <ClCompile Include="..\SceneManager.cpp" />
-    <ClCompile Include="..\Seller.cpp" />
-    <ClCompile Include="..\StaminaShop.cpp" />
-    <ClCompile Include="..\Text.cpp" />
+    <ClCompile Include="..\src\Entities\Enemy.cpp" />
+    <ClCompile Include="..\src\Entities\Entity.cpp" />
+    <ClCompile Include="..\src\game.cpp" />
+    <ClCompile Include="..\src\gameplay\Camera2D.cpp" />
+    <ClCompile Include="..\src\gameplay\Player.cpp" />
+    <ClCompile Include="..\src\GFX\resources.cpp" />
+    <ClCompile Include="..\src\InteractableObjects\Chest.cpp" />
+    <ClCompile Include="..\src\InteractableObjects\FishArea.cpp" />
+    <ClCompile Include="..\src\InteractableObjects\Gate.cpp" />
+    <ClCompile Include="..\src\InteractableObjects\IncomeMultiplier.cpp" />
+    <ClCompile Include="..\src\InteractableObjects\InteractableObject.cpp" />
+    <ClCompile Include="..\src\InteractableObjects\Seller.cpp" />
+    <ClCompile Include="..\src\InteractableObjects\StaminaShop.cpp" />
+    <ClCompile Include="..\src\PlayerStates\FishState.cpp" />
+    <ClCompile Include="..\src\PlayerStates\HumanState.cpp" />
+    <ClCompile Include="..\src\PlayerStates\PlayerState.cpp" />
+    <ClCompile Include="..\src\Scenes\FishScene.cpp" />
+    <ClCompile Include="..\src\Scenes\HomeScene.cpp" />
+    <ClCompile Include="..\src\Scenes\HumanScene.cpp" />
+    <ClCompile Include="..\src\Scenes\Scene.cpp" />
+    <ClCompile Include="..\src\Utils\functions.cpp" />
+    <ClCompile Include="..\src\Utils\MapHandler.cpp" />
+    <ClCompile Include="..\src\Utils\Randomize.cpp" />
+    <ClCompile Include="..\src\Utils\SaveSystem.cpp" />
+    <ClCompile Include="..\src\Utils\SceneManager.cpp" />
+    <ClCompile Include="..\src\Utils\Text.cpp" />
     <ClCompile Include="surface.cpp" />
     <ClCompile Include="template.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\Camera2D.h" />
-    <ClInclude Include="..\Chest.h" />
-    <ClInclude Include="..\ChestObject.h" />
-    <ClInclude Include="..\Enemy.h" />
-    <ClInclude Include="..\Entity.h" />
-    <ClInclude Include="..\FastNoiseLite.h" />
-    <ClInclude Include="..\Fish.h" />
-    <ClInclude Include="..\FishArea.h" />
-    <ClInclude Include="..\FishScene.h" />
-    <ClInclude Include="..\FishState.h" />
-    <ClInclude Include="..\functions.h" />
-    <ClInclude Include="..\game.h" />
-    <ClInclude Include="..\Gate.h" />
-    <ClInclude Include="..\HomeScene.h" />
-    <ClInclude Include="..\HumanScene.h" />
-    <ClInclude Include="..\HumanState.h" />
-    <ClInclude Include="..\IncomeMultiplier.h" />
-    <ClInclude Include="..\InteractableObject.h" />
-    <ClInclude Include="..\MapHandler.h" />
-    <ClInclude Include="..\Player.h" />
-    <ClInclude Include="..\PlayerState.h" />
-    <ClInclude Include="..\PlayerVisual.h" />
-    <ClInclude Include="..\Randomize.h" />
-    <ClInclude Include="..\resources.h" />
-    <ClInclude Include="..\SaveSystem.h" />
-    <ClInclude Include="..\Scene.h" />
-    <ClInclude Include="..\SceneManager.h" />
-    <ClInclude Include="..\Seller.h" />
-    <ClInclude Include="..\StaminaShop.h" />
-    <ClInclude Include="..\Text.h" />
+    <ClInclude Include="..\src\DataTypes\ChestObject.h" />
+    <ClInclude Include="..\src\DataTypes\Fish.h" />
+    <ClInclude Include="..\src\DataTypes\PlayerVisual.h" />
+    <ClInclude Include="..\src\DataTypes\SceneType.h" />
+    <ClInclude Include="..\src\Entities\Enemy.h" />
+    <ClInclude Include="..\src\Entities\Entity.h" />
+    <ClInclude Include="..\src\game.h" />
+    <ClInclude Include="..\src\gameplay\Camera2D.h" />
+    <ClInclude Include="..\src\gameplay\Player.h" />
+    <ClInclude Include="..\src\GFX\resources.h" />
+    <ClInclude Include="..\src\InteractableObjects\Chest.h" />
+    <ClInclude Include="..\src\InteractableObjects\FishArea.h" />
+    <ClInclude Include="..\src\InteractableObjects\Gate.h" />
+    <ClInclude Include="..\src\InteractableObjects\IncomeMultiplier.h" />
+    <ClInclude Include="..\src\InteractableObjects\InteractableObject.h" />
+    <ClInclude Include="..\src\InteractableObjects\Seller.h" />
+    <ClInclude Include="..\src\InteractableObjects\StaminaShop.h" />
+    <ClInclude Include="..\src\PlayerStates\FishState.h" />
+    <ClInclude Include="..\src\PlayerStates\HumanState.h" />
+    <ClInclude Include="..\src\PlayerStates\PlayerState.h" />
+    <ClInclude Include="..\src\Scenes\FishScene.h" />
+    <ClInclude Include="..\src\Scenes\HomeScene.h" />
+    <ClInclude Include="..\src\Scenes\HumanScene.h" />
+    <ClInclude Include="..\src\Scenes\Scene.h" />
+    <ClInclude Include="..\src\Utils\FastNoiseLite.h" />
+    <ClInclude Include="..\src\Utils\functions.h" />
+    <ClInclude Include="..\src\Utils\MapHandler.h" />
+    <ClInclude Include="..\src\Utils\Randomize.h" />
+    <ClInclude Include="..\src\Utils\SaveSystem.h" />
+    <ClInclude Include="..\src\Utils\SceneManager.h" />
+    <ClInclude Include="..\src\Utils\Text.h" />
     <ClInclude Include="surface.h" />
     <ClInclude Include="template.h" />
   </ItemGroup>
   <ItemGroup>
     <Text Include="_readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="..\README.md" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
