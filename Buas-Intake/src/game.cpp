@@ -16,6 +16,7 @@
 #include "./GFX/resources.h"
 #include "./InteractableObjects/IncomeMultiplier.h"
 #include "./InteractableObjects/StaminaShop.h"
+#include "./InteractableObjects/DebtHolder.h"
 
 #include "game.h"
 
@@ -34,13 +35,14 @@ namespace Tmpl8
 		timerAchievement(0.f),
 		debug(false),
 		sceneManager(*this),
-		player(humanSprite, fishSprite),
+		player(humanSprite, fishSprite, DebtHolder::paidDebt),
 		camera(vec2(0, 0), vec2(ScreenWidth, ScreenHeight)),
 		screen(nullptr)
 	{}
 
 	void Game::Init()
 	{
+
 		//initialize achievements
 		this->achievements = {
 			{1'000, false},
@@ -53,6 +55,12 @@ namespace Tmpl8
 			{1'500'000, false},
 			{2'000'000, false},
 			{5'000'000, false},
+			{20'000'000, false},
+			{100'000'000, false},
+			{250'000'000, false},
+			{500'000'000, false},
+			{750'000'000, false},
+			{1'000'000'000, false}
 		};
 
 		//load game saves from file
@@ -64,7 +72,7 @@ namespace Tmpl8
 		this->timeElapsedAchievement = 0.f;
 
 		//set debug mode
-		this->debug = false;
+		this->debug = true;
 
 		//load maps from files
 		MapHandler::mapsTdw[0] = MapHandler::loadMap("mapTopDown.txt");
@@ -102,9 +110,10 @@ namespace Tmpl8
 		//load datas
 		player.loadData(this->saveSystem.getGameSaves());
 		
+		DebtHolder::loadPaidDebt(long long(this->saveSystem.getDataSave("paidDebt")));
 		IncomeMultiplier::loadPrice(float(this->saveSystem.getDataSave("incomeMultiplierPrice")));
 		StaminaShop::loadPrice(float(this->saveSystem.getDataSave("staminaPrice")));
-
+		
 		//set debug mode for scenes and player based on game debug variable
 		Scene::enableDebug(this->debug);
 		player.enableDebug(this->debug);
@@ -151,6 +160,7 @@ namespace Tmpl8
 				player.loadData(this->saveSystem.getGameSaves());
 				IncomeMultiplier::loadPrice(float(this->saveSystem.getDataSave("incomeMultiplierPrice")));
 				StaminaShop::loadPrice(float(this->saveSystem.getDataSave("staminaPrice")));
+				DebtHolder::loadPaidDebt(long long(this->saveSystem.getDataSave("paidDebt")));
 			}
 		}
 	}

@@ -83,6 +83,9 @@
       <Filter>PlayerStates</Filter>
     </ClCompile>
     <ClCompile Include="..\src\game.cpp" />
+    <ClCompile Include="..\src\InteractableObjects\DebtHolder.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="surface.h">
@@ -182,6 +185,9 @@
       <Filter>PlayerStates</Filter>
     </ClInclude>
     <ClInclude Include="..\src\game.h" />
+    <ClInclude Include="..\src\InteractableObjects\DebtHolder.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="template code">

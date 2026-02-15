@@ -20,7 +20,7 @@ namespace Tmpl8 {
 	{
 	public:
 
-		Player(Sprite& humanSprite, Sprite& fishSprite);
+		Player(Sprite& humanSprite, Sprite& fishSprite, long long& paidDebt);
 
 		void update(float dt);
 		
@@ -38,6 +38,7 @@ namespace Tmpl8 {
 
 		//load current active collision maps
 		void loadCollisionMaps(std::array<Map, 2>* currentMap);
+
 
 		//getters
 		vec2 getPos();
@@ -71,6 +72,7 @@ namespace Tmpl8 {
 		void addChest(ChestObject chest);
 		void setMultiplier(float multiplier);
 		void addStamina(float ms);
+		void payDebt(int coins);
 		void enableDebug(bool enable);
 
 		//set the animation range
@@ -78,6 +80,7 @@ namespace Tmpl8 {
 
 		//load data passed from gameSave
 		void loadData(const std::unordered_map<std::string, double>& gameSave);
+		long long& paidDebt;
 
 	private:
 		void showHitbox(Surface* screen, vec2 cameraOffset);
@@ -134,6 +137,8 @@ namespace Tmpl8 {
 
 		//coins of the player
 		long long coins;
+		//debt of the player
+
 		//coins multiplier when selling fish/chests or getting stolen
 		float coinsMultiplier;
 

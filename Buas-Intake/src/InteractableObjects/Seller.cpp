@@ -30,6 +30,7 @@ namespace Tmpl8 {
 		}
 
 		player.addCoins(int(totalValue));
+		player.payDebt(int(totalValue));
 
 		//check for achievements based on new coins total
 		game.checkAchievements(player);

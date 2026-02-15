@@ -14,7 +14,7 @@
 
 namespace Tmpl8 {
 
-	Player::Player(Sprite& humanSprite, Sprite& fishSprite) :
+	Player::Player(Sprite& humanSprite, Sprite& fishSprite, long long& paidDebt) :
 		debug(false),
 		interacting(false),
 		input(' '),
@@ -38,6 +38,7 @@ namespace Tmpl8 {
 		currentMap(nullptr),
 		fishing(false),
 		coins(100),
+		paidDebt(paidDebt),
 		coinsMultiplier(1),
 		sprinting(false),
 		maxSprintTime(2000.f),
@@ -189,6 +190,7 @@ namespace Tmpl8 {
 		//draw UI elements (should be done in a separate UI class but for simplicity done here)
 		Text::drawString("Coins:", screen, vec2(32, 52));
 		Text::drawCoins(screen, vec2(32, 72), this->coins);
+		Text::drawCoins(screen, vec2(32, 96), this->paidDebt);
 		Text::drawString("Fishes: " + std::to_string(this->fishInventory.size()), screen, vec2(96, 52));
 		Text::drawString("Chests: " + std::to_string(this->chestInventory.size()), screen, vec2(96, 72));
 		
@@ -252,6 +254,7 @@ namespace Tmpl8 {
 	float Player::getStamina() {
 		return this->maxSprintTime;
 	}
+
 
 	std::vector<Fish> Player::getFishes() {
 		return this->fishInventory;
@@ -334,6 +337,10 @@ namespace Tmpl8 {
 	}
 	void Player::addStamina(float ms) {
 		this->maxSprintTime += ms;
+	}
+	
+	void Player::payDebt(int coins) {
+		this->paidDebt += (long long)(coins * this->coinsMultiplier);
 	}
 
 	void Player::enableDebug(bool enable) {

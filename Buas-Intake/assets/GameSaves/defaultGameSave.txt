@@ -12,3 +12,4 @@ incomeMultiplierPrice:100
 incomeMultiplier:1
 staminaPrice:200
 lastAchievement:0
+paidDebt:0

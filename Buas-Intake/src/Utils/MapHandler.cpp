@@ -13,6 +13,7 @@
 #include "../InteractableObjects/Seller.h"
 #include "../InteractableObjects/Gate.h"
 #include "../InteractableObjects/Chest.h"
+#include "../InteractableObjects/DebtHolder.h"
 
 #include "MapHandler.h"
 
@@ -87,6 +88,9 @@ namespace Tmpl8 {
 			break;
 		case 6:
 			objects.push_back(std::make_unique <Chest>(type, pos, size, chestsSprite, Randomize::randomInt(0, 3)));
+			break;
+		case 7:
+			objects.push_back(std::make_unique <DebtHolder>(type, pos, size));
 			break;
 		default:
 			objects.push_back(std::make_unique <InteractableObject>(type, pos, size));

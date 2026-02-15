@@ -131,6 +131,7 @@
     <ClCompile Include="..\src\gameplay\Player.cpp" />
     <ClCompile Include="..\src\GFX\resources.cpp" />
     <ClCompile Include="..\src\InteractableObjects\Chest.cpp" />
+    <ClCompile Include="..\src\InteractableObjects\DebtHolder.cpp" />
     <ClCompile Include="..\src\InteractableObjects\FishArea.cpp" />
     <ClCompile Include="..\src\InteractableObjects\Gate.cpp" />
     <ClCompile Include="..\src\InteractableObjects\IncomeMultiplier.cpp" />
@@ -165,6 +166,7 @@
     <ClInclude Include="..\src\gameplay\Player.h" />
     <ClInclude Include="..\src\GFX\resources.h" />
     <ClInclude Include="..\src\InteractableObjects\Chest.h" />
+    <ClInclude Include="..\src\InteractableObjects\DebtHolder.h" />
     <ClInclude Include="..\src\InteractableObjects\FishArea.h" />
     <ClInclude Include="..\src\InteractableObjects\Gate.h" />
     <ClInclude Include="..\src\InteractableObjects\IncomeMultiplier.h" />

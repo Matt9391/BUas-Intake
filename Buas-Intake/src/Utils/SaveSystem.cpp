@@ -3,6 +3,7 @@
 #include "../Gameplay/Player.h"
 #include "../InteractableObjects/IncomeMultiplier.h"
 #include "../InteractableObjects/StaminaShop.h"
+#include "../InteractableObjects/DebtHolder.h"
 #include "../DataTypes/Fish.h"
 
 #include "SaveSystem.h"
@@ -15,6 +16,7 @@ namespace Tmpl8 {
 	void SaveSystem::saveGame(Player& player, std::unordered_map<long long, bool>& achievements) {
 		//update game data into game saves dictionary
 		gameSaves["coins"] = double(player.getCoins());
+		gameSaves["paidDebt"] = double(DebtHolder::getPaidDebt());
 
 		//clean fish counts
 		gameSaves["fish_common"] = 0;
@@ -86,7 +88,7 @@ namespace Tmpl8 {
 		std::ifstream objFile("./assets/gameSaves/defaultGameSave.txt");
 		std::string line;
 		std::unordered_map<std::string, double> defaultGameSaves;
-		//coins
+		//coins -> debt
 		//fish common - rare - epic - legendary -> chest 0-1-2-3 -> stamina
 		//income multiplier price - income multiplier - stamina price
 		while (std::getline(objFile, line)) {
@@ -109,7 +111,7 @@ namespace Tmpl8 {
 		std::ifstream objFile("./assets/gameSaves/gameSave.txt");
 		std::string line;
 
-		//coins
+		//coins -> debt
 		//fish common - rare - epic - legendary -> chest 0-1-2-3 -> stamina
 		//income multiplier price - income multiplier - stamina price
 
