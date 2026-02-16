@@ -26,8 +26,8 @@ namespace Tmpl8 {
 		showAlert(false),
 		alertTime(2000),
 		alertElapsedTime(0),
-		firstFine(totalDebt * 0.70),
-		lastFine(totalDebt * 0.30)
+		firstFine(long long(totalDebt * 0.70)),
+		lastFine(long long(totalDebt * 0.30))
 	{
 		this->textHover = "Pay your debt";
 		this->textPosition = vec2(pos + vec2(0, -56));

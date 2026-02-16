@@ -28,7 +28,7 @@ namespace Tmpl8 {
 
 	void Camera2D::setWorldSize(vec2 size) {
 		//multiply the number of tiles on the x and y axes by the tile size
-		this->worldSize = size * MapHandler::tileSize;
+		this->worldSize = size * float(MapHandler::tileSize);
 	}
 
 	

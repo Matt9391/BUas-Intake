@@ -72,7 +72,7 @@ namespace Tmpl8
 		this->timeElapsedAchievement = 0.f;
 
 		//set debug mode
-		this->debug = true;
+		this->debug = false;
 
 		//load maps from files
 		MapHandler::mapsTdw[0] = MapHandler::loadMap("mapTopDown.txt");

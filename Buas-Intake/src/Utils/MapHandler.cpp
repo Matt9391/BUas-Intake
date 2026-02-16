@@ -39,8 +39,8 @@ namespace Tmpl8 {
 	//load assets
 	Surface MapHandler::map2DTileset("./assets/2D/seaMap.png");
 	//they share the same tileset
-	Surface MapHandler::mapTdwTileset("./assets/TopDown/mapV4.png");
-	Surface MapHandler::mapHomeTileset("./assets/TopDown/mapV4.png");
+	Surface MapHandler::mapTdwTileset("./assets/TopDown/mapV5.png");
+	Surface MapHandler::mapHomeTileset("./assets/TopDown/mapV5.png");
 
 	//loads interactable objects from file.
 	//fishingSprites is only needed when loading fish areas so it's optional
