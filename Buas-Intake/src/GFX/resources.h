@@ -8,6 +8,8 @@ namespace Tmpl8 {
 	extern Surface fontSource;
 	extern Sprite humanSprite;
 	extern Sprite fishSprite;
+	extern Sprite fishSpriteDamaged;
+	extern std::array<Sprite*, 2> fishSprites;
 	extern Sprite barSprite;
 	extern Sprite indxSprite;
 	extern Sprite fishesSprite;

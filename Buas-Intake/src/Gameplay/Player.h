@@ -20,7 +20,7 @@ namespace Tmpl8 {
 	{
 	public:
 
-		Player(Sprite& humanSprite, Sprite& fishSprite, long long& paidDebt);
+		Player(Sprite& humanSprite, std::array<Sprite*, 2>& fishSprites, long long& paidDebt);
 
 		void update(float dt);
 		
@@ -61,6 +61,7 @@ namespace Tmpl8 {
 		void setPos(const vec2& pos);
 		void setDir(const vec2& dir);
 		void setState(int state);
+		void setDamaged(bool damaged);
 		void setInput(const char& input);
 		void setCoins(long long coins);
 		//spendCoins just spends coins normally
@@ -122,7 +123,7 @@ namespace Tmpl8 {
 
 		//sprites for different player visuals
 		Sprite &humanSprite;
-		Sprite &fishSprite;
+		std::array<Sprite*, 2>& fishSprites;
 
 		//current state of the player
 		PlayerState* state;
@@ -158,6 +159,12 @@ namespace Tmpl8 {
 		//dead timer variables
 		float deadTimeElapsed;
 		float deadTimer;
+
+		//whether to show the original sprite or the damaged one
+		bool showDamaged;
+		float damagedTimeElapsed;
+		float damagedTimer;
+		bool isGettingDamaged;
 
 	};
 

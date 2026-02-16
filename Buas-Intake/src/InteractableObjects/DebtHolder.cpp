@@ -21,8 +21,8 @@ namespace Tmpl8 {
 
 	DebtHolder::DebtHolder(int type, vec2 pos, vec2 size) :
 		InteractableObject(type, pos, size),
-		priceTextPosition(pos + vec2(20, -44)),
-		alertTextPosition(pos + vec2(0, 56)),
+		priceTextPosition(pos + vec2(56, 22)),
+		alertTextPosition(pos + vec2(-56, 80)),
 		showAlert(false),
 		alertTime(2000),
 		alertElapsedTime(0),
@@ -36,8 +36,8 @@ namespace Tmpl8 {
 
 	void DebtHolder::showText(Surface* screen, vec2 cameraOffset) {
 		Text::drawString(this->textHover, screen, (this->textPosition - cameraOffset));
-		Text::drawString("Price: ", screen, (this->priceTextPosition - cameraOffset));
-		Text::drawCoins(screen, (this->priceTextPosition + vec2(42, 0) - cameraOffset), long long(totalDebt));
+		Text::drawString("Debt left to pay: ", screen, (this->priceTextPosition - cameraOffset));
+		Text::drawCoins(screen, (this->priceTextPosition + vec2(50, 16) - cameraOffset), long long(totalDebt - paidDebt));
 		if (this->showAlert) {
 			Text::drawString(this->alertText, screen, (this->alertTextPosition - cameraOffset));
 		}

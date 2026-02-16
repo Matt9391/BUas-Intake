@@ -99,13 +99,22 @@ namespace Tmpl8 {
 			}
 		}
 
+		bool playerDamaged = false;
 		for (auto& e : enemies) {
 			e->update(dt, player);
 
 			//check if it intersects with the player
 			if (e->intersectPlayer(player)) {
 				e->attack(player);
+				playerDamaged = true;
 			}
+		}
+
+		if (playerDamaged) {
+			player.setDamaged(true);
+		}
+		else {
+			player.setDamaged(false);
 		}
 	}
 

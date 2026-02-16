@@ -14,7 +14,7 @@
 
 namespace Tmpl8 {
 
-	Player::Player(Sprite& humanSprite, Sprite& fishSprite, long long& paidDebt) :
+	Player::Player(Sprite& humanSprite, std::array<Sprite*, 2>& fishSprites, long long& paidDebt) :
 		debug(false),
 		interacting(false),
 		input(' '),
@@ -32,7 +32,7 @@ namespace Tmpl8 {
 		sprintSpeed(0.35),
 		dir(0,0),
 		humanSprite(humanSprite),
-		fishSprite(fishSprite),
+		fishSprites(fishSprites),
 		state(nullptr),
 		visual(PlayerVisual::Human),
 		currentMap(nullptr),
@@ -47,7 +47,11 @@ namespace Tmpl8 {
 		deadTextPosition(pos),
 		showDeadText(false),
 		deadTimer(1000.f),
-		deadTimeElapsed(0.f)
+		deadTimeElapsed(0.f),
+		showDamaged(false),
+		damagedTimeElapsed(0.f),
+		damagedTimer(200.f),
+		isGettingDamaged(false)
 	{
 		this->setState(0);
 		humanSprite.SetFrame(38);
@@ -60,6 +64,19 @@ namespace Tmpl8 {
 		this->sprint(dt);
 		this->move(dt);
 		this->playAnimation(dt);
+
+		//if getting hitted by the enemies
+		if (this->isGettingDamaged) {
+			this->damagedTimeElapsed += dt;
+			if (this->damagedTimeElapsed > this->damagedTimer) { //alternate original and damaged sprite
+				this->showDamaged = !this->showDamaged;
+				this->damagedTimeElapsed = 0.f;
+			}
+		}
+		else {
+			this->showDamaged = false;
+		}
+
 
 		//if dead text is showing, update its timer and position
 		if (showDeadText) {
@@ -103,7 +120,8 @@ namespace Tmpl8 {
 			if (this->visual == PlayerVisual::Human) {
 				this->humanSprite.SetFrame(currentFrame);
 			}else if (this->visual == PlayerVisual::Fish) {
-				this->fishSprite.SetFrame(currentFrame);
+				this->fishSprites[0]->SetFrame(currentFrame);
+				this->fishSprites[1]->SetFrame(currentFrame);
 			}
 		}
 	}
@@ -184,7 +202,12 @@ namespace Tmpl8 {
 		else if (this->visual == PlayerVisual::Fish) {
 			int yDrawPos = int(this->pos.y - this->size.y / 2.f  - cameraOffset.y);
 			int xDrawPos = int(this->pos.x - 4.f - cameraOffset.x);
-			this->fishSprite.Draw(screen, xDrawPos, yDrawPos);
+			if (this->showDamaged) {
+				this->fishSprites[1]->Draw(screen, xDrawPos, yDrawPos);
+			}
+			else {
+				this->fishSprites[0]->Draw(screen, xDrawPos, yDrawPos);
+			}
 		}
 
 		//draw UI elements (should be done in a separate UI class but for simplicity done here)
@@ -300,6 +323,10 @@ namespace Tmpl8 {
 			this->state->enter(*this);
 		}
 
+	}
+	
+	void Player::setDamaged(bool damaged) {
+		this->isGettingDamaged = damaged;
 	}
 
 	void Player::setCoins(long long coins) {

@@ -35,7 +35,7 @@ namespace Tmpl8
 		timerAchievement(0.f),
 		debug(false),
 		sceneManager(*this),
-		player(humanSprite, fishSprite, DebtHolder::paidDebt),
+		player(humanSprite, fishSprites, DebtHolder::paidDebt),
 		camera(vec2(0, 0), vec2(ScreenWidth, ScreenHeight)),
 		screen(nullptr)
 	{}
