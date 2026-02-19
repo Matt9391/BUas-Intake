@@ -205,7 +205,7 @@ namespace Tmpl8 {
 			if (this->showDamaged) {
 				this->fishSprites[1]->Draw(screen, xDrawPos, yDrawPos);
 				//need to test
-				drawBox(screen, {100, 100}, {100, 100});
+				drawBox(screen, vec2(32, 72), vec2(32, 10));
 			}
 			else {
 				this->fishSprites[0]->Draw(screen, xDrawPos, yDrawPos);
@@ -443,7 +443,6 @@ namespace Tmpl8 {
 	
 	void Player::drawBox(Surface* screen, vec2 pos, vec2 size) {
 		Pixel red = 0xFF0000; //format: 0xRRGGBB
-
 		Pixel* buffer = screen->GetBuffer();
 		int pitch = screen->GetPitch(); // pixel per riga
 
