@@ -204,6 +204,8 @@ namespace Tmpl8 {
 			int xDrawPos = int(this->pos.x - 4.f - cameraOffset.x);
 			if (this->showDamaged) {
 				this->fishSprites[1]->Draw(screen, xDrawPos, yDrawPos);
+				//need to test
+				drawBox(screen, {100, 100}, {100, 100});
 			}
 			else {
 				this->fishSprites[0]->Draw(screen, xDrawPos, yDrawPos);
@@ -413,6 +415,33 @@ namespace Tmpl8 {
 		//map size.x based on sprint elapsed time
 		size.x = mapValue(this->sprintElapsedTime, 0.f, this->maxSprintTime, float(maxSizeX), 0.f);
 
+		Pixel red = 0xFF0000; //format: 0xRRGGBB
+
+		Pixel* buffer = screen->GetBuffer();
+		int pitch = screen->GetPitch(); // pixel per riga
+
+		//draw stamina bar
+		for (int dy = 0; dy < size.y; dy++)
+		{
+			//calculate y position
+			int py = int(pos.y) + dy;
+			//skip if outside screen
+			if (py < 0 || py >= screen->GetHeight()) continue;
+
+			for (int dx = 0; dx < size.x; dx++)
+			{
+				//calculate x position
+				int px = int(pos.x) + dx;
+				//skip if outside screen
+				if (px < 0 || px >= screen->GetWidth()) continue;
+
+				//set pixel to red
+				buffer[px + py * pitch] = red;
+			}
+		}
+	}
+	
+	void Player::drawBox(Surface* screen, vec2 pos, vec2 size) {
 		Pixel red = 0xFF0000; //format: 0xRRGGBB
 
 		Pixel* buffer = screen->GetBuffer();

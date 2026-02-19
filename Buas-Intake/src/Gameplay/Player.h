@@ -87,6 +87,8 @@ namespace Tmpl8 {
 		void showHitbox(Surface* screen, vec2 cameraOffset);
 		//draw stamina bar
 		void drawStamina(Surface* screen, vec2 pos);
+		//draw box bar
+		void drawBox(Surface* screen, vec2 pos, vec2 size);
 
 		bool debug;
 
