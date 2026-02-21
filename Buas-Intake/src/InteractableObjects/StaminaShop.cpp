@@ -2,6 +2,7 @@
 #include "../../tmpl8/surface.h"
 #include "../../tmpl8/template.h"
 #include "../Utils/Text.h"
+#include "../Utils/functions.h"
 #include "../Gameplay/Player.h"
 #include "InteractableObject.h"
 #include "../game.h"
@@ -29,18 +30,22 @@ namespace Tmpl8 {
 		alertElapsedTime(0)
 	{
 		this->textHover = "Stamina shop";
-		this->textPosition = vec2(pos + vec2(12, -56));
+		this->textHoverPosition = vec2(pos + vec2(12, -56));
 		this->alertText = "Not enough coins";
 	}
-	
-	void StaminaShop::showText(Surface* screen, vec2 cameraOffset) {
-		Text::drawString(this->textHover, screen, (this->textPosition - cameraOffset));
-		Text::drawString("Price: ", screen, (this->priceTextPosition - cameraOffset));
-		Text::drawCoins(screen, (this->priceTextPosition + vec2(42, 0) - cameraOffset), long long(price));
+
+	void StaminaShop::setTexts(vec2 cameraOffset) {
+		this->texts.clear();
+
+		this->texts.push_back({ this->textHover,(this->textHoverPosition - cameraOffset), 1 });
+		this->texts.push_back({ "Price: ", (this->priceTextPosition - cameraOffset), 1 });
+		this->texts.push_back({ formatCoins(long long(price)), (this->priceTextPosition + vec2(42, 0) - cameraOffset), 1 });
 		if (this->showAlert) {
-			Text::drawString(this->alertText, screen, (this->alertTextPosition - cameraOffset));
+			this->texts.push_back({ this->alertText, (this->alertTextPosition - cameraOffset), 1 });
 		}
+
 	}
+
 
 	void StaminaShop::interact(Player& player, Game& game) {
 		//check if the player has enough coins

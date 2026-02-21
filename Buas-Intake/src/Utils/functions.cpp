@@ -1,4 +1,6 @@
 #include "functions.h"
+#include <string>
+#include <cstdio>
 
 namespace Tmpl8 {
 
@@ -14,6 +16,40 @@ namespace Tmpl8 {
 		if (value > max)
 			return max; 
 		return value;
+	}
+
+	std::string formatCoins(long long coins) {
+		std::string text;
+
+		//format coins into K, M, B notation
+		if (coins >= 1'000'000'000) {
+			double value = coins / 1'000'000'000.0;
+			char buf[32];
+			snprintf(buf, sizeof(buf), "%.1fB", value);
+			text = buf;
+		}
+		else if (coins >= 1'000'000) {
+			double value = coins / 1'000'000.0;
+			char buf[32];
+			snprintf(buf, sizeof(buf), "%.1fM", value);
+			text = buf;
+		}
+		else if (coins >= 1000) {
+			double value = coins / 1'000.0;
+			char buf[32];
+			snprintf(buf, sizeof(buf), "%.1fK", value);
+			text = buf;
+		}
+		else {
+			text = std::to_string(coins);
+		}
+
+		return text;
+
+	}
+
+	int getLength(std::string str) {
+		return str.length();
 	}
 
 }

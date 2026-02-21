@@ -36,7 +36,7 @@ namespace Tmpl8 {
 		rebounceTime(0),
 		fishingSprites(fishingSprites)
 	{
-		textPosition = vec2(pos + vec2(-46, -32));
+		textHoverPosition = vec2(pos + vec2(-46, -32));
 		textHover = "press 'F' to start fishing";
 	}
 
@@ -152,8 +152,16 @@ namespace Tmpl8 {
 		}
 	}
 
-	void FishArea::showText(Surface* screen, vec2 cameraOffset) {
-		Text::drawString(this->textHover, screen, (this->textPosition - cameraOffset));
+	void FishArea::setTexts(vec2 cameraOffset) {
+		this->texts.clear();
+
+		this->texts.push_back({ this->textHover, textHoverPosition - cameraOffset, 1 });
+		if (!this->enable)
+			return;
+		if (!this->showFishCard)
+			return;
+
+		this->texts.push_back({ this->cardText, textCardPosition - cameraOffset, 1});
 	}
 
 	void FishArea::draw(Surface* screen, vec2 cameraOffset) {
@@ -167,6 +175,5 @@ namespace Tmpl8 {
 			return;
 
 		(*this->fishingSprites[2]).Draw(screen, int(this->cardPosition.x - cameraOffset.x), int(this->cardPosition.y - cameraOffset.y));
-		Text::drawString(this->cardText, screen, textCardPosition - cameraOffset);
-	}	
+	}
 }

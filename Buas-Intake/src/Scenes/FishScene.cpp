@@ -11,6 +11,10 @@
 #include "../game.h"
 
 #include "FishScene.h"
+#include <memory>
+#include "../DataTypes/SceneType.h"
+#include "Scene.h"
+#include "../GFX/HUD.h"
 
 namespace Tmpl8 { 
 	FishScene::FishScene(Game& game) :
@@ -79,11 +83,14 @@ namespace Tmpl8 {
 		player.setPos(vec2(MapHandler::tileSize * 29.f, MapHandler::tileSize * 3.f));
 	}
 
-	void FishScene::update(float dt, Camera2D& camera, Player& player) {
+	void FishScene::update(float dt, Camera2D& camera, Player& player, HUD& hud) {
+		hud.clearTexts();
 
 		player.update(dt);
-
 		camera.follow(player.getPos());
+
+		player.setTexts(camera.getPos());
+
 
 		//for each interactable object
 		for (auto& object : MapHandler::objects) {
@@ -91,12 +98,16 @@ namespace Tmpl8 {
 
 			//check if it intersects with the player
 			if (object->intersectPlayer(player)) {
+				object->setTexts(camera.getPos());
 				//check if the player is interacting
 				if (player.isInteracting()) {
 					object->interact(player, this->game);
 				}
 
 			}
+
+			hud.addTexts(object->getTexts());
+			object->clearTexts();
 		}
 
 		bool playerDamaged = false;
@@ -116,9 +127,12 @@ namespace Tmpl8 {
 		else {
 			player.setDamaged(false);
 		}
+
+		hud.addTexts(player.getTexts());
+
 	}
 
-	void FishScene::draw(Surface* screen, Camera2D& camera, Player& player) {
+	void FishScene::draw(Surface* screen, Camera2D& camera, Player& player, HUD& hud) {
 		screen->Clear(0);
 
 		//draw the 2D map
@@ -152,11 +166,6 @@ namespace Tmpl8 {
 
 		for (auto& object : MapHandler::objects) {
 			object->draw(screen, camera.getPos());
-
-			//if the player intersects with the object show its text
-			if (object->intersectPlayer(player)) {
-				object->showText(screen, camera.getPos());
-			}
 		}
 
 		for (auto& e : enemies) {
@@ -164,6 +173,8 @@ namespace Tmpl8 {
 		}
 
 		player.draw(screen, camera.getPos());
+
+		hud.draw(screen);
 	}
 
 }

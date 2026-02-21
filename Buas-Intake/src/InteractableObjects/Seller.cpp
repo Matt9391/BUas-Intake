@@ -14,7 +14,7 @@ namespace Tmpl8 {
 		InteractableObject(type, pos, size)
 	{
 		this->textHover = "Seller";
-		this->textPosition = vec2(pos + vec2(26, -44));
+		this->textHoverPosition = vec2(pos + vec2(26, -44));
 	}  
 
 	void Seller::interact(Player& player, Game& game) {

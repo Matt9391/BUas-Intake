@@ -129,6 +129,7 @@
     <ClCompile Include="..\src\game.cpp" />
     <ClCompile Include="..\src\gameplay\Camera2D.cpp" />
     <ClCompile Include="..\src\gameplay\Player.cpp" />
+    <ClCompile Include="..\src\GFX\HUD.cpp" />
     <ClCompile Include="..\src\GFX\resources.cpp" />
     <ClCompile Include="..\src\InteractableObjects\Chest.cpp" />
     <ClCompile Include="..\src\InteractableObjects\DebtHolder.cpp" />
@@ -158,12 +159,15 @@
     <ClInclude Include="..\src\DataTypes\ChestObject.h" />
     <ClInclude Include="..\src\DataTypes\Fish.h" />
     <ClInclude Include="..\src\DataTypes\PlayerVisual.h" />
+    <ClInclude Include="..\src\DataTypes\PrintableBox.h" />
+    <ClInclude Include="..\src\DataTypes\PrintableText.h" />
     <ClInclude Include="..\src\DataTypes\SceneType.h" />
     <ClInclude Include="..\src\Entities\Enemy.h" />
     <ClInclude Include="..\src\Entities\Entity.h" />
     <ClInclude Include="..\src\game.h" />
     <ClInclude Include="..\src\gameplay\Camera2D.h" />
     <ClInclude Include="..\src\gameplay\Player.h" />
+    <ClInclude Include="..\src\GFX\HUD.h" />
     <ClInclude Include="..\src\GFX\resources.h" />
     <ClInclude Include="..\src\InteractableObjects\Chest.h" />
     <ClInclude Include="..\src\InteractableObjects\DebtHolder.h" />

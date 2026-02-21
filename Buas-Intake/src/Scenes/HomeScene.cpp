@@ -10,6 +10,9 @@
 #include "../game.h"
  
 #include "HomeScene.h"
+#include "../DataTypes/SceneType.h"
+#include "../GFX/HUD.h"
+#include "../../tmpl8/template.h"
 
 namespace Tmpl8 {
 
@@ -50,17 +53,28 @@ namespace Tmpl8 {
 		player.setPos(vec2(MapHandler::tileSize * 15.f, MapHandler::tileSize * 6.f));
 	}
 
-	void HomeScene::update(float dt, Camera2D& camera, Player& player){
+	void HomeScene::update(float dt, Camera2D& camera, Player& player, HUD& hud){
 		if (GetAsyncKeyState(VK_SPACE)) {
 			this->game.setPendingScene(SceneType::SceneHuman);
 		}
+		hud.clearTexts();
+
+		hud.addText({ this->playText, this->playTextPosition,1 });
+		hud.addText({ this->howToPlayText, this->howToPlayTextPosition, 2 });
+		hud.addText({ this->UIText, this->UITextPosition,1 });
+		hud.addText({ this->whatIsText, this->whatIsTextPosition, 2 });
+		hud.addText({ this->resetText, this->resetTextPosition,1 });
 
 		player.update(dt);
 
 		camera.follow(player.getPos());
+
+		player.setTexts(camera.getPos());
+
+		hud.addTexts(player.getTexts());
 	}
 
-	void HomeScene::draw(Surface* screen, Camera2D& camera, Player& player){
+	void HomeScene::draw(Surface* screen, Camera2D& camera, Player& player, HUD& hud){
 		screen->Clear(0);
 		
 		//draw the home map
@@ -83,11 +97,7 @@ namespace Tmpl8 {
 
 		player.draw(screen, camera.getPos());
 
-		Text::drawString(this->playText, screen, this->playTextPosition);
-		Text::drawString(this->howToPlayText, screen, this->howToPlayTextPosition, 2);
-		Text::drawString(this->UIText, screen, this->UITextPosition);
-		Text::drawString(this->whatIsText, screen, this->whatIsTextPosition, 2);
-		Text::drawString(this->resetText, screen, this->resetTextPosition);
+		hud.draw(screen);
 
 		gameTitle.DrawScaled(int(this->gameTitlePos.x), int(this->gameTitlePos.y), 250, 250, screen);
 	}

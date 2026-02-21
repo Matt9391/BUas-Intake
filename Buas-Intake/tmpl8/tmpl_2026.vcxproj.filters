@@ -86,6 +86,9 @@
     <ClCompile Include="..\src\InteractableObjects\DebtHolder.cpp">
       <Filter>InteractableObjects</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\GFX\HUD.cpp">
+      <Filter>GFX</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="surface.h">
@@ -187,6 +190,15 @@
     <ClInclude Include="..\src\game.h" />
     <ClInclude Include="..\src\InteractableObjects\DebtHolder.h">
       <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GFX\HUD.h">
+      <Filter>GFX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DataTypes\PrintableBox.h">
+      <Filter>DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DataTypes\PrintableText.h">
+      <Filter>DataTypes</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -19,7 +19,7 @@ namespace Tmpl8 {
 		void update(float dt, Player& player) override; 
 		void interact(Player& player,Game& game) override;
 
-		void showText(Surface* screen, vec2 cameraOffset) override;
+		void setTexts(vec2 cameraOffset) override;
 
 		void draw(Surface* screen, vec2 cameraOffset) override;
 

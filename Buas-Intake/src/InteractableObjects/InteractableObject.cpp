@@ -6,6 +6,10 @@
 #include "../game.h"
 
 #include "InteractableObject.h"
+#include <vector>
+#include "../DataTypes/PrintableText.h"
+#include "../Entities/Entity.h"
+#include "../GFX/HUD.h"
 
 namespace Tmpl8 {
 
@@ -13,7 +17,7 @@ namespace Tmpl8 {
 		Entity(pos,size),
 		type(type),
 		textHover("Plain text"),
-		textPosition(pos)
+		textHoverPosition(pos)
 	{}
 	 
 	//blank class methods
@@ -23,8 +27,19 @@ namespace Tmpl8 {
 		printf("Interacted\n");
 	}
 
-	void InteractableObject::showText(Surface* screen, vec2 cameraOffset) {
-		Text::drawString(this->textHover, screen, this->textPosition - cameraOffset);
+	std::vector <PrintableText>InteractableObject::getTexts() {
+		return this->texts;
+	}
+
+	void InteractableObject::setTexts(vec2 cameraOffset) {
+		this->texts.clear();
+
+		this->texts.push_back({ this->textHover, this->textHoverPosition - cameraOffset, 1 });
+	
+}
+
+	void InteractableObject::clearTexts() {
+		this->texts.clear();
 	}
 
 	void InteractableObject::draw(Surface* screen, vec2 cameraOffset) {}

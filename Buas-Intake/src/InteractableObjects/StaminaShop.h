@@ -19,7 +19,7 @@ namespace Tmpl8 {
 
 		void interact(Player& player, Game& game) override;
 
-		void showText(Surface* screen, vec2 cameraOffset) override;
+		void setTexts(vec2 cameraOffset) override;
 
 		//load price from game saves
 		static void loadPrice(float loadedPrice);

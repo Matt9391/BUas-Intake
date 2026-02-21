@@ -11,6 +11,7 @@
 #include "./Utils/Text.h"
 #include "./Utils/SaveSystem.h"
 #include "./Utils/SceneManager.h"
+#include "./Utils/functions.h"
 #include "./Gameplay/Camera2D.h"
 #include "./Gameplay/Player.h"
 #include "./GFX/resources.h"
@@ -37,6 +38,8 @@ namespace Tmpl8
 		sceneManager(*this),
 		player(humanSprite, fishSprites, DebtHolder::paidDebt),
 		camera(vec2(0, 0), vec2(ScreenWidth, ScreenHeight)),
+		textDrawer(&fontSource),
+		hud(textDrawer),
 		screen(nullptr)
 	{}
 
@@ -104,8 +107,6 @@ namespace Tmpl8
 		this->sceneManager.setPendingScene(SceneType::SceneHome);
 		this->sceneManager.changeScene(player, camera);
 
-		//initialize text system
-		Text::init(&fontSource);
 		
 		//load datas
 		player.loadData(this->saveSystem.getGameSaves());
@@ -135,8 +136,8 @@ namespace Tmpl8
 	void Game::Tick(float deltaTime)
 	{
 		//update and draw current scene
-		this->sceneManager.currentScene->update(deltaTime, camera, player);
-		this->sceneManager.currentScene->draw(screen, camera, player);
+		this->sceneManager.currentScene->update(deltaTime, camera, player, hud);
+		this->sceneManager.currentScene->draw(screen, camera, player,hud);
 		
 		//if achievement is being shown update timer and draw it
 		if (showAchievement) {
@@ -190,8 +191,8 @@ namespace Tmpl8
 	}
 
 	void Game::drawAchievement(long long coins) {
-		Text::drawString("You made your first ", this->screen, vec2(ScreenWidth / 2.f - 200.f,MapHandler::tileSize * 5.5f),2);
-		Text::drawCoins(this->screen, vec2(ScreenWidth / 2.f + 70.f, MapHandler::tileSize * 5.5f), coins,2);
+		this->hud.addText({ "You made your first ", vec2(ScreenWidth / 2.f - 200.f,MapHandler::tileSize * 5.5f),2 });
+		this->hud.addText({ formatCoins(coins), vec2(ScreenWidth / 2.f + 70.f, MapHandler::tileSize * 5.5f),2 });
 	}
 
 	void Game::setPendingScene(SceneType nextScene) {

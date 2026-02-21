@@ -53,7 +53,7 @@ namespace Tmpl8 {
 		this->pos.x = mapValue(xValue, -1.f, 1.f, this->minPos.x, this->maxPos.x);
 		this->pos.y = mapValue(yValue, -1.f, 1.f, this->minPos.y, this->maxPos.y);
 
-		this->textPosition = pos - vec2(16, 0);
+		this->textHoverPosition = pos - vec2(16, 0);
 	}
 
 

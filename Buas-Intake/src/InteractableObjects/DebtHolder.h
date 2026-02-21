@@ -1,6 +1,12 @@
 #include "InteractableObject.h"
+#include <string>
+#include "../../tmpl8/template.h"
 
 namespace Tmpl8 {
+
+	class Player;
+	class HUD;
+	class Game;
 
 	class DebtHolder : public InteractableObject {
 	public:
@@ -11,7 +17,7 @@ namespace Tmpl8 {
 
 		void interact(Player& player, Game& game) override;
 
-		void showText(Surface* screen, vec2 cameraOffset) override;
+		void setTexts(vec2 cameraOffset) override;
 
 		static void loadPaidDebt(long long loadedDebt);
 

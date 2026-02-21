@@ -2,7 +2,9 @@
 #include "../../tmpl8/template.h"
 #include "../../tmpl8/surface.h"
 #include "../Utils/Text.h"
+#include "../Utils/functions.h"
 #include "../Gameplay/Player.h"
+#include "../GFX/HUD.h"
 #include "../game.h"
 
 #include "DebtHolder.h"
@@ -30,18 +32,22 @@ namespace Tmpl8 {
 		lastFine(long long(totalDebt * 0.30))
 	{
 		this->textHover = "Pay your debt";
-		this->textPosition = vec2(pos + vec2(0, -56));
+		this->textHoverPosition = vec2(pos + vec2(0, -56));
 		this->alertText = "You can't be forgiven yet";
 	}
 
-	void DebtHolder::showText(Surface* screen, vec2 cameraOffset) {
-		Text::drawString(this->textHover, screen, (this->textPosition - cameraOffset));
-		Text::drawString("Debt left to pay: ", screen, (this->priceTextPosition - cameraOffset));
-		Text::drawCoins(screen, (this->priceTextPosition + vec2(50, 16) - cameraOffset), long long(totalDebt - paidDebt));
+	void DebtHolder::setTexts(vec2 cameraOffset) {
+		this->texts.clear();
+
+		this->texts.push_back({ this->textHover, (this->textHoverPosition - cameraOffset), 1 });
+		this->texts.push_back({ "Debt left to pay: ", (this->priceTextPosition - cameraOffset), 1 });
+		this->texts.push_back({ formatCoins(long long(totalDebt - paidDebt)), (this->priceTextPosition + vec2(50, 16) - cameraOffset), 1 });
+
 		if (this->showAlert) {
-			Text::drawString(this->alertText, screen, (this->alertTextPosition - cameraOffset));
+			this->texts.push_back({ this->alertText, (this->alertTextPosition - cameraOffset), 1 });
 		}
 	}
+
 
 	void DebtHolder::interact(Player& player, Game& game) {
 		//check if the "first" part of the debt is paid

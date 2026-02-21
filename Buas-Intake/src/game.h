@@ -3,8 +3,10 @@
 #include "./Scenes/HomeScene.h"
 #include "./Utils/SaveSystem.h"
 #include "./Utils/SceneManager.h"
+#include "./Utils/Text.h"
 #include "./Gameplay/Player.h"
 #include "./Gameplay/Camera2D.h"
+#include "./GFX/HUD.h"
 #include <unordered_map>
 #include <utility>
 
@@ -59,6 +61,9 @@ namespace Tmpl8 {
 
 		Player player;
 		Camera2D camera;
+
+		HUD hud;
+		Text textDrawer;
 	};
 	 
 }; // namespace Tmpl8

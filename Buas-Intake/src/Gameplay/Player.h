@@ -7,6 +7,7 @@
 #include "../DataTypes/PlayerVisual.h"
 #include "../DataTypes/Fish.h"
 #include "../DataTypes/ChestObject.h"
+#include "../DataTypes/PrintableText.h"
 
 #pragma once
 
@@ -53,6 +54,7 @@ namespace Tmpl8 {
 		float getStamina();
 		std::vector<Fish> getFishes();
 		std::vector<ChestObject> getChests();
+		std::vector <PrintableText>getTexts();
 
 		//setters
 		void setInteracting(bool state);
@@ -75,6 +77,7 @@ namespace Tmpl8 {
 		void addStamina(float ms);
 		void payDebt(int coins);
 		void enableDebug(bool enable);
+		void setTexts(vec2 cameraOffset);
 
 		//set the animation range
 		void setAnimRange(int first, int last);
@@ -168,6 +171,7 @@ namespace Tmpl8 {
 		float damagedTimer;
 		bool isGettingDamaged;
 
+		std::vector<PrintableText> texts;
 	};
 
 }

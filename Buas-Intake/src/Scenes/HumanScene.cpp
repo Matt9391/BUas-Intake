@@ -12,6 +12,8 @@
 #include "../game.h"
 
 #include "HumanScene.h"
+#include "../DataTypes/SceneType.h"
+#include "../GFX/HUD.h"
 
 namespace Tmpl8 {
 
@@ -33,11 +35,14 @@ namespace Tmpl8 {
 		MapHandler::objects.clear();
 	}
 
-	void HumanScene::update(float dt, Camera2D& camera, Player& player) {
+	void HumanScene::update(float dt, Camera2D& camera, Player& player, HUD& hud) {
+		hud.clearTexts();
 
 		player.update(dt);
 
 		camera.follow(player.getPos());
+		player.setTexts(camera.getPos());
+
 
 		//for each interactable object
 		for (auto& object : MapHandler::objects) {
@@ -45,13 +50,24 @@ namespace Tmpl8 {
 
 			//check if it intersects with the player
 			if (object->intersectPlayer(player)) {
+				object->setTexts(camera.getPos());
 				//check if the player is interacting
 				if (player.isInteracting()) {
 					object->interact(player, this->game);
 				}
 
 			}
+
+			hud.addTexts(object->getTexts());
+			object->clearTexts();
 		}
+
+		hud.addText({ "Fish", vec2(15.1f * MapHandler::tileSize, 3.8f * MapHandler::tileSize) - camera.getPos(), 1 });
+		hud.addText({"Shop", vec2(15.1f * MapHandler::tileSize, 4.3f * MapHandler::tileSize) - camera.getPos(), 1});
+		hud.addText({ "Press 'P' to pause", vec2(20.5f * MapHandler::tileSize, 0.5f * MapHandler::tileSize), 1 });
+
+
+		hud.addTexts(player.getTexts());
 
 		//check for pause key
 		if (GetAsyncKeyState('P') & 0x8000) {
@@ -59,7 +75,7 @@ namespace Tmpl8 {
 		}
 	}
 
-	void HumanScene::draw(Surface* screen, Camera2D& camera, Player& player) {
+	void HumanScene::draw(Surface* screen, Camera2D& camera, Player& player, HUD& hud) {
 		screen->Clear(0);
 
 		//draw map tiles
@@ -81,8 +97,7 @@ namespace Tmpl8 {
 
 		}
 
-		Text::drawString("Fish", screen, vec2(15.1f * MapHandler::tileSize, 3.8f * MapHandler::tileSize) - camera.getPos());
-		Text::drawString("Shop", screen, vec2(15.1f * MapHandler::tileSize, 4.3f * MapHandler::tileSize) - camera.getPos());
+
 
 		//if debug is enabled draw hitboxes
 		if (this->debug) {
@@ -93,15 +108,12 @@ namespace Tmpl8 {
 
 		for (auto& object : MapHandler::objects) {
 			object->draw(screen, camera.getPos());
-			//if the player intersects with the object show its text
-			if (object->intersectPlayer(player)) {
-				object->showText(screen, camera.getPos());
-			}
 		}
 
 		player.draw(screen, camera.getPos());
-		
-		Text::drawString("Press 'P' to pause", screen, vec2(20.5f * MapHandler::tileSize, 0.5f * MapHandler::tileSize));
+	
+		hud.draw(screen);
+
 	}
 	 
 }

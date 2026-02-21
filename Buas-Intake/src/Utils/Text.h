@@ -6,29 +6,30 @@
 namespace Tmpl8 {
 	class Surface;
 	class vec2;
+	struct PrintableText;
 
 	class Text
 	{
 
 	public: 
-		Text();
-
 		//initialize the font surface
-		static void init(Surface* fontSource);
+		Text(Surface* fontSource);
 
-		//draw coins, scale is optional
-		static void drawCoins(Surface* screen, vec2 pos, long long coins, int scale = 1);
+		
+
 		//draw string, scale is optional
-		static void drawString(std::string str, Surface* screen, vec2 pos, int scale = 1);
+		//static void drawString(std::string str, Surface* screen, vec2 pos, int scale = 1);
+		void drawString(PrintableText text, Surface* screen);
+
 
 	private:
 		//split string into multiple lines based on '\n' character
 		static std::vector<std::string> splitLines(const std::string& text);
 
 		//font surface and its character dimensions
-		static Surface* font;
-		static int fontHeight;
-		static int fontWidth;
+		Surface* font;
+		int fontHeight;
+		int fontWidth;
 
 	};
 

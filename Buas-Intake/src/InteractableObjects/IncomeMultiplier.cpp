@@ -2,6 +2,7 @@
 #include "../../tmpl8/template.h"
 #include "../../tmpl8/surface.h"
 #include "../Utils/Text.h"
+#include "../Utils/functions.h"
 #include "../Gameplay/Player.h"
 #include "../game.h"
 
@@ -27,17 +28,20 @@ namespace Tmpl8 {
 		alertElapsedTime(0)
 	{
 		this->textHover = "Income multiplier";
-		this->textPosition = vec2(pos + vec2(0, -56));
+		this->textHoverPosition = vec2(pos + vec2(0, -56));
 		this->alertText = "Not enough coins";
 	}
 
-	void IncomeMultiplier::showText(Surface* screen, vec2 cameraOffset) {
-		Text::drawString(this->textHover, screen, (this->textPosition - cameraOffset));
-		Text::drawString("Price: ", screen, (this->priceTextPosition - cameraOffset));
-		Text::drawCoins(screen, (this->priceTextPosition + vec2(42,0) - cameraOffset), long long(price));
+	void IncomeMultiplier::setTexts(vec2 cameraOffset) {
+		this->texts.clear();
+
+		this->texts.push_back({ this->textHover,(this->textHoverPosition - cameraOffset), 1 });
+		this->texts.push_back({ "Price: ", (this->priceTextPosition - cameraOffset), 1 });
+		this->texts.push_back({ formatCoins(long long(price)), (this->priceTextPosition + vec2(42, 0) - cameraOffset), 1 });
 		if (this->showAlert) {
-			Text::drawString(this->alertText, screen, (this->alertTextPosition - cameraOffset));
+			this->texts.push_back({ this->alertText, (this->alertTextPosition - cameraOffset), 1 });
 		}
+		
 	}
 
 	void IncomeMultiplier::interact(Player& player, Game& game) {

@@ -13,7 +13,7 @@ namespace Tmpl8 {
 		InteractableObject(type, pos, size)
 	{
 		this->textHover = "Press 'F' to change form";
-		this->textPosition = vec2(pos.x + size.x / 2 - 64, pos.y);
+		this->textHoverPosition = vec2(pos.x + size.x / 2 - 64, pos.y);
 	}
 	
 	//if the player is human, change to fish scene, else change to human scene

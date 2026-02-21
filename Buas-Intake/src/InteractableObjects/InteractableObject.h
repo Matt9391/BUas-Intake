@@ -1,5 +1,8 @@
 #include <string>
+#include <vector>
 #include "../Entities/Entity.h"
+#include "../GFX/HUD.h"
+#include "../DataTypes/PrintableText.h"
 
 #pragma once
 namespace Tmpl8 {
@@ -18,9 +21,13 @@ namespace Tmpl8 {
 
 		virtual void interact(Player& player, Game& game);
 
-		virtual void showText(Surface* screen, vec2 cameraOffset);
-
 		virtual void draw(Surface* screen, vec2 cameraOffset);
+
+		virtual std::vector <PrintableText>getTexts();
+
+		virtual void setTexts(vec2 cameraOffset);
+
+		void clearTexts();
 
 		//index of the interactable object type in the file
 		int type;
@@ -28,9 +35,11 @@ namespace Tmpl8 {
 	protected:
 
 		//position to show the text
-		vec2 textPosition;
+		vec2 textHoverPosition;
 		//text to show when hovering the object
 		std::string textHover;
+
+		std::vector<PrintableText> texts;
 
 	};
 }

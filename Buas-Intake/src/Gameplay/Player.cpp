@@ -10,6 +10,13 @@
 #include "../PlayerStates/FishState.h"
 
 #include "Player.h"
+#include <array>
+#include <string>
+#include <unordered_map>
+#include <vector>
+#include "../DataTypes/PrintableText.h"
+#include "../InteractableObjects/InteractableObject.h"
+#include "../Utils/MapHandler.h"
 
 
 namespace Tmpl8 {
@@ -89,7 +96,6 @@ namespace Tmpl8 {
 			//constrain dead text position within screen bounds
 			this->deadTextPosition.x = constrain(this->deadTextPosition.x, 10.f, float(ScreenWidth - 300));
 		}
-
 
 	}
 
@@ -204,27 +210,15 @@ namespace Tmpl8 {
 			int xDrawPos = int(this->pos.x - 4.f - cameraOffset.x);
 			if (this->showDamaged) {
 				this->fishSprites[1]->Draw(screen, xDrawPos, yDrawPos);
-				//need to test
-				drawBox(screen, vec2(32, 72), vec2(32, 10));
+				drawBox(screen, vec2(32, 72), vec2(getLength(formatCoins(this->coins))* 10, 7));
 			}
 			else {
 				this->fishSprites[0]->Draw(screen, xDrawPos, yDrawPos);
 			}
 		}
 
-		//draw UI elements (should be done in a separate UI class but for simplicity done here)
-		Text::drawString("Coins:", screen, vec2(32, 52));
-		Text::drawCoins(screen, vec2(32, 72), this->coins);
-		Text::drawCoins(screen, vec2(32, 96), this->paidDebt);
-		Text::drawString("Fishes: " + std::to_string(this->fishInventory.size()), screen, vec2(96, 52));
-		Text::drawString("Chests: " + std::to_string(this->chestInventory.size()), screen, vec2(96, 72));
-		
 		drawStamina(screen, vec2(32, 34));
-		Text::drawString(std::to_string(int((this->maxSprintTime - this->sprintElapsedTime) / 1000)) + "s", screen, vec2(150, 32));
 
-		if (showDeadText) {
-			Text::drawString(this->deadText, screen,this->deadTextPosition - cameraOffset);
-		}
 	}
 
 	//clear inventories
@@ -288,6 +282,11 @@ namespace Tmpl8 {
 	std::vector<ChestObject> Player::getChests() {
 		return this->chestInventory;
 	}
+	
+	std::vector <PrintableText> Player::getTexts() {
+		return this->texts;
+	}
+
 
 	//setters
 	void Player::setInteracting(bool state) {
@@ -375,6 +374,23 @@ namespace Tmpl8 {
 	void Player::enableDebug(bool enable) {
 		this->debug = enable;
 	}
+
+
+	void Player::setTexts(vec2 cameraOffset) {
+		this->texts.clear();
+
+		this->texts.push_back({ "Coins:", vec2(32, 52), 1 });
+		this->texts.push_back({ formatCoins(this->coins), vec2(32, 72), 1 });
+		this->texts.push_back({ formatCoins(this->paidDebt), vec2(32, 96), 1 });
+		this->texts.push_back({ "Fishes: " + std::to_string(this->fishInventory.size()), vec2(96, 52), 1 });
+		this->texts.push_back({ "Chests: " + std::to_string(this->chestInventory.size()), vec2(96, 72) , 1 });
+		this->texts.push_back({ std::to_string(int((this->maxSprintTime - this->sprintElapsedTime) / 1000)) + "s", vec2(150, 32), 1 });
+		
+		if (showDeadText) {
+			this->texts.push_back({ this->deadText, this->deadTextPosition - cameraOffset, 1 });
+		}
+	}
+
 
 	//draw player hitbox for debugging
 	void Player::showHitbox(Surface* screen, vec2 cameraOffset) {
