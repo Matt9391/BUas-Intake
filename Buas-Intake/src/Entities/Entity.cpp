@@ -3,6 +3,7 @@
 #include "../Gameplay/Player.h"
 
 #include "Entity.h"
+#include "../DataTypes/PrintableBox.h"
 
 namespace Tmpl8 {
 
@@ -48,32 +49,7 @@ namespace Tmpl8 {
 
 	}
 
-	void Entity::drawHitBox(Surface* screen, vec2 cameraOffset, Pixel clr) {
-		if (clr != 0x00000)
-			this->clr = clr;
-
-		Pixel* buffer = screen->GetBuffer(); //gets the screen buffer (array of pixels)
-		int pitch = screen->GetPitch(); //pixels for each row
-		//set position of drawing
-		vec2 pos(this->pos.x - cameraOffset.x, this->pos.y - cameraOffset.y);
-
-		for (int dy = 0; dy < size.y; dy++)
-		{
-			//py = pixel y
-			int py = int(pos.y) + dy; 
-			//check if it's in the screen bounds
-			if (py < 0 || py >= screen->GetHeight()) continue;
-
-			for (int dx = 0; dx < size.x; dx++)
-			{
-				//px = pixel x
-				int px = int(pos.x) + dx;
-				//check if it's in the screen bounds
-				if (px < 0 || px >= screen->GetWidth()) continue;
-
-				//set the screen pixel (px+py*pitch) to the color
-				buffer[px + py * pitch] = this->clr;
-			}
-		}
+	PrintableBox Entity::getBox(vec2 cameraOffset) {
+		return { this->pos - cameraOffset, this->size, this->clr };
 	}
 }

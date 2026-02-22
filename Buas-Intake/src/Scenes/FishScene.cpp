@@ -84,7 +84,7 @@ namespace Tmpl8 {
 	}
 
 	void FishScene::update(float dt, Camera2D& camera, Player& player, HUD& hud) {
-		hud.clearTexts();
+		hud.clearTextsAndBoxes();
 
 		player.update(dt);
 		camera.follow(player.getPos());
@@ -108,6 +108,10 @@ namespace Tmpl8 {
 
 			hud.addTexts(object->getTexts());
 			object->clearTexts();
+
+			if (this->debug) {
+				hud.addBox(object->getBox(camera.getPos()));
+			}
 		}
 
 		bool playerDamaged = false;
@@ -119,6 +123,10 @@ namespace Tmpl8 {
 				e->attack(player);
 				playerDamaged = true;
 			}
+
+			if (this->debug) {
+				hud.addBox(e->getBox(camera.getPos()));
+			}
 		}
 
 		if (playerDamaged) {
@@ -127,6 +135,9 @@ namespace Tmpl8 {
 		else {
 			player.setDamaged(false);
 		}
+
+		player.setBoxes(camera.getPos());
+		hud.addBoxes(player.getBoxes());
 
 		hud.addTexts(player.getTexts());
 
@@ -153,17 +164,9 @@ namespace Tmpl8 {
 			}
 
 		}
-		
-		//if debug is enabled draw hitboxes
-		if (this->debug) {
-			for (auto& object : MapHandler::objects) {
-				object->drawHitBox(screen, camera.getPos());
-			}
-			for (auto& e : enemies) {
-				e->drawHitBox(screen, camera.getPos());
-			}
-		}
 
+		hud.drawBoxes(screen);
+		
 		for (auto& object : MapHandler::objects) {
 			object->draw(screen, camera.getPos());
 		}
@@ -172,9 +175,11 @@ namespace Tmpl8 {
 			e->draw(screen, camera.getPos());
 		}
 
+		hud.drawTexts(screen);
+
+
 		player.draw(screen, camera.getPos());
 
-		hud.draw(screen);
 	}
 
 }

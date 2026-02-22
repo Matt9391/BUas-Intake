@@ -17,6 +17,7 @@
 #include "../DataTypes/PrintableText.h"
 #include "../InteractableObjects/InteractableObject.h"
 #include "../Utils/MapHandler.h"
+#include "../DataTypes/PrintableBox.h"
 
 
 namespace Tmpl8 {
@@ -50,6 +51,7 @@ namespace Tmpl8 {
 		sprinting(false),
 		maxSprintTime(2000.f),
 		sprintElapsedTime(0.f),
+		staminaMaxXSize(110),
 		deadText("you got ate!! you've lost all your stuff"),
 		deadTextPosition(pos),
 		showDeadText(false),
@@ -195,9 +197,6 @@ namespace Tmpl8 {
 	}
 
 	void Player::draw(Surface* screen, vec2 cameraOffset) {
-		if (this->debug) {
-			this->showHitbox(screen, cameraOffset);
-		}
 
 		//draw the related sprite based on current visual
 		if (this->visual == PlayerVisual::Human) {
@@ -210,14 +209,11 @@ namespace Tmpl8 {
 			int xDrawPos = int(this->pos.x - 4.f - cameraOffset.x);
 			if (this->showDamaged) {
 				this->fishSprites[1]->Draw(screen, xDrawPos, yDrawPos);
-				drawBox(screen, vec2(32, 72), vec2(getLength(formatCoins(this->coins))* 10, 7));
 			}
 			else {
 				this->fishSprites[0]->Draw(screen, xDrawPos, yDrawPos);
 			}
 		}
-
-		drawStamina(screen, vec2(32, 34));
 
 	}
 
@@ -285,6 +281,10 @@ namespace Tmpl8 {
 	
 	std::vector <PrintableText> Player::getTexts() {
 		return this->texts;
+	}
+	
+	std::vector<PrintableBox> Player::getBoxes() {
+		return this->boxes;
 	}
 
 
@@ -391,36 +391,20 @@ namespace Tmpl8 {
 		}
 	}
 
+	void Player::setBoxes(vec2 cameraOffset) {
+		this->boxes.clear();
+		if(this->debug)
+			this->boxes.push_back({ this->pos - cameraOffset, this->size, 0xFF0000 });
 
-	//draw player hitbox for debugging
-	void Player::showHitbox(Surface* screen, vec2 cameraOffset) {
-		vec2 size = this->size;
-		Pixel red = 0xFF0000; //format: 0xRRGGBB
+		this->boxes.push_back({ vec2(32, 34), vec2(mapValue(this->sprintElapsedTime, 0.f, this->maxSprintTime, float(this->staminaMaxXSize), 0.f),5), 0xFF0000});
 
-		Pixel* buffer = screen->GetBuffer();
-		int pitch = screen->GetPitch(); // pixel per row
-		vec2 pos(this->pos.x - cameraOffset.x, this->pos.y - cameraOffset.y);
-
-		//draw rectangle based on player size
-		for (int dy = 0; dy < size.y; dy++)
-		{
-			//calculate y position
-			int py = int(pos.y) + dy;
-			//skip if outside screen
-			if (py < 0 || py >= screen->GetHeight()) continue;
-
-			for (int dx = 0; dx < size.x; dx++)
-			{
-				//calculate x position
-				int px = int(pos.x) + dx;
-				//skip if outside screen
-				if (px < 0 || px >= screen->GetWidth()) continue;
-
-				//set pixel to red
-				buffer[px + py * pitch] = red;
-			}
+		if (this->showDamaged) {
+			this->boxes.push_back({ vec2(32, 72), vec2(getLength(formatCoins(this->coins)) * 7.f, 10.f), 0xFF0000 });
 		}
+
 	}
+
+
 
 	void Player::drawStamina(Surface* screen, vec2 pos) {
 		//x size of the stamina bar (could be a class constant)

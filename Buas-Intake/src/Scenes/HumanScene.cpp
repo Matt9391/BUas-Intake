@@ -36,7 +36,7 @@ namespace Tmpl8 {
 	}
 
 	void HumanScene::update(float dt, Camera2D& camera, Player& player, HUD& hud) {
-		hud.clearTexts();
+		hud.clearTextsAndBoxes();
 
 		player.update(dt);
 
@@ -60,6 +60,10 @@ namespace Tmpl8 {
 
 			hud.addTexts(object->getTexts());
 			object->clearTexts();
+
+			if (this->debug) {
+				hud.addBox(object->getBox(camera.getPos()));
+			}
 		}
 
 		hud.addText({ "Fish", vec2(15.1f * MapHandler::tileSize, 3.8f * MapHandler::tileSize) - camera.getPos(), 1 });
@@ -68,6 +72,10 @@ namespace Tmpl8 {
 
 
 		hud.addTexts(player.getTexts());
+
+
+		player.setBoxes(camera.getPos());
+		hud.addBoxes(player.getBoxes());
 
 		//check for pause key
 		if (GetAsyncKeyState('P') & 0x8000) {
@@ -97,22 +105,19 @@ namespace Tmpl8 {
 
 		}
 
+		hud.drawBoxes(screen);
 
 
-		//if debug is enabled draw hitboxes
-		if (this->debug) {
-			for (auto& object : MapHandler::objects) {
-				object->drawHitBox(screen, camera.getPos());
-			}
-		}
 
 		for (auto& object : MapHandler::objects) {
 			object->draw(screen, camera.getPos());
 		}
 
+		hud.drawTexts(screen);
+
+
 		player.draw(screen, camera.getPos());
 	
-		hud.draw(screen);
 
 	}
 	 

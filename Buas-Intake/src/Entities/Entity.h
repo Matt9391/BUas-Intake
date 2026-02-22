@@ -5,6 +5,7 @@
 
 namespace Tmpl8 {
 	class Player;
+	struct PrintableBox;
 
 	//base class for all objects / entities except the player
 	class Entity
@@ -21,9 +22,8 @@ namespace Tmpl8 {
 		//virtual method to allow child classes to implement custom behavior
 		virtual void draw(Surface* screen, vec2 cameraOffset) = 0;
 
-		//function that draw entity hitbox
-		void drawHitBox(Surface* screen, vec2 cameraOffset, Pixel clr = 0x00000);
-		 
+		//function that return the hitbox of the entity;
+		PrintableBox getBox(vec2 cameraOffset);
 	protected:
 		vec2 pos;
 		vec2 size;

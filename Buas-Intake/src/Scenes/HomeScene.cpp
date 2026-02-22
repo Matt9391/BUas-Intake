@@ -57,7 +57,7 @@ namespace Tmpl8 {
 		if (GetAsyncKeyState(VK_SPACE)) {
 			this->game.setPendingScene(SceneType::SceneHuman);
 		}
-		hud.clearTexts();
+		hud.clearTextsAndBoxes();
 
 		hud.addText({ this->playText, this->playTextPosition,1 });
 		hud.addText({ this->howToPlayText, this->howToPlayTextPosition, 2 });
@@ -72,6 +72,9 @@ namespace Tmpl8 {
 		player.setTexts(camera.getPos());
 
 		hud.addTexts(player.getTexts());
+
+		player.setBoxes(camera.getPos());
+		hud.addBoxes(player.getBoxes());
 	}
 
 	void HomeScene::draw(Surface* screen, Camera2D& camera, Player& player, HUD& hud){
@@ -95,9 +98,12 @@ namespace Tmpl8 {
 
 		}
 
+		hud.drawBoxes(screen);
+		hud.drawTexts(screen);
+
+
 		player.draw(screen, camera.getPos());
 
-		hud.draw(screen);
 
 		gameTitle.DrawScaled(int(this->gameTitlePos.x), int(this->gameTitlePos.y), 250, 250, screen);
 	}

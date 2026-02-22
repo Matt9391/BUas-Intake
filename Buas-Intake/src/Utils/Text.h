@@ -15,9 +15,6 @@ namespace Tmpl8 {
 		//initialize the font surface
 		Text(Surface* fontSource);
 
-		
-
-		//draw string, scale is optional
 		//static void drawString(std::string str, Surface* screen, vec2 pos, int scale = 1);
 		void drawString(PrintableText text, Surface* screen);
 

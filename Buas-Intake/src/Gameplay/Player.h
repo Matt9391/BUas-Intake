@@ -8,6 +8,7 @@
 #include "../DataTypes/Fish.h"
 #include "../DataTypes/ChestObject.h"
 #include "../DataTypes/PrintableText.h"
+#include "../DataTypes/PrintableBox.h"
 
 #pragma once
 
@@ -55,6 +56,8 @@ namespace Tmpl8 {
 		std::vector<Fish> getFishes();
 		std::vector<ChestObject> getChests();
 		std::vector <PrintableText>getTexts();
+		//function that return the hitbox of the entity;
+		std::vector <PrintableBox> getBoxes();
 
 		//setters
 		void setInteracting(bool state);
@@ -78,6 +81,7 @@ namespace Tmpl8 {
 		void payDebt(int coins);
 		void enableDebug(bool enable);
 		void setTexts(vec2 cameraOffset);
+		void setBoxes(vec2 cameraOffset);
 
 		//set the animation range
 		void setAnimRange(int first, int last);
@@ -87,7 +91,6 @@ namespace Tmpl8 {
 		long long& paidDebt;
 
 	private:
-		void showHitbox(Surface* screen, vec2 cameraOffset);
 		//draw stamina bar
 		void drawStamina(Surface* screen, vec2 pos);
 		//draw box bar
@@ -156,6 +159,7 @@ namespace Tmpl8 {
 		bool sprinting;
 		float maxSprintTime;
 		float sprintElapsedTime;
+		int staminaMaxXSize;
 
 		//death text variables
 		std::string deadText;
@@ -172,6 +176,7 @@ namespace Tmpl8 {
 		bool isGettingDamaged;
 
 		std::vector<PrintableText> texts;
+		std::vector <PrintableBox> boxes;
 	};
 
 }

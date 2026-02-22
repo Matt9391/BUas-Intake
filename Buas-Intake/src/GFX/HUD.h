@@ -14,15 +14,19 @@ namespace Tmpl8 {
 	public:
 		HUD(Text& textDrawer);
 
-		void clearTexts();
+		void clearTextsAndBoxes();
 
 		void addText(PrintableText text);
 		void addTexts(std::vector <PrintableText> texts);
 		void addBox(PrintableBox box);
+		void addBoxes(std::vector <PrintableBox> boxes);
 
-		void draw(Surface* screen);
-	private:std::vector <PrintableText> texts;
+		void drawTexts(Surface* screen);
+		void drawBoxes(Surface* screen);
+	private:
+		void drawBox(PrintableBox box, Surface* screen);
 		
+		std::vector <PrintableText> texts;
 		std::vector <PrintableBox>  boxes;
 
 		Text& textDrawer;
