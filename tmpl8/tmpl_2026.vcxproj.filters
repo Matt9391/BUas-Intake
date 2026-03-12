@@ -1,0 +1,352 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="surface.cpp">
+      <Filter>template code</Filter>
+    </ClCompile>
+    <ClCompile Include="template.cpp">
+      <Filter>template code</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Entities\Enemy.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Entities\Entity.cpp">
+      <Filter>Entities</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gameplay\Camera2D.cpp">
+      <Filter>Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\gameplay\Player.cpp">
+      <Filter>Gameplay</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GFX\resources.cpp">
+      <Filter>GFX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\Chest.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\FishArea.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\Gate.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\IncomeMultiplier.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\InteractableObject.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\Seller.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\InteractableObjects\StaminaShop.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\functions.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\MapHandler.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\Randomize.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\SaveSystem.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\SceneManager.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\Text.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scenes\FishScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scenes\HomeScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scenes\HumanScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scenes\Scene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PlayerStates\FishState.cpp">
+      <Filter>PlayerStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PlayerStates\HumanState.cpp">
+      <Filter>PlayerStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\PlayerStates\PlayerState.cpp">
+      <Filter>PlayerStates</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\game.cpp" />
+    <ClCompile Include="..\src\InteractableObjects\DebtHolder.cpp">
+      <Filter>InteractableObjects</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GFX\HUD.cpp">
+      <Filter>GFX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scenes\WinScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scenes\HowToScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GFX\Button.cpp">
+      <Filter>GFX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Scenes\SettingsScene.cpp">
+      <Filter>Scenes</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GFX\ButtonSceneChanger.cpp">
+      <Filter>GFX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GFX\ButtonDebug.cpp">
+      <Filter>GFX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Audio\src\Device.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Audio\src\Listener.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Audio\src\ListenerImpl.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Audio\src\miniaudio.c">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Audio\src\Sound.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Audio\src\SoundImpl.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Audio\src\stb_vorbis.c">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Audio\src\Waveform.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\lib\Audio\src\WaveformImpl.cpp">
+      <Filter>Audio</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\Utils\AudioManager.cpp">
+      <Filter>Utils</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GFX\ButtonMusic.cpp">
+      <Filter>GFX</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\GFX\ButtonSounds.cpp">
+      <Filter>GFX</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="surface.h">
+      <Filter>template code</Filter>
+    </ClInclude>
+    <ClInclude Include="template.h">
+      <Filter>template code</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DataTypes\ChestObject.h">
+      <Filter>DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DataTypes\Fish.h">
+      <Filter>DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DataTypes\PlayerVisual.h">
+      <Filter>DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DataTypes\SceneType.h">
+      <Filter>DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Entities\Enemy.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Entities\Entity.h">
+      <Filter>Entities</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\gameplay\Camera2D.h">
+      <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\gameplay\Player.h">
+      <Filter>Gameplay</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GFX\resources.h">
+      <Filter>GFX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\Chest.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\FishArea.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\Gate.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\IncomeMultiplier.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\InteractableObject.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\Seller.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\InteractableObjects\StaminaShop.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\FastNoiseLite.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\functions.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\MapHandler.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\Randomize.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\SaveSystem.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\SceneManager.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\Text.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scenes\FishScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scenes\HomeScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scenes\HumanScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scenes\Scene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PlayerStates\FishState.h">
+      <Filter>PlayerStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PlayerStates\HumanState.h">
+      <Filter>PlayerStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\PlayerStates\PlayerState.h">
+      <Filter>PlayerStates</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\game.h" />
+    <ClInclude Include="..\src\InteractableObjects\DebtHolder.h">
+      <Filter>InteractableObjects</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GFX\HUD.h">
+      <Filter>GFX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DataTypes\PrintableBox.h">
+      <Filter>DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\DataTypes\PrintableText.h">
+      <Filter>DataTypes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scenes\WinScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scenes\HowToScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GFX\Button.h">
+      <Filter>GFX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Scenes\SettingsScene.h">
+      <Filter>Scenes</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GFX\ButtonSceneChanger.h">
+      <Filter>GFX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GFX\ButtonDebug.h">
+      <Filter>GFX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\Audio\inc\Audio\Config.hpp">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\Audio\inc\Audio\Device.hpp">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\Audio\inc\Audio\Listener.hpp">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\Audio\inc\Audio\Sound.hpp">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\Audio\inc\Audio\Vector.hpp">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\Audio\inc\Audio\Waveform.hpp">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\Audio\src\ListenerImpl.hpp">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\Audio\src\miniaudio.h">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\Audio\src\SoundImpl.hpp">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\lib\Audio\src\WaveformImpl.hpp">
+      <Filter>Audio</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\Utils\AudioManager.h">
+      <Filter>Utils</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GFX\ButtonMusic.h">
+      <Filter>GFX</Filter>
+    </ClInclude>
+    <ClInclude Include="..\src\GFX\ButtonSounds.h">
+      <Filter>GFX</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="template code">
+      <UniqueIdentifier>{bf32dd6e-4be7-4889-8ac6-49e7ee163c40}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="DataTypes">
+      <UniqueIdentifier>{e7ba492c-ccd4-4110-beb2-fd8128baa10c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Gameplay">
+      <UniqueIdentifier>{2fdc64b0-92f5-46aa-90f1-3387679a98f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GFX">
+      <UniqueIdentifier>{ea35284f-9f24-4deb-9ccb-21552069ea4c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="InteractableObjects">
+      <UniqueIdentifier>{4e0e6d52-32e3-4c75-a19a-83e275194c23}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="PlayerStates">
+      <UniqueIdentifier>{ce3e1b5c-a032-41ae-bda8-20d7cbc91e09}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Scenes">
+      <UniqueIdentifier>{7c0102cc-f6f1-43a2-a101-f4eb40bf191f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utils">
+      <UniqueIdentifier>{14aafabd-dbd2-4cf7-aaf6-605c1bcf9b11}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Entities">
+      <UniqueIdentifier>{68d3ae0a-d319-4e35-ad27-8158520f3014}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Audio">
+      <UniqueIdentifier>{045b8be8-d033-4b99-892a-6f2c0a03e85f}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="_readme.txt">
+      <Filter>template code</Filter>
+    </Text>
+  </ItemGroup>
+</Project>
