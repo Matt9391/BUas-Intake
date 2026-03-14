@@ -24,11 +24,12 @@ namespace Tmpl8 {
 		for (const Fish& fish : player.getFishes()) {
 			totalValue += fish.value;
 		}
+
 		for (const ChestObject& chest : player.getChests()) {
 			totalValue += chest.value;
 		}
 		
-		if (totalValue < 0.f)
+		if (totalValue <= 0.f)
 			return;
 
 		player.addCoins(int(totalValue));
