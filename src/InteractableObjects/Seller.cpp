@@ -17,7 +17,7 @@ namespace Tmpl8 {
 	}  
 
 	void Seller::interact(Player& player, Game& game) {
-		//count total value of fishes and chests
+		//total value of fishes and chests
 		float totalValue = 0;
 
 		for (const Fish& fish : player.getFishes()) {

@@ -23,12 +23,14 @@ namespace Tmpl8 {
 
 		bool isDisabled() const;
 		PrintableText getText() const;
+
 	protected:
 		PrintableText text;
 		vec2 fontSize;
 
 		float elapsedTime;
 		float timer;
+
 		bool disabled;
 	};
 

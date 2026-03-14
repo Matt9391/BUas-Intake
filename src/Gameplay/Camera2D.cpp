@@ -17,8 +17,7 @@ namespace Tmpl8 {
 		this->pos.x = target.x - this->size.x / 2;
 		this->pos.y = target.y - this->size.y / 2;
 
-		//constrain the camera within the world bounds:
-		//camera position must be >= 0 and <= world size minus camera size
+		//constrain the camera within the world bounds
 		this->pos.x = constrain(this->pos.x, 0, this->worldSize.x - this->size.x);
 		this->pos.y = constrain(this->pos.y, 0, this->worldSize.y - this->size.y);
 	}

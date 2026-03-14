@@ -1,7 +1,7 @@
-#include <random>
-
-
 #pragma once
+
+
+#include <random>
 namespace Tmpl8 {
 
 	//Randomize class for generating random numbers

@@ -1,6 +1,7 @@
+#pragma once
+
 #include <template.h>
 
-#pragma once
 namespace Tmpl8 {
 	class Camera2D
 	{
@@ -13,7 +14,6 @@ namespace Tmpl8 {
 		//sets camera bounds based on the map size
 		void setWorldSize(vec2 size);
 
-		//return the position of the camera
 		vec2 getPos() const;
 
 	private:

@@ -15,9 +15,7 @@
 #include <cstdlib>
 #include <Windows.h>
 
-namespace Tmpl8 {
-
-	
+namespace Tmpl8 {	
 
 	FishArea::FishArea(int type, vec2 pos, vec2 size, std::array<Sprite*, 3> fishingSprites) :
 		InteractableObject(type, pos, size),
@@ -26,8 +24,9 @@ namespace Tmpl8 {
 		barPosition(pos + vec2(-16, 72)),
 		indxPosition(pos + vec2(+31, 72)),
 		cardPosition(pos + vec2(16, 32)),
-		textCardPosition(pos + vec2(-46, 96)),
-		cardText(""),
+		textCardPosition(pos + vec2(-40, 96)),
+		cardText("press 'Space' to fish"),
+		indxSpeed(0.0035f),
 		xIndxPos(0),
 		range(45),
 		angle(0),
@@ -51,6 +50,8 @@ namespace Tmpl8 {
 			this->enable = false;
 			this->showFishCard = false;
 			this->textHover = "press 'F' to start fishing";
+			this->cardText = "press 'Space' to fish";
+			this->textCardPosition = this->pos + vec2(-40, 96);
 		}else {
 			//otherwise enable all
 			player.setFishing(true);
@@ -65,14 +66,13 @@ namespace Tmpl8 {
 			return;
 
 		this->elapsedTimeSpace += dt;
-		 
-		//increase the angle by a certain speed
-		this->angle += 0.0035f * dt; 
+		
+		this->angle += indxSpeed * dt;
+
 		//reset angle after a full rotation
 		if (this->angle > maxAngle)
 			this->angle = 0;
 
-		//calculate index position: sin(angle) scaled by range
 		this->xIndxPos = std::sin(angle) * this->range;
 
 		//check if player can fish
@@ -83,13 +83,14 @@ namespace Tmpl8 {
 		//check if the player has pressed space
 		if(GetAsyncKeyState(' ') & 0x8000) {
 			this->elapsedTimeSpace = 0;
-			//calculate the % based on abs(index position):
+			
+			//calculate the percentage based on abs(index position):
 			//closer to 0 -> higher %, further -> lower %
 			float fishPercentage = mapValue(std::abs(this->xIndxPos), 0, this->range, 1.0, 0.01) * 100.f;
 
 			this->showFishCard = true;
 			
-			//set default values
+			//default values
 			FishRarity rarity = FishRarity::COMMON;
 			float value = 0;
 
@@ -116,12 +117,10 @@ namespace Tmpl8 {
 				this->cardText = "A legendary fish!";
 				this->textCardPosition = this->pos + vec2(-24, 96);
 				value = 500;
-
 			}
 
-			//create a fish object to store its data
 			Fish fish = { rarity, value};
-			//add the fish to the player's inventory
+
 			player.addFish(fish);
 
 			//set fish sprite frame based on rarity
@@ -141,7 +140,6 @@ namespace Tmpl8 {
 
 		this->fish(dt, player);
 
-
 		//check whether the fishCard is enabled
 		if (this->showFishCard) {
 			this->elapsedTimeFishCard += dt;
@@ -150,6 +148,8 @@ namespace Tmpl8 {
 				//disable the fishCard after fixed time
 				this->showFishCard = false;
 				this->elapsedTimeFishCard = 0;
+				this->cardText = "press 'Space' to fish";
+				this->textCardPosition = this->pos + vec2(-40, 96);
 			}
 		}
 	}
@@ -159,8 +159,6 @@ namespace Tmpl8 {
 
 		this->texts.push_back({ this->textHover, textHoverPosition - cameraOffset, 1, false});
 		if (!this->enable)
-			return;
-		if (!this->showFishCard)
 			return;
 
 		this->texts.push_back({ this->cardText, textCardPosition - cameraOffset, 1, false});

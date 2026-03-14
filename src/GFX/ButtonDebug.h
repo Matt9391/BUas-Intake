@@ -10,7 +10,6 @@ namespace Tmpl8 {
 
 	class ButtonDebug : public Button {
 	public:
-
 		ButtonDebug(const PrintableText& text, const vec2& fontSize);
 
 		void onClick(Game& game) override;

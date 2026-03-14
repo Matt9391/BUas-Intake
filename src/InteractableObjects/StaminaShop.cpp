@@ -27,7 +27,8 @@ namespace Tmpl8 {
 		showAlert(false),
 		alertTime(2000), 
 		alertElapsedTime(0),
-		priceMultiplier(3.f)
+		priceMultiplier(3.f),
+		msToAdd(1000.f) //1000ms -> 1 second of stamina
 	{
 		this->textHover = "Stamina shop";
 		this->textHoverPosition = vec2(pos + vec2(12, -56));
@@ -55,7 +56,7 @@ namespace Tmpl8 {
 		
 		player.spendCoins(int(this->price));
 
-		player.addStamina(1000); //1000ms -> 1 second of stamina
+		player.addStamina(this->msToAdd); 
 
 		//triple the price for the next purchase
 		this->price *= priceMultiplier;

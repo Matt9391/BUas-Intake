@@ -1,6 +1,7 @@
+#pragma once
+
 #include <Audio/Sound.hpp>
 
-#pragma once
 namespace Tmpl8 {
 
 	class AudioManager

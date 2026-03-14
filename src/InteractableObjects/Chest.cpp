@@ -18,7 +18,7 @@ namespace Tmpl8 {
 	Chest::Chest(int type, vec2 pos, vec2 size, Sprite* chestsSprite, int frame) :
 		InteractableObject(type, pos, size),
 		enabled(true),
-		//random values for time x and y
+		//random values for noise times
 		timeX(Randomize::randomFloat(0.f, 1000000.f)),
 		timeY(Randomize::randomFloat(0.f, 1000000.f)),
 		value(0.f),
@@ -46,8 +46,9 @@ namespace Tmpl8 {
 		this->timeX += dt * 0.05f; // x-speed
 		this->timeY += dt * 0.05f; // y-speed
 
-		float xValue = noise.GetNoise(timeX, 0.f); //from -1 to 1
-		float yValue = noise.GetNoise(0.f, timeY); //from -1 to 1
+		//from -1 to 1
+		float xValue = noise.GetNoise(timeX, 0.f); 
+		float yValue = noise.GetNoise(0.f, timeY);
 		
 		//maps the position based on noise values within its bounds
 		this->pos.x = mapValue(xValue, -1.f, 1.f, this->minPos.x, this->maxPos.x);
@@ -61,7 +62,7 @@ namespace Tmpl8 {
 		if (!this->enabled) return;
 
 		//if "caught" it create a Chest Object that stores
-		//the current frame and value. needed for the player's inventory
+		//the current frame and value needed for the player's inventory
 		ChestObject chestObject = { this->frame, this->value };
 
 		player.addChest(chestObject);

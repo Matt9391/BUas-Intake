@@ -30,21 +30,17 @@ namespace Tmpl8 {
 
 		void update(float dt);
 		
-		//sprinting mechanic
 		void handleSprint(float dt);
 
-		//movement mechanic based on input and collision maps
 		void move(float dt);
 		 
 		void draw(Surface* screen, vec2 cameraOffset);
 
-		//clear inventories
 		void clearFishInventory();
 		void clearChestInventory();
 
 		//load current active collision maps
 		void loadCollisionMaps(const std::array<Map, 2>& currentMap);
-
 
 		//getters
 		vec2 getPos() const;
@@ -60,7 +56,6 @@ namespace Tmpl8 {
 		const std::vector<Fish>& getFishes() const;
 		const std::vector<ChestObject>& getChests() const;
 		const std::vector <PrintableText>& getTexts() const;
-		//function that return the hitbox of the entity;
 		const std::vector <PrintableBox>& getBoxes() const;
 
 		//setters
@@ -88,10 +83,9 @@ namespace Tmpl8 {
 		void setTexts(vec2 cameraOffset);
 		void setBoxes(vec2 cameraOffset);
 		void setClr(Pixel crl);
-		//set the animation range
 		void setAnimRange(int first, int last);
 
-		//load data passed from gameSave
+		//load data from gameSave
 		void loadData(const std::unordered_map<std::string, double>& gameSave);
 
 	private:
@@ -106,6 +100,7 @@ namespace Tmpl8 {
 		bool interacting;
 		//last input received
 		char input;
+
 		//animation frames info
 		int firstFrame;
 		int lastFrame;
@@ -119,6 +114,7 @@ namespace Tmpl8 {
 		vec2 pos;
 		//next position after movement calculation, applied if no collision
 		vec2 nextPos;
+
 		vec2 size;
 		vec2 velocity;
 
@@ -127,7 +123,6 @@ namespace Tmpl8 {
 		float baseSpeed;
 		float sprintSpeed;
 
-		//direction vector based on input
 		vec2 dir;
 
 		//sprites for different player visuals
@@ -136,7 +131,7 @@ namespace Tmpl8 {
 
 		//current state of the player
 		std::unique_ptr<PlayerState> state;
-		//current visual representation, could be done with bool but this allows for future expansions
+		//current visual representation
 		PlayerVisual visual;
 
 		//current collision maps
@@ -145,15 +140,13 @@ namespace Tmpl8 {
 		//fishing state
 		bool fishing;
 
-		//coins of the player
 		long long coins;
-		//debt of the player
+		//reference of the DebtHolder variable
 		long long& paidDebt;
 
 		//coins multiplier when selling fish/chests or getting stolen
 		float coinsMultiplier;
 
-		//inventories
 		std::vector<Fish> fishInventory;
 		std::vector<ChestObject> chestInventory;
 
@@ -180,6 +173,7 @@ namespace Tmpl8 {
 		std::vector<PrintableText> texts;
 		std::vector <PrintableBox> boxes;
 
+		//hitbox color
 		Pixel clr;
 	};
 

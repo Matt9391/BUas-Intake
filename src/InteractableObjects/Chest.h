@@ -11,7 +11,6 @@ namespace Tmpl8 {
 	class Player;
 	class Game;
 
-	//Chest inherits from InteractableObject
 	class Chest : public InteractableObject	
 	{
 	public:
@@ -50,8 +49,6 @@ namespace Tmpl8 {
 		int frame;
 
 		Sprite* chestsSprite;
-
-
 	};
 
 

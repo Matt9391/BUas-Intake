@@ -40,7 +40,7 @@ namespace Tmpl8 {
 
 		this->texts.push_back({ this->textHover,(this->textHoverPosition - cameraOffset), 1, false, true });
 		this->texts.push_back({ "Price: " + formatCoins(long long(price)), (this->priceTextPosition - cameraOffset), 1, false, true });
-		//this->texts.push_back({ , (this->priceTextPosition + vec2(42, 0) - cameraOffset), 1 });
+		
 		if (this->showAlert) {
 			this->texts.push_back({ this->alertText, (this->alertTextPosition - cameraOffset), 1, false });
 		}
@@ -54,7 +54,6 @@ namespace Tmpl8 {
 			return;
 		}
 
-		//if so, spend the coins and apply the income multiplier 
 		player.spendCoins(int(this->price));
 
 		player.setMultiplier(player.getMultiplier() * this->incomeMultilpier);

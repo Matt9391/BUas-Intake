@@ -97,6 +97,7 @@ namespace Tmpl8 {
 		
 	}
 
+	//chestsSprite is only needed when creating a chest so it's optional
 	void MapHandler::createInteractableObject(int type, vec2 pos, vec2 size, const std::array<Sprite*, 3>* fishingSprites, Sprite* chestsSprite) {
 		//create the interactable object based on its type
 		switch (type)
@@ -117,6 +118,8 @@ namespace Tmpl8 {
 			objects.push_back(std::make_unique <Gate>(type, pos, size));
 			break;
 		case 6:
+			if (chestsSprite == nullptr)
+				break;
 			objects.push_back(std::make_unique <Chest>(type, pos, size, chestsSprite, Randomize::randomInt(0, 3)));
 			break;
 		case 7:
@@ -215,7 +218,7 @@ namespace Tmpl8 {
 		if (x + tileSize < 0 || y + tileSize < 0 || x > screen->GetWidth() || y > screen->GetHeight())
 			return; 
 
-		//check for void pixel, I choose 'gg' and 'aj' as void pixel based on the tilesetGuide
+		//check for void pixel, I chose 'gg' and 'aj' as void pixel based on the tilesetGuide
 		if ((tx + 'a' == this->voidChar[0]) && (ty + 'a' == this->voidChar[1]))
 			return;
 
@@ -230,12 +233,11 @@ namespace Tmpl8 {
 		if (y + tileSize > screen->GetHeight()) maxY = screen->GetHeight() - y;
 
 		//get pointers to the source tile and destination on screen
-		//we get the buffer of the map then we add x and y offsets times the tilesize and pitch
 		Pixel* source = tileset.GetBuffer() + tx * tileSize + (ty * tileSize) * tileset.GetPitch();
-		//then we add the clipping offsets
+		//add the clipping offsets
 		source += dy * tileset.GetPitch();
 		//set destination on screen with clipping offsets
-		Pixel* destination = screen->GetBuffer() + x + (y + dy) *screen->GetPitch();
+		Pixel* destination = screen->GetBuffer() + x + (y + dy) * screen->GetPitch();
 
 		//"transparent" pixel value, actually its magenta because it's easy to visualize in photoshop
 		const Pixel transparent = 0xFFFF00FF;
@@ -247,6 +249,7 @@ namespace Tmpl8 {
 				if(source[j] != transparent)
 					destination[j] = source[j];
 			}
+
 			//then move to the next row
 			source += tileset.GetPitch();
 			destination += screen->GetPitch();

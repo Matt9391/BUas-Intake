@@ -7,7 +7,6 @@ namespace Tmpl8 {
 	class Player;
 	class Game;
 
-	//Seller inherits from InteractableObject
 	class Seller : public InteractableObject
 	{
 	public:

@@ -4,7 +4,6 @@
 
 namespace Tmpl8 {
 
-	//Enemy inherits from Entity
 	class Enemy : public Entity
 	{
 	public:
@@ -29,6 +28,7 @@ namespace Tmpl8 {
 		vec2 endPos;
 
 		float speed;
+
 		//time offset before starting to move
 		float startOffset;
 		float elapsedTime;
@@ -43,7 +43,7 @@ namespace Tmpl8 {
 		float timeBetweenFrames;
 
 		bool canAttack;
-		//time required between attacks
+		
 		float attackCooldown;
 		//time elapsed since last attack
 		float attackElapsedTime;

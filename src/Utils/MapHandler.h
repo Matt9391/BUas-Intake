@@ -51,6 +51,7 @@ namespace Tmpl8 {
 		vec2 tiles;
 		Surface& tileset;
 
+		//string that represent the void pixel, I chose 'gg' and 'aj' as void pixel based on the tilesetGuide
 		std::string voidChar;
 
 		//all interactable objects in the scene

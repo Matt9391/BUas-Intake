@@ -16,7 +16,6 @@ namespace Tmpl8 {
 	{}
 
 	bool Button::mouseHover(vec2 mousePos) const {
-		//printf("mx: %f my: %f, tx: %f ty: %f\n", mousePos.x, mousePos.y, text.pos.x - 1.f * fontSize.x * text.scale, text.pos.y - 1.f * fontSize.y * text.scale);
 			return  mousePos.x > text.pos.x - 1.f * fontSize.x * text.scale &&
 					mousePos.x < text.pos.x + (1 + getMaxLengthLines(text.text)) * fontSize.x * text.scale &&
 					mousePos.y > text.pos.y - 1.f * fontSize.y * text.scale &&

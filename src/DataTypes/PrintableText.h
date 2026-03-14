@@ -1,7 +1,8 @@
-#include <string>
-#include "../../tmpl8/template.h"
-
 #pragma once
+
+#include <template.h>
+
+#include <string>
 
 namespace Tmpl8 {
 	

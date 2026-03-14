@@ -56,12 +56,11 @@ namespace Tmpl8 {
 			this->showAlert = true;
 			return;
 		}
+
 		//if paid
 		//check if the player has enough coins to pay off the full debt
 		if (player.getCoins() >= this->lastFine) {
-			//if so, spend the coins and pay the debt
 			player.spendCoins(int(this->lastFine));
-			printf("GAME DONE");
 			game.setPendingScene(SceneType::SceneWin);
 		}else {
 			this->alertText = "You still have to an ultimate fine of 300M";

@@ -1,8 +1,10 @@
+#pragma once
+
+#include <InteractableObjects/InteractableObject.h>
+
 #include <array>
 #include <string>
-#include "InteractableObject.h"
 
-#pragma once
 
 namespace Tmpl8 {
 	class Game;
@@ -26,22 +28,22 @@ namespace Tmpl8 {
 	private:
 		//handle player fishing
 		void fish(float dt, Player& player);
+		
 		//fish area enabled or disabled
 		bool enable;
-		//variable to show or hide the caught fish
+		
 		bool showFishCard;
 
 		//slider position
 		vec2 barPosition;
 		//origin of the slider index position
 		vec2 indxPosition;
-		//position of the caught fish card
+
 		vec2 cardPosition;
-		//position of card text
 		vec2 textCardPosition;
-		//text that display the fish type
 		std::string cardText;
 
+		float indxSpeed;
 		//current slider index position
 		float xIndxPos;
 		//range of motion (x-coordinate) of the index
@@ -52,9 +54,7 @@ namespace Tmpl8 {
 		//max angle at which the current angle is reset
 		float maxAngle;
 		
-		//elapsed time while the card is enabled
 		float elapsedTimeFishCard; 
-		//max time the card can stay enabled
 		float fishCardMaxTime; 
 
  		//elapsed time since last space press

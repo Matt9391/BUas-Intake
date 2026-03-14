@@ -28,14 +28,7 @@ namespace Tmpl8 {
 		void update(float dt, Camera2D& camera, Player& player, HUD& hud) override;
 
 		void draw(Surface* screen, Camera2D& camera, Player& player, HUD& hud) override;
-	private:
-
-		std::string playText;
-		vec2 playTextPosition;
-		
-		std::string resetText;
-		vec2 resetTextPosition;
-		
+	private:		
 		vec2 gameTitlePos;
 	};
 

@@ -36,7 +36,6 @@ namespace Tmpl8 {
 		long long firstFine;
 		long long lastFine;
 
-		//text to show when not enough coins
 		std::string alertText;
 
 		vec2 priceTextPosition;

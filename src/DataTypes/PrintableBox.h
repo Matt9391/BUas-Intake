@@ -1,8 +1,9 @@
-#include <string>
-#include "../../tmpl8/template.h"
-#include "../../tmpl8/surface.h"
-
 #pragma once
+
+#include <surface.h>
+#include <template.h>
+
+#include <string>
 
 namespace Tmpl8 {
 

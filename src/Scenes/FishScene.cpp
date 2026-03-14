@@ -36,11 +36,11 @@ namespace Tmpl8 {
 				float(Randomize::randomInt(5 * tileSize, 33 * tileSize))
 			);
 
+			//sprite size
 			vec2 size(46);
 
-			//create chest interactable object, fistsSprite is not needed here so it's set to nullptr
+			//create chest interactable object, fishesSprite is not needed here so it's set to nullptr
 			this->mapHandler.createInteractableObject(type, pos, size, nullptr, &chestsSprite);
-
 		}
 		 
 		for (int i = 0; i < 10; i++) {
@@ -50,6 +50,7 @@ namespace Tmpl8 {
 				float(Randomize::randomInt(5 * tileSize, 33 * tileSize))
 			);
 
+			//sprite size
 			vec2 size(124,46);
 			//randomize enemy end position based on start position
 			vec2 endPos(
@@ -65,7 +66,6 @@ namespace Tmpl8 {
 			float startOffset = Randomize::randomFloat(100, 1000);
 
 			enemies.push_back(std::make_unique<Enemy>(pos, size, endPos, startOffset, enemySprite));
-
 		}
 
 		
@@ -94,7 +94,7 @@ namespace Tmpl8 {
 		}
 
 		bool playerIntesercting = false;
-		//for each interactable object
+		
 		for (auto& object : this->mapHandler.getObjects()) {
 			object->update(dt, player);
 

@@ -56,10 +56,8 @@ namespace Tmpl8 {
 
 		this->updateButtons(dt);
 
-
 		bool playerIntesercting = false;
 
-		//for each interactable object
 		for (auto& object : this->mapHandler.getObjects()) {
 			object->update(dt, player);
 

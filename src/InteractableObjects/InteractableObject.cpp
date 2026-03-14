@@ -20,10 +20,10 @@ namespace Tmpl8 {
 		textHoverPosition(pos)
 	{}
 	 
-	//blank class methods
+	
 	void InteractableObject::update(float dt, Player& player) {}
-
 	void InteractableObject::interact(Player& player, Game& game) {}
+	void InteractableObject::draw(Surface* screen, vec2 cameraOffset) {}
 
 	std::vector <PrintableText>InteractableObject::getTexts() {
 		return this->texts;
@@ -39,8 +39,5 @@ namespace Tmpl8 {
 	void InteractableObject::clearTexts() {
 		this->texts.clear();
 	}
-
-	void InteractableObject::draw(Surface* screen, vec2 cameraOffset) {}
-
 	
 }

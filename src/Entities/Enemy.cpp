@@ -66,7 +66,7 @@ namespace Tmpl8 {
 			}
 		}
 
-		dir.normalize(); //make it a unit vector
+		dir.normalize();
 		this->pos += dir * speed * dt;
 
 		this->playAnimation(dt);
@@ -82,7 +82,7 @@ namespace Tmpl8 {
 	}
 
 	void Enemy::setAnimRange(int first, int last) {
-		//update the range if not the same range
+		//update only if it's not the same range
 		if (first != this->firstFrame) {
 			this->currentFrame = first;
 		}

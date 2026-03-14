@@ -10,7 +10,6 @@ namespace Tmpl8 {
 
 	class ButtonSounds : public Button {
 	public:
-
 		ButtonSounds(const PrintableText& text, const vec2& fontSize);
 
 		void onClick(Game& game) override;

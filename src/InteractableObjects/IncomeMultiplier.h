@@ -1,15 +1,15 @@
+#pragma once
+
 #include <InteractableObjects/InteractableObject.h>
 
 #include <string>
 
-#pragma once
 namespace Tmpl8 {
 	class Surface;
 	class Player;
 	class vec2;
 	class Game;
 
-	//IncomeMultiplier inherits from InteractableObject
 	class IncomeMultiplier : public InteractableObject
 	{
 	public:

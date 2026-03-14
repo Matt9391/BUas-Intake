@@ -44,6 +44,8 @@ namespace Tmpl8 {
 		float alertElapsedTime;
 
 		float priceMultiplier;
+
+		float msToAdd;
 	};
 }
 
