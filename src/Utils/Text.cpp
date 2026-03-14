@@ -42,7 +42,6 @@ namespace Tmpl8 {
 		
 		int lineCounter = 0;
 
-		//for each line
 		for (auto& line : lines) {
 			drawLine(
 				{ //the printableText object of each line
@@ -61,7 +60,7 @@ namespace Tmpl8 {
 
 	void Text::drawLine(const PrintableText& text, const vec2& fontSize,const vec2& clipValue, Surface* screen) {
 		int count = 0;
-		//for each character in the line
+		
 		for (char character : text.text) {
 			//get character index in the font surface
 			int index = int(character) - 32;
@@ -85,18 +84,22 @@ namespace Tmpl8 {
 	void Text::drawChar(const vec2& start, const vec2& end, int charScale, Pixel* source, Pixel* destination,const int& screenPitch) {
 		//draw character pixel by pixel with scaling
 		//si/sj are scale iterators
+		
 		//iterate through original rows
 		for (int i = int(start.y); i < end.y; i++) {
 			//for each row it iterates scale times the same row
 			for (int si = 0; si < charScale; si++) {
 				//jIndex is the index of the pixel needed to be drawn
 				int jIndex = 0;
+
 				//iterate through original columns
 				for (int j = int(start.x); j < end.x * charScale; j += charScale) {
+					
 					//for each column it iterates scale times the same column
 					for (int sj = 0; sj < charScale; sj++) {
+						
 						//if the source pixel is not black (transparent) copy it to the screen
-						//black pixel used for transparent/void pixels
+						//black pixel used for transparent/void pixels in the font sprite
 						if (source[jIndex] != 0xFF000000)
 							destination[j + sj] = source[jIndex];
 					}

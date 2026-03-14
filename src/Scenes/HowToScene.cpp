@@ -67,10 +67,6 @@ namespace Tmpl8 {
 
 		this->addTexts(player.getTexts());
 		this->addBoxes(player.getBoxes());
-
-		if (GetAsyncKeyState(VK_SPACE)) {
-			this->game.setPendingScene(SceneType::SceneHuman);
-		}
 	}
 
 	void HowToScene::draw(Surface* screen, Camera2D& camera, Player& player, HUD& hud){

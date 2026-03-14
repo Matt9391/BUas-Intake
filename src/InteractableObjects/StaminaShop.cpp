@@ -22,7 +22,7 @@ namespace Tmpl8 {
 
 	StaminaShop::StaminaShop(int type, vec2 pos, vec2 size) :
 		InteractableObject(type, pos, size),
-		priceTextPosition(pos + vec2(20, -44)),
+		priceTextPosition(pos + vec2(15, -44)),
 		alertTextPosition(pos + vec2(0, 56)),
 		showAlert(false),
 		alertTime(2000), 
@@ -30,8 +30,8 @@ namespace Tmpl8 {
 		priceMultiplier(3.f),
 		msToAdd(1000.f) //1000ms -> 1 second of stamina
 	{
-		this->textHover = "Stamina shop";
-		this->textHoverPosition = vec2(pos + vec2(12, -56));
+		this->textHover = "    'F'\nStamina shop";
+		this->textHoverPosition = vec2(pos + vec2(12, -66));
 		this->alertText = "Not enough coins";
 	}
 

@@ -30,8 +30,8 @@ namespace Tmpl8 {
 		priceMultilpier(2.2f),
 		incomeMultilpier(1.5f)
 	{
-		this->textHover = "Income multiplier";
-		this->textHoverPosition = vec2(pos + vec2(0, -56));
+		this->textHover = "      'F'\nIncome multiplier";
+		this->textHoverPosition = vec2(pos + vec2(5, -66));
 		this->alertText = "Not enough coins";
 	}
 
