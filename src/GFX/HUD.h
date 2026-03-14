@@ -1,14 +1,15 @@
-#include <vector>
-#include "../../tmpl8/surface.h"
-#include "../Utils/Text.h"
-#include "../DataTypes/PrintableText.h"
-#include "../DataTypes/PrintableBox.h"
-#include "../GFX/Button.h"
-#include "../GFX/ButtonSceneChanger.h"
-#include <memory>
-#include "../DataTypes/SceneType.h"
-
 #pragma once
+#include <DataTypes/PrintableText.h>
+#include <DataTypes/PrintableBox.h>
+#include <DataTypes/SceneType.h>
+#include <GFX/Button.h>
+#include <GFX/ButtonSceneChanger.h>
+#include <Utils/Text.h>
+
+#include <surface.h>
+
+#include <vector>
+#include <memory>
 
 namespace Tmpl8 {
 

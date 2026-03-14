@@ -1,10 +1,12 @@
+#pragma once
+
+#include <DataTypes/PrintableText.h>
+#include <Entities/Entity.h>
+#include <GFX/HUD.h>
+
 #include <string>
 #include <vector>
-#include "../Entities/Entity.h"
-#include "../GFX/HUD.h"
-#include "../DataTypes/PrintableText.h"
 
-#pragma once
 namespace Tmpl8 {
 	class Player;
 	class Surface;

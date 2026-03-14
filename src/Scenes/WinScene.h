@@ -1,8 +1,9 @@
-#include <string>
-#include "../../tmpl8/template.h"
-#include "Scene.h"
-
 #pragma once
+
+#include <Scenes/Scene.h>
+#include <template.h>
+
+#include <string>
 
 namespace Tmpl8 {
 	class Player;

@@ -1,9 +1,9 @@
-#pragma once
-#include "../../tmpl8/template.h"
-#include "../DataTypes/PrintableText.h"
-#include "../DataTypes/SceneType.h"
-#include "../Utils/functions.h"
+#include <DataTypes/PrintableText.h>
+#include <DataTypes/SceneType.h>
+#include <Utils/functions.h>
 #include "Button.h"
+
+#include <template.h>
 
 namespace Tmpl8 {
 

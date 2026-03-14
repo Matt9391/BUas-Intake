@@ -1,19 +1,20 @@
+#include <DataTypes/SceneType.h>
+#include <Utils/Text.h>
+#include <Utils/functions.h>
+#include <game.h>
+#include <DataTypes/PrintableBox.h>
+#include <DataTypes/PrintableText.h>
+#include <GFX/Button.h>
+#include <GFX/ButtonSceneChanger.h>
+#include "HUD.h"
+
+#include <template.h>
+#include <surface.h>
+
 #include <vector>
 #include <iostream>
-#include "../../tmpl8/template.h"
-#include "../../tmpl8/surface.h"
-#include "../Utils/Text.h"
-#include "../Utils/functions.h"
-#include "../game.h"
-#include "../DataTypes/PrintableBox.h"
-#include "../DataTypes/PrintableText.h"
-
-#include "HUD.h"
-#include "Button.h"
-#include "ButtonSceneChanger.h"
 #include <memory>
 #include <utility>
-#include "../DataTypes/SceneType.h"
 
 namespace Tmpl8 {
 

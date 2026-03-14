@@ -1,7 +1,8 @@
-#include "../../tmpl8/surface.h"
-#include <array>
-
 #pragma once
+
+#include <surface.h>
+
+#include <array>
 
 namespace Tmpl8 {
 	//assets declaration

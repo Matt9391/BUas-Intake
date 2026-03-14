@@ -1,7 +1,8 @@
-#include <array>
-#include "../../tmpl8/surface.h"
-
 #include "resources.h"
+
+#include <surface.h>
+
+#include <array>
 
 namespace Tmpl8 {
 	//assets definition

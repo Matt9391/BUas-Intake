@@ -1,22 +1,23 @@
+#include <DataTypes/PlayerVisual.h>
+#include <DataTypes/PrintableText.h>
+#include <DataTypes/SceneType.h>
+#include <Gameplay/Camera2D.h>
+#include <Gameplay/Player.h>
+#include <GFX/ButtonSceneChanger.h>
+#include <GFX/HUD.h>
+#include <GFX/resources.h>
+#include <Scenes/HowToScene.h>
+#include <Scenes/Scene.h>
+#include <Utils/MapHandler.h>
+#include <Utils/Text.h>
+
+#include <game.h>
+#include <surface.h>
+#include <template.h>
+
 #include <Windows.h>
-#include "../../tmpl8/surface.h"
-#include "../Utils/MapHandler.h"
-#include "../Utils/Text.h"
-#include "../Gameplay/Player.h"
-#include "../Gameplay/Camera2D.h"
-#include "../GFX/resources.h"
-#include "../DataTypes/PlayerVisual.h"
-#include "Scene.h"
-#include "../game.h"
- 
-#include "HowToScene.h"
-#include "../DataTypes/SceneType.h"
-#include "../GFX/HUD.h"
-#include "../../tmpl8/template.h"
 #include <memory>
 #include <string>
-#include "../DataTypes/PrintableText.h"
-#include "../GFX/ButtonSceneChanger.h"
 #include <utility>
 
 namespace Tmpl8 {

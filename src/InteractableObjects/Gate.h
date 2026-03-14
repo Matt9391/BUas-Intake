@@ -1,6 +1,8 @@
-#include "InteractableObject.h"
-
 #pragma once
+
+#include <InteractableObjects/InteractableObject.h>
+
+
 namespace Tmpl8 {
 	class Player;
 	class vec2;

@@ -1,11 +1,12 @@
-#include "../../tmpl8/surface.h"
-#include "../../tmpl8/template.h"
-
 #pragma once
+
+#include <surface.h>
+#include <template.h>
 
 namespace Tmpl8 {
 	class Player;
 	struct PrintableBox;
+	class Surface;
 
 	//base class for all objects / entities except the player
 	class Entity

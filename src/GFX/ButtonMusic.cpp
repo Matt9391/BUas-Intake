@@ -1,12 +1,11 @@
-#pragma once
-#include <iostream>
-#include "../../tmpl8/template.h"
-#include "../DataTypes/PrintableText.h"
-#include "../DataTypes/SceneType.h"
-#include "../Utils/functions.h"
+#include <DataTypes/PrintableText.h>
+#include <DataTypes/SceneType.h>
+#include <Utils/functions.h>
+#include <GFX/Button.h>
 #include "ButtonMusic.h"
-#include "../game.h"
-#include "Button.h"
+
+#include <game.h>
+#include <template.h>
 
 namespace Tmpl8 {
 

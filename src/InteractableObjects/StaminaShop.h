@@ -1,6 +1,9 @@
-#include <string>
-#include "InteractableObject.h"
 #pragma once
+
+#include <InteractableObjects/InteractableObject.h>
+
+
+#include <string>
 
 namespace Tmpl8 {
 

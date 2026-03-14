@@ -1,12 +1,13 @@
-#include "../DataTypes/SceneType.h"
-#include "../Utils/MapHandler.h"
+#pragma once
+#include <DataTypes/PrintableBox.h>
+#include <DataTypes/PrintableText.h>
+#include <DataTypes/SceneType.h>
+#include <GFX/Button.h>
+#include <Utils/MapHandler.h>
+
+#include <memory>
 #include <string>
 #include <vector>
-#include "../DataTypes/PrintableBox.h"
-#include "../DataTypes/PrintableText.h"
-#include "../GFX/Button.h"
-#include <memory>
-#pragma once
 
 namespace Tmpl8 {
 

@@ -1,8 +1,9 @@
-#include <Windows.h>
-#include "../../tmpl8/template.h"
-#include "../Gameplay/Player.h"
-
+#include <Gameplay/Player.h>
 #include "FishState.h"
+
+#include <template.h>
+
+#include <Windows.h>
 
 namespace Tmpl8 {
 

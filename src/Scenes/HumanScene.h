@@ -1,10 +1,10 @@
-#include <array>
-#include "../Utils/MapHandler.h"
-#include "Scene.h"
-#include <string>
-
-
 #pragma once
+
+#include <Scenes/Scene.h>
+#include <Utils/MapHandler.h>
+
+#include <array>
+#include <string>
 
 namespace Tmpl8 {
 	class Player;

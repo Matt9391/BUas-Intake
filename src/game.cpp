@@ -1,29 +1,30 @@
-#include <cstdio> //printf
-#include <vector> 
-#include <string> 
-#include <array> 
+#include <DataTypes/PrintableText.h>
+#include <DataTypes/SceneType.h>
+#include <Gameplay/Camera2D.h>
+#include <Gameplay/Player.h>
+#include <GFX/resources.h>
+#include <InteractableObjects/DebtHolder.h>
+#include <InteractableObjects/IncomeMultiplier.h>
+#include <InteractableObjects/StaminaShop.h>
+#include <Scenes/Scene.h>
+#include <Utils/AudioManager.h>
+#include <Utils/MapHandler.h>
+#include <Utils/SaveSystem.h>
+#include <Utils/SceneManager.h>
+#include <Utils/Text.h>
+#include <Utils/functions.h>
+
+#include <game.h>
+#include <template.h>
+
 #include <Windows.h>
+#include <array>
 #include <cmath>
+#include <cstdio>
+#include <string>
 #include <unordered_map>
 #include <utility>
-#include "../tmpl8/template.h"
-#include "./Utils/MapHandler.h"
-#include "./Utils/Text.h"
-#include "./Utils/SaveSystem.h"
-#include "./Utils/SceneManager.h"
-#include "./Utils/functions.h"
-#include "./Gameplay/Camera2D.h"
-#include "./Gameplay/Player.h"
-#include "./GFX/resources.h"
-#include "./InteractableObjects/IncomeMultiplier.h"
-#include "./InteractableObjects/StaminaShop.h"
-#include "./InteractableObjects/DebtHolder.h"
-
-#include "game.h"
-#include "DataTypes/SceneType.h"
-#include "Scenes/Scene.h"
-#include "DataTypes/PrintableText.h"
-#include "Utils/AudioManager.h"
+#include <vector>
 
 namespace Tmpl8
 {

@@ -1,5 +1,5 @@
 #pragma once
-#include "PlayerState.h"
+#include <PlayerStates/PlayerState.h>
 
 namespace Tmpl8 {
 	class Player;

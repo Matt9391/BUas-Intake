@@ -1,19 +1,19 @@
-#include "../game.h"
+#include <Gameplay/Camera2D.h>
+#include <Gameplay/Player.h>
+#include <GFX/HUD.h>
+#include <GFX/resources.h>
+#include <Scenes/FishScene.h>
+#include <Scenes/HomeScene.h>
+#include <Scenes/HowToScene.h>
+#include <Scenes/HumanScene.h>
+#include <Scenes/SettingsScene.h>
+#include <Scenes/Scene.h>
+#include <Scenes/WinScene.h>
+#include <DataTypes/SceneType.h>
 
-#include "SceneManager.h"
+#include <game.h>
+#include <Utils/SceneManager.h>
 #include <memory>
-#include "../DataTypes/SceneType.h"
-#include "../Gameplay/Camera2D.h"
-#include "../Gameplay/Player.h"
-#include "../Scenes/FishScene.h"
-#include "../Scenes/HomeScene.h"
-#include "../Scenes/HumanScene.h"
-#include "../Scenes/WinScene.h"
-#include "../Scenes/HowToScene.h"
-#include "../Scenes/SettingsScene.h"
-#include "../GFX/resources.h"
-#include "../Scenes/Scene.h"
-#include "../GFX/HUD.h"
 
 namespace Tmpl8 {
 

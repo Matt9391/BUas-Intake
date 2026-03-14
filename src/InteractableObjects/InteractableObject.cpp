@@ -1,15 +1,15 @@
-#include <cstdio>
-#include "../../tmpl8/surface.h"
-#include "../../tmpl8/template.h"
-#include "../Utils/Text.h"
-#include "../Gameplay/Player.h"
-#include "../game.h"
-
+#include <DataTypes/PrintableText.h>
+#include <Entities/Entity.h>
+#include <Gameplay/Player.h>
+#include <GFX/HUD.h>
+#include <Utils/Text.h>
 #include "InteractableObject.h"
+
+#include <game.h>
+#include <surface.h>
+#include <template.h>
+
 #include <vector>
-#include "../DataTypes/PrintableText.h"
-#include "../Entities/Entity.h"
-#include "../GFX/HUD.h"
 
 namespace Tmpl8 {
 
@@ -23,9 +23,7 @@ namespace Tmpl8 {
 	//blank class methods
 	void InteractableObject::update(float dt, Player& player) {}
 
-	void InteractableObject::interact(Player& player, Game& game) { 
-		printf("Interacted\n");
-	}
+	void InteractableObject::interact(Player& player, Game& game) {}
 
 	std::vector <PrintableText>InteractableObject::getTexts() {
 		return this->texts;

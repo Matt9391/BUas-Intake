@@ -1,12 +1,12 @@
-#include <string> 
-#include <vector>
+#pragma once
+
+#include <DataTypes/PrintableBox.h>
+#include <InteractableObjects/InteractableObject.h>
+
 #include <array>
 #include <memory>
-
-#include "../InteractableObjects/InteractableObject.h"
-#include "../DataTypes/PrintableBox.h"
-
-#pragma once
+#include <string>
+#include <vector>
 
 namespace Tmpl8 {
 	//map datatype

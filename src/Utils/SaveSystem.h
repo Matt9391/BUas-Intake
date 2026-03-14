@@ -1,8 +1,9 @@
+#pragma once
+
 #include <utility>
 #include <string>
 #include <unordered_map>
 
-#pragma once
 namespace Tmpl8 {
 
 	class Player;

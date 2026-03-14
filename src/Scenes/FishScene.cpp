@@ -1,21 +1,20 @@
-#include "../../tmpl8/surface.h"
-#include "../../tmpl8/template.h"
-#include "../Utils/Randomize.h"
-#include "../Utils/MapHandler.h"
-#include "../Gameplay/Camera2D.h"
-#include "../Gameplay/Player.h"
-#include "../InteractableObjects/InteractableObject.h"
-#include "../GFX/resources.h"
-#include "../DataTypes/PlayerVisual.h"
-#include "../Entities/Enemy.h"
-#include "../game.h"
+#include <DataTypes/PlayerVisual.h>
+#include <DataTypes/SceneType.h>
+#include <Entities/Enemy.h>
+#include <Gameplay/Camera2D.h>
+#include <Gameplay/Player.h>
+#include <GFX/HUD.h>
+#include <GFX/resources.h>
+#include <InteractableObjects/InteractableObject.h>
+#include <Scenes/FishScene.h>
+#include <Scenes/Scene.h>
+#include <Utils/MapHandler.h>
+#include <Utils/Randomize.h>
 
-#include "FishScene.h"
+#include <game.h>
+#include <template.h>
+
 #include <memory>
-#include "../DataTypes/SceneType.h"
-#include "Scene.h"
-#include "../GFX/HUD.h"
-
 namespace Tmpl8 { 
 	FishScene::FishScene(Game& game, std::string mapName, Surface& tileset, std::string voidChar) :
 		Scene(game, mapName, tileset, voidChar)

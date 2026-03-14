@@ -1,6 +1,5 @@
-#include <thread>
 #include "AudioManager.h"
-#include <chrono>
+
 
 namespace Tmpl8 {
 

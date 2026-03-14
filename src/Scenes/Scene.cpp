@@ -1,12 +1,14 @@
-#include "Scene.h"
-#include <vector>
-#include "../DataTypes/PrintableText.h"
-#include "../DataTypes/PrintableBox.h"
+#include <DataTypes/PrintableBox.h>
+#include <DataTypes/PrintableText.h>
+#include <DataTypes/SceneType.h>
+#include <GFX/Button.h>
+#include <Scenes/Scene.h>
+
+#include <game.h>
+#include <surface.h>
+
 #include <string>
-#include "../DataTypes/SceneType.h"
-#include "../GFX/Button.h"
-#include "../game.h"
-#include "../../tmpl8/surface.h"
+#include <vector>
 
 namespace Tmpl8 {
 	//set the debug variable to false by default

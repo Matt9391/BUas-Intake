@@ -1,25 +1,25 @@
-#include <iostream>
-#include "../../tmpl8/surface.h"
-#include "../../tmpl8/template.h"
-#include "../Utils/Text.h"
-#include "../Utils/functions.h"
-#include "../DataTypes/ChestObject.h"
-#include "../DataTypes/Fish.h"
-#include "../DataTypes/PlayerVisual.h"
-#include "../PlayerStates/HumanState.h"
-#include "../PlayerStates/FishState.h"
+#include <DataTypes/PrintableBox.h>
+#include <DataTypes/ChestObject.h>
+#include <DataTypes/Fish.h>
+#include <DataTypes/PlayerVisual.h>
+#include <DataTypes/PrintableText.h>
+#include <InteractableObjects/InteractableObject.h>
+#include <PlayerStates/HumanState.h>
+#include <PlayerStates/FishState.h>
+#include <Utils/Text.h>
+#include <Utils/functions.h>
+#include <Utils/MapHandler.h>
 
 #include "Player.h"
+
+#include <surface.h>
+#include <template.h>
+
 #include <array>
 #include <string>
 #include <unordered_map>
 #include <vector>
-#include "../DataTypes/PrintableText.h"
-#include "../InteractableObjects/InteractableObject.h"
-#include "../Utils/MapHandler.h"
-#include "../DataTypes/PrintableBox.h"
 #include <memory>
-
 
 namespace Tmpl8 {
 

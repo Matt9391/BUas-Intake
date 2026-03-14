@@ -1,12 +1,13 @@
-#include <sstream>
+#include <DataTypes/PrintableText.h>
+#include <Utils/Text.h>
+
+#include <surface.h>
+#include <template.h>
+
 #include <cstdio>
+#include <sstream>
 #include <string>
 #include <vector>
-#include "../../tmpl8/surface.h"
-#include "../../tmpl8/template.h"
-#include "../DataTypes/PrintableText.h"
-
-#include "Text.h"
 
 namespace Tmpl8 {
 

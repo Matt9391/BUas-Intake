@@ -1,7 +1,9 @@
+#pragma once
+
+#include <surface.h>
+
 #include <string>
 #include <vector>
-
-#pragma once
 
 namespace Tmpl8 {
 	class Surface;

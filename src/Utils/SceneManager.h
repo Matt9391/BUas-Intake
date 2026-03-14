@@ -1,14 +1,16 @@
-#include "../DataTypes/SceneType.h"
-#include "../Scenes/FishScene.h"
-#include "../Scenes/HomeScene.h"
-#include "../Scenes/HumanScene.h"
-#include "../Scenes/WinScene.h"
-#include "../Scenes/HowToScene.h"
-#include "../Scenes/SettingsScene.h"
-#include "../Scenes/Scene.h"
+#pragma once
+
+#include <Scenes/FishScene.h>
+#include <Scenes/HomeScene.h>
+#include <Scenes/HowToScene.h>
+#include <Scenes/HumanScene.h>
+#include <Scenes/SettingsScene.h>
+#include <Scenes/Scene.h>
+#include <Scenes/WinScene.h>
+#include <DataTypes/SceneType.h>
+
 #include <memory>
 
-#pragma once
 namespace Tmpl8 {
 
 	class Player;

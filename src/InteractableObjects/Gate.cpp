@@ -1,11 +1,12 @@
-#include "../../tmpl8/template.h"
-#include "../Gameplay/Player.h"
-#include "InteractableObject.h"
-#include "../DataTypes/PlayerVisual.h"
-#include "../DataTypes/SceneType.h"
-#include "../game.h"
-
+#include <DataTypes/PlayerVisual.h>
+#include <DataTypes/SceneType.h>
+#include <Gameplay/Player.h>
+#include <InteractableObjects/InteractableObject.h>
 #include "Gate.h"
+
+#include <game.h>
+#include <template.h>
+
 
 namespace Tmpl8 {
 

@@ -1,7 +1,8 @@
-#include "InteractableObject.h"
-#include "../Utils/FastNoiseLite.h" //Noise library (not mine)
-
 #pragma once
+
+#include <InteractableObjects/InteractableObject.h>
+#include <Utils/FastNoiseLite.h> //Noise library (not mine)
+
 
 namespace Tmpl8 {
 	class vec2;

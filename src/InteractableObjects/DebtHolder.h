@@ -1,6 +1,10 @@
-#include "InteractableObject.h"
+#pragma once
+
+#include <InteractableObjects/InteractableObject.h>
+
+#include <template.h>
+
 #include <string>
-#include "../../tmpl8/template.h"
 
 namespace Tmpl8 {
 

@@ -1,12 +1,12 @@
-#include <string>
-#include "../../tmpl8/template.h"
-#include "../GFX/Button.h"
-#include "Scene.h"
-#include <memory>
-#include "../GFX/ButtonSceneChanger.h"
-#include <vector>
-
 #pragma once
+#include <GFX/Button.h>
+#include <GFX/ButtonSceneChanger.h>
+#include <Scenes/Scene.h>
+#include <template.h>
+
+#include <memory>
+#include <string>
+#include <vector>
 
 namespace Tmpl8 {
 	class Player;

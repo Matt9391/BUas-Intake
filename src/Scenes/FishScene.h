@@ -1,10 +1,10 @@
-#include <array>
-#include <vector>
-#include <memory>
-#include "../Utils/MapHandler.h"
-#include "Scene.h"
-
 #pragma once
+#include <Scenes/Scene.h>
+#include <Utils/MapHandler.h>
+
+#include <array>
+#include <memory>
+#include <vector>
 
 namespace Tmpl8 {
 	class Enemy;

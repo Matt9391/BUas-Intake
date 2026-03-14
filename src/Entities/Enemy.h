@@ -1,5 +1,6 @@
-#include "Entity.h"
 #pragma once
+
+#include <Entities/Entity.h>
 
 namespace Tmpl8 {
 

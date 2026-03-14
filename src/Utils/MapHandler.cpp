@@ -1,24 +1,25 @@
+#include <DataTypes/PrintableBox.h>
+#include <InteractableObjects/Chest.h>
+#include <InteractableObjects/DebtHolder.h>
+#include <InteractableObjects/FishArea.h>
+#include <InteractableObjects/Gate.h>
+#include <InteractableObjects/IncomeMultiplier.h>
+#include <InteractableObjects/InteractableObject.h>
+#include <InteractableObjects/Seller.h>
+#include <InteractableObjects/StaminaShop.h>
+#include <Utils/Randomize.h>
+#include <Utils/MapHandler.h>
+
+#include <surface.h>
+#include <template.h>
+
 #include <array>
+#include <cmath>
 #include <cstdio>
 #include <fstream>
+#include <memory>
 #include <string>
 #include <vector>
-#include "../../tmpl8/surface.h"
-#include "../../tmpl8/template.h"
-#include "../Utils/Randomize.h"
-#include "../InteractableObjects/InteractableObject.h"
-#include "../InteractableObjects/IncomeMultiplier.h"
-#include "../InteractableObjects/StaminaShop.h"
-#include "../InteractableObjects/FishArea.h"
-#include "../InteractableObjects/Seller.h"
-#include "../InteractableObjects/Gate.h"
-#include "../InteractableObjects/Chest.h"
-#include "../InteractableObjects/DebtHolder.h"
-#include "../DataTypes/PrintableBox.h"
-
-#include "MapHandler.h"
-#include <cmath>
-#include <memory>
 
 namespace Tmpl8 {
 

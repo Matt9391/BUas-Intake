@@ -1,17 +1,19 @@
+#include <DataTypes/Fish.h>
+#include <Gameplay/Player.h>
+#include <InteractableObjects/InteractableObject.h>
+#include <Utils/Text.h>
+#include <Utils/functions.h>
+
+#include "FishArea.h"
+
+#include <game.h>
+#include <surface.h>
+#include <template.h>
+
 #include <array>
 #include <cmath>
 #include <cstdlib>
 #include <Windows.h>
-#include "../../tmpl8/surface.h"
-#include "../../tmpl8/template.h"
-#include "../Utils/Text.h"
-#include "../Utils/functions.h"
-#include "../Gameplay/Player.h"
-#include "InteractableObject.h"
-#include "../DataTypes/Fish.h"
-#include "../game.h"
-
-#include "FishArea.h"
 
 namespace Tmpl8 {
 

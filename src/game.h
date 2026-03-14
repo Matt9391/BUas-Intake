@@ -1,20 +1,22 @@
-#include "./Scenes/HumanScene.h"
-#include "./Scenes/FishScene.h"
-#include "./Scenes/HomeScene.h"
-#include "./Utils/SaveSystem.h"
-#include "./Utils/SceneManager.h"
-#include "./Utils/Text.h"
-#include "./Utils/AudioManager.h"
-#include "./Gameplay/Player.h"
-#include "./Gameplay/Camera2D.h"
-#include "./GFX/HUD.h"
+#pragma once
+
+#include <DataTypes/SceneType.h>
+#include <DataTypes/PrintableText.h>
+#include <Gameplay/Player.h>
+#include <Gameplay/Camera2D.h>
+#include <GFX/HUD.h>
+#include <Scenes/HumanScene.h>
+#include <Scenes/FishScene.h>
+#include <Scenes/HomeScene.h>
+#include <Utils/SaveSystem.h>
+#include <Utils/SceneManager.h>
+#include <Utils/Text.h>
+#include <Utils/AudioManager.h>
+
+#include <template.h>
+
 #include <unordered_map>
 #include <utility>
-#include "DataTypes/SceneType.h"
-#include "../tmpl8/template.h"
-#include "DataTypes/PrintableText.h"
-
-#pragma once
 
 namespace Tmpl8 {
 

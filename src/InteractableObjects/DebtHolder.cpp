@@ -1,15 +1,15 @@
-#include <cstdio>
-#include "../../tmpl8/template.h"
-#include "../../tmpl8/surface.h"
-#include "../Utils/Text.h"
-#include "../Utils/functions.h"
-#include "../Datatypes/SceneType.h"
-#include "../Gameplay/Player.h"
-#include "../GFX/HUD.h"
-#include "../game.h"
-
+#include <Datatypes/SceneType.h>
+#include <Gameplay/Player.h>
+#include <GFX/HUD.h>
+#include <InteractableObjects/InteractableObject.h>
+#include <Utils/Text.h>
+#include <Utils/functions.h>
 #include "DebtHolder.h"
-#include "InteractableObject.h"
+
+#include <game.h>
+#include <surface.h>
+#include <template.h>
+
 
 namespace Tmpl8 {
 	long long DebtHolder::totalDebt = 1'000'000'000;

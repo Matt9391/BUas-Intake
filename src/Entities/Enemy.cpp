@@ -1,11 +1,11 @@
-#include "../../tmpl8/surface.h"
-#include "../../tmpl8/template.h"
-#include "../Utils/Randomize.h"
-#include "../Utils/functions.h"
-#include "../Gameplay/Player.h"
+#include <Entities/Entity.h>
+#include <Gameplay/Player.h>
+#include <Utils/Randomize.h>
+#include <Utils/functions.h>
 #include "Enemy.h"
 
-#include "Entity.h"
+#include <surface.h>
+#include <template.h>
 
 namespace Tmpl8 {
 
