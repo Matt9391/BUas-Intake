@@ -3,6 +3,7 @@
 #include <template.h>
 
 namespace Tmpl8 {
+
 	class Camera2D
 	{
 	public:

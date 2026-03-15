@@ -8,8 +8,6 @@
 #include <PlayerStates/PlayerState.h>
 #include <Utils/MapHandler.h>
 
-#include <template.h>
-
 #include <memory>
 #include <array>
 #include <vector>

@@ -1,13 +1,11 @@
 #include <Gameplay/Player.h>
 #include <InteractableObjects/InteractableObject.h>
 #include <Utils/functions.h>
-#include <Utils/Text.h>
 
 #include "IncomeMultiplier.h"
 
 #include <game.h>
 #include <template.h>
-#include <surface.h>
 
 namespace Tmpl8 {
 	float IncomeMultiplier::price = 100.f;

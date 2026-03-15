@@ -6,7 +6,6 @@
 namespace Tmpl8 {
 	class Player;
 	struct PrintableBox;
-	class Surface;
 
 	//base class for all objects/entities except the player
 	class Entity

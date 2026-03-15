@@ -1,13 +1,10 @@
 #include <Datatypes/SceneType.h>
 #include <Gameplay/Player.h>
-#include <GFX/HUD.h>
 #include <InteractableObjects/InteractableObject.h>
-#include <Utils/Text.h>
 #include <Utils/functions.h>
 #include "DebtHolder.h"
 
 #include <game.h>
-#include <surface.h>
 #include <template.h>
 
 
@@ -85,7 +82,7 @@ namespace Tmpl8 {
 		if(this->debtPaid)
 			this->paidDebt = totalDebt;
 
-		this->paidDebt = constrain(this->paidDebt, 0.f, this->totalDebt);
+		this->paidDebt = long long(constrain(float(this->paidDebt), 0.f, float(this->totalDebt)));
 
 		if(this->paidDebt > this->firstFine && !this->debtPaid)
 			this->paidDebt = totalDebt - lastFine;

@@ -13,8 +13,11 @@
 
 #include <game.h>
 #include <template.h>
+#include <surface.h>
 
 #include <memory>
+#include <string>
+
 namespace Tmpl8 { 
 	FishScene::FishScene(Game& game, std::string mapName, Surface& tileset, std::string voidChar) :
 		Scene(game, mapName, tileset, voidChar)

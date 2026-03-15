@@ -5,16 +5,13 @@
 #include <DataTypes/PrintableBox.h>
 #include <DataTypes/PrintableText.h>
 #include <GFX/Button.h>
-#include <GFX/ButtonSceneChanger.h>
 #include "HUD.h"
 
 #include <template.h>
 #include <surface.h>
 
 #include <vector>
-#include <iostream>
 #include <memory>
-#include <utility>
 
 namespace Tmpl8 {
 

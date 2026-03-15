@@ -1,12 +1,8 @@
 #pragma once
 #include <DataTypes/PrintableText.h>
 #include <DataTypes/PrintableBox.h>
-#include <DataTypes/SceneType.h>
 #include <GFX/Button.h>
-#include <GFX/ButtonSceneChanger.h>
 #include <Utils/Text.h>
-
-#include <surface.h>
 
 #include <vector>
 #include <memory>
@@ -14,6 +10,7 @@
 namespace Tmpl8 {
 
 	class Game;
+	class Surface;
 
 	class HUD
 	{

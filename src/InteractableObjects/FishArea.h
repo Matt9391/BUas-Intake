@@ -11,6 +11,7 @@ namespace Tmpl8 {
 	class vec2;
 	class Sprite;
 	class Player;
+	class Surface;
 
 	//FishArea inherits from InteractableObject
 	class FishArea : public InteractableObject

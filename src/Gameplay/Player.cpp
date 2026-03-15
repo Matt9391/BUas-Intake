@@ -3,10 +3,8 @@
 #include <DataTypes/Fish.h>
 #include <DataTypes/PlayerVisual.h>
 #include <DataTypes/PrintableText.h>
-#include <InteractableObjects/InteractableObject.h>
 #include <PlayerStates/HumanState.h>
 #include <PlayerStates/FishState.h>
-#include <Utils/Text.h>
 #include <Utils/functions.h>
 #include <Utils/MapHandler.h>
 

@@ -8,7 +8,6 @@
 #include <GFX/ButtonSceneChanger.h>
 #include <GFX/ButtonSounds.h>
 #include <GFX/HUD.h>
-#include <GFX/resources.h>
 #include <Scenes/SettingsScene.h>
 #include <Scenes/Scene.h>
 #include <Utils/MapHandler.h>
@@ -18,9 +17,10 @@
 #include <surface.h>
 #include <template.h>
 
-#include <Windows.h>
+
 #include <memory>
-#include <utility>
+#include <string>
+
 
 namespace Tmpl8 {
 

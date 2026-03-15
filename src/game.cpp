@@ -1,6 +1,5 @@
 #include <DataTypes/PrintableText.h>
 #include <DataTypes/SceneType.h>
-#include <Gameplay/Camera2D.h>
 #include <Gameplay/Player.h>
 #include <GFX/resources.h>
 #include <InteractableObjects/DebtHolder.h>
@@ -18,13 +17,8 @@
 #include <template.h>
 
 #include <Windows.h>
-#include <array>
-#include <cmath>
-#include <cstdio>
 #include <string>
 #include <unordered_map>
-#include <utility>
-#include <vector>
 
 namespace Tmpl8
 {

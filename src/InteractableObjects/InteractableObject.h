@@ -2,7 +2,6 @@
 
 #include <DataTypes/PrintableText.h>
 #include <Entities/Entity.h>
-#include <GFX/HUD.h>
 
 #include <string>
 #include <vector>

@@ -1,5 +1,4 @@
 #include <DataTypes/PrintableText.h>
-#include <DataTypes/SceneType.h>
 #include <Utils/functions.h>
 #include "Button.h"
 

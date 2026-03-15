@@ -1,9 +1,7 @@
 #pragma once
 
 #include <Scenes/Scene.h>
-#include <Utils/MapHandler.h>
 
-#include <array>
 #include <string>
 
 namespace Tmpl8 {
@@ -24,8 +22,6 @@ namespace Tmpl8 {
 
 		void draw(Surface* screen, Camera2D& camera, Player& player, HUD& hud) override;
 	private:
-		//current active maps
-		std::array<Map, 2> currentMap;
 	};
 	 
 }

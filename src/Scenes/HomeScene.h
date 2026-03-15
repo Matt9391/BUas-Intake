@@ -1,12 +1,9 @@
 #pragma once
-#include <GFX/Button.h>
-#include <GFX/ButtonSceneChanger.h>
-#include <Scenes/Scene.h>
-#include <template.h>
 
-#include <memory>
+#include <Scenes/Scene.h>
+
 #include <string>
-#include <vector>
+
 
 namespace Tmpl8 {
 	class Player;

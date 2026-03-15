@@ -1,11 +1,7 @@
 #pragma once
 
-#include <GFX/Button.h>
-#include <GFX/ButtonSceneChanger.h>
 #include <Scenes/Scene.h>
-#include <template.h>
 
-#include <memory>
 #include <string>
 
 namespace Tmpl8 {

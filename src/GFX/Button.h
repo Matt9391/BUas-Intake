@@ -1,6 +1,5 @@
 #pragma once
 #include <DataTypes/PrintableText.h>
-#include <DataTypes/SceneType.h>
 
 #include <template.h>
 

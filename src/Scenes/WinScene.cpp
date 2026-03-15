@@ -1,9 +1,10 @@
 #include <DataTypes/PlayerVisual.h>
 #include <DataTypes/SceneType.h>
+#include <DataTypes/PrintableText.h>
 #include <Gameplay/Camera2D.h>
 #include <Gameplay/Player.h>
+#include <GFX/ButtonSceneChanger.h>
 #include <GFX/HUD.h>
-#include <GFX/resources.h>
 #include <Scenes/WinScene.h>
 #include <Scenes/Scene.h>
 #include <Utils/MapHandler.h>
@@ -13,7 +14,8 @@
 #include <surface.h>
 #include <template.h>
 
-#include <Windows.h>
+#include <memory>
+#include <string>
 
 namespace Tmpl8 {
 
@@ -61,6 +63,11 @@ namespace Tmpl8 {
 
 		this->addTexts(player.getTexts());
 		this->addBoxes(player.getBoxes());
+
+		if (this->debug) {
+			this->mapHandler.setBoxes(camera.getPos());
+			this->addBoxes(this->mapHandler.getBoxes());
+		}
 
 	}
 

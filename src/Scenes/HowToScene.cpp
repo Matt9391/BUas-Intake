@@ -15,10 +15,8 @@
 #include <surface.h>
 #include <template.h>
 
-#include <Windows.h>
 #include <memory>
 #include <string>
-#include <utility>
 
 namespace Tmpl8 {
 

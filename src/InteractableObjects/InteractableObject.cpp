@@ -1,8 +1,6 @@
 #include <DataTypes/PrintableText.h>
 #include <Entities/Entity.h>
 #include <Gameplay/Player.h>
-#include <GFX/HUD.h>
-#include <Utils/Text.h>
 #include "InteractableObject.h"
 
 #include <game.h>

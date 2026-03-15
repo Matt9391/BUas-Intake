@@ -1,6 +1,5 @@
 #include <DataTypes/PrintableBox.h>
 #include <Gameplay/Player.h>
-#include <surface.h>
 #include <template.h>
 
 #include "Entity.h"
