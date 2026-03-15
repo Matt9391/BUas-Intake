@@ -36,6 +36,8 @@ namespace Tmpl8 {
 		long long firstFine;
 		long long lastFine;
 
+		bool debtPaid;
+
 		std::string alertText;
 
 		vec2 priceTextPosition;

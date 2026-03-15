@@ -30,9 +30,9 @@ namespace Tmpl8 {
 
 		int tileSize = MapHandler::tileSize;
 
-		this->addText({ "It's finally\nyour chance\nto get rich!!\nFish safely\nor swim\nthrough\nthe dangers.\nThe choice is\nyours\nbut make sure to\nbecome\nthe richest..", vec2(2.f * tileSize, 4.5f * tileSize), 2, true, true });
-		this->addText({ "'WASD' to move around\n'Shift' to sprint sideway\n'F' to interact with:\n  - Shops\n  - Zones\n  - Chests", vec2(14.f * tileSize, 5.f * tileSize), 2, true});
-		this->addBox({ vec2(14.f * tileSize, 5.f * tileSize) - vec2(0,5), vec2(350, 128), 0x604239 });
+		this->addText({ "Collect coins by\nfishing and exploring\nthe ocean as\nboth human and fish,\nfinding treasures and\navoiding dangers.\nEarn enough money\nto repay the\nChurch's debt and\nreach 1,000,000,000\ncoins to win your\nfreedom.", vec2(0.5f * tileSize, 4.5f * tileSize), 2, true, true });
+		this->addText({ "'WASD' to move around\n'Shift' to sprint sideway\n'F' to interact with:\n  - Shops\n  - Zones\n  - Chests\n'Esc' to quit\n'P' to pause", vec2(14.f * tileSize, 5.f * tileSize), 2, true});
+		this->addBox({ vec2(14.f * tileSize, 5.f * tileSize) - vec2(0,5), vec2(350, 168), 0x604239 });
 		this->addText({ "<-- Seconds of sprint left\n\n<-- Fishes count in the fish inventory\n\n<-- Chests count in the chest inventory", vec2(5.5f * tileSize, 0.5f * tileSize), 1, true, true });
 
 	}

@@ -23,8 +23,9 @@ namespace Tmpl8 {
 		this->type = SceneType::SceneWin;
 		int tileSize = MapHandler::tileSize;
 
-		this->addText({ "YOU HAVE\nCOMPLETED\nTHE GAME", vec2(1.f * tileSize, (this->mapHandler.getTiles().y / 2.f) * tileSize), 2, true, true });
-		this->addText({ "'P' to go back\n  to the home\n'SPACE' to keep\n  playing\n'ESC' to quit", vec2(18.f * tileSize, (this->mapHandler.getTiles().y / 2.f - 1.f) * tileSize), 2 });
+		this->addText({ "YOU HAVE\nCOMPLETED\nTHE GAME", vec2(10.55f * tileSize, (this->mapHandler.getTiles().y / 8.f) * tileSize), 2, true, true });
+		this->buttons.emplace_back(std::make_unique<ButtonSceneChanger>(PrintableText{ "Home", vec2(19.f * MapHandler::tileSize, 8.f * MapHandler::tileSize), 2, true, true }, game.getFontSize(), SceneType::SceneHome));
+		this->buttons.emplace_back(std::make_unique<ButtonSceneChanger>(PrintableText{ "Quit", vec2(19.f * MapHandler::tileSize, 10.f * MapHandler::tileSize), 2, true, true }, game.getFontSize(), SceneType::SceneQuit));
 	}
 
 	void WinScene::onEnter(Player& player, Camera2D& camera, HUD& hud){

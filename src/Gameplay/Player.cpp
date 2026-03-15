@@ -405,7 +405,7 @@ namespace Tmpl8 {
 	void Player::setBoxes(vec2 cameraOffset) {
 		this->boxes.clear();
 
-		this->boxes.push_back({ vec2(26, 13), vec2(142, 56), 0x604239, false });
+		this->boxes.push_back({ vec2(26, 13), vec2(148, 56), 0x604239, false });
 
 		if(this->debug)
 			this->boxes.push_back({ this->pos - cameraOffset, this->size, this->clr, false, false });

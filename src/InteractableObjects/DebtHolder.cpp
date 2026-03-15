@@ -31,11 +31,14 @@ namespace Tmpl8 {
 		alertTime(2000),
 		alertElapsedTime(0),
 		firstFine(long long(totalDebt * 0.70)),
-		lastFine(long long(totalDebt * 0.30))
+		lastFine(long long(totalDebt * 0.30)),
+		debtPaid(false)
 	{
-		this->textHover = "Debt left to pay: ";
+		this->textHover = "Debt left to pay 'F': ";
 		this->textHoverPosition = vec2(pos + vec2(56, 22));
 		this->alertText = "You can't be forgiven yet";
+
+		if (this->totalDebt - this->paidDebt <= 0) debtPaid = true;
 	}
 
 	void DebtHolder::setTexts(vec2 cameraOffset) {
@@ -51,17 +54,25 @@ namespace Tmpl8 {
 
 
 	void DebtHolder::interact(Player& player, Game& game) {
+		if (this->debtPaid) {
+			game.setPendingScene(SceneType::SceneWin);
+			return;	
+		}
 		//check if the "first" part of the debt is paid
 		if (this->paidDebt < this->firstFine) {
 			this->showAlert = true;
 			return;
 		}
 
+		this->paidDebt = totalDebt - lastFine;
+
 		//if paid
 		//check if the player has enough coins to pay off the full debt
 		if (player.getCoins() >= this->lastFine) {
 			player.spendCoins(int(this->lastFine));
 			game.setPendingScene(SceneType::SceneWin);
+			this->debtPaid = true;
+			this->paidDebt = totalDebt;
 		}else {
 			this->alertText = "You still have to an ultimate fine of 300M";
 			this->showAlert = true;
@@ -70,6 +81,8 @@ namespace Tmpl8 {
 	}
 
 	void DebtHolder::update(float dt, Player& player) {
+		
+
 		//if alert is showing, update the timer
 		if (this->showAlert) {
 			this->alertElapsedTime += dt;
