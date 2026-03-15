@@ -51,7 +51,7 @@ namespace Tmpl8 {
 	}
 
 	void HomeScene::update(float dt, Camera2D& camera, Player& player, HUD& hud){
-		if (GetAsyncKeyState(VK_SPACE)) {
+		if (GetAsyncKeyState(VK_SPACE) & 0x8000) {
 			this->game.setPendingScene(SceneType::SceneHuman);
 		}
 

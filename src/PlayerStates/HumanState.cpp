@@ -22,25 +22,25 @@ namespace Tmpl8 {
 
 		
 		//set player direction and animation based on input
-		if (GetAsyncKeyState('A')) {
+		if (GetAsyncKeyState('A') & 0x8000) {
 			player.setDir({ -1,player.getDir().y });
 			player.setAnimRange(8, 15);
 			player.setInput('A');
 		}
-		else if (GetAsyncKeyState('D')) {
+		else if (GetAsyncKeyState('D') & 0x8000) {
 			player.setDir({ 1,player.getDir().y });
 			player.setAnimRange(0, 7);
 			player.setInput('D');
 		}
 
-		if (GetAsyncKeyState('W')) {
+		if (GetAsyncKeyState('W') & 0x8000) {
 			player.setDir({ player.getDir().x,-1 });
 			//if moving diagonally, keep the horizontal animation
 			if (player.getDir().x == 0)
 				player.setAnimRange(24, 31);
 			player.setInput('W');
 		}
-		else if (GetAsyncKeyState('S')) {
+		else if (GetAsyncKeyState('S') & 0x8000) {
 			player.setDir({ player.getDir().x,1 });
 			//if moving diagonally, keep the horizontal animation
 			if (player.getDir().x == 0)
@@ -49,7 +49,7 @@ namespace Tmpl8 {
 		}
 
 		player.setSprinting(false);
-		if (GetAsyncKeyState(VK_SHIFT)) {
+		if (GetAsyncKeyState(VK_SHIFT) & 0x8000) {
 			player.setSprinting(true);
 		}
 		 
@@ -57,7 +57,7 @@ namespace Tmpl8 {
 		if (player.getDir() == vec2(0, 0)) 
 			player.setAnimRange(32, 38);
 
-		if(GetAsyncKeyState('F'))
+		if(GetAsyncKeyState('F') & 0x8000)
 			player.setInput('F');
 
 		player.setInteracting(false);

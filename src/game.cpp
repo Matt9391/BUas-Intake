@@ -130,7 +130,7 @@ namespace Tmpl8
 		}
 	
 		//if ctrl + T is pressed reset game saves and reload data
-		if (GetAsyncKeyState(VK_CONTROL) && GetAsyncKeyState('T')) {
+		if (GetAsyncKeyState(VK_CONTROL) & 0x8000 && GetAsyncKeyState('T') & 0x8000) {
 			if (currentScene->getSceneType() == SceneType::SceneHome) {
 				this->saveSystem.resetGameSaves(this->achievements);
 

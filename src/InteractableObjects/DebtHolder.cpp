@@ -45,6 +45,7 @@ namespace Tmpl8 {
 		this->texts.clear();
 
 		this->texts.push_back({ this->textHover, (this->textHoverPosition - cameraOffset), 1, false, true });
+	
 		this->texts.push_back({ formatCoins(long long(totalDebt - paidDebt)), (this->priceTextPosition + vec2(50, 16) - cameraOffset), 1, false, true });
 
 		if (this->showAlert) {
@@ -81,7 +82,13 @@ namespace Tmpl8 {
 	}
 
 	void DebtHolder::update(float dt, Player& player) {
-		
+		if(this->debtPaid)
+			this->paidDebt = totalDebt;
+
+		this->paidDebt = constrain(this->paidDebt, 0.f, this->totalDebt);
+
+		if(this->paidDebt > this->firstFine && !this->debtPaid)
+			this->paidDebt = totalDebt - lastFine;
 
 		//if alert is showing, update the timer
 		if (this->showAlert) {

@@ -32,7 +32,7 @@ namespace Tmpl8 {
 		this->mapHandler.clearObjects();
 		camera.setWorldSize(this->mapHandler.getTiles());
 
-		player.setPos(vec2(ScreenWidth / 2.f - 190.f, ScreenHeight / 2.f));
+		player.setPos(vec2(ScreenWidth / 2.f - 190.f, ScreenHeight / 2.f + 32.f));
 		player.setState(int(PlayerVisual::Human));
 		player.loadCollisionMaps(this->mapHandler.getMaps());
 		
@@ -44,10 +44,6 @@ namespace Tmpl8 {
 	}
 
 	void WinScene::update(float dt, Camera2D& camera, Player& player, HUD& hud){
-		if (GetAsyncKeyState(VK_SPACE)) {
-			this->game.setPendingScene(SceneType::SceneHuman);
-		}
-
 		this->clearDynamicObjects();
 
 		this->updateButtons(dt);
