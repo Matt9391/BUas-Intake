@@ -26,7 +26,7 @@ namespace Tmpl8 {
 		alertTime(2000),
 		alertElapsedTime(0),
 		priceMultilpier(2.2f),
-		incomeMultilpier(1.8f)
+		incomeMultilpier(1.67f)
 	{
 		this->textHover = "      'F'\nIncome multiplier";
 		this->textHoverPosition = vec2(pos + vec2(5, -66));
